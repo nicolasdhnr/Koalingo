@@ -1,0 +1,1 @@
+// From home page, user can join a game or create a new game 
