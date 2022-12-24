@@ -1,8 +1,14 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useEffect, useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   const onContinueAsGuestClick = useCallback(() => {
@@ -13,7 +19,11 @@ const Login = () => {
 
   const onLoginButtonClick = useCallback(() => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
-    navigate("/home");
+    
+    signInWithGoogle()
+    if (user) {
+      navigate("/home");
+    }
   }, [navigate]);
 
 
