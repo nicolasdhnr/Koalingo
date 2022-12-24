@@ -1,0 +1,84 @@
+.web192015Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
+  width: 1920px;
+  height: 1080px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 235px;
+  left: 715px;
+  width: 400px;
+  height: 126px;
+  object-fit: cover;
+}
+.b {
+  position: absolute;
+  top: calc(50% - 35.5px);
+  left: calc(50% - 33px);
+  display: inline-block;
+}
+.container,
+.wrapper {
+  position: absolute;
+  top: 450px;
+  left: 621px;
+  border-radius: var(--br-2xl);
+  background-color: var(--color-white);
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+  width: 272px;
+  height: 181px;
+}
+.container {
+  left: 974px;
+}
+.minutes {
+  top: 639px;
+  left: 705px;
+  font-size: var(--font-size-sm);
+}
+.minutes,
+.progressTracking,
+.seconds {
+  position: absolute;
+  color: var(--color-white);
+  display: inline-block;
+}
+.seconds {
+  top: 639px;
+  left: 1055px;
+  font-size: var(--font-size-sm);
+}
+.progressTracking {
+  top: calc(50% - 16px);
+  left: calc(50% - 105px);
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  text-align: center;
+}
+.login {
+  cursor: pointer;
+  border: 3px solid var(--color-white);
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 819px;
+  left: 805px;
+  border-radius: var(--br-xs);
+  box-sizing: border-box;
+  width: 310px;
+  height: 58px;
+}
+.web192015 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-indigo-200);
+  font-family: var(--font-poppins);
+}

@@ -2,34 +2,45 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./home.module.css";
 
+// Home
 const Home = () => {
   const navigate = useNavigate();
-  const onCreateAGameClick = useCallback(() => {
-    navigate("/host/lobby"); // User wants to create a game - send them to the host page 
+
+  const onEnterButtonClick = useCallback(() => {
+    navigate("/player/welcome");
   }, [navigate]);
 
 
+  const onCreateAGameClick = useCallback(() => {
+    navigate("/host/set/select");
+  }, [navigate]);
+
   return (
-    <div className={styles.home}>
-      <div className={styles.rectangleDiv} />
-      <div className={styles.groupDiv}>
-        <button className={styles.rectangleButton} autoFocus />
+    <div className={styles.web19203}>
+      <div className={styles.web19203Child} />
+      <div className={styles.rectangleParent}>
+        <button
+          className={styles.groupChild}
+          autoFocus
+          onClick={onEnterButtonClick}
+        />
         <b className={styles.enter}>Enter</b>
-        
       </div>
-      <input className={styles.groupInput} type="text" placeholder="Game PIN" />
-      <img
-        className={styles.logo}
-        alt=""
-        src="../assets/logo.png"
+      <input
+        className={styles.web19203Item}
+        type=""
+        placeholder="Enter Game PIN here!"
       />
-     
+      <img
+        className={styles.allergiesPlanDeTravail11}
+        alt=""
+        src="/allergies-plan-de-travail-1-12@2x.png" // This is not uploading
+      />
       <button className={styles.createAGame} onClick={onCreateAGameClick}>
         Create a game
-      </button>      
-      
+      </button>
     </div>
   );
 };
 
-export default Home;     
+export default Home;

@@ -1,0 +1,291 @@
+@keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
+.web192011Child {
+  position: absolute;
+  top: -223px;
+  left: -496px;
+  width: 2870px;
+  height: 781px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 14px;
+  left: 782px;
+  width: 315px;
+  height: 99px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.game123456 {
+  position: absolute;
+  top: 113px;
+  left: 877px;
+  font-size: var(--font-size-3xs);
+  display: inline-block;
+}
+.food {
+  position: absolute;
+  top: calc(50% - 19.5px);
+  left: calc(50% - 34.5px);
+  display: none;
+}
+.startTheGame {
+  position: absolute;
+  top: 319px;
+  left: 766px;
+  border-radius: var(--br-lg);
+  background-color: var(--color-white);
+  width: 389px;
+  height: 75px;
+  font-size: var(--font-size-base);
+  color: var(--color-indigo-100);
+}
+.enterYourWord {
+  position: absolute;
+  top: calc(50% - 22.5px);
+  left: 40px;
+  font-weight: 600;
+  display: inline-block;
+}
+.groupChild {
+  width: calc(100% + 59.41px);
+  right: -59.41px;
+  bottom: -54.41px;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  height: 125.41px;
+  opacity: 0.45;
+}
+.div,
+.groupChild,
+.groupItem {
+  position: absolute;
+}
+.groupItem {
+  height: calc(100% - 18px);
+  width: 100%;
+  top: 9px;
+  right: 0;
+  bottom: 9px;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.div {
+  top: 0;
+  left: calc(50% - 17.5px);
+  font-weight: 800;
+  display: inline-block;
+}
+.groupInner {
+  position: absolute;
+  top: calc(50% - 14px);
+  left: calc(50% - 9.5px);
+  width: 25px;
+  height: 29px;
+  display: none;
+}
+.ellipseGroup {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.ellipseParent {
+  position: absolute;
+  height: calc(100% - 3px);
+  top: 0;
+  right: 43px;
+  bottom: 3px;
+  width: 69px;
+  font-size: 60px;
+  color: var(--color-white);
+}
+.enterYourWordParent,
+.groupInput {
+  position: absolute;
+  background-color: var(--color-white);
+}
+.groupInput {
+  border: 1px solid var(--color-gray-300);
+  top: 7px;
+  left: calc(50% - 75px);
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 287px;
+  height: 63px;
+}
+.enterYourWordParent {
+  top: 625px;
+  left: 599px;
+  border-radius: var(--br-md);
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+  width: 680px;
+  height: 87px;
+  color: var(--color-indigo-200);
+}
+.nameYourSet {
+  position: absolute;
+  top: 258px;
+  left: 863px;
+  display: inline-block;
+}
+.child {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-md);
+  background-color: var(--color-gray-200);
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+}
+.eating1 {
+  margin: 0;
+}
+.eating {
+  position: absolute;
+  height: calc(100% - 41px);
+  width: calc(100% - 130px);
+  top: 21px;
+  left: 66px;
+  font-weight: 600;
+  display: inline-block;
+}
+.div1,
+.div2,
+.div3,
+.div4 {
+  position: absolute;
+  top: 55px;
+  width: 309px;
+  height: 87px;
+}
+.div1 {
+  left: 73px;
+}
+.div2,
+.div3,
+.div4 {
+  left: calc(50% - 524px);
+}
+.div3,
+.div4 {
+  left: calc(50% - 146px);
+}
+.div4 {
+  left: calc(50% + 232px);
+}
+.div5 {
+  top: 55px;
+  right: 56px;
+}
+.div5,
+.div6,
+.div7,
+.div8 {
+  position: absolute;
+  width: 309px;
+  height: 87px;
+}
+.div6 {
+  top: 55px;
+  right: -322px;
+}
+.div7,
+.div8 {
+  bottom: 49px;
+}
+.div7 {
+  left: 73px;
+}
+.div8 {
+  left: calc(50% - 524px);
+}
+.div9 {
+  left: calc(50% - 146px);
+}
+.div10,
+.div11,
+.div12,
+.div9 {
+  position: absolute;
+  bottom: 49px;
+  width: 309px;
+  height: 87px;
+}
+.div10 {
+  left: calc(50% + 232px);
+}
+.div11,
+.div12 {
+  right: 56px;
+}
+.div12 {
+  right: -322px;
+}
+.repeatGrid8 {
+  position: absolute;
+  bottom: -23px;
+  left: -15px;
+  width: 1950px;
+  height: 368px;
+  font-size: var(--font-size-xs);
+  color: var(--color-indigo-200);
+}
+.path3 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-gold);
+  position: absolute;
+  top: 443.37px;
+  left: 829.12px;
+  width: 261.77px;
+  height: 58.27px;
+}
+.saveYourSet,
+.web192011 {
+  text-align: center;
+  font-family: var(--font-poppins);
+}
+.saveYourSet {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 457px;
+  left: 881px;
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-indigo-200);
+  display: inline-block;
+}
+.saveYourSet:active {
+  animation: 1s ease 0s infinite normal none scale-down-center;
+  opacity: 1;
+}
+.web192011 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+}

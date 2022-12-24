@@ -1,174 +1,108 @@
 @keyframes scale-down-center {
-    0% {
-      -webkit-transform: scale(1);
-      transform: scale(1);
-    }
-    to {
-      -webkit-transform: scale(0.5);
-      transform: scale(0.5);
-    }
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
-  .rectangleDiv {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(135deg, #7766f5, #6b5cf6);
-    width: 1920px;
-    height: 1080px;
+  to {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
   }
-  .rectangleButton {
-    cursor: pointer;
-    border: 1px solid var(--color-gray-300);
-    padding: 0;
-    background-color: var(--color-indigo-200);
-    position: absolute;
-    bottom: 31px;
-    left: calc(50% - 156px);
-    border-radius: var(--br-3xs);
-    box-sizing: border-box;
-    width: 312px;
-    height: 92px;
-  }
-  .enter {
-    position: absolute;
-    top: calc(50% + 47.5px);
-    left: calc(50% - 47px);
-    color: #ffffff;
-    display: inline-block;
-  }
-  .groupDiv,
-  .groupInput {
-    background-color: var(--color-white);
-    position: absolute;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    font-family: var(--font-poppins);
-    color: var(--color-indigo-200);
-    text-align: center;
-  
-  }
-  
-  .testtext{
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    font-family: var(--font-poppins);
-    color: var(--color-indigo-200);
-    text-align: center;
-  
-  }
-  
-  .groupInput::placeholder {
-    position: center;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    font-family: var(--font-poppins);
-    color: #dfe6e9;
-    text-align: center;
-    display: inline-block;
-  }
-  
-  .groupDiv {
-    top: 566px;
-    left: 582px;
-    border-radius: var(--br-xl);
-    box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-    width: 756px;
-    height: 295px;
-  }
-  .groupInput {
-    border: 1px solid var(--color-gray-300);
-    top: 600px;
-    left: 702px;
-    border-radius: var(--br-3xs);
-    box-sizing: border-box;
-    width: 516px;
-    height: 92px;
-  }
-  .logo {
-    position: absolute;
-    place-items: center;
-    top: 335px;
-    left: 635px;
-    width: 650px;
-    height: 205px;
-    object-fit: cover;
-  }
-  .createAGame,
-  .path3 {
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-    position: absolute;
-  }
-  .path3 {
-    background-color: #fc3;
-    bottom: 99px;
-    left: 771px;
-    width: 378px;
-    height: 81px;
-  }
-  .createAGame {
-    background-color: transparent;
-    bottom: 115px;
-    left: 826px;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    font-family: var(--font-poppins);
-    color: var(--color-indigo-200);
-    text-align: center;
-    display: inline-block;
-  }
-  .createAGame:active {
-    animation: 1s ease 0s infinite normal none scale-down-center;
-    opacity: 1;
-  }
-  .rectangleDiv1,
-  .rectangleDiv2 {
-    position: absolute;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    border-radius: var(--br-xs);
-    width: 262px;
-  }
-  .rectangleDiv1 {
-    left: 0;
-    background-color: var(--color-white);
-  }
-  .rectangleDiv2 {
-    right: 0;
-    border: 3px solid var(--color-white);
-    box-sizing: border-box;
-  }
-  .login1,
-  .register {
-    position: absolute;
-    top: calc(50% - 24.5px);
-    font-weight: 600;
-    display: inline-block;
-  }
-  .login1 {
-    left: calc(50% - 195.5px);
-  }
-  .register {
-    right: 57px;
-    color: var(--color-white);
-  }
-  .login {
-    position: absolute;
-    top: 53px;
-    right: 54px;
-    width: 559px;
-    height: 81px;
-    color: var(--color-indigo-200);
-  }
-  .home {
-    position: relative;
-    background-color: #6b5cf6;
-    width: 100%;
-    height: 1080px;
-    text-align: center;
-    font-size: var(--font-size-sm);
-    color: var(--color-white);
-    font-family: var(--font-poppins);
-  }
+}
+.web19203Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
+  width: 1920px;
+  height: 1080px;
+}
+.groupChild {
+  cursor: pointer;
+  border: 1px solid var(--color-gray-300);
+  padding: 0;
+  background-color: var(--color-indigo-200);
+  position: absolute;
+  bottom: 40px;
+  left: calc(50% - 136px);
+  border-radius: var(--br-xs);
+  box-sizing: border-box;
+  width: 273px;
+  height: 61px;
+}
+.enter {
+  position: absolute;
+  top: calc(50% + 61.5px);
+  left: calc(50% - 31px);
+  display: inline-block;
+}
+.rectangleParent,
+.web19203Item {
+  background-color: var(--color-white);
+  position: absolute;
+}
+.rectangleParent {
+  top: 540px;
+  left: 582px;
+  border-radius: 75px;
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+  width: 756px;
+  height: 295px;
+}
+.web19203Item {
+  border: 1px solid var(--color-gray-300);
+  top: 625px;
+  left: 781px;
+  border-radius: var(--br-3xs);
+  box-sizing: border-box;
+  width: 359px;
+  height: 63px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 282px;
+  left: 635px;
+  width: 650px;
+  height: 205px;
+  object-fit: cover;
+}
+.path3 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-gold);
+  position: absolute;
+  bottom: 106.37px;
+  left: 829.12px;
+  width: 261.77px;
+  height: 58.27px;
+}
+.createAGame,
+.web19203 {
+  text-align: center;
+  font-family: var(--font-poppins);
+}
+.createAGame {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  bottom: 119px;
+  left: 868px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-indigo-200);
+  display: inline-block;
+}
+.createAGame:active {
+  animation: 1s ease 0s infinite normal none scale-down-center;
+  opacity: 1;
+}
+.web19203 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  font-size: var(--font-size-2xs);
+  color: var(--color-white);
+}

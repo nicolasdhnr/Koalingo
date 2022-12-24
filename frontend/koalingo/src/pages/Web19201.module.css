@@ -1,0 +1,145 @@
+.web19201Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-gray-100);
+  width: 1920px;
+  height: 1080px;
+}
+.hello {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 46.5px);
+  font-weight: 800;
+  display: inline-block;
+}
+.groupChild {
+  position: absolute;
+  top: 0;
+  right: 61px;
+  width: 350px;
+  height: 350px;
+}
+.sansTitre11 {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 54px;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  height: 282px;
+  object-fit: cover;
+}
+.helloParent {
+  left: 0;
+}
+.groupDiv,
+.helloContainer,
+.helloGroup,
+.helloParent {
+  position: absolute;
+  top: 0;
+  width: 501px;
+  height: 429px;
+}
+.helloGroup {
+  left: calc(50% - 296px);
+}
+.groupDiv,
+.helloContainer {
+  right: 91px;
+}
+.groupDiv {
+  right: -489px;
+}
+.helloParent1 {
+  left: 0;
+}
+.helloParent1,
+.helloParent2,
+.helloParent3,
+.helloParent4 {
+  position: absolute;
+  bottom: 5px;
+  width: 501px;
+  height: 429px;
+}
+.helloParent2 {
+  left: calc(50% - 296px);
+}
+.helloParent3,
+.helloParent4 {
+  right: 91px;
+}
+.helloParent4 {
+  right: -489px;
+}
+.repeatGrid11 {
+  position: absolute;
+  bottom: -356px;
+  left: 84px;
+  width: 1752px;
+  height: 928px;
+  text-align: left;
+}
+.web19201Item {
+  position: absolute;
+  top: -223px;
+  left: -496px;
+  width: 2870px;
+  height: 626px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 13px;
+  left: 787px;
+  width: 305px;
+  height: 96px;
+  object-fit: cover;
+}
+.clickOnTheWordYouWantTo {
+  position: absolute;
+  top: 214px;
+  left: 684px;
+  font-size: var(--font-size-xl);
+  display: inline-block;
+  color: var(--color-white);
+}
+.web19201Inner {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 289px;
+  left: 769px;
+  border-radius: var(--br-lg);
+  width: 382px;
+  height: 92px;
+}
+.startTheGame {
+  position: absolute;
+  top: 315.5px;
+  left: 888px;
+  font-size: var(--font-size-base);
+  display: inline-block;
+  color: var(--color-indigo-100);
+}
+.groupIcon {
+  position: absolute;
+  top: 307.64px;
+  left: 795px;
+  width: 109.41px;
+  height: 106.13px;
+}
+.web19201 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-4xl);
+  color: var(--color-indigo-400);
+  font-family: var(--font-poppins);
+}

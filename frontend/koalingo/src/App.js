@@ -1,17 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-// Router relate stuff
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import PlayerMemorizing from "./pages/PlayerMemorizing";
+import SetTimer from "./pages/SetTimer";
+import PlayerLobby from "./pages/PlayerLobby";
+import HostSetSelect from "./pages/HostSetSelect";
+import PlayerQuizz from "./pages/PlayerQuizz";
+import PlayerWelcome from "./pages/PlayerWelcome";
+import HostProgressTracker from "./pages/HostProgressTracker";
+import HostLobby from "./pages/HostLobby";
+import Login from "./pages/Login";
 
-// Import components
-import Home from './pages/Home';
-import Login  from './pages/Login';
-import Memorizing from './pages/player/Memorizing';
-import HostQuizz from './pages/host/HostQuizz';
-import PlayerLobby from './pages/player/PlayerLobby';
-import HostLobby from './pages/host/HostLobby';
+import Web19201 from "./pages/Web19201";
 import { useEffect } from "react";
-import { useLocation, useNavigationType } from "react-router-dom";
 
 function App() {
   const action = useNavigationType();
@@ -24,46 +29,34 @@ function App() {
     }
   }, [action]);
 
-  useEffect(() => {
-    let title = "";
-    let metaDescription = "";
-
-    //TODO: Update meta titles and descriptions below
-    switch (pathname) {
-      case "/":
-        title = "";
-        metaDescription = "";
-        break;
-    }
-
-    if (title) {
-      document.title = title;
-    }
-
-    if (metaDescription) {
-      const metaDescriptionTag = document.querySelector(
-        'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
-      }
-    }
-  }, [pathname]);
+  //TODO: ADD Meta Tags
 
   return (
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} /> 
-        <Route path="/player/memorizing" element={<Memorizing />} />
-        <Route path="/player/lobby" element={<PlayerLobby />} />
-        <Route path="/host/quizz" element={<HostQuizz />} />
-        <Route path="/host/lobby" element={<HostLobby />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Login />} />
 
+      <Route path="/player/welcome" element={<PlayerWelcome />} />
+
+      <Route path="/host/set/timer" element={<SetTimer />} />
+
+      <Route path="/player/lobby" element={<PlayerLobby />} />
+
+      <Route path="/host/set/select" element={<HostSetSelect />} />
+
+      <Route path="/player/quizz" element={<PlayerQuizz />} />
+
+      <Route path="/player/welcome" element={<PlayerWelcome />} />
+
+        <Route path="/player/memorizing" element={< PlayerMemorizing/>} />
+
+      <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
+
+      <Route path="/host/lobby" element={<HostLobby />} />
+
+      <Route path="/home" element={<Home />} />
+
+      <Route path="/web-1920-1" element={<Web19201 />} />
+    </Routes>
   );
 }
-
-//TODO: Make it so that the user can only access the home page if they are logged in
-
-
 export default App;

@@ -1,0 +1,169 @@
+.web19205Child {
+  position: absolute;
+  top: -223px;
+  left: -496px;
+  width: 2870px;
+  height: 626px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 6px;
+  left: 787px;
+  width: 305px;
+  height: 96px;
+  object-fit: cover;
+}
+.game123456,
+.nico {
+  position: absolute;
+  display: inline-block;
+}
+.game123456 {
+  top: 119px;
+  left: 835px;
+  font-size: var(--font-size-xl);
+}
+.nico {
+  top: 21px;
+  left: calc(50% - 31.5px);
+}
+.nicoWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-xl);
+  background-color: var(--color-white);
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+}
+.div {
+  position: absolute;
+  bottom: 9px;
+  left: calc(50% - 15.5px);
+  font-size: var(--font-size-7xl);
+  font-weight: 800;
+  color: var(--color-indigo-100);
+  display: inline-block;
+}
+.groupContainer,
+.groupParent {
+  position: absolute;
+  top: 55px;
+  width: 307px;
+  height: 147px;
+}
+.groupParent {
+  left: 73px;
+}
+.groupContainer {
+  left: calc(50% - 349.5px);
+}
+.groupDiv {
+  top: 55px;
+  left: calc(50% + 80.5px);
+}
+.groupDiv,
+.groupParent1,
+.groupParent2 {
+  position: absolute;
+  width: 307px;
+  height: 147px;
+}
+.groupParent1 {
+  top: 55px;
+  right: 35px;
+}
+.groupParent2 {
+  bottom: 43px;
+  left: 73px;
+}
+.groupParent3 {
+  left: calc(50% - 349.5px);
+}
+.groupParent3,
+.groupParent4,
+.groupParent5 {
+  position: absolute;
+  bottom: 43px;
+  width: 307px;
+  height: 147px;
+}
+.groupParent4 {
+  left: calc(50% + 80.5px);
+}
+.groupParent5 {
+  right: 35px;
+}
+.repeatGrid10 {
+  position: absolute;
+  bottom: 100px;
+  left: 108px;
+  width: 1705px;
+  height: 485px;
+  color: var(--color-indigo-200);
+}
+.web19205Item {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  top: 274px;
+  left: 769px;
+  border-radius: var(--br-lg);
+  width: 382px;
+  height: 92px;
+}
+.web19205Inner {
+  position: absolute;
+  top: 292.64px;
+  left: 813px;
+  width: 109.41px;
+  height: 106.13px;
+}
+.startTheGame {
+  top: 300.5px;
+  left: 891px;
+  display: inline-block;
+  color: var(--color-indigo-100);
+}
+.login,
+.startTheGame,
+.timer {
+  position: absolute;
+}
+.timer {
+  top: calc(50% - 16px);
+  left: calc(50% - 34px);
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+}
+.login {
+  cursor: pointer;
+  border: 3px solid var(--color-white);
+  padding: 0;
+  background-color: transparent;
+  top: 179px;
+  left: 829px;
+  border-radius: var(--br-xs);
+  box-sizing: border-box;
+  width: 262px;
+  height: 58px;
+}
+.web19205 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}

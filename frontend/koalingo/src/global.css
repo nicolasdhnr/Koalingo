@@ -9,19 +9,21 @@ body {
   --font-poppins: Poppins;
 
   /* font sizes */
-  --font-size-8xs: 18px;
-  --font-size-7xs: 20px;
-  --font-size-6xs: 23px;
-  --font-size-5xs: 25px;
-  --font-size-4xs: 28px;
-  --font-size-3xs: 29px;
-  --font-size-2xs: 30px;
-  --font-size-xs: 33px;
-  --font-size-sm: 35px;
-  --font-size-base: 40px;
-  --font-size-lg: 50px;
-  --font-size-xl: 60px;
-  --font-size-2xl: 80px;
+  --font-size-4xs: 18px;
+  --font-size-3xs: 20px;
+  --font-size-2xs: 23px;
+  --font-size-xs: 24px;
+  --font-size-sm: 25px;
+  --font-size-base: 28px;
+  --font-size-lg: 29px;
+  --font-size-xl: 30px;
+  --font-size-2xl: 33px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 47px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 50px;
+  --font-size-7xl: 55px;
+  --font-size-8xl: 80px;
 
   /* Colors */
   --color-white: #fff;
@@ -30,9 +32,9 @@ body {
   --color-indigo-300: #150341;
   --color-indigo-400: #150241;
   --color-gray-100: #f9f8fe;
-  --color-gray-200: #ebebeb;
+  --color-gray-200: #f4f4f4;
   --color-gray-300: #c9c9c9;
-  --color-gray-400: #707070;
+  --color-gold: #ffcc33;
 
   /* border radiuses */
   --br-4xs: 15px;
@@ -40,9 +42,10 @@ body {
   --br-2xs: 28px;
   --br-xs: 31px;
   --br-sm: 34px;
-  --br-md: 52px;
-  --br-lg: 59px;
-  --br-xl: 75px;
-  --br-2xl: 121px;
-  --br-3xl: 161px;
+  --br-md: 42px;
+  --br-lg: 52px;
+  --br-xl: 63px;
+  --br-2xl: 68px;
+  --br-3xl: 121px;
+  --br-4xl: 161px;
 }
