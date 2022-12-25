@@ -19,7 +19,7 @@
 
 
   <p align="center">
-    Solving the inverse protein folding using Machine Learning techniques, step by step.
+    Sign Language Learning made fun, and inclusive.
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
