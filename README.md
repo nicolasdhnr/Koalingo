@@ -17,7 +17,6 @@
 <a href="https://ibb.co/BKk9WK7"><img src="https://i.ibb.co/CsLfCsX/allergies-plan-de-travail-1-11-2x.png" alt="allergies-plan-de-travail-1-11-2x" border="0"></a>
 
 
-  <h1 align="center">Koalingo</h1>
 
   <p align="center">
     Solving the inverse protein folding using Machine Learning techniques, step by step.
