@@ -17,6 +17,8 @@ import {
   addDoc,
 } from "firebase/firestore";
 
+import { getDatabase } from "firebase/database";
+
 
 
 const firebaseConfig = {
@@ -30,11 +32,13 @@ const firebaseConfig = {
     measurementId: "G-Y7ZP85BTB0"
   };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
+const realtimedb = getDatabase(app);
+console.log(realtimedb);
+
 const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
@@ -94,6 +98,7 @@ const logout = () => {
 export {
   auth,
   db,
+  realtimedb,
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,

@@ -4,6 +4,7 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+
 import Home from "./pages/Home";
 import PlayerMemorizing from "./pages/PlayerMemorizing";
 import SetTimer from "./pages/SetTimer";
@@ -15,8 +16,11 @@ import HostProgressTracker from "./pages/HostProgressTracker";
 import HostLobby from "./pages/HostLobby";
 import Login from "./pages/Login";
 
+
 import Web19201 from "./pages/Web19201";
 import { useEffect } from "react";
+
+
 
 function App() {
   const action = useNavigationType();

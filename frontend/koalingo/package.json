@@ -16,6 +16,7 @@
         "react-firebase-hooks": "^5.1.1",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.1",
+        "reactfire": "^4.2.2",
         "web-vitals": "^2.1.2"
     },
     "scripts": {
