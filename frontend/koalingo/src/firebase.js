@@ -6,7 +6,10 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
+  signInAnonymously,
   signOut,
+  onAuthStateChanged,
+  
 } from "firebase/auth";
 import {
   getFirestore,
@@ -15,10 +18,13 @@ import {
   collection,
   where,
   addDoc,
+  setDoc,
+  updateDoc,
 } from "firebase/firestore";
 
 import { getDatabase } from "firebase/database";
 
+import { useNavigate } from "react-router-dom";
 
 
 const firebaseConfig = {
@@ -38,6 +44,38 @@ const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 const realtimedb = getDatabase(app);
 console.log(realtimedb);
+const hostID  = Math.floor(Math.random() * 1000000)
+// TODO: Save game ID in a cookie 
+
+
+const getCurrentUser = () => {
+  const navigate = useNavigate();
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+   
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      return user;
+    
+    } else {
+      // User is signed out
+      // ...
+      navigate("/login")
+    }
+  });
+};
+
+
+const signInAnon = async () => {
+    try {
+        await signInAnonymously(auth);
+    } catch (err) {
+        console.error(err);
+        alert(err.message);
+    }
+};
+
 
 const signInWithGoogle = async () => {
   try {
@@ -53,13 +91,18 @@ const signInWithGoogle = async () => {
         name: user.displayName,
         authProvider: "google",
         email: user.email,
+        hostID: hostID,
       });
     }
+    return user;
+
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
+
+
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
@@ -68,6 +111,7 @@ const logInWithEmailAndPassword = async (email, password) => {
     alert(err.message);
   }
 };
+
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -77,6 +121,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: "local",
       email,
+      hostID: Math.floor(Math.random() * 1000000),
     });
   } catch (err) {
     console.error(err);
@@ -95,13 +140,18 @@ const sendPasswordReset = async (email) => {
 const logout = () => {
   signOut(auth);
 };
+
+
 export {
   auth,
   db,
   realtimedb,
+  hostID,
+  getCurrentUser,
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  signInAnon,
 };

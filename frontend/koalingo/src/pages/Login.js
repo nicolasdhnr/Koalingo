@@ -1,26 +1,34 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../firebase";
+import { useAuthState} from "react-firebase-hooks/auth";
 import React, { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
+
 
 const Login = () => {
+  const auth = getAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
   const onContinueAsGuestClick = useCallback(() => {
-    navigate("/home");
-    // TODO/ Add anonymous sign in function here
-
+    signInAnon()
+    if (user) {
+      navigate("/home");
+    }
+    else {
+      console.log("Authentication Error");
+    }
   }, [navigate]);
 
-  const onLoginButtonClick = useCallback(() => {
+  const onLoginButtonClick = useCallback(async () => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
     
-    signInWithGoogle()
+    await signInWithGoogle()
+    
     if (user) {
       navigate("/home");
     }
@@ -63,4 +71,6 @@ const Login = () => {
   );
 };
 
+
 export default Login;
+

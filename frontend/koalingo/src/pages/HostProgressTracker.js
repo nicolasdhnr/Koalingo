@@ -1,10 +1,19 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostprogresstracker.module.css";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+
 
 const HostProgressTracker = () => {
   const navigate = useNavigate();
+  // Create a unique 6 digit ID associated with the specific user 
+  // const [gameID, setGameID] = useState("");
+  // const [user, loading, error] = useAuthState(auth);
 
+  // const onContinueAsGuestClick = useCallback(() => {
+  //   navigate("/home");
+  //   // TODO/ Add anonymous sign in function here
+  
   const onRectangleButtonClick = useCallback(() => {
     navigate("/player/welcome");
   }, [navigate]);

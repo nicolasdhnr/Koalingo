@@ -39,78 +39,13 @@ const HostSetSelect = () => {
         <input
           className={styles.groupInput}
           type="text"
-          placeholder="Game PIN"
+          placeholder=" 'How are you?'"
         />
+      
       </div>
       <b className={styles.nameYourSet}>Name your set:</b>
       <div className={styles.repeatGrid8}>
         <div className={styles.div1}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div2}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div3}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div4}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div5}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div6}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div7}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div8}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div9}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div10}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div11}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-        <div className={styles.div12}>
           <div className={styles.child} />
           <div className={styles.eating}>
             <p className={styles.eating1}>Eating</p>

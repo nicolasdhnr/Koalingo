@@ -281,6 +281,15 @@
   animation: 1s ease 0s infinite normal none scale-down-center;
   opacity: 1;
 }
+.playersReadyToKoalearn {
+  position: absolute;
+  top: 686px;
+  left: 746px;
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-white);
+  display: inline-block;
+}
 .web192011 {
   position: relative;
   background-color: var(--color-white);
@@ -289,3 +298,4 @@
   font-size: var(--font-size-sm);
   color: var(--color-white);
 }
+
