@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 
 import Web19201 from "./pages/Web19201";
 import { useEffect } from "react";
+import SetWords from "./components/SetWords";
 
 
 
@@ -60,6 +61,9 @@ function App() {
       <Route path="/home" element={<Home />} />
 
       <Route path="/web-1920-1" element={<Web19201 />} />
+
+      <Route path="/host/set/select_words" element={<SetWords />} />
+      
     </Routes>
   );
 }
