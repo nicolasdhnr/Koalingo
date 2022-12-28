@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import Home from './Home';
-import Memorise from './pages/Memorise';
 import {useState} from 'react';
 import { WordContext } from './WordContext';
 import SetWordContext from './pages/SetWordContext';
@@ -39,8 +38,7 @@ function DevApp() {
                           'handleDelete' : handleDelete};
   return (
     <div>
-    <WordContext.Provider 
-      value={context_props}>
+    <WordContext.Provider value={context_props}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/set" 
