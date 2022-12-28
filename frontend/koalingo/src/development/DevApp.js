@@ -1,19 +1,16 @@
 import React from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
-import DispWordSet from './pages/DispWordSet';
-import MakeWordSet from './pages/MakeWordSet';
 import Home from './Home';
-import SetWord from '../components/SetWords';
-// import Memorise from './pages/Memorise';
+import Memorise from './pages/Memorise';
 import {useState} from 'react';
 import { WordContext } from './WordContext';
-import SetWordContext from './SetWordContext';
+import SetWordContext from './pages/SetWordContext';
 
 function DevApp() {
   // const [wordList, setWordList] = useState([]);
   // Think only way to pass props between routes is where routes defined.
-  // Can clear away handle functions but states must be defined at level above the routes (i.e here)
+  // Refactor by passing newWord, setNewWord as props in context, then moving handle function to page
   const [newWord, setNewWord] = useState({});
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -35,23 +32,23 @@ function DevApp() {
       (Word) => Word.id !== WordIdToRemove
     ));
   };
+  const context_props = {'newWord' : newWord,
+                          'handleChange' : handleChange,
+                          'allWords' : allWords,
+                          'handleSubmit' : handleSubmit,
+                          'handleDelete' : handleDelete};
   return (
     <div>
-    {/* <WordContext.Provider value={wordList}> */}
+    <WordContext.Provider 
+      value={context_props}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/set" 
-        element={<SetWordContext
-                    newWord={newWord}
-                    handleChange={handleChange}
-                    allWords={allWords}
-                    handleSubmit={handleSubmit}
-                    handleDelete={handleDelete}
-                    />}
+        element={<SetWordContext />}
         />
         <Route path="/memorise" element={<Memorise />} />
       </Routes>
-    {/* </WordContext.Provider> */}
+    </WordContext.Provider>
     </div>
   );
 }
