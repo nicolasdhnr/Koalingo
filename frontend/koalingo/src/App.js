@@ -17,7 +17,7 @@ import HostProgressTracker from "./pages/HostProgressTracker";
 import HostLobby from "./pages/HostLobby";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 import Web19201 from "./pages/Web19201";
 import { useContext, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -36,10 +36,8 @@ const AuthContext = createContext({
 
 function App() {
   const action = useNavigationType();
-  const location = useLocation();
-  const pathname = location.pathname;
   const auth = getAuth();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,18 +48,6 @@ function App() {
       navigate("/")
     }
   }, [action]);
-
-  // Logout Button conditionally renders if user is not logged in
-  
-
-  const onLogoutButtonClick = useCallback(async () => {
-    useContext(AuthContext);
-    await signOut(auth);
-    console.log(user)
-  }, [auth]);
-
-
-
 
   
 
@@ -74,33 +60,22 @@ function App() {
     
     <AuthContext.Provider value={{auth, user }}>
     <Routes>
-     
-
+      <Route index element={<Login />} />
       <Route path="/" element={<Login />} />
-
-      <Route path="/player/welcome" element={<PlayerWelcome />} />
-
-      <Route path="/register" element={<Register />} />
-
-      <Route path="/host/set/timer" element={<SetTimer />} />
-
-      <Route path="/player/lobby" element={<PlayerLobby />} />
-
-      <Route path="/host/set/select" element={<HostSetSelect />} />
-
-      <Route path="/player/quizz" element={<PlayerQuizz />} />
-
-      <Route path="/player/welcome" element={<PlayerWelcome />} />
-
+      <Route element={<ProtectedRoute user={user} />}>
+        <Route path="/player/welcome" element={<PlayerWelcome />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/host/set/timer" element={<SetTimer />} />
+        <Route path="/player/lobby" element={<PlayerLobby />} />
+        <Route path="/host/set/select" element={<HostSetSelect />} />
+        <Route path="/player/quizz" element={<PlayerQuizz />} />
+        <Route path="/player/welcome" element={<PlayerWelcome />} />
         <Route path="/player/memorizing" element={< PlayerMemorizing/>} />
-
-      <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
-
-      <Route path="/host/lobby" element={<HostLobby />} />
-
-      <Route path="/home" element={<Home />} />
-
-      <Route path="/web-1920-1" element={<Web19201 />} />
+        <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
+        <Route path="/host/lobby" element={<HostLobby />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/web-1920-1" element={<Web19201 />} />
+      </Route>
 
       <Route path="*" element={<h1> Page not Found </h1>} />
     </Routes>

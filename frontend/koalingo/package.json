@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@hookform/resolvers": "^2.9.10",
+        "@reduxjs/toolkit": "^1.9.1",
         "@testing-library/jest-dom": "^5.16.1",
         "@testing-library/react": "^13.3.0",
         "@testing-library/user-event": "^13.5.0",
@@ -16,6 +17,7 @@
         "react-dom": "^18.2.0",
         "react-firebase-hooks": "^5.1.1",
         "react-hook-form": "^7.41.2",
+        "react-redux": "^8.0.5",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.1",
         "reactfire": "^4.2.2",
