@@ -23,7 +23,6 @@ import { useContext, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useCallback, createContext } from "react";
-import SetWord from "./components/SetWords";
 import {logout} from "./firebase";
 
 import SetWordContext from "./development/SetWordContext";

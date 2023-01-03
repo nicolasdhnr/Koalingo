@@ -98,6 +98,19 @@
   animation: 1s ease 0s infinite normal none scale-down-center;
   opacity: 1;
 }
+.navToSelect {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  bottom: 100px;
+  left: 1000px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-indigo-200);
+  display: inline-block;
+}
 .web19203 {
   position: relative;
   background-color: var(--color-white);

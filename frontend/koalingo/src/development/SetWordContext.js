@@ -1,7 +1,5 @@
-import React, { useState, useContext } from "react";
-import { WordContext } from "./WordContext";
-import NewWord from "./DevNewWord";
-import WordsList from "./DevWordList";
+import NewWord from "../components/NewWord";
+import WordsList from "../components/WordList";
 
 export default function SetWordContext() {
   return (

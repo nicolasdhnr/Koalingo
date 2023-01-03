@@ -95,7 +95,9 @@ const Home = () => {
       <button className={styles.createAGame} onClick={onCreateAGameClick}>
         Create a game
       </button>
-      <button className={styles.createAGame} onClick={onGoToSelectClick}>Go to word select dev page</button>
+      <br></br>
+      <br></br>
+      <button className={styles.navToSelect} onClick={onGoToSelectClick}>Go to word select dev page</button>
     </div>
   );
 };

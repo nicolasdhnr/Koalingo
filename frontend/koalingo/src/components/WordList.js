@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import { AuthContext } from "../App";
 import styles from '../components/list_styles.css';
-import { WordContext } from "./WordContext";
 
 export default function WordsList() {
   const {allWords, setAllWords} = useContext(AuthContext);

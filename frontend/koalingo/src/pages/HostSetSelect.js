@@ -1,5 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import NewWord from "../components/NewWord";
+import WordsList from "../components/WordList";
 import styles from "./hostsetselect.module.css";
 
 const HostSetSelect = () => {
@@ -36,11 +38,13 @@ const HostSetSelect = () => {
             <img className={styles.groupInner} alt="" src="../polygon-11.svg" />
           </div>
         </div>
-        <input
+        {/* <input
           className={styles.groupInput}
           type="text"
           placeholder=" 'How are you?'"
-        />
+        /> */}
+        <NewWord />
+        <WordsList />
       
       </div>
       <b className={styles.nameYourSet}>Name your set:</b>
