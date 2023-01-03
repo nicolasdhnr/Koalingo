@@ -1,8 +1,9 @@
 import React, {useContext} from "react";
-import { WordContext } from "../WordContext";
+import { WordContext } from "./WordContext";
+import {AuthContext} from '../App';
 
 export default function NewWord() {
-  const {newWord, handleChange,handleSubmit} = useContext(WordContext);
+  const {newWord, handleChange,handleSubmit} = useContext(AuthContext);
   return (
     <form onSubmit={handleSubmit}>
       <input

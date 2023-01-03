@@ -1,9 +1,10 @@
 import React, {useContext} from "react";
-import styles from './styles.css';
-import { WordContext } from "../WordContext";
+import { AuthContext } from "../App";
+import styles from '../components/list_styles.css';
+import { WordContext } from "./WordContext";
 
 export default function WordsList() {
-  const {allWords, handleDelete} = useContext(WordContext);
+  const {allWords, handleDelete} = useContext(AuthContext);
   return (
     <ul>
       {allWords.map(({ title, id }) => (

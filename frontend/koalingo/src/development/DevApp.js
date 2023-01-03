@@ -41,9 +41,7 @@ function DevApp() {
     <WordContext.Provider value={context_props}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/set" 
-        element={<SetWordContext />}
-        />
+        <Route path="/set" element={<SetWordContext />}/>
         <Route path="/memorise" element={<Memorise />} />
       </Routes>
     </WordContext.Provider>

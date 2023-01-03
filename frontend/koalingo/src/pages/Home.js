@@ -62,6 +62,8 @@ const Home = () => {
     navigate("/host/set/select");
   }, [navigate]);
 
+  const onGoToSelectClick = () => navigate('/host/set/select_words')
+
   return (
     <div className={styles.web19203}>
       <div className={styles.web19203Child} />
@@ -93,6 +95,7 @@ const Home = () => {
       <button className={styles.createAGame} onClick={onCreateAGameClick}>
         Create a game
       </button>
+      <button className={styles.createAGame} onClick={onGoToSelectClick}>Go to word select dev page</button>
     </div>
   );
 };
