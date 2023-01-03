@@ -34,10 +34,9 @@ export const AuthContext = createContext({
   setAuth: () => {},
   user: null,
   newWord : null,
-  handleChange : () => {},
+  setNewWord: () => {},
   allWords : null,
-  handleSubmit : () => {},
-  handleDelete : () => {}
+  setAllWords : () => {}
 });
 
 
@@ -56,32 +55,9 @@ function App() {
     }
   }, [action]);
 
+  // Create states to track current word, and word set
   const [newWord, setNewWord] = useState({});
-  const handleChange = ({ target }) => {
-    const { name, value } = target;
-    console.log(name, value);
-    setNewWord((prev) => ({id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
-    console.log(newWord);
-  };
-
   const [allWords, setAllWords] = useState([]);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!newWord.title) return;
-    setAllWords((prev) => [newWord, ...prev]);
-    setNewWord({});
-    console.log(allWords)
-  };
-  const handleDelete = (WordIdToRemove) => {
-    setAllWords((prev) => prev.filter(
-      (Word) => Word.id !== WordIdToRemove
-    ));
-  };
-  const context_props = {'newWord' : newWord,
-                          'handleChange' : handleChange,
-                          'allWords' : allWords,
-                          'handleSubmit' : handleSubmit,
-                          'handleDelete' : handleDelete};
 
   //TODO: ADD Meta Tags
 
@@ -90,7 +66,7 @@ function App() {
     <h1> Koalingo </h1>
     {user &&  <button onClick={logout}>Logout</button>}
     
-    <AuthContext.Provider value={{auth, user, newWord, handleChange, allWords, handleSubmit, handleDelete}}>
+    <AuthContext.Provider value={{auth, user, newWord, allWords, setNewWord, setAllWords}}>
     <Routes>
       {/* <Route index element={<Login />} /> */}
       <Route index path="/" element={<Login />} />
@@ -117,13 +93,6 @@ function App() {
 
       <Route path="/web-1920-1" element={<Web19201 />} />
 
-      <Route path="/select_words" element={<SetWord 
-        newWord={newWord}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        allWords={allWords}
-        handleDelete={handleDelete}/>}
-      />
       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
       <Route path="*" element={<h1> Page not Found </h1>} />
     </Routes>

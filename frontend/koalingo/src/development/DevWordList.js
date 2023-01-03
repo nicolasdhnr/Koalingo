@@ -4,7 +4,13 @@ import styles from '../components/list_styles.css';
 import { WordContext } from "./WordContext";
 
 export default function WordsList() {
-  const {allWords, handleDelete} = useContext(AuthContext);
+  const {allWords, setAllWords} = useContext(AuthContext);
+
+  const handleDelete = (WordIdToRemove) => {
+    setAllWords((prev) => prev.filter(
+      (Word) => Word.id !== WordIdToRemove
+    ));
+  };
   return (
     <ul>
       {allWords.map(({ title, id }) => (
