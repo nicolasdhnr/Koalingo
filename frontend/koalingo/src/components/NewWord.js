@@ -2,12 +2,12 @@ import React, {useContext} from "react";
 import {AuthContext} from '../App';
 
 export default function NewWord() {
-  const {newWord, setAllWords, setNewWord} = useContext(AuthContext);
+  const {newWord, allWords, setAllWords, setNewWord} = useContext(AuthContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     console.log(name, value);
-    setNewWord((prev) => ({id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
+    setNewWord((prev) => ({...prev, id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
     console.log(newWord);
   };
 
@@ -31,6 +31,7 @@ export default function NewWord() {
           <button type="submit">Add Word</button>
         </>
       )}
+      {console.log(allWords)}
     </form>
   );
 }

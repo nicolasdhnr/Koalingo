@@ -42,6 +42,12 @@ const Login = () => {
    
   }, [navigate]);
 
+  const [nickname, setNickName] = useState('');
+  const onChangeNickname = ({target}) => {
+    const {name, value} = target
+    setNickName(prev => value);
+    console.log(nickname);
+  }
   return (
     <div className={styles.web192013}>
       <div className={styles.web192013Child} />
@@ -60,6 +66,24 @@ const Login = () => {
           className={styles.loginItem}
           onClick={onRegisterButton1Click}
         />
+
+        <form style ={{
+          width: 100,
+          height: 100,
+          position: 'absolute',
+          top: 150,
+          left: 90
+          }} onSubmit={signInWithGoogle}>
+          <input
+          placeholder="Enter Nickname"
+          name='title'
+          value={nickname}
+          onChange={onChangeNickname}>
+          </input>
+          <button type='submit'>Submit nickname</button>
+
+        </form>
+
         <div className={styles.login1}>Login</div>
         <div className={styles.register}>Register</div>
       </div>

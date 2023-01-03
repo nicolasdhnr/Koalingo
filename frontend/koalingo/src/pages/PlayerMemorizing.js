@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import EllipseIcon from "../components/EllipseIcon";
 import styles from "./playermemorizing.module.css";
+import { WordAnimation } from "../components/WordAnimation";
 
 const PlayerMemorizing = () => {
   const navigate = useNavigate();
@@ -29,16 +30,21 @@ const PlayerMemorizing = () => {
 
   return (
     <div className={styles.web19202}>
-      <div className={styles.web19202Child} />
+      {/* <div className={styles.web19202Child} /> */}
       <img className={styles.web19202Item} alt="" src="../ellipse-2.svg" />
-      <div className={styles.web19202Inner} />
+      <div className={styles.web19202Inner}> 
+        <WordAnimation />
+      </div>
       <img className={styles.ellipseIcon} alt="" src="../ellipse-1.svg" />
-      <img
+      {/* <img
         className={styles.sansTitre11}
         alt=""
         src="../sans-titre-11@2x.png"
-      />
-      <div className={styles.hello}>Hello</div>
+      /> */}
+      <div className={styles.hello}>
+        Hello
+        <button onClick={() => navigate('/host/set/select')}>Go Back to selection</button>
+      </div>
       <button className={styles.ellipseParent} onClick={onRightButtonClick}>
         <img className={styles.groupChild} alt="" src="../ellipse-4.svg" />
         <button className={styles.ellipseGroup} onClick={onGroupButton1Click}>
@@ -59,6 +65,7 @@ const PlayerMemorizing = () => {
       <button className={styles.login} onClick={onLoginClick}>
         <div className={styles.home}>Home</div>
       </button>
+    {/* <WordAnimation styles={styles.sansTitre11}/> */}
     </div>
   );
 };
