@@ -48,24 +48,6 @@ const hostID  = Math.floor(Math.random() * 1000000)
 // TODO: Save game ID in a cookie 
 
 
-const getCurrentUser = () => {
-  const navigate = useNavigate();
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-   
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      return user;
-    
-    } else {
-      // User is signed out
-      // ...
-      navigate("/login")
-    }
-  });
-};
-
 
 const signInAnon = async () => {
     try {
@@ -137,6 +119,7 @@ const sendPasswordReset = async (email) => {
     alert(err.message);
   }
 };
+
 const logout = () => {
   signOut(auth);
 };
@@ -147,7 +130,6 @@ export {
   db,
   realtimedb,
   hostID,
-  getCurrentUser,
   signInWithGoogle,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,

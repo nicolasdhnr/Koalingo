@@ -14,15 +14,15 @@ const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const onContinueAsGuestClick = useCallback(() => {
-    signInAnon()
-    if (user) {
-      navigate("/home");
+
+  useEffect(() => {
+    if (loading){
+
+      return
     }
-    else {
-      console.log("Authentication Error");
-    }
-  }, [navigate]);
+    // If the user has signed in naviagte to home page
+    if(user) navigate("/home")
+  })
 
   const onLoginButtonClick = useCallback(async () => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
@@ -38,7 +38,8 @@ const Login = () => {
   // TODO: make sure users cant get to home without login
 
   const onRegisterButton1Click = useCallback(() => {
-    //TODO: navigate to registration page
+   navigate("/register");
+   
   }, [navigate]);
 
   return (
@@ -46,14 +47,14 @@ const Login = () => {
       <div className={styles.web192013Child} />
       <button
         className={styles.continueAsGuest}
-        onClick={onContinueAsGuestClick}
+        onClick={signInAnon}
       >
         Continue as guest
       </button>
       <div className={styles.login}>
         <button
           className={styles.loginChild}
-          onClick={onLoginButtonClick}
+          onClick={signInWithGoogle}
         />
         <button
           className={styles.loginItem}
