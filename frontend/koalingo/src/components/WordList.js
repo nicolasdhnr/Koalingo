@@ -9,6 +9,7 @@ export default function WordsList() {
     setAllWords((prev) => prev.filter(
       (Word) => Word.id !== WordIdToRemove
     ));
+    console.log('Delete called');
   };
   return (
     <ul>
