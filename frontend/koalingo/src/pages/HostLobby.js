@@ -42,16 +42,23 @@ const HostLobby = () => {
   // Create a new game in the realtime db
   function createGame() {
     const reference = ref(realtimedb, "games");
+    // Create dummy games 
+    
     set(reference, {
       [gamePin]: {
         gameState: "lobby",
         test: "test",
-        words: {0:0},
+        words: {0: "Hello", 1: "Wagwan", 2: "Bonjour"},
         curranswer: 0,
         currquestion: 0,
         timer: 0,
+        players: {
+          "player1": {
+            "name": "player1",
+            "score": 0,}
       },
-    });
+    }}
+    );
   }
 
   // Set up realtime db features

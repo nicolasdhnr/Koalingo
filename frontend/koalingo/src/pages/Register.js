@@ -17,7 +17,7 @@ const Register = () => {
     const { register, handleSubmit, formState: errors } = useForm({
         resolver: yupResolver(schema)
     });
-
+// Navigate to home page on submit
   const onSubmit = (data) => {
     console.log(data);
    navigate('/');

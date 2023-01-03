@@ -27,6 +27,8 @@ import {logout} from "./firebase";
 
 import SetWordContext from "./development/SetWordContext";
 
+//TODO: ADD Meta Tags
+
 
 export const AuthContext = createContext({
   auth: null,
@@ -35,7 +37,11 @@ export const AuthContext = createContext({
   newWord : null,
   setNewWord: () => {},
   allWords : null,
-  setAllWords : () => {}
+  setAllWords : () => {},
+  gameID : null,
+  setGameID : () => {},
+  host : null,
+  setHost : () => {}
 });
 
 
@@ -58,7 +64,7 @@ function App() {
   const [newWord, setNewWord] = useState({});
   const [allWords, setAllWords] = useState([]);
 
-  //TODO: ADD Meta Tags
+  
 
   return (
     <div >
@@ -83,15 +89,11 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/web-1920-1" element={<Web19201 />} />
       </Route>
-
+      
       <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
-
       <Route path="/host/lobby" element={<HostLobby />} />
-
       <Route path="/home" element={<Home />} />
-
       <Route path="/web-1920-1" element={<Web19201 />} />
-
       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
       <Route path="*" element={<h1> Page not Found </h1>} />
     </Routes>

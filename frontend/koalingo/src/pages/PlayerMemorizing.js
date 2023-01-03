@@ -24,7 +24,7 @@ const PlayerMemorizing = () => {
 
   //TODO: Add on click return to home page
   const onLoginClick = useCallback(() => {
-    navigate("/web-1920-1"); // Dont know if we should keep this slide Kept it for now
+    navigate("/player/quizz"); // Dont know if we should keep this slide Kept it for now
   }, [navigate]);
 
   return (
