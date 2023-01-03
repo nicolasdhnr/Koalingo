@@ -57,7 +57,7 @@ const Login = () => {
           onClick={signInWithGoogle}
         />
         <button
-          className={styles.loginItem}
+          className={styles.loginRegister}
           onClick={onRegisterButton1Click}
         />
         <div className={styles.login1}>Login</div>
