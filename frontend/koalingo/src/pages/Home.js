@@ -14,7 +14,16 @@ const Home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  console.log(user)
+  const [nickname, setNickName] = useState('');
+  const [showNickname, setShowNickname] = useState(false);
+
+  const onChangeNickname = ({target}) => {
+    const {name, value} = target
+    setNickName(prev => value);
+    console.log(nickname);
+  }
+
+  console.log('User Type: ', user)
 
   const handleTextChange = (event) => {
     setGamePin(event.target.value);
@@ -39,11 +48,18 @@ const Home = () => {
             score: 0,
           },
         });
-
-        navigate("/player/welcome");
+        if (!showNickname) {
+          setShowNickname(true);
+          console.log(nickname)
+        }
+        // navigate("/player/welcome");
       } else {
         console.log("Game pin does not exist");
         //TODO: Display error message
+        if (!showNickname) { // commnet out, just for testing
+          setShowNickname(true);
+          console.log(nickname)
+        }
         
       }
     }
@@ -52,10 +68,17 @@ const Home = () => {
   };
 
     
-  const onEnterButtonClick = useCallback(() => {
+  // const onEnterButtonClick = useCallback(() => {
 
-    navigate("/player/welcome");
-  }, [navigate]);
+  //   navigate("/player/welcome");
+  // }, [navigate]);
+  const onEnterButtonClick = () => {
+    if (!showNickname) {
+      setShowNickname(true);
+      console.log(nickname)
+    }
+    console.log(showNickname)
+  }
 
 
   const onCreateAGameClick = useCallback(() => {
@@ -65,6 +88,29 @@ const Home = () => {
   // const onGoToSelectClick = () => navigate('/host/set/select_words')
   const onGoToSelectClick = () => navigate('/host/set/select')
 
+  const onSubmitNickname = (e) => {
+    e.preventDefault();
+    navigate('/player/welcome')
+    console.log('Submitted nickname: ', nickname);
+  }
+
+  const NicknameComponent = showNickname ? (<form style ={{
+    width: 100,
+    height: 100,
+    position: 'absolute',
+    top: 150,
+    left: 90
+    }} onSubmit={onSubmitNickname}>
+    <input
+    placeholder="Enter Nickname"
+    name='title'
+    value={nickname}
+    onChange={onChangeNickname}>
+    </input>
+    <button type='submit'>Submit nickname</button>
+
+  </form>) : <div></div>;
+
   return (
     <div className={styles.web19203}>
       <div className={styles.web19203Child} />
@@ -72,9 +118,11 @@ const Home = () => {
         <button
           className={styles.groupChild}
           autoFocus
-          onClick={checkGamePinOnSubmit}
+          // onClick={onEnterButtonClick} comment out to test nickname button without gamepin
+          onClick = {checkGamePinOnSubmit}
         />
         <b className={styles.enter}>Enter</b>
+        {NicknameComponent}
       </div>
       <input
         className={styles.web19203Item}
@@ -96,8 +144,7 @@ const Home = () => {
       <button className={styles.createAGame} onClick={onCreateAGameClick}>
         Create a game
       </button>
-      <br></br>
-      <br></br>
+
       <button className={styles.navToSelect} onClick={onGoToSelectClick}>Go to word select dev page</button>
     </div>
   );
