@@ -1,6 +1,7 @@
 .white,
 .purple,
-.gold {
+.gold,
+.transparent {
     cursor: pointer;
     color: var(--color-indigo-200);
     border-radius: 80px;
@@ -18,8 +19,8 @@
     background-color: #d0d0d0;
 }
 .purple {
-    border: 3px solid var(--color-white);
     background-color: #585cee;
+    border: 3px solid var(--color-white);
     color: var(--color-white);
 }
 .purple:hover {
@@ -31,28 +32,56 @@
 .gold:hover {
     background-color: goldenrod;
 }
+.transparent {
+    background-color: transparent;
+}
+.transparent:hover {
+    background-color: rgb(243, 64, 64);
+}
+
+
+.webShort,
+.mobileShort{
+    color: white;
+    background-color: transparent;
+    border-radius: 5px;
+    padding:10px;
+}
 
 .web{
-    height: 75px;
+    height: 70px;
     width: 110%;
     margin: 13px 10px;
     font-size: 29px;
 }
 .webLong {
     margin: 70px 10px;
-    width: 140%;
-    height: 85px;
+    width: 126%;
+    height: 78px;
 }
+.webShort {
+    margin: 8px 9px;
+    height: 60px;
+    width: fit-content;
+    border: 5px solid;
+    font-size: 29px;
+}
+
 .mobile {
     margin: 8px 9px;
     height: 53px;
     font-size: 20px;
-    width: 100%
 }
 .mobileLong {
     margin: 40px 10px;
     width: 130%;
     height: 60px;
 }
-
+.mobileShort {
+    margin: 8px 9px;
+    height: 40px;
+    width: fit-content;
+    border: 3px solid;
+    font-size: 17px;
+}
 
