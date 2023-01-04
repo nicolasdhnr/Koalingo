@@ -21,17 +21,4 @@ export default function WordsList() {
       ))}
     </ul>
   );
-
-
-  return (
-    <ul class = "flexContainer">
-      {allWords.map(({ title, id }) => (
-        <li class="flexItem" key={id}>
-            <h2>{title}</h2>
-            <button onClick={() => handleDelete(id)}>X</button>
-          {/* {!description ? null : <p>{description}</p>} */}
-        </li>
-      ))}
-    </ul>
-  );
 }

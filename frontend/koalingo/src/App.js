@@ -11,7 +11,6 @@ import { getAuth } from "firebase/auth";
 import Home from "./pages/home/Home";
 import PlayerMemorizing from "./pages/player/PlayerMemorizing";
 import SetTimer from "./pages/host/SetTimer";
-import PlayerLobby from "./pages/player/PlayerLobby";
 import HostSetSelect from "./pages/host/HostSetSelect";
 import PlayerQuizz from "./pages/player/PlayerQuizz";
 import PlayerWelcome from "./pages/player/PlayerWelcome";
@@ -87,7 +86,6 @@ function App() {
         <Route path="/player/welcome" element={<PlayerWelcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/host/set/timer" element={<SetTimer />} />
-        <Route path="/player/lobby" element={<PlayerLobby />} />
         <Route path="/host/set/select" element={<HostSetSelect />} />
         <Route path="/player/quizz" element={<PlayerQuizz />} />
         <Route path="/player/welcome" element={<PlayerWelcome />} />

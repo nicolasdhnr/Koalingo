@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
 import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../../firebase";
@@ -11,11 +11,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   useEffect(() => {
     if (loading){
-
+      
       return
     }
     // If the user has signed in naviagte to home page
@@ -24,9 +24,9 @@ const Login = () => {
   
   const onLoginButtonClick = useCallback(async () => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
-    
     await signInWithGoogle()
-    
+
+
     if (user) {
       navigate("/home");
     }

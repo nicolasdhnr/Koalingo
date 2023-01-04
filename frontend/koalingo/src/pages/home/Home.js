@@ -1,46 +1,40 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./home.module.css";
 import { realtimedb } from "../../firebase";
-import { ref, onValue, update} from "firebase/database";
+import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
+import { AuthContext } from "../../App";
 
 // Home
 const Home = () => {
   const navigate = useNavigate();
   const reference = ref(realtimedb, "games");
-  const [gamePin, setGamePin] = useState("");
+  const [gamePinEntered, setGamePinEntered] = useState("");
   const auth = getAuth();
   const user = auth.currentUser;
-
-  console.log(user)
+  const {gamePin, setGamePin} = useContext(AuthContext);
 
   const handleTextChange = (event) => {
-    setGamePin(event.target.value);
+    setGamePinEntered(event.target.value);
   };
 
 
   const checkGamePinOnSubmit = (event) => {
-    console.log("Game pin entered:" + gamePin);
+    console.log("Game pin entered:" + gamePinEntered);
 
     // Check if The entry exists as a key in the database
     // If it does, navigate to the player page
     // If it doesn't, display an error message
     onValue(reference, (snapshot) => {
       const data = snapshot.val();
-      if (data[gamePin] !== undefined) {
+      console.log(data);
+      if (data[parseInt(gamePin)] !== undefined) {
         console.log("Game pin exists");
-
-       // Add user ID to the list of players in the game
-        update(ref(realtimedb, "games/" + gamePin + "/players"), {
-          [user.uid]: {
-            name: "Nicolas", 
-            score: 0,
-          },
-        });
-
-        navigate("/player/welcome");
+        setGamePin(parseInt(gamePinEntered))
+        navigate("/waiting");
+        
       } else {
         console.log("Game pin does not exist");
         //TODO: Display error message
@@ -85,7 +79,7 @@ const Home = () => {
           }
         }} 
         placeholder="Enter Game PIN here!"
-        value={gamePin}
+        value={gamePinEntered}
         onChange={handleTextChange}
       />
       <img

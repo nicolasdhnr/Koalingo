@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styles from "./hostlobby.module.css";
 import {realtimedb } from "../../firebase";
 import { ref, onValue, set } from "firebase/database";
-import Cookies from "universal-cookie";
 import { AuthContext } from "../../App";
 import {createGamePin} from  "./host_logic";
-
+import Players from "../../components/Players.js"
 const HostLobby = () => {
 
   const navigate = useNavigate();
@@ -18,21 +17,29 @@ const HostLobby = () => {
   // Dynamically change the number of players in the game
   }, []);
 
+
   const [count, setCount] = useState(0);
+  const [playerNames, setPlayerNames] = useState([]);
+  
   // Subscribe to changes in the number of players in the game 
   useEffect(() => {
     const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
-    onValue(collectionRef, (snapshot) => {
+    const unsubscribe = onValue(collectionRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
+      // console.log(data);
       // Count the number of players in the game
+
       const count = Object.keys(data).length;
 
       // Get the player names 
-      const playerNames = Object.keys(data).map((key) => data[key].name);
-      console.log(playerNames);
+      const names = Object.keys(data).map((key) => data[key].name);
+      console.log(names);
+      setPlayerNames(names);
       setCount(count);
-    });
+    })
+    return () => {
+      unsubscribe();
+    }
   }, []);
 
 
@@ -75,12 +82,9 @@ const HostLobby = () => {
         <b className={styles.b1}>00</b>
         <b className={styles.b2}>:</b>
       </div>
-
-      <div className={styles.nicoContainer}>
-        <div className={styles.nico}>Test</div>
-        <div className={styles.nico}>Test</div>
-        <div className={styles.nico}>Test</div>
-
+      <Players players={playerNames}/>
+      <div>
+        
       </div>
     </div>
   );
