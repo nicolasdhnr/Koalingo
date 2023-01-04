@@ -18,7 +18,7 @@ import { useContext } from "react";
 export function createGamePin () {
  const cookies = new Cookies();
  // Look for a cookie that contains the game pin. Do it only when component is mounted
- const gamePin = cookies.get("gamePin") ? cookies.get("gamePin")  : Math.floor(Math.random() * 1000000); 
+ const gamePin = cookies.get("gamePin") ? cookies.get("gamePin")  : Math.floor(Math.random() * 1000000).toString(); 
  cookies.set("gamePin", gamePin, { path: "/" });
  createGame(gamePin);
 
