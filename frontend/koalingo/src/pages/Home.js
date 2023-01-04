@@ -14,6 +14,9 @@ const Home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
+  const [nickname, setNickName] = useState('');
+  const [showNickname, setShowNickname] = useState(false);
+
   console.log(user)
 
   const handleTextChange = (event) => {
@@ -22,6 +25,7 @@ const Home = () => {
 
 
   const checkGamePinOnSubmit = (event) => {
+    // event.preventDefault();
     console.log("Game pin entered:" + gamePin);
 
     // Check if The entry exists as a key in the database
@@ -39,11 +43,17 @@ const Home = () => {
             score: 0,
           },
         });
-
-        navigate("/player/welcome");
+        
+        if (!showNickname) {
+          setShowNickname(true);
+        }
+        // navigate("/player/welcome");
       } else {
         console.log("Game pin does not exist");
         //TODO: Display error message
+        if (!showNickname) {  // only for testing with no gamepin
+          setShowNickname(true);
+        }
         
       }
     }
@@ -52,10 +62,10 @@ const Home = () => {
   };
 
     
-  const onEnterButtonClick = useCallback(() => {
-
+  const onEnterButtonClick =() => {
+    console.log('Button clicked: ', nickname)
     navigate("/player/welcome");
-  }, [navigate]);
+  };
 
 
   const onCreateAGameClick = useCallback(() => {
@@ -64,6 +74,29 @@ const Home = () => {
 
   // const onGoToSelectClick = () => navigate('/host/set/select_words')
   const onGoToSelectClick = () => navigate('/host/set/select')
+  const onChangeNickname = ({target}) => {
+    const {name, value} = target
+    setNickName(prev => value);
+    console.log(nickname);
+  }
+  const onSubmitNickname = () => {navigate('/player/welcome')}
+  const NicknameComp = (showNickname ? 
+          <form style ={{
+          width: 100,
+          height: 100,
+          position: 'absolute',
+          top: 150,
+          left: 90
+          }} onSubmit={onSubmitNickname}>
+          <input
+          placeholder="Enter Nickname"
+          name='title'
+          value={nickname}
+          onChange={onChangeNickname}>
+          </input>
+          <button type='submit'>Submit nickname</button>
+
+        </form> : <div></div>);
 
   return (
     <div className={styles.web19203}>
@@ -75,6 +108,7 @@ const Home = () => {
           onClick={checkGamePinOnSubmit}
         />
         <b className={styles.enter}>Enter</b>
+        {NicknameComp}
       </div>
       <input
         className={styles.web19203Item}
