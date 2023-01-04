@@ -11,7 +11,9 @@ const HostLobby = () => {
 
   const navigate = useNavigate();
 
+
   // Generate the game pin
+  useEffect(() => {
   const cookies = new Cookies();
   const gamePin = cookies.get("gamePin"); // Look for a cookie that contains the game pin. Do it only when component is mounted
   if (gamePin === undefined) {
@@ -37,6 +39,9 @@ const HostLobby = () => {
     }
   });
   }
+}, []);
+
+  console.log("Game pin: " + gamePin);
 
   // Create a new game in the realtime db
   function createGame() {
