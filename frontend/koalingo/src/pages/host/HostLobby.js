@@ -28,16 +28,15 @@ const HostLobby = () => {
       const data = snapshot.val();
       // console.log(data);
       // Count the number of players in the game
-
-      const count = Object.keys(data).length;
-
-      // Get the player names 
-      const names = Object.keys(data).map((key) => data[key].name);
-      console.log(names);
-      setPlayerNames(names);
-      setCount(count);
-    })
-    
+      if (data != null) {
+        setCount(Object.keys(data).length);
+        // console.log(count);
+        // Get the names of the players in the game
+        setPlayerNames(Object.keys(data).map((key) => data[key].name));
+      }
+     
+    }, []);
+  
     return () => {
       unsubscribe();
     }
