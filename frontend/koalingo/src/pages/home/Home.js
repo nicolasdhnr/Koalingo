@@ -92,7 +92,7 @@ const Home = () => {
       </button>
       <br></br>
       <br></br>
-      <button className={styles.navToSelect} onClick={onGoToSelectClick}>Go to word select dev page</button>
+      
     </div>
   );
 };

@@ -17,7 +17,7 @@ import PlayerWelcome from "./pages/player/PlayerWelcome";
 import HostProgressTracker from "./pages/host/HostProgressTracker";
 import HostLobby from "./pages/host/HostLobby";
 import Login from "./pages/home/Login";
-// import Register from "./pages/home/Register";
+import EmailLogin from "./pages/home/EmailLogin";
 import Waiting from "./pages/player/Waiting";
 import Register from "./pages/home/Register-2";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
@@ -83,9 +83,9 @@ function App() {
       {/* <Route index element={<Login />} /> */}
       <Route index path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<EmailLogin />} />
       <Route element={<ProtectedRoute user={user} />}>
         <Route path="/player/welcome" element={<PlayerWelcome />} />
-        
         <Route path="/host/set/timer" element={<SetTimer />} />
         <Route path="/host/set/select" element={<HostSetSelect />} />
         <Route path="/player/quizz" element={<PlayerQuizz />} />

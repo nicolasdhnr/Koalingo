@@ -1,22 +1,27 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./register_2.module.css";
+import { logInWithEmailAndPassword  } from "../../firebase";
+import { AuthContext } from "../../App";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { registerWithEmailAndPassword } from "../../firebase";
-import { AuthContext } from "../../App";
 
-const Register = () => {
+
+const EmailLogin = () => {
 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    
+
+
     const schema = yup.object().shape({
         email: yup.string().email("Invalid email address").required("Email field is required"),
         password: yup.string().min(4).required("Password field is required"),
-        confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')
     });
+    const { register, handleSubmit, formState: errors } = useForm({
+        resolver: yupResolver(schema)
+    });
+
 
     useEffect(() => {
         if (user) {
@@ -24,35 +29,30 @@ const Register = () => {
         }
     }, [user, navigate]);
 
-    const { register, handleSubmit, formState: errors } = useForm({
-        resolver: yupResolver(schema)
-    });
     // Navigate to home page on submit
 
-    const onLoginButtonClick = useCallback(() => {
+    const onGoBackClick = useCallback(() => {
        navigate("/");
     }, [navigate]);
 
-    const onSubmitClick = useCallback((data) => {
-        registerWithEmailAndPassword(data.email, data.password);
+    const onLoginClick = useCallback(async (data) => {
+        await logInWithEmailAndPassword(data.email, data.password);
     }, [navigate]);
+
 
     return (
         <div className={styles.login1}>
-        <form onSubmit={handleSubmit(onSubmitClick)}>
-        
+        <form onSubmit={handleSubmit(onLoginClick)}>
         <div className={styles.login1Child} />
         <div className={styles.login}>
             <button
             className={styles.loginChild}
-            onClick={onLoginButtonClick}
+            onClick={onGoBackClick}
             />
-            <div className={styles.login2}>Login</div>
-            <div className={styles.alreadyAKoalingoUser}>
-            Already a Koalingo user?
-            </div>
+            <div className={styles.login2}>Go back</div>
         </div>
         <div className={styles.login1Item} />
+
         <img
             className={styles.allergiesPlanDeTravail11}
             alt=""
@@ -63,10 +63,10 @@ const Register = () => {
             <input 
             className={styles.email} 
             name="email"
-            placeholder='email' 
+            placeholder='email'
             {...register("email")}
             />
-            <p>{errors.email?.message}</p>
+
             <input
             className={styles.password}
             name="password"
@@ -74,26 +74,15 @@ const Register = () => {
             placeholder="Password"
             {...register("password")}
             />
-            <p>{errors.password?.message}</p>
-            <input
-            className={styles.confirm}
-            name="confirmPassword"
-            type="password"
-            placeholder="Confirm password"
-            {...register("confirmPassword")}
-            />
-            <p>{errors.confirmPassword?.message}</p>
             
         </div>
-        <input className={styles.trac3} type="submit"  />
-        <input className={styles.submit} type="submit"  />
-        
-    
+        <button className={styles.trac3}/>
+        <button className={styles.submit} >Log in</button>
+        <b className={styles.registrationForm}>Time to Koalearn!</b>
         </form>
-        <b className={styles.registrationForm}>Registration form</b>
         </div>
        
     );
-    };
+};
 
-export default Register;
+export default EmailLogin;

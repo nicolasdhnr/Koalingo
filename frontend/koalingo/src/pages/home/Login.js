@@ -23,7 +23,7 @@ const Login = () => {
     if(user) navigate("/home")
   })
   
-  const onLoginButtonClick = useCallback(async () => {
+  const onLoginWithGoogleClick = useCallback(async () => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
     await signInWithGoogle()
 
@@ -31,6 +31,10 @@ const Login = () => {
     if (user) {
       navigate("/home");
     }
+  }, [navigate]);
+
+  const onLoginWithEmailClick = useCallback(async () => {
+    navigate("/login");
   }, [navigate]);
 
   // TODO: make sure users cant get to home without login
@@ -54,7 +58,8 @@ const Login = () => {
       </div>
       <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
-        <Button btnText='Sign in' onClick={onLoginButtonClick} />
+        <Button btnText='Sign in with Email' onClick={onLoginWithEmailClick} />
+        <Button btnText='Sign in with Google' onClick={onLoginWithGoogleClick} />
         <Button btnText='Register' onClick={onRegisterButton1Click}
                 btnStyle='purple' />
         <Button btnText='Continue as guest' onClick={signInAnon}
