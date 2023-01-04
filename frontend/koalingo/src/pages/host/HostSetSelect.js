@@ -45,7 +45,6 @@ const HostSetSelect = () => {
         /> */}
         <NewWord />
         <WordsList />
-      
       </div>
       <b className={styles.nameYourSet}>Name your set:</b>
       <div className={styles.repeatGrid8}>
@@ -56,9 +55,11 @@ const HostSetSelect = () => {
           </div>
         </div>
       </div>
-
       <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
         Save your set
+      </button>
+      <button className={styles.saveYourSet} onClick={() => navigate('/player/memorizing')}>
+        Go to Memorisation
       </button>
     </div>
   );

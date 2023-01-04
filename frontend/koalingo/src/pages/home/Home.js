@@ -62,7 +62,8 @@ const Home = () => {
     navigate("/host/set/select");
   }, [navigate]);
 
-  const onGoToSelectClick = () => navigate('/host/set/select_words')
+  // const onGoToSelectClick = () => navigate('/host/set/select_words')
+  const onGoToSelectClick = () => navigate('/host/set/select')
 
   return (
     <div className={styles.web19203}>
