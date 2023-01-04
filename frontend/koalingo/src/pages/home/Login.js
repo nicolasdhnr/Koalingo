@@ -38,6 +38,12 @@ const Login = () => {
    navigate("/register");
   }, [navigate]);
 
+  const [nickname, setNickName] = useState('');
+  const onChangeNickname = ({target}) => {
+    const {name, value} = target
+    setNickName(prev => value);
+    console.log(nickname);
+  }
   return (
     <div className={styles.loginPage}>
 
