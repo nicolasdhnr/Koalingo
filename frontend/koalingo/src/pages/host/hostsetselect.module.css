@@ -166,6 +166,16 @@
   left: 66px;
   font-weight: 600;
   display: inline-block;
+  border: 3px solid #0af112;
+
+}
+
+.listYourWordParent
+{
+  position: absolute;
+  top: 825px;
+  left: 66px;
+  width: calc(100% - 66px);
 }
 .div1,
 .div2,

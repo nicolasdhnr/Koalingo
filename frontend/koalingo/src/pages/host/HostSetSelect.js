@@ -44,17 +44,21 @@ const HostSetSelect = () => {
           placeholder=" 'How are you?'"
         /> */}
         <NewWord />
-        <WordsList />
       </div>
+
+      <div > 
+        <WordsList />
+      </div> 
+
       <b className={styles.nameYourSet}>Name your set:</b>
-      <div className={styles.repeatGrid8}>
+      {/* <div className={styles.repeatGrid8}>
         <div className={styles.div1}>
           <div className={styles.child} />
           <div className={styles.eating}>
             <p className={styles.eating1}>Eating</p>
           </div>
         </div>
-      </div>
+      </div> */}
       <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
         Save your set
       </button>
