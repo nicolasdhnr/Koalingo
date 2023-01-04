@@ -30,9 +30,9 @@ const Home = () => {
     onValue(reference, (snapshot) => {
       const data = snapshot.val();
       console.log(data);
-      if (data[parseInt(gamePin)] !== undefined) {
+      if (data[gamePinEntered.toString()] !== undefined) {
         console.log("Game pin exists");
-        setGamePin(parseInt(gamePinEntered))
+        setGamePin(gamePinEntered.toString())
         navigate("/waiting");
         
       } else {

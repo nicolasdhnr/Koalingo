@@ -42,7 +42,7 @@ export const AuthContext = createContext({
   setAllWords : () => {},
   host : false,
   setHost : () => {},
-  gamePin : 0, 
+  gamePin : "", 
   setGamePin :  () => {},
 });
 

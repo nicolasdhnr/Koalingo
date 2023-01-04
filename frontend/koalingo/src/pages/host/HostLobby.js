@@ -13,14 +13,14 @@ const HostLobby = () => {
   console.log(gamePin);
 
   useEffect(() => {
-  setGamePin(createGamePin());
+  setGamePin(createGamePin() != null ? createGamePin() : "");
   // Dynamically change the number of players in the game
   }, []);
 
 
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
-  
+
   // Subscribe to changes in the number of players in the game 
   useEffect(() => {
     const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
@@ -37,6 +37,7 @@ const HostLobby = () => {
       setPlayerNames(names);
       setCount(count);
     })
+    
     return () => {
       unsubscribe();
     }
