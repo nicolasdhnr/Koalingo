@@ -17,10 +17,19 @@ const HostLobby = () => {
   onDisconnect(ref(realtimedb, "games/" + gamePin)).set({});
 
 
-  useEffect(() => {
-  setGamePin(createGamePin(user) != null ? createGamePin(user) : "");
+  // Create a game pin and create the game in the database.
+  useEffect( () => {
+    const createPin = async (user) => {
+      const pin = await createGamePin(user);
+      if (pin) {
+        setGamePin(pin);
+      }
+    }
+ createPin(user);
+
   const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
-  const unsubscribe = onValue(collectionRef, (snapshot) => {
+  
+  return onValue(collectionRef, (snapshot) => {
     const data = snapshot.val();
 
     // Count the number of players in the game
@@ -32,7 +41,7 @@ const HostLobby = () => {
     }
   });
   // Dynamically change the number of players in the game
-  }, []);
+  }, [gamePin, setGamePin, setCount, setPlayerNames]);
 
 
     // Navigating to the timer page to change the game settings

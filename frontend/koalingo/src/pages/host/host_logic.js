@@ -15,22 +15,21 @@ import { useContext } from "react";
 
 
  // Generate the game pin, update the context provider with the gamePin
-export function createGamePin (user) {
+export const createGamePin = async (user) => {
  const cookies = new Cookies();
  // Look for a cookie that contains the game pin. Do it only when component is mounted
  const gamePin = cookies.get("gamePin") ? cookies.get("gamePin")  : Math.floor(Math.random() * 1000000); 
  cookies.set("gamePin", gamePin, { path: "/" });
- createGame(gamePin, user);
+ await createGame(gamePin, user);
 
  return gamePin;
+};
 
- 
-}
 
-export function createGame(gamePin, user) {
+export const  createGame = async (gamePin, user) => {
     const reference = ref(realtimedb, "games");
     // Create a new game
-    set(reference, {
+    await set(reference, {
       [gamePin]: {
         gameState: "lobby",
         test: "test",
@@ -46,7 +45,8 @@ export function createGame(gamePin, user) {
 }
 
     );
-  }
+  };
+
 
 
 
