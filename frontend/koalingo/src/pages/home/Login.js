@@ -5,6 +5,8 @@ import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../../
 import { useAuthState} from "react-firebase-hooks/auth";
 import React, { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
+import "../../components/button/Button";
+import Button from "../../components/button/Button";
 
 const Login = () => {
   const auth = getAuth();
@@ -44,37 +46,17 @@ const Login = () => {
     setNickName(prev => value);
     console.log(nickname);
   }
+
   return (
     <div className={styles.loginPage}>
-
-      <img
-        className={styles.koalingoLogo}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-
-      <div className={styles.loginContainer}>
-        <button
-          className={styles.loginChild}
-          onClick={signInWithGoogle}
-        >
-          Login
-        </button>
-        <button
-          className={styles.loginRegister}
-          onClick={onRegisterButton1Click}
-        >
-          Register
-        </button>
-        <button
-        className={styles.continueAsGuest}
-        onClick={signInAnon}
-        >
-        Continue as guest
-        </button>
+      <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg'/>
+      <div className={styles.buttonWrapper}>
+        <Button btnText='Sign in' onClick={onLoginButtonClick}/>
+        <Button btnStyle='btn--purple' btnText='Register' onClick={onRegisterButton1Click}/>
+        <Button btnStyle='btn--gold' btnSize='btn--long' btnText='Continue as guest' onClick={signInAnon}/>
       </div>
   </div>
-  );
+  )
 };
 
 export default Login;
