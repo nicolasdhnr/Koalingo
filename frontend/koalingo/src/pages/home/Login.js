@@ -50,7 +50,7 @@ const Login = () => {
     <div className={styles.loginPage}>
       <div className={styles.headerWrapper}>
         <Button btnText='Accessibility'
-                btnStyle='transparent' short={true}/>
+                btnStyle='red' short={true}/>
       </div>
       <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
