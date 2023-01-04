@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./settimer.module.css";
 
+
 const SetTimer = () => {
   const navigate = useNavigate();
 
@@ -10,8 +11,11 @@ const SetTimer = () => {
   }, [navigate]);
 
   return (
+    
     <div className={styles.web192015}>
+
       <div className={styles.web192015Child} />
+      
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""

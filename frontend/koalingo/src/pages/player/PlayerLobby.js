@@ -9,35 +9,6 @@ const PlayerLobby = () => {
     navigate("/player/memorizing"); // Take to the memorizing page
   }, [navigate]);
 
-  useEffect(() => {
-    const scrollAnimElements = document.querySelectorAll(
-      "[data-animate-on-scroll]"
-    );
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting || entry.intersectionRatio > 0) {
-            const targetElement = entry.target;
-            targetElement.classList.add(styles.animate);
-            observer.unobserve(targetElement);
-          }
-        }
-      },
-      {
-        threshold: 0.15,
-      }
-    );
-
-    for (let i = 0; i < scrollAnimElements.length; i++) {
-      observer.observe(scrollAnimElements[i]);
-    }
-
-    return () => {
-      for (let i = 0; i < scrollAnimElements.length; i++) {
-        observer.unobserve(scrollAnimElements[i]);
-      }
-    };
-  }, []);
 
   return (
     <div className={styles.web192014}>
@@ -45,10 +16,10 @@ const PlayerLobby = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="/allergies-plan-de-travail-1-12@2x.png"
+        src="/koalingo-logo.png"
       />
       <button className={styles.letsGo} onClick={onLetsGoClick}>
-        Let’s go
+        Waiting for host to start the game...
       </button>
     </div>
   );

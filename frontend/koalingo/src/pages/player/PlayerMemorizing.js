@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import EllipseIcon from "../../components/EllipseIcon";
 import styles from "./playermemorizing.module.css";
-import { WordAnimation } from "../components/WordAnimation";
+import { WordAnimation } from "../../components/WordAnimation";
 
 const PlayerMemorizing = () => {
   const navigate = useNavigate();

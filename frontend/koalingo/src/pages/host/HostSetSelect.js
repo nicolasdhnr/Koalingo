@@ -17,11 +17,11 @@ const HostSetSelect = () => {
 
   return (
     <div className={styles.web192011}>
-      <img className={styles.web192011Child} alt="" src="../ellipse-21.svg" />
+      <img className={styles.web192011Child} alt="" src="../../ellipse-21.svg" />
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../allergies-plan-de-travail-1-13@2x.png"
+        src="../../koalingo-logo.png"
         onClick={onLogoClick}
       />
       <b className={styles.game123456}>Game #123-456</b>
@@ -31,11 +31,11 @@ const HostSetSelect = () => {
       <div className={styles.enterYourWordParent}>
         <div className={styles.enterYourWord}>Enter your word:</div>
         <div className={styles.ellipseParent}>
-          <img className={styles.groupChild} alt="" src="../ellipse-42.svg" />
+          <img className={styles.groupChild} alt="" src="../../ellipse-42.svg" />
           <div className={styles.ellipseGroup}>
-            <img className={styles.groupItem} alt="" src="../ellipse-31.svg" />
+            <img className={styles.groupItem} alt="" src="../../ellipse-31.svg" />
             <div className={styles.div}>+</div>
-            <img className={styles.groupInner} alt="" src="../polygon-11.svg" />
+            <img className={styles.groupInner} alt="" src="../../polygon-11.svg" />
           </div>
         </div>
         {/* <input
