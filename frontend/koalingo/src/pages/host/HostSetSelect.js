@@ -58,12 +58,7 @@ const HostSetSelect = () => {
       <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
         Save your set
       </button>
-      <button styles= {{
-        position: 'absolute',
-        top: 50,
-        left: 50,
-
-      }} onClick={() => navigate('/player/memorizing')}>
+      <button className={styles.saveYourSet} onClick={() => navigate('/player/memorizing')}>
         Go to Memorisation
       </button>
     </div>

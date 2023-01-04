@@ -8,104 +8,70 @@
     transform: scale(0.5);
   }
 }
-.web192013Child {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
-  width: 1920px;
-  height: 1080px;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
 }
-.path3 {
-  border: 0;
-  background-color: var(--color-gold);
-  top: 851.37px;
-  left: 813.16px;
-  width: 293.68px;
-  height: 58.27px;
+.koalingoLogo {
+  position: absolute;
+  top: 20%;
+  width: 2*height;
+  height: 20%
+}
+.loginContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  width: 267px;
+  height: 300px;
+  justify-content: top;
+  align-items: center;
 }
 .continueAsGuest,
 .loginChild,
-.loginItem,
-.path3 {
+.loginRegister {
   cursor: pointer;
-  padding: 0;
   position: absolute;
-}
-.continueAsGuest {
-  border: 0;
-  background-color: transparent;
-  bottom: 183px;
-  left: 849px;
+  width: calc(100%);
+  border-radius: var(--br-xs);
+  height: 58px;
   font-size: var(--font-size-xs);
   font-weight: 600;
   font-family: var(--font-poppins);
-  color: var(--color-indigo-200);
   text-align: center;
   display: inline-block;
-}
-.continueAsGuest:active {
-  animation: 1s ease 0s infinite normal none scale-down-center;
-  opacity: 1;
-}
-.loginChild,
-.loginItem {
-  width: calc(100% - 5px);
-  border-radius: var(--br-xs);
-  height: 58px;
+  color: var(--color-indigo-200);
 }
 .loginChild {
   border: 0;
   background-color: var(--color-white);
-  top: 0;
-  right: 0;
-  left: 5px;
 }
-.loginItem {
+.loginChild:hover {
+  background-color: #d0d0d0;
+}
+.loginRegister {
+  margin-top: 90px;
   border: 3px solid var(--color-white);
-  background-color: transparent;
-  right: 5px;
-  bottom: 0;
-  left: 0;
-  box-sizing: border-box;
-}
-.login1,
-.register {
-  position: absolute;
-  font-weight: 600;
-  display: inline-block;
-}
-.login1 {
-  top: 13px;
-  left: calc(50% - 28.5px);
-}
-.register {
-  bottom: 13px;
-  left: calc(50% - 50.5px);
+  background-color: #585cee;
   color: var(--color-white);
 }
-.login {
-  position: absolute;
-  top: 585px;
-  left: 829px;
-  width: 267px;
-  height: 152px;
+.loginRegister:hover {
+  background-color: #9496f1;
 }
-.allergiesPlanDeTravail11 {
-  position: absolute;
-  top: 322px;
-  left: 794px;
-  width: 302px;
-  height: 95px;
-  object-fit: cover;
+.continueAsGuest {
+  margin-top: 240px;
+  border: 0;
+  background-color: gold;
+  width: 120%;
+  height: 65px;
 }
-.web192013 {
-  position: relative;
-  background-color: var(--color-white);
-  width: 100%;
-  height: 1080px;
-  text-align: center;
-  font-size: var(--font-size-2xs);
-  color: var(--color-indigo-200);
-  font-family: var(--font-poppins);
+.continueAsGuest:hover {
+  background-color: goldenrod;
 }
