@@ -31,6 +31,7 @@ const Home = () => {
 
 
   const checkGamePinOnSubmit = (event) => {
+    // event.preventDefault();
     console.log("Game pin entered:" + gamePin);
 
     // Check if The entry exists as a key in the database
@@ -87,6 +88,29 @@ const Home = () => {
 
   // const onGoToSelectClick = () => navigate('/host/set/select_words')
   const onGoToSelectClick = () => navigate('/host/set/select')
+  // const onChangeNickname = ({target}) => {
+  //   const {name, value} = target
+  //   setNickName(prev => value);
+  //   console.log(nickname);
+  // }
+  // const onSubmitNickname = () => {navigate('/player/welcome')}
+  // const NicknameComp = (showNickname ? 
+  //         <form style ={{
+  //         width: 100,
+  //         height: 100,
+  //         position: 'absolute',
+  //         top: 150,
+  //         left: 90
+  //         }} onSubmit={onSubmitNickname}>
+  //         <input
+  //         placeholder="Enter Nickname"
+  //         name='title'
+  //         value={nickname}
+  //         onChange={onChangeNickname}>
+  //         </input>
+  //         <button type='submit'>Submit nickname</button>
+
+  //       </form> : <div></div>);
 
   const onSubmitNickname = (e) => {
     e.preventDefault();
