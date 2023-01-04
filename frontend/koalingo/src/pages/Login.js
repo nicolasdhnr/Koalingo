@@ -6,14 +6,12 @@ import { useAuthState} from "react-firebase-hooks/auth";
 import React, { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";
 
-
 const Login = () => {
   const auth = getAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (loading){
@@ -23,7 +21,7 @@ const Login = () => {
     // If the user has signed in naviagte to home page
     if(user) navigate("/home")
   })
-
+  
   const onLoginButtonClick = useCallback(async () => {
       // TODO: Add method to log user in. Once they are logged in, navigate to home page.
     
@@ -34,44 +32,44 @@ const Login = () => {
     }
   }, [navigate]);
 
-
   // TODO: make sure users cant get to home without login
 
   const onRegisterButton1Click = useCallback(() => {
    navigate("/register");
-   
   }, [navigate]);
 
   return (
-    <div className={styles.web192013}>
-      <div className={styles.web192013Child} />
-      <button
-        className={styles.continueAsGuest}
-        onClick={signInAnon}
-      >
-        Continue as guest
-      </button>
-      <div className={styles.login}>
+    <div className={styles.loginPage}>
+
+      <img
+        className={styles.koalingoLogo}
+        alt=""
+        src="../koalingo_logo.svg"
+      />
+
+      <div className={styles.loginContainer}>
         <button
           className={styles.loginChild}
           onClick={signInWithGoogle}
-        />
+        >
+          Login
+        </button>
         <button
           className={styles.loginRegister}
           onClick={onRegisterButton1Click}
-        />
-        <div className={styles.login1}>Login</div>
-        <div className={styles.register}>Register</div>
+        >
+          Register
+        </button>
+        <button
+        className={styles.continueAsGuest}
+        onClick={signInAnon}
+        >
+        Continue as guest
+        </button>
       </div>
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo-logo.png"
-      />
-    </div>
+  </div>
   );
 };
-
 
 export default Login;
 

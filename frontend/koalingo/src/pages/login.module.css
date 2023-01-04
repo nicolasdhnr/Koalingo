@@ -8,113 +8,70 @@
     transform: scale(0.5);
   }
 }
-.web192013Child {
-  position: absolute;
-  top: 0;
-  left: -2px;
-  background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
-  width: 1920px;
-  height: 1080px;
-}
 
-.path3 {
-  border: 0;
-  background-color: var(--color-gold);
-  top: 851.37px;
-  left: 813.16px;
-  width: 293.68px;
-  height: 58.27px;
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+.koalingoLogo {
+  position: absolute;
+  top: 20%;
+  width: 2*height;
+  height: 20%
+}
+.loginContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  width: 267px;
+  height: 300px;
+  justify-content: top;
+  align-items: center;
 }
 .continueAsGuest,
 .loginChild,
-.loginRegister,
-.path3 {
-  cursor: pointer;
-  padding: 0;
-  position: absolute;
-}
-.continueAsGuest {
-  border: 0;
-  background-color: gold;
-  top: 787px;
-  left: 813.16px;
-  border-radius: var(--br-sm);
-  width: 293.68px;
-  height: 65.48px;
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  font-family: var(--font-poppins);
-  color: var(--color-indigo-200);
-  text-align: center;
-  display: inline-block;
-}
-.continueAsGuest:hover {
-  background-color: goldenrod;
-}
-.loginChild,
 .loginRegister {
+  cursor: pointer;
+  position: absolute;
   width: calc(100%);
   border-radius: var(--br-xs);
   height: 58px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  text-align: center;
+  display: inline-block;
+  color: var(--color-indigo-200);
 }
 .loginChild {
   border: 0;
   background-color: var(--color-white);
-  top: 0;
-  right: 0;
-  left: 0;
 }
 .loginChild:hover {
   background-color: #d0d0d0;
 }
 .loginRegister {
+  margin-top: 90px;
   border: 3px solid var(--color-white);
   background-color: #585cee;
-  right: 5px;
-  bottom: 0;
-  left: 0;
-  box-sizing: border-box;
+  color: var(--color-white);
 }
 .loginRegister:hover {
   background-color: #9496f1;
 }
-.login1,
-.register {
-  position: absolute;
-  font-weight: 600;
-  display: inline-block;
+.continueAsGuest {
+  margin-top: 240px;
+  border: 0;
+  background-color: gold;
+  width: 120%;
+  height: 65px;
 }
-.login1 {
-  top: 13px;
-  left: calc(50% - 28.5px);
-}
-.register {
-  bottom: 13px;
-  left: calc(50% - 50.5px);
-  color: var(--color-white);
-}
-.login {
-  position: absolute;
-  top: 585px;
-  left: 829px;
-  width: 267px;
-  height: 152px;
-}
-.allergiesPlanDeTravail11 {
-  position: absolute;
-  top: 224px;
-  left: 628px;
-  width: 654px;
-  height: 206px;
-  object-fit: cover;
-}
-.web192013 {
-  position: relative;
-  background-color: var(--color-white);
-  width: 100%;
-  height: 1080px;
-  text-align: center;
-  font-size: var(--font-size-2xs);
-  color: var(--color-indigo-200);
-  font-family: var(--font-poppins);
+.continueAsGuest:hover {
+  background-color: goldenrod;
 }
