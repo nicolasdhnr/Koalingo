@@ -13,33 +13,32 @@ const HostLobby = () => {
 
 
   // Generate the game pin
-  useEffect(() => {
-  const cookies = new Cookies();
-  const gamePin = cookies.get("gamePin"); // Look for a cookie that contains the game pin. Do it only when component is mounted
-  if (gamePin === undefined) {
-    const gamePin = Math.floor(Math.random() * 1000000);   // Generating the gamePin
-    cookies.set("gamePin", gamePin, { path: "/" });
 
-  // Check if game pin exists in the database
-  // If it does, do nothing
-  // If it doesn't, create a new game
-  const reference = ref(realtimedb, "games");
-  onValue(reference, (snapshot) => {
-    const data = snapshot.val();
-    if (data[gamePin] === undefined) {
-      console.log("Game pin does not exist");
-      createGame();
-    } 
+const cookies = new Cookies();
+const gamePin = cookies.get("gamePin"); // Look for a cookie that contains the game pin. Do it only when component is mounted
+if (gamePin === undefined) {
+  const gamePin = Math.floor(Math.random() * 1000000);   // Generating the gamePin
+  cookies.set("gamePin", gamePin, { path: "/" });
 
-    else {
-      console.log("Game pin exists"); // Pin collision. Generate a new pin.
-      const gamePin = Math.floor(Math.random() * 1000000); 
-      cookies.set("gamePin", gamePin, { path: "/" }); // Set the new pin as a cookie
-      createGame();
-    }
-  });
+// Check if game pin exists in the database
+// If it does, do nothing
+// If it doesn't, create a new game
+const reference = ref(realtimedb, "games");
+onValue(reference, (snapshot) => {
+  const data = snapshot.val();
+  if (data[gamePin] === undefined) {
+    console.log("Game pin does not exist");
+    createGame();
+  } 
+
+  else {
+    console.log("Game pin exists"); // Pin collision. Generate a new pin.
+    const gamePin = Math.floor(Math.random() * 1000000); 
+    cookies.set("gamePin", gamePin, { path: "/" }); // Set the new pin as a cookie
+    createGame();
   }
-}, []);
+});
+}
 
   console.log("Game pin: " + gamePin);
 

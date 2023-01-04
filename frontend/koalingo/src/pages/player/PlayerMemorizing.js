@@ -36,11 +36,11 @@ const PlayerMemorizing = () => {
         <WordAnimation />
       </div>
       <img className={styles.ellipseIcon} alt="" src="../ellipse-1.svg" />
-      {/* <img
+      {<img
         className={styles.sansTitre11}
         alt=""
         src="../sans-titre-11@2x.png"
-      /> */}
+      />}
       <div className={styles.hello}>
         Hello
         <button onClick={() => navigate('/host/set/select')}>Go Back to selection</button>
