@@ -29,17 +29,6 @@ export function createGamePin (user) {
 
 export function createGame(gamePin, user) {
     const reference = ref(realtimedb, "games");
-
-    // TODO: Add the host as the first user in the game once the Context takes in the host name
-    // Check if game already exists, if it does, do not create a new game
-    onValue(reference, (snapshot) => {
-        const data = snapshot.val();
-        if (data[gamePin]) {
-            return;
-        }
-    });
-
-
     // Create a new game
     set(reference, {
       [gamePin]: {

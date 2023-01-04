@@ -43,7 +43,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 const realtimedb = getDatabase(app);
-console.log(realtimedb);
 const hostID  = Math.floor(Math.random() * 1000000)
 // TODO: Save game ID in a cookie 
 
@@ -70,7 +69,6 @@ const signInWithGoogle = async () => {
     if (docs.docs.length === 0) {
       await addDoc(collection(db, "users"), {
         uid: user.uid,
-        name: user.displayName,
         authProvider: "google",
         email: user.email,
         hostID: hostID,
@@ -94,16 +92,15 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     await addDoc(collection(db, "users"), {
       uid: user.uid,
-      name,
       authProvider: "local",
       email,
-      hostID: Math.floor(Math.random() * 1000000),
+      words: [],
     });
   } catch (err) {
     console.error(err);

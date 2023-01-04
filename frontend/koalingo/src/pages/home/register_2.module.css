@@ -1,0 +1,151 @@
+@keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+  }
+  .login1Child {
+    position: absolute;
+    top: 0;
+    left: -2px;
+    background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
+    width: 1920px;
+    height: 1080px;
+  }
+  .loginChild {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-white);
+    position: absolute;
+    width: calc(100% - 28px);
+    right: 9px;
+    bottom: 0;
+    left: 19px;
+    border-radius: var(--br-2xs);
+    height: 58px;
+  }
+  .alreadyAKoalingoUser,
+  .login2 {
+    position: absolute;
+    font-weight: 600;
+    display: inline-block;
+  }
+  .login2 {
+    bottom: 13px;
+    left: calc(50% - 26px);
+  }
+  .alreadyAKoalingoUser {
+    top: 0;
+    left: 0;
+    color: var(--color-white);
+  }
+  .login {
+    position: absolute;
+    bottom: 103px;
+    left: 815px;
+    width: 290px;
+    height: 113px;
+  }
+  .login1Item {
+    position: absolute;
+    top: 425px;
+    left: 486px;
+    border-radius: 55px;
+    background-color: var(--color-white);
+    box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+    width: 949px;
+    height: 397px;
+  }
+  .allergiesPlanDeTravail11 {
+    position: absolute;
+    top: 243.22px;
+    left: 688px;
+    width: 500px;
+    height: 157.78px;
+    object-fit: cover;
+  }
+  .confirm,
+  .email,
+  .password {
+    border: 2px solid var(--color-gray-300);
+    background-color: var(--color-white);
+    position: absolute;
+    border-radius: var(--br-md);
+    box-sizing: border-box;
+    width: 265px;
+    height: 55px;
+  }
+  .email {
+    top: 0;
+    left: 0;
+  }
+  .confirm,
+  .password {
+    bottom: 0;
+  }
+  .password {
+    left: 0;
+  }
+  .confirm {
+    right: 0;
+  }
+  .groupe61,
+  .trac3 {
+    position: absolute;
+    top: 525px;
+    left: 654px;
+    width: 612px;
+    height: 142px;
+  }
+  .trac3 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-gold);
+    top: 708px;
+    width: 262.86px;
+    height: 58.27px;
+  }
+  .registrationForm,
+  .submit {
+    position: absolute;
+    display: inline-block;
+  }
+  .submit {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 721px;
+    left: 736px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    color: var(--color-indigo-200);
+    text-align: center;
+  }
+  .submit:active {
+    animation: 1s ease 0s infinite normal none scale-down-center;
+    opacity: 1;
+  }
+  .registrationForm {
+    top: 442px;
+    left: 780px;
+    font-size: var(--font-size-3xl);
+    color: var(--color-indigo-100);
+  }
+  .login1 {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    height: 1080px;
+    text-align: center;
+    font-size: var(--font-size-2xs);
+    color: var(--color-indigo-200);
+    font-family: var(--font-poppins);
+  }

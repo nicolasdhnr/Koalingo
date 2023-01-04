@@ -16,6 +16,7 @@ const Waiting = () => {
     'Your teacher 👌', 1000
   ];
   onDisconnect(ref(realtimedb, `games/${gamePin}/players/${user.uid}`)).set({});
+  
   useEffect( () => {  
     // Add user ID to the list of players in the game while keepig previouslist intact
     update(ref(realtimedb, "games/" + gamePin + "/players"), {
