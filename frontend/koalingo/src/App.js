@@ -75,7 +75,6 @@ function App() {
 
   return (
     <div >
-    <h1> Koalingo </h1>
     {user &&  <button onClick={logout}>Logout</button>}
     
     <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, setGamePin, setNewWord, setAllWords}}>

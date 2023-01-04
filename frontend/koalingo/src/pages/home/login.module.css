@@ -16,62 +16,20 @@
   background: linear-gradient(135deg, #7766f5, #495cea 97.04%, #6b5cf6);
   width: 100%;
   height: 100vh;
-  text-align: center;
 }
 .koalingoLogo {
   position: absolute;
   top: 20%;
-  width: 2*height;
-  height: 20%
+  width: 90%;
+  height: 25%
 }
-.loginContainer {
-  position: absolute;
+.buttonWrapper {
   display: flex;
   flex-direction: column;
-  top: 50%;
-  width: 267px;
-  height: 300px;
   justify-content: top;
   align-items: center;
-}
-.continueAsGuest,
-.loginChild,
-.loginRegister {
-  cursor: pointer;
   position: absolute;
-  width: calc(100%);
-  border-radius: var(--br-xs);
-  height: 58px;
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  font-family: var(--font-poppins);
-  text-align: center;
-  display: inline-block;
-  color: var(--color-indigo-200);
-}
-.loginChild {
-  border: 0;
-  background-color: var(--color-white);
-}
-.loginChild:hover {
-  background-color: #d0d0d0;
-}
-.loginRegister {
-  margin-top: 90px;
-  border: 3px solid var(--color-white);
-  background-color: #585cee;
-  color: var(--color-white);
-}
-.loginRegister:hover {
-  background-color: #9496f1;
-}
-.continueAsGuest {
-  margin-top: 240px;
-  border: 0;
-  background-color: gold;
-  width: 120%;
-  height: 65px;
-}
-.continueAsGuest:hover {
-  background-color: goldenrod;
+  top: 45%;
+  width: 25vh;
+  height: 500px;
 }
