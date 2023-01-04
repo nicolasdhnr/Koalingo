@@ -2,7 +2,7 @@ import React from "react";
 import './Button.css';
 import { isMobile } from 'react-device-detect';
 
-const STYLES = ['white', 'purple', 'gold','transparent']
+const STYLES = ['white', 'purple', 'gold','red']
 
 const Button = ({
     btnText,
