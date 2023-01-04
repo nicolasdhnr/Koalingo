@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./home.module.css";
-import { realtimedb } from "../firebase";
+import { realtimedb } from "../../firebase";
 import { ref, onValue, update} from "firebase/database";
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth";

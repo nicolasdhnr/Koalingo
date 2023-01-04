@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./login.module.css";
-import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../firebase";
+import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../../firebase";
 import { useAuthState} from "react-firebase-hooks/auth";
 import React, { useEffect, useState } from "react";
 import { getAuth } from "firebase/auth";

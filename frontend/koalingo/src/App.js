@@ -5,18 +5,21 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
+
 import { getAuth } from "firebase/auth";
-import Home from "./pages/Home";
-import PlayerMemorizing from "./pages/PlayerMemorizing";
-import SetTimer from "./pages/SetTimer";
-import PlayerLobby from "./pages/PlayerLobby";
-import HostSetSelect from "./pages/HostSetSelect";
-import PlayerQuizz from "./pages/PlayerQuizz";
-import PlayerWelcome from "./pages/PlayerWelcome";
-import HostProgressTracker from "./pages/HostProgressTracker";
-import HostLobby from "./pages/HostLobby";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+
+import Home from "./pages/home/Home";
+import PlayerMemorizing from "./pages/player/PlayerMemorizing";
+import SetTimer from "./pages/host/SetTimer";
+import PlayerLobby from "./pages/player/PlayerLobby";
+import HostSetSelect from "./pages/host/HostSetSelect";
+import PlayerQuizz from "./pages/player/PlayerQuizz";
+import PlayerWelcome from "./pages/player/PlayerWelcome";
+import HostProgressTracker from "./pages/host/HostProgressTracker";
+import HostLobby from "./pages/host/HostLobby";
+import Login from "./pages/home/Login";
+import Register from "./pages/home/Register";
+
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import Web19201 from "./pages/Web19201";
 import { useContext, useEffect, useState } from "react";
@@ -89,11 +92,15 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/web-1920-1" element={<Web19201 />} />
       </Route>
-      
+
       <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
+
       <Route path="/host/lobby" element={<HostLobby />} />
+
       <Route path="/home" element={<Home />} />
+
       <Route path="/web-1920-1" element={<Web19201 />} />
+
       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
       <Route path="*" element={<h1> Page not Found </h1>} />
     </Routes>

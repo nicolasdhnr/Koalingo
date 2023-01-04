@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import EllipseIcon from "../components/EllipseIcon";
+import EllipseIcon from "../../components/EllipseIcon";
 import styles from "./playermemorizing.module.css";
 
 const PlayerMemorizing = () => {

@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostprogresstracker.module.css";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 
 
 const HostProgressTracker = () => {
