@@ -16,7 +16,7 @@ export default function WordsList() {
       {allWords.map(({ title, id }) => (
         <li key={id}>
             <h2>{title}</h2>
-            <button onClick={() => handleDelete(id)}>X</button>
+            <button class = "btn" onClick={() => handleDelete(id)}>X</button>
           {/* {!description ? null : <p>{description}</p>} */}
         </li>
       ))}

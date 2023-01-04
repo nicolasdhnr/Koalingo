@@ -1,4 +1,11 @@
- li {
+ul {
+  position: absolute;
+  top: 800px;
+  left: 66px;
+  width: calc(100% - 66px);
+}
+
+li {
   position: relative;
   display: inline-block;
     border-radius: var(--br-md);
@@ -10,19 +17,34 @@
     font-weight: 600;
 } 
 
-h2{
+h2 {
   display: inline-block; 
   font-weight: 600;
   font-size: var(--font-size-xs);
   margin: 15px 15px;
 }
 
-ul{
-  position: absolute;
-  top: 800px;
-  left: 66px;
-  width: calc(100% - 66px);
+.btn {
+  background-color:  rgb(211, 211, 211);
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50%;
+
+  width: 30px;
+  height: 30px;
 }
+
+.btn:hover {
+  color: red;
+}
+
+
 .flexContainer {
   /* We first create a flex layout context */
   display: flex;
