@@ -21,7 +21,7 @@ const HostSetSelect = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../../koalingo-logo.png"
+        src="../../koalingo_logo.svg"
         onClick={onLogoClick}
       />
       <b className={styles.game123456}>Game #123-456</b>

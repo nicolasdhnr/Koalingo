@@ -177,78 +177,7 @@
   left: 66px;
   width: calc(100% - 66px);
 }
-.div1,
-.div2,
-.div3,
-.div4 {
-  position: absolute;
-  top: 55px;
-  width: 309px;
-  height: 87px;
-}
-.div1 {
-  left: 73px;
-}
-.div2,
-.div3,
-.div4 {
-  left: calc(50% - 524px);
-}
-.div3,
-.div4 {
-  left: calc(50% - 146px);
-}
-.div4 {
-  left: calc(50% + 232px);
-}
-.div5 {
-  top: 55px;
-  right: 56px;
-}
-.div5,
-.div6,
-.div7,
-.div8 {
-  position: absolute;
-  width: 309px;
-  height: 87px;
-}
-.div6 {
-  top: 55px;
-  right: -322px;
-}
-.div7,
-.div8 {
-  bottom: 49px;
-}
-.div7 {
-  left: 73px;
-}
-.div8 {
-  left: calc(50% - 524px);
-}
-.div9 {
-  left: calc(50% - 146px);
-}
-.div10,
-.div11,
-.div12,
-.div9 {
-  position: absolute;
-  bottom: 49px;
-  width: 309px;
-  height: 87px;
-}
-.div10 {
-  left: calc(50% + 232px);
-}
-.div11,
-.div12 {
-  right: 56px;
-}
-.div12 {
-  right: -322px;
-}
+
 .repeatGrid8 {
   position: absolute;
   bottom: -23px;
@@ -272,13 +201,14 @@
 .saveYourSet,
 .web192011 {
   text-align: center;
+  
   font-family: var(--font-poppins);
 }
 .saveYourSet {
   cursor: pointer;
   border: 0;
   padding: 0;
-  background-color: transparent;
+  background-color: gold;
   position: absolute;
   top: 457px;
   left: 881px;
@@ -286,6 +216,7 @@
   font-weight: 600;
   color: var(--color-indigo-200);
   display: inline-block;
+  border-radius: var(--br-xs)
 }
 .saveYourSet:active {
   animation: 1s ease 0s infinite normal none scale-down-center;

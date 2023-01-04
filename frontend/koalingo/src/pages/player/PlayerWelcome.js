@@ -8,7 +8,7 @@ const PlayerWelcome = () => {
     const navigate = useNavigate();
 
     const onCharacterSelect = useCallback(() => {
-        navigate("/player/lobby");
+        navigate("/waiting");
     }, [navigate]);
 
   return (

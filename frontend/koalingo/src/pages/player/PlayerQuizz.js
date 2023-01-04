@@ -26,7 +26,7 @@ const PlayerQuizz = () => {
         </div>
       </div>
       <b className={styles.clickIfYourWordAppearOnT}>
-        Click if your word appear on the board :)
+        Click if your word appear on the board :
       </b>
     </div>
   );

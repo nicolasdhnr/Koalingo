@@ -19,7 +19,7 @@ import HostProgressTracker from "./pages/host/HostProgressTracker";
 import HostLobby from "./pages/host/HostLobby";
 import Login from "./pages/home/Login";
 import Register from "./pages/home/Register";
-
+import Waiting from "./pages/player/Waiting";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import Web19201 from "./pages/Web19201";
 import { useContext, useEffect, useState } from "react";
@@ -41,10 +41,10 @@ export const AuthContext = createContext({
   setNewWord: () => {},
   allWords : null,
   setAllWords : () => {},
-  gameID : null,
-  setGameID : () => {},
-  host : null,
-  setHost : () => {}
+  host : false,
+  setHost : () => {},
+  gamePin : 0, 
+  setGamePin :  () => {},
 });
 
 
@@ -52,7 +52,9 @@ function App() {
   const action = useNavigationType();
   const auth = getAuth();
   const [user] = useAuthState(auth);
+ 
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (action !== "POP") {
@@ -67,6 +69,9 @@ function App() {
   const [newWord, setNewWord] = useState({});
   const [allWords, setAllWords] = useState([]);
 
+  // Create state to track game pin
+  const [gamePin, setGamePin] = useState(0);
+
   
 
   return (
@@ -74,7 +79,7 @@ function App() {
     <h1> Koalingo </h1>
     {user &&  <button onClick={logout}>Logout</button>}
     
-    <AuthContext.Provider value={{auth, user, newWord, allWords, setNewWord, setAllWords}}>
+    <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, setGamePin, setNewWord, setAllWords}}>
     <Routes>
       {/* <Route index element={<Login />} /> */}
       <Route index path="/" element={<Login />} />
@@ -91,18 +96,17 @@ function App() {
         <Route path="/host/lobby" element={<HostLobby />} />
         <Route path="/home" element={<Home />} />
         <Route path="/web-1920-1" element={<Web19201 />} />
+        <Route path="/waiting" element={<Waiting />} />
       </Route>
 
       <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
-
       <Route path="/host/lobby" element={<HostLobby />} />
-
       <Route path="/home" element={<Home />} />
-
       <Route path="/web-1920-1" element={<Web19201 />} />
-
       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
+
       <Route path="*" element={<h1> Page not Found </h1>} />
+
     </Routes>
     </AuthContext.Provider>
     </div>

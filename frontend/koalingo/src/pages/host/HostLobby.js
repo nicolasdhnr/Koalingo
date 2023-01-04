@@ -1,77 +1,25 @@
-import React, { useEffect, useState, useCallback }  from "react";
+import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostlobby.module.css";
 import {realtimedb } from "../../firebase";
 import { ref, onValue, set } from "firebase/database";
 import Cookies from "universal-cookie";
-
-
+import { AuthContext } from "../../App";
+import {createGamePin} from  "./host_logic";
 
 const HostLobby = () => {
 
   const navigate = useNavigate();
+  const {gamePin, setGamePin}= useContext(AuthContext)
+  console.log(gamePin);
 
-
-  // Generate the game pin
-
-const cookies = new Cookies();
-const gamePin = cookies.get("gamePin"); // Look for a cookie that contains the game pin. Do it only when component is mounted
-if (gamePin === undefined) {
-  const gamePin = Math.floor(Math.random() * 1000000);   // Generating the gamePin
-  cookies.set("gamePin", gamePin, { path: "/" });
-
-// Check if game pin exists in the database
-// If it does, do nothing
-// If it doesn't, create a new game
-const reference = ref(realtimedb, "games");
-onValue(reference, (snapshot) => {
-  const data = snapshot.val();
-  if (data[gamePin] === undefined) {
-    console.log("Game pin does not exist");
-    createGame();
-  } 
-
-  else {
-    console.log("Game pin exists"); // Pin collision. Generate a new pin.
-    const gamePin = Math.floor(Math.random() * 1000000); 
-    cookies.set("gamePin", gamePin, { path: "/" }); // Set the new pin as a cookie
-    createGame();
-  }
-});
-}
-
-  console.log("Game pin: " + gamePin);
-
-  // Create a new game in the realtime db
-  function createGame() {
-    const reference = ref(realtimedb, "games");
-    set(reference, {
-      [gamePin]: {
-        gameState: "lobby",
-        test: "test",
-        words: {0: "Hello", 1: "Wagwan", 2: "Bonjour"},
-        curranswer: 0,
-        currquestion: 0,
-        timer: 0,
-        players: {
-          "player1": {
-            "name": "player1",
-            "score": 0,},
-          "player1": {
-            "name": "player1",
-            "score": 0},
-          "player1": {
-            "name": "player1",
-            "score": 0},
-      },
-    }}
-    );
-  }
-
-
+  useEffect(() => {
+  setGamePin(createGamePin());
   // Dynamically change the number of players in the game
+  }, []);
+
   const [count, setCount] = useState(0);
-  // Subscribe to changes in the numpber of players in the game 
+  // Subscribe to changes in the number of players in the game 
   useEffect(() => {
     const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
     onValue(collectionRef, (snapshot) => {
@@ -79,12 +27,15 @@ onValue(reference, (snapshot) => {
       console.log(data);
       // Count the number of players in the game
       const count = Object.keys(data).length;
+
+      // Get the player names 
+      const playerNames = Object.keys(data).map((key) => data[key].name);
+      console.log(playerNames);
       setCount(count);
     });
   }, []);
 
-  // log the number of players in the game
-  console.log(count);
+
 
     // Navigating to the timer page to change the game settings
   const onTimerButtonClick = useCallback(() => {
@@ -123,6 +74,13 @@ onValue(reference, (snapshot) => {
       <div className={styles.parent}>
         <b className={styles.b1}>00</b>
         <b className={styles.b2}>:</b>
+      </div>
+
+      <div className={styles.nicoContainer}>
+        <div className={styles.nico}>Test</div>
+        <div className={styles.nico}>Test</div>
+        <div className={styles.nico}>Test</div>
+
       </div>
     </div>
   );
