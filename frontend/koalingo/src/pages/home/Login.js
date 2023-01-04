@@ -17,7 +17,6 @@ const Login = () => {
 
   useEffect(() => {
     if (loading){
-
       return
     }
     // If the user has signed in naviagte to home page
@@ -49,11 +48,13 @@ const Login = () => {
 
   return (
     <div className={styles.loginPage}>
-      <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg'/>
+      <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
-        <Button btnText='Sign in' onClick={onLoginButtonClick}/>
-        <Button btnStyle='btn--purple' btnText='Register' onClick={onRegisterButton1Click}/>
-        <Button btnStyle='btn--gold' btnSize='btn--long' btnText='Continue as guest' onClick={signInAnon}/>
+        <Button btnText='Sign in' onClick={onLoginButtonClick} />
+        <Button btnText='Register' onClick={onRegisterButton1Click}
+                btnStyle='purple' />
+        <Button btnText='Continue as guest' onClick={signInAnon}
+                btnStyle='gold' long={true} />
       </div>
   </div>
   )

@@ -1,25 +1,26 @@
 import React from "react";
 import './Button.css';
+import { isMobile } from 'react-device-detect';
 
-const STYLES = ['btn--white', 'btn--purple', 'btn--gold']
-const SIZES = ['btn--normal', 'btn--long', 'btn--mobile']
+const STYLES = ['white', 'purple', 'gold']
 
 const Button = ({
     btnText,
     type,
     onClick,
     btnStyle,
-    btnSize
+    long,
     }) => {
         const getButtonStyle = STYLES.includes(btnStyle)
             ? btnStyle
             : STYLES[0];
-        const getButtonSize = SIZES.includes(btnSize)
-        ? btnSize
-        : SIZES[0];
+        const mode = isMobile ? 'mobile' : 'web';
+        const length = (isMobile && long) ? 'mobileLong'
+                        : (!isMobile && long) ? 'webLong'
+                        : 'web';
 
     return (<button
-            className = {`${getButtonStyle} ${getButtonSize}`}
+            className = {`${getButtonStyle} ${length} ${mode}`}
             type={type}
             onClick={onClick}
             >
