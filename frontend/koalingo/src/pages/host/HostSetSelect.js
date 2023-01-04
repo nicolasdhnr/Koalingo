@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import NewWord from "../components/NewWord";
-import WordsList from "../components/WordList";
+import NewWord from "../../components/NewWord";
+import WordsList from "../../components/WordList";
 import styles from "./hostsetselect.module.css";
 
 const HostSetSelect = () => {

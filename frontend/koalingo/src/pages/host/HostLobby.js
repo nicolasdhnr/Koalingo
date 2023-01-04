@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useCallback }  from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostlobby.module.css";
-import {realtimedb } from "../firebase";
-import { ref, onValue, get, child, set, push, update, remove } from "firebase/database";
-import { getAuth, onAuthStateChanged, signInWithCustomToken, auth } from "firebase/auth";
+import {realtimedb } from "../../firebase";
+import { ref, onValue, set } from "firebase/database";
 import Cookies from "universal-cookie";
 
 
@@ -11,17 +10,13 @@ import Cookies from "universal-cookie";
 const HostLobby = () => {
 
   const navigate = useNavigate();
-  
-  // Look for a cookie that contains the game pin
-  // If it exists, use it
-  // If it doesn't, create a new game pin - fucking hell finaly got it to work woo
 
+  // Generate the game pin
   const cookies = new Cookies();
-  const gamePin = cookies.get("gamePin");
+  const gamePin = cookies.get("gamePin"); // Look for a cookie that contains the game pin. Do it only when component is mounted
   if (gamePin === undefined) {
-    const gamePin = Math.floor(Math.random() * 1000000); // Random 6 digit number
+    const gamePin = Math.floor(Math.random() * 1000000);   // Generating the gamePin
     cookies.set("gamePin", gamePin, { path: "/" });
-  }
 
   // Check if game pin exists in the database
   // If it does, do nothing
@@ -32,12 +27,16 @@ const HostLobby = () => {
     if (data[gamePin] === undefined) {
       console.log("Game pin does not exist");
       createGame();
-    } else {
-      console.log("Game pin exists");
+    } 
+
+    else {
+      console.log("Game pin exists"); // Pin collision. Generate a new pin.
+      const gamePin = Math.floor(Math.random() * 1000000); 
+      cookies.set("gamePin", gamePin, { path: "/" }); // Set the new pin as a cookie
+      createGame();
     }
   });
-
-  console.log("Game pin: " + gamePin);
+  }
 
   // Create a new game in the realtime db
   function createGame() {
@@ -46,15 +45,27 @@ const HostLobby = () => {
       [gamePin]: {
         gameState: "lobby",
         test: "test",
-        words: {0:0},
+        words: {0: "Hello", 1: "Wagwan", 2: "Bonjour"},
         curranswer: 0,
         currquestion: 0,
         timer: 0,
+        players: {
+          "player1": {
+            "name": "player1",
+            "score": 0,},
+          "player1": {
+            "name": "player1",
+            "score": 0},
+          "player1": {
+            "name": "player1",
+            "score": 0},
       },
-    });
+    }}
+    );
   }
 
-  // Set up realtime db features
+
+  // Dynamically change the number of players in the game
   const [count, setCount] = useState(0);
   // Subscribe to changes in the numpber of players in the game 
   useEffect(() => {

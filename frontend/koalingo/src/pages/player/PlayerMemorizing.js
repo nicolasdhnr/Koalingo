@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import EllipseIcon from "../components/EllipseIcon";
+import EllipseIcon from "../../components/EllipseIcon";
 import styles from "./playermemorizing.module.css";
 import { WordAnimation } from "../components/WordAnimation";
 
@@ -25,7 +25,7 @@ const PlayerMemorizing = () => {
 
   //TODO: Add on click return to home page
   const onLoginClick = useCallback(() => {
-    navigate("/web-1920-1"); // Dont know if we should keep this slide Kept it for now
+    navigate("/player/quizz"); // Dont know if we should keep this slide Kept it for now
   }, [navigate]);
 
   return (
