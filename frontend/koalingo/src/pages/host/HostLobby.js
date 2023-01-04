@@ -2,46 +2,37 @@ import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostlobby.module.css";
 import {realtimedb } from "../../firebase";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
 import {createGamePin} from  "./host_logic";
 import Players from "../../components/Players.js"
 const HostLobby = () => {
 
   const navigate = useNavigate();
-  const {gamePin, setGamePin}= useContext(AuthContext)
+  const {user, gamePin, setGamePin}= useContext(AuthContext)
   console.log(gamePin);
-
-  useEffect(() => {
-  setGamePin(createGamePin() != null ? createGamePin() : "");
-  // Dynamically change the number of players in the game
-  }, []);
-
-
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
-
-  // Subscribe to changes in the number of players in the game 
-  useEffect(() => {
-    const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
-    const unsubscribe = onValue(collectionRef, (snapshot) => {
-      const data = snapshot.val();
-      // console.log(data);
-      // Count the number of players in the game
-      if (data != null) {
-        setCount(Object.keys(data).length);
-        // console.log(count);
-        // Get the names of the players in the game
-        setPlayerNames(Object.keys(data).map((key) => data[key].name));
-      }
-     
-    }, []);
   
-    return () => {
-      unsubscribe();
-    }
-  }, []);
+  onDisconnect(ref(realtimedb, "games/" + gamePin)).set({});
 
+
+  useEffect(() => {
+  setGamePin(createGamePin(user) != null ? createGamePin(user) : "");
+  const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
+  const unsubscribe = onValue(collectionRef, (snapshot) => {
+    const data = snapshot.val();
+
+    // Count the number of players in the game
+    if (data != null) {
+      setCount(Object.keys(data).length);
+      // console.log(count);
+      // Get the names of the players in the game
+      setPlayerNames(Object.keys(data).map((key) => data[key].name));
+    }
+  });
+  // Dynamically change the number of players in the game
+  }, []);
 
 
     // Navigating to the timer page to change the game settings
