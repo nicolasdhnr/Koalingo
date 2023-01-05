@@ -1,242 +1,103 @@
-@keyframes scale-down-center {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-  to {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-  }
+.selectPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: white;
+  width: 100%;
+  height: 100%;
 }
-.web192011Child {
+.croppedEllipse {
   position: absolute;
-  top: -223px;
-  left: -496px;
-  width: 2870px;
-  height: 781px;
-}
-.allergiesPlanDeTravail11 {
-  position: absolute;
-  top: 14px;
-  left: 782px;
-  width: 315px;
-  height: 99px;
+  top: -18%;
+  width: 100%;
+  height: 65%;
   object-fit: cover;
+}
+.koalingoLogo {
+  position: absolute;
+  top: 1vh;
+  height:15vh;
   cursor: pointer;
 }
-.game123456 {
+.nameSetWrapper,
+.enterWordWrapper {
   position: absolute;
-  top: 113px;
-  left: 877px;
-  font-size: var(--font-size-3xs);
-  display: inline-block;
-}
-.food {
-  position: absolute;
-  top: calc(50% - 19.5px);
-  left: calc(50% - 34.5px);
-  display: none;
-}
-.startTheGame {
-  position: absolute;
-  top: 319px;
-  left: 766px;
-  border-radius: var(--br-lg);
-  background-color: var(--color-white);
-  width: 389px;
-  height: 75px;
-  font-size: var(--font-size-base);
-  color: var(--color-indigo-100);
-}
-.enterYourWord {
-  position: absolute;
-  top: calc(50% - 22.5px);
-  left: 40px;
-  font-weight: 600;
-  display: inline-block;
-}
-.groupChild {
-  width: calc(100% + 59.41px);
-  right: -59.41px;
-  bottom: -54.41px;
-  left: 0;
-  max-width: 100%;
-  overflow: hidden;
-  height: 125.41px;
-  opacity: 0.45;
-}
-.div,
-.groupChild,
-.groupItem {
-  position: absolute;
-}
-.groupItem {
-  height: calc(100% - 18px);
-  width: 100%;
-  top: 9px;
-  right: 0;
-  bottom: 9px;
-  left: 0;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.div {
-  top: 0;
-  left: calc(50% - 17.5px);
-  font-weight: 800;
-  display: inline-block;
-}
-.groupInner {
-  position: absolute;
-  top: calc(50% - 14px);
-  left: calc(50% - 9.5px);
-  width: 25px;
-  height: 29px;
-  display: none;
-}
-.ellipseGroup {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-.ellipseParent {
-  position: absolute;
-  height: calc(100% - 3px);
-  top: 0;
-  right: 43px;
-  bottom: 3px;
-  width: 69px;
-  font-size: 60px;
-  color: var(--color-white);
-}
-.enterYourWordParent,
-.groupInput {
-  position: absolute;
-  background-color: var(--color-white);
-}
-.groupInput {
-  border: 1px solid var(--color-gray-300);
-  top: 7px;
-  left: calc(50% - 75px);
-  border-radius: var(--br-3xs);
-  box-sizing: border-box;
-  width: 287px;
-  height: 63px;
-}
-.enterYourWordParent {
-  top: 625px;
-  left: 599px;
   border-radius: var(--br-md);
-  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-  width: 680px;
-  height: 87px;
-  color: var(--color-indigo-200);
+  display: flex;
+  align-items: center;
+  padding: 0vh 2vh;
+  font-family: var(--font-poppins);
+  font-weight: 200;
 }
-.nameYourSet {
+.enterWordWrapper {
+  background-color: white;
+  color: rgb(44, 44, 44);
+  flex-direction: row;
+  top: 50%;
+  width: 40vh;
+  height: 8vh;
+  box-shadow: 1px 20px 90px rgba(36, 26, 91, 0.16);
+  border: 0.4vh solid rgba(52, 52, 52, 0.188);
+  font-size: 2.4vh;
+}
+.nameSetWrapper {
+  color: rgb(255, 255, 255);
+  flex-direction: column;
+  top: 18%;
+  height: 40vh;
+  width: 25vh;
+  font-size: 2.7vh;
+}
+.setName {
   position: absolute;
-  top: 258px;
-  left: 863px;
-  display: inline-block;
-}
-.child {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: var(--br-md);
-  background-color: var(--color-gray-200);
-  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-}
-.eating1 {
-  margin: 0;
-}
-.eating {
-  position: absolute;
-  height: calc(100% - 41px);
-  width: calc(100% - 130px);
-  top: 21px;
-  left: 66px;
-  font-weight: 600;
-  display: inline-block;
-  border: 3px solid #0af112;
-
-}
-
-.listYourWordParent
-{
-  position: absolute;
-  top: 825px;
-  left: 66px;
-  width: calc(100% - 66px);
-}
-
-.repeatGrid8 {
-  position: absolute;
-  bottom: -23px;
-  left: -15px;
-  width: 1950px;
-  height: 368px;
-  font-size: var(--font-size-xs);
-  color: var(--color-indigo-200);
-}
-.path3 {
-  cursor: pointer;
+  top:12%;
   border: 0;
-  padding: 0;
-  background-color: var(--color-gold);
-  position: absolute;
-  top: 443.37px;
-  left: 829.12px;
-  width: 261.77px;
-  height: 58.27px;
-}
-.saveYourSet,
-.web192011 {
+  width: 120%;
+  height: 5vh;
+  border-radius: 80px;
   text-align: center;
-  
+  color:#585cee;
+  font-size: 2.5vh;
   font-family: var(--font-poppins);
 }
-.saveYourSet {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: gold;
+.wordInput {
+  font-family: var(--font-poppins);
+  font-size: 1.9vh;
+  border: 0.3vh solid rgba(43, 43, 43, 0.867);
+  border-radius: 0.7vh;
   position: absolute;
-  top: 457px;
-  left: 881px;
-  font-size: var(--font-size-2xs);
-  font-weight: 600;
-  color: var(--color-indigo-200);
-  display: inline-block;
-  border-radius: var(--br-xs)
+  right: 8.7vh;
+  width: 16.5vh;
+  height: 4vh;
 }
-.saveYourSet:active {
-  animation: 1s ease 0s infinite normal none scale-down-center;
-  opacity: 1;
+.buttonWrapper {
+  position:absolute;
+  width: 6.4vh;
+  height: 6.4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right:1.3vh;
 }
-.playersReadyToKoalearn {
+.circleBtn {
   position: absolute;
-  top: 686px;
-  left: 746px;
-  font-size: var(--font-size-xl);
-  font-weight: 800;
-  color: var(--color-white);
-  display: inline-block;
+  height: 5.5vh;
 }
-.web192011 {
-  position: relative;
-  background-color: var(--color-white);
-  width: 100%;
-  height: 1080px;
-  font-size: var(--font-size-sm);
-  color: var(--color-white);
+.cross{
+  position: absolute;
+  right:1.2vh;
+  width: 45%;
 }
 
+.cardWrapper {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1vh;
+  flex-direction: row;
+  top: 60%;
+  width: 90%;
+  height: 35%;
+}

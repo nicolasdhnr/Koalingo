@@ -2,7 +2,7 @@ import React from "react";
 import './button.css';
 import checkScreenSize from "../rectangleWrapper/CheckScreenSize";
 
-const STYLES = ['white', 'purple', 'gold','red','transparent']
+const STYLES = ['white', 'purple', 'gold','red','bgColor']
 
 const Button = ({
     btnText,
@@ -13,7 +13,7 @@ const Button = ({
         const getButtonStyle = STYLES.includes(btnStyle)
             ? btnStyle
             : STYLES[0];
-        const screenSize = checkScreenSize() ? 'portrait' : 'landscape';
+        const screenSize = checkScreenSize() ? 'btnPortrait' : 'btnLandscape';
 
     return (<button
             className = {`${getButtonStyle} ${screenSize} ${length}`}

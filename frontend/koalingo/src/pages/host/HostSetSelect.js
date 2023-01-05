@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/button/Button";
 import NewWord from "../../components/NewWord";
+import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 import WordsList from "../../components/WordList";
 import styles from "./hostsetselect.module.css";
 
@@ -16,52 +18,32 @@ const HostSetSelect = () => {
   }, [navigate]);
 
   return (
-    <div className={styles.web192011}>
-      <img className={styles.web192011Child} alt="" src="../../ellipse-21.svg" />
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../../koalingo_logo.svg"
-        onClick={onLogoClick}
-      />
-      <div className={styles.startTheGame}>
-        <b className={styles.food}>Food</b>
+    <div className={styles.selectPage}>
+      <img className={styles.croppedEllipse} alt="" src="../../ellipse-21.svg" /> 
+      <img className={styles.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick}/> 
+      <div className={styles.nameSetWrapper}>
+          <div>Name your set:</div>
+          <input className={styles.setName} type="text" placeholder="daily phrases"/>
+          <br></br>
+          <br></br>
+          <Button btnText='Save your set' onClick={onSaveYourSetClick}
+                  btnStyle='gold'/>
       </div>
-      <div className={styles.enterYourWordParent}>
-        <div className={styles.enterYourWord}>Enter your word:</div>
-        <div className={styles.ellipseParent}>
-          <img className={styles.groupChild} alt="" src="../../ellipse-42.svg" />
-          <div className={styles.ellipseGroup}>
-            <img className={styles.groupItem} alt="" src="../../ellipse-31.svg" />
-            <div className={styles.div}>+</div>
-            <img className={styles.groupInner} alt="" src="../../polygon-11.svg" />
-          </div>
+      <div className={styles.enterWordWrapper}>
+        <div>Enter word:</div>
+        <input className={styles.wordInput} type="text" placeholder=" 'How are you?'"/>
+        <div className={styles.buttonWrapper}>
+          <img className={styles.circleBtn} alt="" src="../../ellipse-31.svg" />
+          <img className={styles.cross} alt="" src="../../polygon-11.svg" />
         </div>
-        {/* <input
-          className={styles.groupInput}
-          type="text"
-          placeholder=" 'How are you?'"
-        /> */}
-        <NewWord />
       </div>
-
-      <div > 
-        <WordsList />
-      </div> 
-
-      <b className={styles.nameYourSet}>Name your set:</b>
-      {/* <div className={styles.repeatGrid8}>
-        <div className={styles.div1}>
-          <div className={styles.child} />
-          <div className={styles.eating}>
-            <p className={styles.eating1}>Eating</p>
-          </div>
-        </div>
-      </div> */}
-      <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
-        Save your set
-      </button>
-
+      <div className={styles.cardWrapper}>
+        <RecWrapper shading='shaded' children1='how are you' size='small'></RecWrapper>
+        <RecWrapper shading='shaded' children1='better' size='small'></RecWrapper>
+        <RecWrapper shading='shaded' children1='hearing' size='small'></RecWrapper>
+        <RecWrapper shading='shaded' children1='happy' size='small'></RecWrapper>
+        <RecWrapper shading='shaded' children1='sad' size='small'></RecWrapper>
+      </div>
     </div>
   );
 };

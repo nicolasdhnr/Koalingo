@@ -54,7 +54,7 @@ const Login = () => {
     <div className={styles.loginPage}>
       <div className={styles.headerWrapper}>
         <Button btnText='Accessibility'
-                btnStyle='red' length='short'/>
+                btnStyle='red' length='btnShort'/>
       </div>
       <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
@@ -63,10 +63,10 @@ const Login = () => {
         <Button btnText='Google login' onClick={onLoginWithGoogleClick}
                 btnStyle='white'/>
         <Button btnText='Register' onClick={onRegisterButton1Click}
-                btnStyle='purple' />
+                btnStyle='bgColor'/>
                 <p></p>
         <Button btnText='Continue as guest' onClick={signInAnon}
-                btnStyle='gold' length='long' />
+                btnStyle='gold' length='btnLong' />
       </div>
   </div>
   )
