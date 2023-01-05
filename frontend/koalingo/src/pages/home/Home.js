@@ -36,7 +36,7 @@ const Home = () => {
       if (data[gamePinEntered.toString()] !== undefined) {
         console.log("Game pin exists");
         setGamePin(gamePinEntered.toString())
-        navigate("/waiting");
+        navigate("/player/customise");
         
       } else {
         alert("Game pin does not exist");
@@ -66,7 +66,7 @@ const Home = () => {
       <div className={styles.mainWrapper}>
         <RecWrapper
           children1={<input className={styles.enter} type="text"
-                      nKeyPress={(event) => {
+                      onKeyPress={(event) => {
                         if (!/[0-9]/.test(event.key)) {
                         event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
                         }
