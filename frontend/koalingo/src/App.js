@@ -44,6 +44,10 @@ export const AuthContext = createContext({
   setHost : () => {},
   gamePin : "", 
   setGamePin :  () => {},
+  seconds : 0,
+  setSeconds : () => {},
+  minutes : 0,
+  setMinutes : () => {}
 });
 
 
@@ -70,12 +74,16 @@ function App() {
 
   // Create state to track game pin
   const [gamePin, setGamePin] = useState(0);
+  const [minutes, setMinutes] = useState(5);
+  const [seconds, setSeconds] = useState(0);
 
   
 
   return (
     <div >
-    <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, setGamePin, setNewWord, setAllWords}}>
+    {user &&  <button onClick={logout}>Logout</button>}
+    
+    <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, minutes, seconds, setGamePin, setNewWord, setAllWords, setMinutes, setSeconds}}>
     <Routes>
       {/* <Route index element={<Login />} /> */}
       <Route index path="/" element={<Login />} />

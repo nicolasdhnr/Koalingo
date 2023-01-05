@@ -56,6 +56,21 @@
   font-size: var(--font-size-xl);
   color: var(--color-white);
 }
+
+.timerInput{
+  text-align: center;
+  color: var(--color-indigo-100);
+  font-weight: 600;
+  font-size: 45px;
+  font-family: var(--font-poppins);
+  border:2px solid transparent;
+  background-color: transparent;
+  border-radius: var(--br-sm);
+  background-color: var(--color-white);
+  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
+  width: 100px;
+  height: 87px;
+}
 .startTheGame {
   position: absolute;
   top: 273px;
@@ -156,18 +171,14 @@
 }
 .b {
   top: calc(50% - 27.5px);
-  left: calc(50% - 26px);
+  left: calc(50% - 55px);
   display: inline-block;
 }
 .wrapper {
   top: 335px;
   left: 772px;
-  border-radius: var(--br-sm);
-  background-color: var(--color-white);
-  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-  width: 166px;
-  height: 87px;
-}
+  width: 400px;
+  color: var(--color-white);}
 .b1,
 .b2 {
   position: absolute;

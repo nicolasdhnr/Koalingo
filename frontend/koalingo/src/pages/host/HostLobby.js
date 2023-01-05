@@ -7,10 +7,12 @@ import { AuthContext } from "../../App";
 import {createGamePin, updateGameState} from  "./host_logic";
 import Players from "../../components/Players.js"
 
+
+
 const HostLobby = () => {
 
   const navigate = useNavigate();
-  const {user, gamePin, setGamePin}= useContext(AuthContext)
+  const {user, gamePin, setGamePin, seconds, setSeconds, minutes, setMinutes }= useContext(AuthContext)
   console.log(gamePin);
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
@@ -47,12 +49,21 @@ const HostLobby = () => {
 
     // Navigating to the timer page to change the game settings
   const onTimerButtonClick = useCallback(() => {
+    navigate("/host/set/timer");
   }, [navigate]);
 
   const onStartTheGame1Click = useCallback(() => {
     navigate("/host/progress-tracker");
   }, [navigate]);
 
+  const handleMinChange = (event) => {
+    setMinutes(event.target.value != null ? event.target.value : 5) ;
+    setGamePin(createGamePin() != null ? createGamePin() : "");
+  }
+
+  const handleSecChange = (event) => {
+    setSeconds(event.target.value != null ? event.target.value : 0);
+  }
   return (
     <div className={styles.web19204}>
       <div className={styles.web19204Child} />
@@ -62,10 +73,10 @@ const HostLobby = () => {
         src="../koalingo-logo.svg"
       />
       <b className={styles.game123456}>Game #{gamePin}</b>
-      <div className={styles.startTheGame} onClick={onStartTheGame1Click}>
+      <div className={styles.startTheGame}>
         <button
           className={styles.startTheGameChild}
-          onClick={onTimerButtonClick}
+          onClick={onStartTheGame1Click}
         />
         <img className={styles.startTheGameItem} alt="" src="../group-34.svg" />
         <b className={styles.startTheGame1}>Start the game</b>
@@ -79,11 +90,19 @@ const HostLobby = () => {
         {count} players ready to Koalearn
       </div>
       <div className={styles.wrapper}>
-        <b className={styles.b}>05</b>
-      </div>
-      <div className={styles.parent}>
-        <b className={styles.b1}>00</b>
-        <b className={styles.b2}>:</b>
+          <input className={styles.timerInput}
+            type="number"
+            min="0" max="59"
+            placeholder="Min"
+            onChange={handleMinChange}
+            /> 
+            {" : "}
+      <input className={styles.timerInput}
+            type="number"
+            min="0" max="59"
+            placeholder="Sec"
+            onChange={handleSecChange}
+            /> 
       </div>
       <Players players={playerNames}/>
       <div>
