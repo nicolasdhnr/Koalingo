@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {AuthContext} from '../App';
-
+import { checkIfWordIsAvailable } from "../pages/host/host_logic";
 export default function NewWord() {
   const {newWord, allWords, setAllWords, setNewWord} = useContext(AuthContext);
 
@@ -11,11 +11,17 @@ export default function NewWord() {
     console.log(newWord);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    if (await checkIfWordIsAvailable(newWord.title)) {
     if (!newWord.title) return;
     setAllWords((prev) => [newWord, ...prev]);
     setNewWord({});
+    return;
+    }
+
+    alert("This word had not yet been animated! Please consult our list of words.")
+    return; 
   };
 
   return (

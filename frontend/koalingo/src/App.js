@@ -26,7 +26,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useCallback, createContext } from "react";
 import {logout} from "./firebase";
-
+import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
 
 //TODO: ADD Meta Tags
@@ -91,13 +91,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/web-1920-1" element={<Web19201 />} />
         <Route path="/waiting" element={<Waiting />} />
+        <Route path="/host/available-words" element={<AvailableWords />} />
+       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
       </Route>
 
-      <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
       <Route path="/host/lobby" element={<HostLobby />} />
       <Route path="/home" element={<Home />} />
       <Route path="/web-1920-1" element={<Web19201 />} />
-      <Route path="/host/set/select_words" element={<SetWordContext />} /> 
+
 
       <Route path="*" element={<h1> Page not Found </h1>} />
 

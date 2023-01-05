@@ -1,27 +1,64 @@
-import { useCallback } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EllipseIcon from "../../components/EllipseIcon";
 import styles from "./playermemorizing.module.css";
-import { WordAnimation } from "../../components/WordAnimation";
+import Carousel from "../../components/WordAnimation";
+import { realtimedb, db } from "../../firebase";
+import { ref, onValue, set, onDisconnect } from "firebase/database";
+import { AuthContext } from "../../App";
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 
 const PlayerMemorizing = () => {
+  const {gamePin} = useContext(AuthContext);
+  const [word, setWord] = useState([]); 
+  const [urls, setUrls] = useState([]);
+  useEffect(() => {
+    // I need to take the words in the session. Then access firestore database for those words and get the urls if they exist
+    const collectionRef = ref(realtimedb, "games/" + gamePin + "/words");
+    return onValue(collectionRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data != null) {
+        // Only keep the keys 
+        const words = Object.keys(data).map((key) => key);
+        console.log(words);
+        setWord(words);
+      }
+    });
+  
+  }, [setWord, gamePin]);
+
+  useEffect(() => {
+    // Access the firestore database and get the urls for which the key matches the word.
+    if (word != []){
+    const db = getFirestore();
+    const q = query(collection(db, "words"));
+    const getUrls  = async () => {
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+        // Look in the data to filter only the words that are in the word state, then get the associated value
+        const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]);
+        console.log("urls => ", urls);
+        setUrls(urls);
+      });
+    }
+    getUrls();
+
+  }
+}, [word]);
+
   const navigate = useNavigate();
 
-  const onGroupButton1Click = useCallback(() => {
-    // navigate("/web-1920-6");
-  }, [navigate]);
-
-  const onRightButtonClick = useCallback(() => {
-    // navigate("/web-1920-6");
-      // TODO : Change slide
-
-  }, [navigate]);
-
-  const onLeftButtonCLick = useCallback(() => {
-    //navigate("/web-1920-7");
-  // TODO : Change slide
-
-  }, [navigate]);
 
   //TODO: Add on click return to home page
   const onLoginClick = useCallback(() => {
@@ -33,26 +70,23 @@ const PlayerMemorizing = () => {
       {/* <div className={styles.web19202Child} /> */}
       <img className={styles.web19202Item} alt="" src="../ellipse-2.svg" />
       <div className={styles.web19202Inner}> 
-        <WordAnimation />
       </div>
       <img className={styles.ellipseIcon} alt="" src="../ellipse-1.svg" />
-      {<img
-        className={styles.sansTitre11}
-        alt=""
-        src="../sans-titre-11@2x.png"
-      />}
-      <div className={styles.hello}>
-        Hello
-        <button onClick={() => navigate('/host/set/select')}>Go Back to selection</button>
-      </div>
-      <button className={styles.ellipseParent} onClick={onRightButtonClick}>
+     
+      <Carousel urls={urls} words={word} className={styles.div}/>
+
+      
+      
+      <button className={styles.ellipseParent}>
+      
         <img className={styles.groupChild} alt="" src="../ellipse-4.svg" />
-        <button className={styles.ellipseGroup} onClick={onGroupButton1Click}>
+        <button className={styles.ellipseGroup}>
+        
           <EllipseIcon />
           <img className={styles.groupItem} alt="" src="../polygon-1.svg" />
         </button>
       </button>
-      <button className={styles.ellipseContainer} onClick={onLeftButtonCLick}>
+      <button className={styles.ellipseContainer}>
         <img className={styles.groupInner} alt="" src="../ellipse-4.svg" />
         <img className={styles.groupIcon} alt="" src="../group-11.svg" />
       </button>
@@ -60,11 +94,12 @@ const PlayerMemorizing = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../allergies-plan-de-travail-1-1@2x.png"
+        src="../koalingo_logo.svg"
       />
       <button className={styles.login} onClick={onLoginClick}>
         <div className={styles.home}>Home</div>
       </button>
+      
     {/* <WordAnimation styles={styles.sansTitre11}/> */}
     </div>
   );

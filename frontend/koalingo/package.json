@@ -21,8 +21,10 @@
         "react-redux": "^8.0.5",
         "react-router-dom": "^6.2.1",
         "react-scripts": "5.0.1",
+        "react-swipe": "^6.0.4",
         "react-type-animation": "^2.1.2",
         "reactfire": "^4.2.2",
+        "swipe-js-iso": "^2.1.5",
         "universal-cookie": "^4.0.4",
         "web-vitals": "^2.1.2",
         "yup": "^0.32.11"

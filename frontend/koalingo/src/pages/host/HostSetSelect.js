@@ -24,7 +24,6 @@ const HostSetSelect = () => {
         src="../../koalingo_logo.svg"
         onClick={onLogoClick}
       />
-      <b className={styles.game123456}>Game #123-456</b>
       <div className={styles.startTheGame}>
         <b className={styles.food}>Food</b>
       </div>
