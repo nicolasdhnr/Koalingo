@@ -1,14 +1,31 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostprogresstracker.module.css";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import { PlayerTracking } from "../../components/Players";
+import { AuthContext } from "../../App";
+import { ref, onValue } from "firebase/database";
+import { realtimedb } from "../../firebase";
+
+
 
 const HostProgressTracker = () => {
   const navigate = useNavigate();
-  
+  const {gamePin}= useContext(AuthContext)
 // Just as in the Lobby, we want to scubscribe to changes in the player list and player reported number of memorized words.
+const [playerData, setPlayerData] = useState({});
 
+// Ge t
+
+// Create a game pin and create the game in the database.
+useEffect( () => {
+return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
+    const data = snapshot.val();
+    setPlayerData(data);
+    // Get all the name components within data into an array 
+    const playerNames = Object.keys(data).map((key) => data[key].name);
+    console.log(playerNames);
+  });
+}, [gamePin, setPlayerData]);
   
   const onRectangleButtonClick = useCallback(() => {
     navigate("/player/welcome");
@@ -26,8 +43,10 @@ const HostProgressTracker = () => {
         alt=""
         src="../koalingo_logo.svg"
       />
-      <b className={styles.game123456}>Game #123-456</b>
-      
+      <b className={styles.game123456}>Game #{gamePin}</b>
+      <div>
+        <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)} reported={Object.keys(playerData).map((key) => playerData[key].reported)} />
+      </div>
       <button
         className={styles.web19205Item}
         onClick={onRectangleButtonClick}

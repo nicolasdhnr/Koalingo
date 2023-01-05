@@ -14,7 +14,7 @@ const HostLobby = () => {
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
   
-  onDisconnect(ref(realtimedb, "games/" + gamePin)).set({});
+  
 
 
   // Create a game pin and create the game in the database.
@@ -74,6 +74,9 @@ const HostLobby = () => {
         <img className={styles.startTheGameItem} alt="" src="../group-34.svg" />
         <b className={styles.startTheGame1}>Start the game</b>
         <b className={styles.setTimer}>Set timer</b>
+      </div>
+      <div>
+        <Players players={playerNames}/>
       </div>
      
       <div className={styles.playersReadyToKoalearn}>

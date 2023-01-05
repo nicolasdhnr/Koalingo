@@ -1,17 +1,10 @@
 // Encapsulates all logic relating to hosting game
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
-import { ref, onValue, set, update} from "firebase/database";
+import { ref, onValue, set, update, get} from "firebase/database";
 import { realtimedb } from "../../firebase";;
 import { AuthContext } from "../../App";
 import { useContext } from "react";
-
-/**
- * [bar description]
- * @param  {[type]} foo [description]
- * @return {[type]}     [description]
- */
-
 
 
  // Generate the game pin, update the context provider with the gamePin
@@ -25,6 +18,12 @@ export const createGamePin = async (user) => {
  return gamePin;
 };
 
+export const updateGameState = async (gamePin, state) => {
+  const reference = ref(realtimedb, "games/" + gamePin);
+  await update(reference, {
+    gameState: state
+  });
+};
 
 export const  createGame = async (gamePin, user) => {
     const reference = ref(realtimedb, "games");
@@ -37,13 +36,17 @@ export const  createGame = async (gamePin, user) => {
         currquestion: 0,
         timer: 0,
         players: {
-            [user.uid]: { name: "host"}
+            [user.uid]: { name: "host",
+                          reported: 0,      
+          }
 
     }}
 }
 
     );
   };
+
+
 
 
 
