@@ -21,8 +21,8 @@
   align-items: center;
   position: absolute;
   top: 43%;
-  width: 25vh;
-  height: 500px;
+  width: 30vh;
+  height: 55%;
 }
 .headerWrapper {
   display: flex;
@@ -31,8 +31,6 @@
   align-items: center;
   position:absolute;
   top:0;
-  padding-left: 5vw;
-  padding-top: 1vh;
   height: 10vh;
-  width: 100vw;
+  width: 100%;
 }
