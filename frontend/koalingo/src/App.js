@@ -13,13 +13,12 @@ import PlayerMemorizing from "./pages/player/PlayerMemorizing";
 import SetTimer from "./pages/host/SetTimer";
 import HostSetSelect from "./pages/host/HostSetSelect";
 import PlayerQuizz from "./pages/player/PlayerQuizz";
-import PlayerWelcome from "./pages/player/PlayerWelcome";
 import HostProgressTracker from "./pages/host/HostProgressTracker";
 import HostLobby from "./pages/host/HostLobby";
 import Login from "./pages/home/Login";
 import EmailLogin from "./pages/home/EmailLogin";
 import Waiting from "./pages/player/Waiting";
-import Register from "./pages/home/Register-2";
+import Register from "./pages/home/Register";
 import { ProtectedRoute } from "./routes/ProtectedRoute";
 import Web19201 from "./pages/Web19201";
 import { useContext, useEffect, useState } from "react";
@@ -27,7 +26,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useCallback, createContext } from "react";
 import {logout} from "./firebase";
-
+import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
 
 //TODO: ADD Meta Tags
@@ -83,24 +82,23 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<EmailLogin />} />
       <Route element={<ProtectedRoute user={user} />}>
-        <Route path="/player/welcome" element={<PlayerWelcome />} />
         <Route path="/host/set/timer" element={<SetTimer />} />
         <Route path="/host/set/select" element={<HostSetSelect />} />
         <Route path="/player/quizz" element={<PlayerQuizz />} />
-        <Route path="/player/welcome" element={<PlayerWelcome />} />
         <Route path="/player/memorizing" element={< PlayerMemorizing/>} />
         <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
         <Route path="/host/lobby" element={<HostLobby />} />
         <Route path="/home" element={<Home />} />
         <Route path="/web-1920-1" element={<Web19201 />} />
         <Route path="/waiting" element={<Waiting />} />
+        <Route path="/host/available-words" element={<AvailableWords />} />
+       <Route path="/host/set/select_words" element={<SetWordContext />} /> 
       </Route>
 
-      <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
       <Route path="/host/lobby" element={<HostLobby />} />
       <Route path="/home" element={<Home />} />
       <Route path="/web-1920-1" element={<Web19201 />} />
-      <Route path="/host/set/select_words" element={<SetWordContext />} /> 
+
 
       <Route path="*" element={<h1> Page not Found </h1>} />
 

@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./register_2.module.css";
+import styles from "./register.module.css";
 import { logInWithEmailAndPassword  } from "../../firebase";
 import { AuthContext } from "../../App";
 import * as yup from 'yup';

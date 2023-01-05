@@ -3,40 +3,46 @@ import React, { useCallback, useEffect, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import {TypeAnimation} from 'react-type-animation'
 import koala from './koala.gif';
-import { ref, update, remove, onDisconnect } from "firebase/database";
+import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
 import { AuthContext } from '../../App';
 import { realtimedb } from "../../firebase";
 
 const Waiting = () => {
+  const navigate = useNavigate();
   const {gamePin, user} = useContext(AuthContext);
-  console.log(gamePin)
+
   const steps = [
     'Waiting', 1000,
     'For', 1000,
     'Your teacher 👌', 1000
   ];
-  onDisconnect(ref(realtimedb, `games/${gamePin}/players/${user.uid}`)).set({});
+
+  // onDisconnect(ref(realtimedb, `games/${gamePin}/players/${user.uid}`)).set({});
   
   useEffect( () => {  
     // Add user ID to the list of players in the game while keepig previouslist intact
     update(ref(realtimedb, "games/" + gamePin + "/players"), {
-      [user.uid]: {name: "Nicolas"
+      [user.uid]: {name: "Nicolas",
+      reported:0,
     }
+    }), [];
+
+    return onValue(ref(realtimedb, "games/" + gamePin + "gameState"), (snapshot) => {
+      const data = snapshot.val();
+      if (data != null) {
+        console.log(data);
+        if (data === "memorizing") {
+          navigate("/player/memorizing");
+        }
+      }
     });
-  
-    return () => {
-      // Remove user ID from the list of players in the game
-      remove(ref(realtimedb, "games/" + gamePin + "/players/" + user.uid));
-    }
-
-  }, []);
+  }, [navigate]);
 
 
-  const navigate = useNavigate()
 
-  const onClickNavigate = useCallback(() => {
-    navigate("/player/quizz");
-   }, [navigate]);
+  const onClickNavigate = () => {
+    navigate("/player/memorizing");
+   };
   
     return (
       <div className={styles.page}>
@@ -46,6 +52,7 @@ const Waiting = () => {
        <TypeAnimation wrapper="div" sequence={steps} repeat={Infinity} cursor={true} className={'caca'} />
        </div>
       </div>
+      <button className={styles.button} onClick={onClickNavigate}>Dev: To next page</button>
       </div>
     );
   };

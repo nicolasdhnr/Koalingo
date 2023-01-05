@@ -5,7 +5,7 @@ import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
 import { realtimedb } from "../../firebase";
-
+import { updateGameState } from "./host_logic";
 
 
 const HostProgressTracker = () => {
@@ -23,12 +23,12 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     setPlayerData(data);
     // Get all the name components within data into an array 
     const playerNames = Object.keys(data).map((key) => data[key].name);
-    console.log(playerNames);
   });
 }, [gamePin, setPlayerData]);
   
-  const onRectangleButtonClick = useCallback(() => {
-    navigate("/player/welcome");
+  const onRectangleButtonClick = useCallback(async () => {
+    await updateGameState(gamePin, "memorizing");
+  
   }, [navigate]);
 
   const onLoginClick = useCallback(() => {

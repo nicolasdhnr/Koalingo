@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./register_2.module.css";
+import styles from "./register.module.css";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';

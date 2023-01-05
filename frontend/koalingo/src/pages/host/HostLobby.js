@@ -6,6 +6,7 @@ import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
 import {createGamePin, updateGameState} from  "./host_logic";
 import Players from "../../components/Players.js"
+
 const HostLobby = () => {
 
   const navigate = useNavigate();
@@ -46,14 +47,9 @@ const HostLobby = () => {
 
     // Navigating to the timer page to change the game settings
   const onTimerButtonClick = useCallback(() => {
-    navigate("/set/timer");
   }, [navigate]);
 
-  const onStartTheGame1Click = useCallback(async () => {
-    await updateGameState(gamePin, "memorizing");
-
-
-
+  const onStartTheGame1Click = useCallback(() => {
     navigate("/host/progress-tracker");
   }, [navigate]);
 

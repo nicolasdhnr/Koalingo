@@ -21,14 +21,14 @@ const HostSetSelect = () => {
     <div className={styles.selectPage}>
       <img className={styles.croppedEllipse} alt="" src="../../ellipse-21.svg" /> 
       <img className={styles.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick}/> 
-        <div className={styles.nameSetWrapper}>
+      <div className={styles.nameSetWrapper}>
           <div>Name your set:</div>
           <input className={styles.setName} type="text" placeholder="daily phrases"/>
           <br></br>
           <br></br>
           <Button btnText='Save your set' onClick={onSaveYourSetClick}
                   btnStyle='gold'/>
-        </div>
+      </div>
       <div className={styles.enterWordWrapper}>
         <div>Enter word:</div>
         <input className={styles.wordInput} type="text" placeholder=" 'How are you?'"/>
