@@ -16,7 +16,7 @@ const HostLobby = () => {
   console.log(gamePin);
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
-  
+  console.log(user);
   
 
 
@@ -28,7 +28,8 @@ const HostLobby = () => {
         setGamePin(pin);
       }
     }
- createPin(user);
+  createPin(user);
+
 
   const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
   
@@ -44,13 +45,9 @@ const HostLobby = () => {
     }
   });
   // Dynamically change the number of players in the game
-  }, [gamePin, setGamePin, setCount, setPlayerNames]);
+  }, [gamePin, setGamePin, setCount, setPlayerNames, user]);
 
-
-    // Navigating to the timer page to change the game settings
-  const onTimerButtonClick = useCallback(() => {
-    navigate("/host/set/timer");
-  }, [navigate]);
+  // Navigating to the timer page to change the game settings
 
   const onStartTheGame1Click = useCallback(() => {
     navigate("/host/progress-tracker");
@@ -58,7 +55,6 @@ const HostLobby = () => {
 
   const handleMinChange = (event) => {
     setMinutes(event.target.value != null ? event.target.value : 5) ;
-    setGamePin(createGamePin() != null ? createGamePin() : "");
   }
 
   const handleSecChange = (event) => {
@@ -70,7 +66,7 @@ const HostLobby = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../koalingo-logo.svg"
+        src="../koalingo_logo.svg"
       />
       <b className={styles.game123456}>Game #{gamePin}</b>
       <div className={styles.startTheGame}>
