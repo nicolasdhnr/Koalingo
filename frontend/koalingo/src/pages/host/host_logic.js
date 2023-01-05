@@ -1,7 +1,7 @@
 // Encapsulates all logic relating to hosting game
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, set, update} from "firebase/database";
 import { realtimedb } from "../../firebase";;
 import { AuthContext } from "../../App";
 import { useContext } from "react";
