@@ -33,7 +33,6 @@
 }
 .purple {
     background-color: #585cee;
-    border: 3px solid var(--color-white);
     color: var(--color-white);
 }
 .purple:hover {
