@@ -50,15 +50,16 @@ const Login = () => {
     <div className={styles.loginPage}>
       <div className={styles.headerWrapper}>
         <Button btnText='Accessibility'
-                btnStyle='red' short={true}/>
+                btnStyle='red' length='short'/>
       </div>
       <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
         <Button btnText='Sign in' onClick={onLoginButtonClick} />
         <Button btnText='Register' onClick={onRegisterButton1Click}
                 btnStyle='purple' />
+                <p></p>
         <Button btnText='Continue as guest' onClick={signInAnon}
-                btnStyle='gold' long={true} />
+                btnStyle='gold' length='long' />
       </div>
   </div>
   )

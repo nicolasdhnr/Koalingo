@@ -1,11 +1,16 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./home.module.css";
+import styles1 from "./login.module.css"
 import { realtimedb } from "../../firebase";
 import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { AuthContext } from "../../App";
+import RecWrapper from "../../components/rectangleWrapper/Wrapper";
+import Button from "../../components/button/Button";
+import "../../App"
+import {logout} from "../../firebase";
 
 // Home
 const Home = () => {
@@ -19,7 +24,6 @@ const Home = () => {
   const handleTextChange = (event) => {
     setGamePinEntered(event.target.value);
   };
-
 
   const checkGamePinOnSubmit = (event) => {
     console.log("Game pin entered:" + gamePinEntered);
@@ -42,12 +46,9 @@ const Home = () => {
       }
     }
     );
-
   };
 
-    
   const onEnterButtonClick = useCallback(() => {
-
     navigate("/player/welcome");
   }, [navigate]);
 
@@ -56,45 +57,34 @@ const Home = () => {
     navigate("/host/set/select");
   }, [navigate]);
 
-  // const onGoToSelectClick = () => navigate('/host/set/select_words')
-  const onGoToSelectClick = () => navigate('/host/set/select')
-
   return (
-    <div className={styles.web19203}>
-      <div className={styles.web19203Child} />
-      <div className={styles.rectangleParent}>
-        <button
-          className={styles.groupChild}
-          autoFocus
-          onClick={checkGamePinOnSubmit}
-        />
-        <b className={styles.enter}>Enter</b>
+    <div className={styles1.loginPage}>
+      <div className={styles1.headerWrapper}>
+        {user && <Button btnText='Sign out' onClick={logout}
+                  btnStyle='red' length='short'/>}
       </div>
-      <input
-        className={styles.web19203Item}
-        type="text"
-        onKeyPress={(event) => {
-          if (!/[0-9]/.test(event.key)) {
-            event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
-          }
-        }} 
-        placeholder="Enter Game PIN here!"
-        value={gamePinEntered}
-        onChange={handleTextChange}
-      />
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="/koalingo-logo.png" // This is not uploading
-      />
-      <button className={styles.createAGame} onClick={onCreateAGameClick}>
-        Create a game
-      </button>
-      <br></br>
-      <br></br>
-      <button className={styles.navToSelect} onClick={onGoToSelectClick}>Go to word select dev page</button>
+      <img className={styles1.koalingoLogo} alt='' src='../koalingo_logo.svg' />
+      <div className={styles.mainWrapper}>
+        <RecWrapper
+          children1={<input className={styles.enter} type="text"
+                      nKeyPress={(event) => {
+                        if (!/[0-9]/.test(event.key)) {
+                        event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
+                        }
+                      }} 
+                      placeholder="Enter Game PIN here!"
+                      value={gamePinEntered}
+                      onChange={handleTextChange}
+                    />}
+          children2={<Button btnText='Submit' onClick={checkGamePinOnSubmit}
+                      btnStyle='purple'/>}
+          />
+        <p></p>
+        <Button btnText='Create a Game' onClick={onCreateAGameClick}
+                btnStyle='gold' length='long'/>
+      </div>
     </div>
-  );
+  )
 };
 
 export default Home;

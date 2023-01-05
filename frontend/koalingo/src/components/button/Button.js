@@ -1,28 +1,22 @@
 import React from "react";
-import './Button.css';
-import { isMobile } from 'react-device-detect';
+import './button.css';
+import checkScreenSize from "../rectangleWrapper/CheckScreenSize";
 
-const STYLES = ['white', 'purple', 'gold','red']
+const STYLES = ['white', 'purple', 'gold','red','transparent']
 
 const Button = ({
     btnText,
     onClick,
     btnStyle,
-    long,
-    short
+    length
     }) => {
         const getButtonStyle = STYLES.includes(btnStyle)
             ? btnStyle
             : STYLES[0];
-        const mode = isMobile ? 'mobile' : 'web';
-        const length = (isMobile && long) ? 'mobileLong'
-                        : (!isMobile && long) ? 'webLong'
-                        : (isMobile && short) ? 'mobileShort'
-                        : (!isMobile && short) ? 'webShort'
-                        : 'web';
+        const screenSize = checkScreenSize() ? 'portrait' : 'landscape';
 
     return (<button
-            className = {`${getButtonStyle} ${length} ${mode}`}
+            className = {`${getButtonStyle} ${screenSize} ${length}`}
             onClick={onClick}
             >
             {btnText}
