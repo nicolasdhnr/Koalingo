@@ -1,6 +1,6 @@
 .landscape,
 .portrait {
-    border-radius: 50px;
+    border-radius: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -58,8 +58,10 @@ const Login = () => {
       </div>
       <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.buttonWrapper}>
-        <Button btnText='Sign in with Email' onClick={onLoginWithEmailClick} />
-        <Button btnText='Sign in with Google' onClick={onLoginWithGoogleClick} />
+        <Button btnText='Email login' onClick={onLoginWithEmailClick} 
+                btnStyle='white'/>
+        <Button btnText='Google login' onClick={onLoginWithGoogleClick}
+                btnStyle='white'/>
         <Button btnText='Register' onClick={onRegisterButton1Click}
                 btnStyle='purple' />
                 <p></p>

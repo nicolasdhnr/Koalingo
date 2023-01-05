@@ -9,7 +9,7 @@
 }
 .koalingoLogo {
   position: absolute;
-  top: 18vh;
+  top: 16vh;
   width: 90%;
   height: 25%
 }
@@ -19,7 +19,7 @@
   justify-content: top;
   align-items: center;
   position: absolute;
-  top: 45%;
+  top: 43%;
   width: 25vh;
   height: 500px;
 }
