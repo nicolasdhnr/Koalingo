@@ -27,6 +27,13 @@ export function createGamePin () {
  
 }
 
+export function updateGameState(gamePin, gameState) {
+  const reference = ref(realtimedb, "games/" + gamePin);
+  update(reference, {
+    gameState: gameState,
+  });
+}
+
 export function createGame(gamePin) {
     const reference = ref(realtimedb, "games");
 
