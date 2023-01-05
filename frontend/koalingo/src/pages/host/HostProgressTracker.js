@@ -1,18 +1,31 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostprogresstracker.module.css";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { PlayerTracking } from "../../components/Players";
+import { AuthContext } from "../../App";
+import { ref, onValue } from "firebase/database";
+import { realtimedb } from "../../firebase";
+
 
 
 const HostProgressTracker = () => {
   const navigate = useNavigate();
-  // Create a unique 6 digit ID associated with the specific user 
-  // const [gameID, setGameID] = useState("");
-  // const [user, loading, error] = useAuthState(auth);
+  const {gamePin}= useContext(AuthContext)
+// Just as in the Lobby, we want to scubscribe to changes in the player list and player reported number of memorized words.
+const [playerData, setPlayerData] = useState({});
 
-  // const onContinueAsGuestClick = useCallback(() => {
-  //   navigate("/home");
-  //   // TODO/ Add anonymous sign in function here
+// Ge t
+
+// Create a game pin and create the game in the database.
+useEffect( () => {
+return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
+    const data = snapshot.val();
+    setPlayerData(data);
+    // Get all the name components within data into an array 
+    const playerNames = Object.keys(data).map((key) => data[key].name);
+    console.log(playerNames);
+  });
+}, [gamePin, setPlayerData]);
   
   const onRectangleButtonClick = useCallback(() => {
     navigate("/player/welcome");
@@ -28,58 +41,11 @@ const HostProgressTracker = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../allergies-plan-de-travail-1-1@2x.png"
+        src="../koalingo_logo.svg"
       />
-      <b className={styles.game123456}>Game #123-456</b>
-      <div className={styles.repeatGrid10}>
-        <div className={styles.groupParent}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupContainer}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupDiv}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupParent1}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupParent2}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupParent3}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupParent4}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
-        <div className={styles.groupParent5}>
-          <div className={styles.nicoWrapper}>
-            <b className={styles.nico}>Nico</b>
-          </div>
-          <div className={styles.div}>2</div>
-        </div>
+      <b className={styles.game123456}>Game #{gamePin}</b>
+      <div>
+        <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)} reported={Object.keys(playerData).map((key) => playerData[key].reported)} />
       </div>
       <button
         className={styles.web19205Item}

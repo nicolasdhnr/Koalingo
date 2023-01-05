@@ -4,7 +4,7 @@ import styles from "./hostlobby.module.css";
 import {realtimedb } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
-import {createGamePin} from  "./host_logic";
+import {createGamePin, updateGameState} from  "./host_logic";
 import Players from "../../components/Players.js"
 const HostLobby = () => {
 
@@ -14,7 +14,7 @@ const HostLobby = () => {
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
   
-  onDisconnect(ref(realtimedb, "games/" + gamePin)).set({});
+  
 
 
   // Create a game pin and create the game in the database.
@@ -49,7 +49,11 @@ const HostLobby = () => {
     navigate("/set/timer");
   }, [navigate]);
 
-  const onStartTheGame1Click = useCallback(() => {
+  const onStartTheGame1Click = useCallback(async () => {
+    await updateGameState(gamePin, "memorizing");
+
+
+
     navigate("/host/progress-tracker");
   }, [navigate]);
 
@@ -59,7 +63,7 @@ const HostLobby = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../allergies-plan-de-travail-1-14@2x.png"
+        src="../koalingo-logo.svg"
       />
       <b className={styles.game123456}>Game #{gamePin}</b>
       <div className={styles.startTheGame} onClick={onStartTheGame1Click}>
@@ -70,6 +74,9 @@ const HostLobby = () => {
         <img className={styles.startTheGameItem} alt="" src="../group-34.svg" />
         <b className={styles.startTheGame1}>Start the game</b>
         <b className={styles.setTimer}>Set timer</b>
+      </div>
+      <div>
+        <Players players={playerNames}/>
       </div>
      
       <div className={styles.playersReadyToKoalearn}>
