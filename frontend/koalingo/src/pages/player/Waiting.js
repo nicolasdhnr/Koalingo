@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import {TypeAnimation} from 'react-type-animation'
 import koala from './koala.gif';
-import { ref, update, remove } from "firebase/database";
+import { ref, update, remove, onDisconnect } from "firebase/database";
 import { AuthContext } from '../../App';
 import { realtimedb } from "../../firebase";
 
@@ -15,12 +15,12 @@ const Waiting = () => {
     'For', 1000,
     'Your teacher 👌', 1000
   ];
-  console.log(user)
+  onDisconnect(ref(realtimedb, `games/${gamePin}/players/${user.uid}`)).set({});
+  
   useEffect( () => {  
     // Add user ID to the list of players in the game while keepig previouslist intact
     update(ref(realtimedb, "games/" + gamePin + "/players"), {
-      [user.uid]: {name: "Nicolas",
-        reported: false,
+      [user.uid]: {name: "Nicolas"
     }
     });
   

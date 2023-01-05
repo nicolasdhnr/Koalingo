@@ -7,11 +7,6 @@ import { useState, useEffect } from 'react';
 const SetTimer = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => setTime(time => time - 1000), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   const onLoginClick = useCallback(() => {
     navigate("/host/lobby");
   }, [navigate]);

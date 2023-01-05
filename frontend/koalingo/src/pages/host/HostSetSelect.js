@@ -62,7 +62,7 @@ const HostSetSelect = () => {
       <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
         Save your set
       </button>
-   
+
     </div>
   );
 };
