@@ -1,0 +1,20 @@
+.landscape,
+.portrait {
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+}
+
+.landscape {
+    width: 73vh;
+    height: 34vh;
+}
+
+.portrait {
+    width: 40vh;
+    height: 30vh;
+}

@@ -11,6 +11,9 @@
     justify-content: center;
     align-items: center;
     font-family: var(--font-poppins);
+    font-size: 2.8vh;
+    height: 7vh;
+    width: 25vh;
 }
 
 .white {
@@ -35,6 +38,9 @@
 }
 .red {
     background-color: rgb(243, 64, 64);
+    border: 0.4vh solid var(--color-white);
+    color: white;
+    border-radius: 5px;
 }
 .red:hover {
     background-color: rgb(192, 48, 48);
@@ -46,48 +52,19 @@
     background-color: rgb(243, 64, 64);
 }
 
-.web{
-    height: 70px;
-    width: 110%;
-    margin: 13px 10px;
-    font-size: 29px;
+.landscape {
+    margin: 10px 10px;
 }
-.mobile {
+.portrait {
     margin: 8px 9px;
-    width: 100%;
-    height: 53px;
-    font-size: 20px;
 }
 
-.webShort,
-.mobileShort{
-    color: white;
-    border-radius: 5px;
-    padding:10px;
+.long{
+    width:33vh;
+    height: 7.5vh;
 }
-
-.webLong {
-    margin: 60px 10px;
-    width: 126%;
-    height: 78px;
+.short{
+    font-size: 2.3vh;
+    padding: 2vh 1.6vh;
+    width: 20vh;
 }
-.webShort {
-    margin: 8px 9px;
-    height: 75px;
-    width: fit-content;
-    border: 6px solid;
-    font-size: 29px;
-}
-.mobileLong {
-    margin: 40px 10px;
-    width: 120%;
-    height: 60px;
-}
-.mobileShort {
-    margin: 8px 9px;
-    height: 45px;
-    width: fit-content;
-    border: 4px solid;
-    font-size: 17px;
-}
-
