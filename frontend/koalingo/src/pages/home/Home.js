@@ -30,7 +30,6 @@ const Home = () => {
 
     // Check if The entry exists as a key in the database
     // If it does, navigate to the player page
-    // If it doesn't, display an error message
     onValue(reference, (snapshot) => {
       const data = snapshot.val();
       console.log(data);
