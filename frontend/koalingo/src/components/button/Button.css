@@ -2,6 +2,7 @@
 .purple,
 .gold,
 .red,
+.bgColor,
 .transparent{
     cursor: pointer;
     color: var(--color-indigo-200);
@@ -21,6 +22,14 @@
 }
 .white:hover {
     background-color: #d0d0d0;
+}
+.bgColor {
+    background-color: transparent;
+    border: 3px solid var(--color-white);
+    color: var(--color-white);
+}
+.bgColor:hover {
+    background-color: rgba(255, 255, 255, 0.256);
 }
 .purple {
     background-color: #585cee;
@@ -45,25 +54,22 @@
 .red:hover {
     background-color: rgb(192, 48, 48);
 }
-.transparent {
-    background-color: transparent;
-}
-.transparent:hover {
-    background-color: rgb(243, 64, 64);
-}
 
-.landscape {
+.btnLandscape {
     margin: 10px 10px;
 }
-.portrait {
+.btnPortrait {
     margin: 8px 9px;
+    height:6.3vh;
+    width: 24.8vh;
+    font-size: 2.65vh;
 }
 
-.long{
-    width:33vh;
+.btnLong{
+    width:31vh;
     height: 7.5vh;
 }
-.short{
+.btnShort{
     font-size: 2.3vh;
     padding: 2vh 1.6vh;
     width: 20vh;

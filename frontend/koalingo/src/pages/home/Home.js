@@ -61,7 +61,7 @@ const Home = () => {
     <div className={styles1.loginPage}>
       <div className={styles1.headerWrapper}>
         {user && <Button btnText='Sign out' onClick={logout}
-                  btnStyle='red' length='short'/>}
+                  btnStyle='red' length='btnShort'/>}
       </div>
       <img className={styles1.koalingoLogo} alt='' src='../koalingo_logo.svg' />
       <div className={styles.mainWrapper}>
@@ -72,7 +72,7 @@ const Home = () => {
                         event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
                         }
                       }} 
-                      placeholder="Enter Game PIN here!"
+                      placeholder="Game PIN here!"
                       value={gamePinEntered}
                       onChange={handleTextChange}
                     />}
@@ -81,7 +81,7 @@ const Home = () => {
           />
         <p></p>
         <Button btnText='Create a Game' onClick={onCreateAGameClick}
-                btnStyle='gold' length='long'/>
+                btnStyle='gold' length='btnLong'/>
       </div>
     </div>
   )
