@@ -2,46 +2,46 @@ import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./hostlobby.module.css";
 import {realtimedb } from "../../firebase";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
-import {createGamePin} from  "./host_logic";
+import {createGamePin, updateGameState} from  "./host_logic";
 import Players from "../../components/Players.js"
 const HostLobby = () => {
 
   const navigate = useNavigate();
-  const {gamePin, setGamePin}= useContext(AuthContext)
+  const {user, gamePin, setGamePin}= useContext(AuthContext)
   console.log(gamePin);
-
-  useEffect(() => {
-  setGamePin(createGamePin() != null ? createGamePin() : "");
-  // Dynamically change the number of players in the game
-  }, []);
-
-
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
-
-  // Subscribe to changes in the number of players in the game 
-  useEffect(() => {
-    const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
-    const unsubscribe = onValue(collectionRef, (snapshot) => {
-      const data = snapshot.val();
-      // console.log(data);
-      // Count the number of players in the game
-      if (data != null) {
-        setCount(Object.keys(data).length);
-        // console.log(count);
-        // Get the names of the players in the game
-        setPlayerNames(Object.keys(data).map((key) => data[key].name));
-      }
-     
-    }, []);
   
-    return () => {
-      unsubscribe();
-    }
-  }, []);
+  
 
+
+  // Create a game pin and create the game in the database.
+  useEffect( () => {
+    const createPin = async (user) => {
+      const pin = await createGamePin(user);
+      if (pin) {
+        setGamePin(pin);
+      }
+    }
+ createPin(user);
+
+  const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
+  
+  return onValue(collectionRef, (snapshot) => {
+    const data = snapshot.val();
+
+    // Count the number of players in the game
+    if (data != null) {
+      setCount(Object.keys(data).length);
+      // console.log(count);
+      // Get the names of the players in the game
+      setPlayerNames(Object.keys(data).map((key) => data[key].name));
+    }
+  });
+  // Dynamically change the number of players in the game
+  }, [gamePin, setGamePin, setCount, setPlayerNames]);
 
 
     // Navigating to the timer page to change the game settings
@@ -49,7 +49,11 @@ const HostLobby = () => {
     navigate("/set/timer");
   }, [navigate]);
 
-  const onStartTheGame1Click = useCallback(() => {
+  const onStartTheGame1Click = useCallback(async () => {
+    await updateGameState(gamePin, "memorizing");
+
+
+
     navigate("/host/progress-tracker");
   }, [navigate]);
 
@@ -59,7 +63,7 @@ const HostLobby = () => {
       <img
         className={styles.allergiesPlanDeTravail11}
         alt=""
-        src="../allergies-plan-de-travail-1-14@2x.png"
+        src="../koalingo-logo.svg"
       />
       <b className={styles.game123456}>Game #{gamePin}</b>
       <div className={styles.startTheGame} onClick={onStartTheGame1Click}>
@@ -70,6 +74,9 @@ const HostLobby = () => {
         <img className={styles.startTheGameItem} alt="" src="../group-34.svg" />
         <b className={styles.startTheGame1}>Start the game</b>
         <b className={styles.setTimer}>Set timer</b>
+      </div>
+      <div>
+        <Players players={playerNames}/>
       </div>
      
       <div className={styles.playersReadyToKoalearn}>

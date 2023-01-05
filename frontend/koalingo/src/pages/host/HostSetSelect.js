@@ -49,7 +49,7 @@ const HostSetSelect = () => {
       <div > 
         <WordsList />
       </div> 
-      
+
       <b className={styles.nameYourSet}>Name your set:</b>
       {/* <div className={styles.repeatGrid8}>
         <div className={styles.div1}>
@@ -62,7 +62,7 @@ const HostSetSelect = () => {
       <button className={styles.saveYourSet} onClick={onSaveYourSetClick}>
         Save your set
       </button>
-   
+
     </div>
   );
 };
