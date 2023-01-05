@@ -8,7 +8,7 @@ const Button = ({
     btnText,
     onClick,
     btnStyle,
-    length
+    length,
     }) => {
         const getButtonStyle = STYLES.includes(btnStyle)
             ? btnStyle

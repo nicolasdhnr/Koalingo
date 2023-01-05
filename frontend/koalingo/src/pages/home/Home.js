@@ -39,7 +39,7 @@ const Home = () => {
         navigate("/waiting");
         
       } else {
-        console.log("Game pin does not exist");
+        alert("Game pin does not exist");
         //TODO: Display error message
         
       }
