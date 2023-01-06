@@ -32,3 +32,10 @@
     margin-top: 1vh;
     margin-bottom: 1vh;
 }
+.long {
+    height: 43vh;
+}
+.heightFit {
+    height: fit-content;
+    justify-content: flex-start;
+}

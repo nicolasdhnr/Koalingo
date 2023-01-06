@@ -6,7 +6,6 @@
   background: linear-gradient(90deg, rgba(88,92,238,1) 5%, rgba(167,98,241,1) 93%);
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
 }
 .koalingoLogo {
   position: absolute;

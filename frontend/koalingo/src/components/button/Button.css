@@ -25,7 +25,7 @@
 }
 .bgColor {
     background-color: transparent;
-    border: 3px solid var(--color-white);
+    border: 0.4vh solid var(--color-white);
     color: var(--color-white);
 }
 .bgColor:hover {
@@ -53,6 +53,15 @@
 .red:hover {
     background-color: rgb(192, 48, 48);
 }
+.transparent {
+    background-color: transparent;
+    border: 0.4vh solid var(--color-white);
+    border-radius: 5px;
+    color: var(--color-white);
+}
+.transparent:hover {
+    background-color: rgba(255, 255, 255, 0.256);
+}
 
 .btnLandscape {
     margin: 10px 10px;
@@ -74,4 +83,8 @@
     margin-top: 3vh;
     margin-left: 3vh;
     width: 20vh;
+}
+.btnFit{
+    width: fit-content;
+    padding: 0vh 3vh;
 }
