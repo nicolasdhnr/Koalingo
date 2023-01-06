@@ -6,6 +6,7 @@ import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
 import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 
 
 const HostProgressTracker = () => {
@@ -54,10 +55,34 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <img className={styles.web19205Inner} alt="" src="../group-34.svg" />
       <b className={styles.startTheGame}>Start the game</b>
       <button className={styles.login} onClick={onLoginClick}>
-        <div className={styles.timer}>Timer</div>
+        <div className={styles.timer}><Timer /> </div>
       </button>
     </div>
   );
 };
+
+const Timer = () =>{
+  const SECOND = 1000;
+  const MINUTE = SECOND * 60;
+  const {seconds, minutes } = useContext(AuthContext);
+  const [time, setTime] = useState(minutes*60000 + seconds * 1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTime(time => time - 1000), 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (time < 0){
+    return(
+      <div>Time's up</div>
+    )
+  }
+  else{
+  return(
+    <div> 
+      {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
+    </div>
+);
+};}
 
 export default HostProgressTracker;

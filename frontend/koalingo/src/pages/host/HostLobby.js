@@ -15,11 +15,11 @@ import Button from "../../components/button/Button";
 const HostLobby = () => {
 
   const navigate = useNavigate();
-  const {user, gamePin, setGamePin}= useContext(AuthContext)
+  const {user, gamePin, setGamePin, seconds, setSeconds, minutes, setMinutes }= useContext(AuthContext)
   console.log(gamePin);
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
-  
+  console.log(user);
   
 
 
@@ -31,7 +31,8 @@ const HostLobby = () => {
         setGamePin(pin);
       }
     }
- createPin(user);
+  createPin(user);
+
 
   const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
   
@@ -47,12 +48,9 @@ const HostLobby = () => {
     }
   });
   // Dynamically change the number of players in the game
-  }, [gamePin, setGamePin, setCount, setPlayerNames]);
+  }, [gamePin, setGamePin, setCount, setPlayerNames, user]);
 
-
-    // Navigating to the timer page to change the game settings
-  const onTimerButtonClick = useCallback(() => {
-  }, [navigate]);
+  // Navigating to the timer page to change the game settings
 
   const onStartTheGame1Click = useCallback(() => {
     navigate("/host/progress-tracker");
@@ -62,6 +60,17 @@ const HostLobby = () => {
     navigate("/"); // need to change to back to select page
   }, [navigate]);
 
+  const onBackClick = useCallback(() => {
+    navigate("/"); // need to change to back to select page
+  }, [navigate]);
+
+  const handleMinChange = (event) => {
+    setMinutes(event.target.value != null ? event.target.value : 5) ;
+  }
+
+  const handleSecChange = (event) => {
+    setSeconds(event.target.value != null ? event.target.value : 0);
+  }
   return (
     <div className={stylesLogin.loginPage}>
         <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
