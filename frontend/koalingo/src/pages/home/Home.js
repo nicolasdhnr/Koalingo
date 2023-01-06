@@ -2,6 +2,8 @@ import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesHome from "./home.module.css";
 import stylesLogin from "./login.module.css"
+import stylesEmailLogin from "./emailLogin.module.css"
+import stylesLobby from "../host/hostLobby.module.css"
 import { realtimedb } from "../../firebase";
 import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
@@ -58,30 +60,35 @@ const Home = () => {
 
   return (
     <div className={stylesLogin.loginPage}>
-      <div className={stylesLogin.headerWrapper}>
-        {user && <Button btnText='Sign out' onClick={logout}
-                  btnStyle='red' length='btnShort'/>}
-      </div>
-      <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
+      <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
+
       <div className={stylesHome.mainWrapper}>
-        <RecWrapper
-          children1={<input className={stylesHome.enter} type="text"
-                      nKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                        event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
-                        }
-                      }} 
-                      placeholder="Game PIN here!"
-                      value={gamePinEntered}
-                      onChange={handleTextChange}
-                    />}
-          children2={<Button btnText='Submit' onClick={checkGamePinOnSubmit}
-                      btnStyle='purple'/>}
+          <RecWrapper
+            content={
+              <div className={stylesHome.gamepinWrapper}>
+                <input className={stylesHome.enter} type="text"
+                        nKeyPress={(event) => {
+                          if (!/[0-9]/.test(event.key)) {
+                          event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
+                          }
+                        }} 
+                        placeholder="Game PIN here!"
+                        value={gamePinEntered}
+                        onChange={handleTextChange}
+                />
+                <Button btnText='Submit' onClick={checkGamePinOnSubmit}
+                        btnStyle='purple'/>
+              </div>
+            }
           />
-        <p></p>
-        <Button btnText='Create a Game' onClick={onCreateAGameClick}
-                btnStyle='gold' length='btnLong'/>
       </div>
+
+      <div className={stylesHome.bottomWrapper}>
+        <Button btnText="Create Game" onClick={onCreateAGameClick}
+                btnStyle="gold" />
+        <Button btnText="Sign out" onClick={logout}
+                 btnStyle="bgColor" />
+        </div>
     </div>
   )
 };

@@ -23,31 +23,20 @@
 .nameSetWrapper,
 .enterWordWrapper {
   position: absolute;
-  border-radius: var(--br-md);
   display: flex;
   align-items: center;
   padding: 0vh 2vh;
   font-family: var(--font-poppins);
   font-weight: 200;
 }
-.enterWordWrapper {
-  background-color: white;
-  color: rgb(44, 44, 44);
-  flex-direction: row;
-  top: 50%;
-  width: 40vh;
-  height: 8vh;
-  box-shadow: 1px 20px 90px rgba(36, 26, 91, 0.16);
-  border: 0.4vh solid rgba(52, 52, 52, 0.188);
-  font-size: 2.4vh;
-}
-.nameSetWrapper {
+.nameSetWrapper{
+  gap:8vh;
   color: rgb(255, 255, 255);
   flex-direction: column;
-  top: 18%;
+  top: 20%;
   height: 40vh;
   width: 25vh;
-  font-size: 2.7vh;
+  font-size: 2.8vh;
 }
 .setName {
   position: absolute;
@@ -57,17 +46,28 @@
   height: 5vh;
   border-radius: 80px;
   text-align: center;
-  color:#585cee;
+  color:rgb(42, 42, 42);
   font-size: 2.5vh;
   font-family: var(--font-poppins);
+}
+.enterWordWrapper {
+  border-radius: var(--br-md);
+  background-color: white;
+  color: rgb(44, 44, 44);
+  flex-direction: row;
+  gap:1.5vh;
+  top: 50%;
+  width: 40vh;
+  height: 8vh;
+  box-shadow: 1px 20px 90px rgba(36, 26, 91, 0.16);
+  border: 0.4vh solid rgba(52, 52, 52, 0.188);
+  font-size: 2.4vh;
 }
 .wordInput {
   font-family: var(--font-poppins);
   font-size: 1.9vh;
-  border: 0.3vh solid rgba(43, 43, 43, 0.867);
+  border: 0.3vh solid rgba(66, 66, 66, 0.867);
   border-radius: 0.7vh;
-  position: absolute;
-  right: 8.7vh;
   width: 16.5vh;
   height: 4vh;
 }
@@ -92,12 +92,12 @@
 
 .cardWrapper {
   position: absolute;
+  top: 60%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 1vh;
   flex-direction: row;
-  top: 60%;
   width: 90%;
-  height: 35%;
+  height: fit-content;
 }

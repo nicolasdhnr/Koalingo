@@ -6,28 +6,13 @@ import checkScreenSize from "./CheckScreenSize";
 const RecWrapper = ({
     size,
     shading,
-    children1,
-    children2,
-    children3,
-    children4,
-    children5,
-    children6,
-    children7,
-    children8,
-    children9
+    color,
+    content,
     }) => {
         const screenSize = checkScreenSize() ? 'portrait' : 'landscape';
 
-        return(<div className={`${screenSize} ${shading} ${size}`}>
-            {children1}
-            {children2}
-            {children3}
-            {children4}
-            {children5}
-            {children6}
-            {children7}
-            {children8}
-            {children9}
+        return(<div className={`${screenSize} ${shading} ${size} ${color}`}>
+            {content}
             </div>
         );
     }

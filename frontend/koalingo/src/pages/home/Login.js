@@ -56,7 +56,9 @@ const Login = () => {
         <Button btnText='Accessibility'
                 btnStyle='red' length='btnShort'/>
       </div>
+
       <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
+
       <div className={stylesLogin.buttonWrapper}>
         <Button btnText='Email login' onClick={onLoginWithEmailClick} 
                 btnStyle='white'/>
