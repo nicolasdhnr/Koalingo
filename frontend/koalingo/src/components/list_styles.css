@@ -1,31 +1,26 @@
-ul {
-  position: absolute;
-  top: 800px;
-  left: 66px;
-  width: calc(100% - 66px);
+ul{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:center;
+  border-radius: var(--br-md);
+  font-size: 3.2vh;
+  margin-right: 4vh;
+  flex-wrap:wrap;
+  gap:1vh;
 }
-
 li {
-  position: relative;
-  display: inline-block;
-    border-radius: var(--br-md);
-    background-color: var(--color-gray-200);
-    box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-    margin: 8px 8px;
-    width: 20%;
-    color: var(--color-indigo-200);
-    font-weight: 600;
+  display: flex;
+  padding: 1.3vh 5vh;
+  width: fit-content;
+  background-color: rgb(255, 255, 255);
+  border-radius: var(--br-md);
+  font-size: 3vh;
+  margin: 0.2vh;
 } 
-
-h2 {
-  display: inline-block; 
-  font-weight: 600;
-  font-size: var(--font-size-xs);
-  margin: 15px 15px;
-}
-
+  
 .btn {
-  background-color:  rgb(211, 211, 211);
+  background-color:  rgb(255, 255, 255);
   border: none;
   color: black;
   text-align: center;
@@ -50,11 +45,11 @@ h2 {
   display: flex;
   
   /* Then we define the flow direction 
-     and if we allow the items to wrap 
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
+      and if we allow the items to wrap 
+    * Remember this is the same as:
+    * flex-direction: row;
+    * flex-wrap: wrap;
+    */
   flex-flow: row wrap;
   
   /* Then we define how is distributed the remaining space */

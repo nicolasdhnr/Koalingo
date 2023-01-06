@@ -12,7 +12,7 @@
   justify-content: center;
   width: fit-content;
   height: fit-content;
-  margin-top: 32vh;
+  margin-top: 30vh;
   margin-bottom: 3.5vh;
 }
 .cardWrapper {
@@ -20,7 +20,6 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap:1.7vh;
   align-items: center;
   font-family: var(--font-poppins);
   font-size: 3.5vh;
@@ -31,10 +30,32 @@
   width: fit-content;
   height: fit-content;
   gap:10px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 .timer {
   border: 0.5vh solid rgb(49, 49, 49);
   border-radius: 15px;
   padding: 0.5vh 2.5vh;
   cursor: pointer;
+}
+.bottomWrapper {
+  border: 0.7vh solid rgba(255, 255, 255, 0.849);
+  border-radius: 20px;
+  width: 93%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-poppins);
+  
+}
+.playersInGame {
+  font-family: var(--font-poppins);
+  font-size: 3.7vh;
+  color: white;
+  width: 100%;
+  text-align: center;
 }

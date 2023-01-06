@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../App";
-import styles from '../components/list_styles.css';
+import stylesList from '../components/list_styles.css';
 
 // The component for the Progress Tracker page.
 export function PlayerTracking(props) {
@@ -24,8 +24,9 @@ export default function PlayerList(props) {
   return (
     <ul>
       {props?.players.map((title) => (
-        <li key={title}>
-            <h2>{title}</h2>
+        <li
+        key={title}>
+            {title}
           {/* {!description ? null : <p>{description}</p>} */}
         </li>
       ))}

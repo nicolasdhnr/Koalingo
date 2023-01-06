@@ -53,7 +53,11 @@ const HostLobby = () => {
   }, [navigate]);
 
   const onBackClick = useCallback(() => {
-    navigate("/"); // need to change to back to select page
+    navigate("/host/set/select");
+  }, [navigate]);
+
+  const onTimerClick = useCallback(() => {
+    navigate("/host/set/timer");
   }, [navigate]);
 
 
@@ -64,22 +68,29 @@ const HostLobby = () => {
 
       <div className={stylesLobby.mainWrapper}>
           <RecWrapper
-          content={
-            <div className={stylesLobby.cardWrapper}>
-              Set Timer
-              <div className={stylesLobby.timerWrapper}>
-                <b className={stylesLobby.timer}> 05 </b>
-                <b className={stylesLobby.timer}> 00 </b>
+            content={
+              <div className={stylesLobby.cardWrapper}>
+                Set Timer
+                <div className={stylesLobby.timerWrapper}>
+                  <b className={stylesLobby.timer} onClick={onTimerClick}> 05 </b>
+                  <b className={stylesLobby.timer} onClick={onTimerClick}> 00 </b>
+                </div>
+                <Button btnText="Start the game" onClick={onStartTheGame1Click}
+                        btnStyle="purple" length="btnMedium"/>
+                <Button btnText="Go Back" onClick={onBackClick}
+                        btnStyle="gold"   length="btnMedium"/>
               </div>
-              <Button btnText="Start the game" onClick={onStartTheGame1Click}
-                      btnStyle="purple" length="btnFit"/>
-            </div>
-          }
+            }
+            size="medium"
           />
       </div>
 
-      <Button btnText="Go Back" onClick={onBackClick}
-              btnStyle="gold"/>
+      <div className={stylesLobby.bottomWrapper}>
+        <div className={stylesLobby.playersInGame}> {count} KoaLearners</div>
+        <Players players={playerNames}/>
+        
+      </div>
+
     </div>
   );
 };

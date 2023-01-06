@@ -4,8 +4,8 @@
   align-items: center;
   background: rgb(88,92,238);
   background: linear-gradient(90deg, rgba(88,92,238,1) 5%, rgba(167,98,241,1) 93%);
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 .koalingoLogo {
   position: absolute;

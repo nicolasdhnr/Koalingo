@@ -31,6 +31,7 @@
 .bottomWrapper{
   width: fit-content;
   height: fit-content;
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap:0.4vh;

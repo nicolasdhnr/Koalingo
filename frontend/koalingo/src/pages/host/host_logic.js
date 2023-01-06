@@ -39,15 +39,24 @@ export const  createGame = async (gamePin, user) => {
       currquestion: 0,
       timer: 0,
       players: {
-          [user.uid]: { name: "host",
-                        reported: 0,      
-        }
-
-  }}
+          "host": { name: "Nicolas",
+                        reported: 0,
+        },
+        "03473" : { name: "Rusne",
+        reported: 0,},
+        "03474" : { name: "James",
+        reported: 0,},
+        "03475" : { name: "Matt",
+        reported: 0,},
+        "03476" : { name: "Gloria",
+        reported: 0,},
+        "03477" : { name: "Martin Holloway",
+        reported: 0,},
 }
+  }}
 
   );
-};
+}; 
 
 
 export const updateGameState = async (gamePin, state) => {

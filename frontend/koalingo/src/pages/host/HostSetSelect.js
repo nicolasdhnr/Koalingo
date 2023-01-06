@@ -26,7 +26,7 @@ const HostSetSelect = () => {
           Name your set:
           <input className={stylesSelect.setName} type="text" placeholder="daily phrases"/>
           <Button btnText='Save your set' onClick={onSaveYourSetClick}
-                  btnStyle='gold'/>
+                  btnStyle='gold' length="btnMedium"/>
       </div>
 
       <div className={stylesSelect.enterWordWrapper}>

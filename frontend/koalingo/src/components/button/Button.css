@@ -14,7 +14,7 @@
     font-family: var(--font-poppins);
     font-size: 2.8vh;
     height: 7vh;
-    width: 15vw;
+    width: 16vw;
 }
 
 .white {
@@ -74,8 +74,11 @@
 }
 
 .btnLong{
-    width:31vh;
+    width:33vh;
     height: 7.5vh;
+}
+.btnMedium{
+    width:27vh;
 }
 .btnShort{
     font-size: 2.3vh;
@@ -86,5 +89,5 @@
 }
 .btnFit{
     width: fit-content;
-    padding: 0vh 3vh;
+    padding: 0vh 1.5vh;
 }
