@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./hostprogresstracker.module.css";
+import stylesTracker from "./hostprogresstracker.module.css";
+import stylesSelect from "./hostsetselect.module.css";
+import stylesLobby from "./hostLobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
 import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import Button from "../../components/button/Button";
 
 
 const HostProgressTracker = () => {
@@ -14,8 +17,6 @@ const HostProgressTracker = () => {
   const {gamePin}= useContext(AuthContext)
 // Just as in the Lobby, we want to scubscribe to changes in the player list and player reported number of memorized words.
 const [playerData, setPlayerData] = useState({});
-
-// Ge t
 
 // Create a game pin and create the game in the database.
 useEffect( () => {
@@ -36,53 +37,49 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     navigate("/host/set/timer");
   }, [navigate]);
 
-  return (
-    <div className={styles.web19205}>
-      <img className={styles.web19205Child} alt="" src="../ellipse-2.svg" />
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={styles.game123456}>Game #{gamePin}</b>
-      <div>
-        <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)} reported={Object.keys(playerData).map((key) => playerData[key].reported)} />
+  const Timer = () =>{
+    const SECOND = 1000;
+    const MINUTE = SECOND * 60;
+    const {seconds, minutes } = useContext(AuthContext);
+    const [time, setTime] = useState(minutes*60000 + seconds * 1000);
+  
+    useEffect(() => {
+      const interval = setInterval(() => setTime(time => time - 1000), 1000);
+      return () => clearInterval(interval);
+    }, []);
+  
+    if (time < 0){
+      return(
+        <div>Time's up</div>
+      )
+    }
+    else{
+    return(
+      <div> 
+        {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
       </div>
-      <button
-        className={styles.web19205Item}
-        onClick={onRectangleButtonClick}
-      />
-      <img className={styles.web19205Inner} alt="" src="../group-34.svg" />
-      <b className={styles.startTheGame}>Start the game</b>
-      <button className={styles.login} onClick={onLoginClick}>
-        <div className={styles.timer}><Timer /> </div>
-      </button>
+  );
+  };}
+
+
+  return (
+    <div className={stylesSelect.selectPage}>
+      <img className={stylesSelect.croppedEllipse} alt="" src="../../ellipse-21.svg" /> 
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" /> 
+
+      <div className={stylesTracker.mainWrapper}>
+        <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
+        <div className={stylesTracker.timerWrapper}><Timer /> </div>
+        <Button btnText="Start Game" // Missing onClick function
+                btnStyle="gold" length="btnFit" />
+      </div>
+
+      <div className={stylesTracker.trackerWrapper}>
+        <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
+                        reported={Object.keys(playerData).map((key) => playerData[key].reported)} />
+      </div>
     </div>
   );
 };
-
-const Timer = () =>{
-  const SECOND = 1000;
-  const MINUTE = SECOND * 60;
-  const {seconds, minutes } = useContext(AuthContext);
-  const [time, setTime] = useState(minutes*60000 + seconds * 1000);
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(time => time - 1000), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  if (time < 0){
-    return(
-      <div>Time's up</div>
-    )
-  }
-  else{
-  return(
-    <div> 
-      {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
-    </div>
-);
-};}
 
 export default HostProgressTracker;

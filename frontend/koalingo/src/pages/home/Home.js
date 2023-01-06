@@ -85,7 +85,7 @@ const Home = () => {
 
       <div className={stylesHome.bottomWrapper}>
         <Button btnText="Create Game" onClick={onCreateAGameClick}
-                btnStyle="gold" />
+                btnStyle="gold" length="btnLong"/>
         <Button btnText="Sign out" onClick={logout}
                  btnStyle="bgColor" />
         </div>

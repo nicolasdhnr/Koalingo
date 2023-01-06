@@ -32,6 +32,9 @@
     margin-top: 1vh;
     margin-bottom: 1vh;
 }
+.medium {
+    height: 36vh;
+}
 .long {
     height: 43vh;
 }
