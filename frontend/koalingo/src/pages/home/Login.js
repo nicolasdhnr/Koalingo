@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./login.module.css";
+import stylesLogin from "./login.module.css";
 import { signInWithEmailAndPassword, signInWithGoogle, signInAnon } from "../../firebase";
 import { useAuthState} from "react-firebase-hooks/auth";
 import React, { useEffect, useState } from "react";
@@ -51,13 +51,13 @@ const Login = () => {
   }
 
   return (
-    <div className={styles.loginPage}>
-      <div className={styles.headerWrapper}>
+    <div className={stylesLogin.loginPage}>
+      <div className={stylesLogin.headerWrapper}>
         <Button btnText='Accessibility'
                 btnStyle='red' length='btnShort'/>
       </div>
-      <img className={styles.koalingoLogo} alt='' src='../koalingo_logo.svg' />
-      <div className={styles.buttonWrapper}>
+      <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
+      <div className={stylesLogin.buttonWrapper}>
         <Button btnText='Email login' onClick={onLoginWithEmailClick} 
                 btnStyle='white'/>
         <Button btnText='Google login' onClick={onLoginWithGoogleClick}

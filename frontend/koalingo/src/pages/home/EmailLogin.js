@@ -1,11 +1,14 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./register.module.css";
+import stylesLogin from "./login.module.css";
+import stylesEmailLogin from "./emailLogin.module.css"
 import { logInWithEmailAndPassword  } from "../../firebase";
 import { AuthContext } from "../../App";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import Button from "../../components/button/Button";
+import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 
 
 const EmailLogin = () => {
@@ -41,45 +44,43 @@ const EmailLogin = () => {
 
 
     return (
-        <div className={styles.login1}>
-        <form onSubmit={handleSubmit(onLoginClick)}>
-        <div className={styles.login1Child} />
-        <div className={styles.login}>
-            <button
-            className={styles.loginChild}
-            onClick={onGoBackClick}
-            />
-            <div className={styles.login2}>Go back</div>
-        </div>
-        <div className={styles.login1Item} />
-
-        <img
-            className={styles.allergiesPlanDeTravail11}
-            alt=""
-            src="../../koalingo_logo.svg"
-        />
-        <div className={styles.groupe61}>
-        
-            <input 
-            className={styles.email} 
-            name="email"
-            placeholder='email'
-            {...register("email")}
-            />
-
-            <input
-            className={styles.password}
-            name="password"
-            type="password"
-            placeholder="Password"
-            {...register("password")}
-            />
-            
-        </div>
-        <button className={styles.trac3}/>
-        <button className={styles.submit} >Log in</button>
-        <b className={styles.registrationForm}>Time to Koalearn!</b>
-        </form>
+        <div className={stylesLogin.loginPage}>
+            <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
+            <form onSubmit={handleSubmit(onLoginClick)}>
+                <div className={stylesEmailLogin.loginWrapper}> 
+                    <RecWrapper size='long'
+                    children1={
+                        <div className={stylesEmailLogin.signInText}> Email Sign-in </div>
+                    }
+                        
+                    children2={
+                        <input 
+                        className={stylesEmailLogin.email} 
+                        name="email"
+                        placeholder="email"
+                        {...register("email")}
+                        />
+                    }
+                    children3={
+                        <input
+                        className={stylesEmailLogin.password}
+                        name="password"
+                        type="password"
+                        placeholder="password"
+                        {...register("password")}
+                        />
+                    }
+                    children4={
+                        <Button  btnText="Time to KoaLearn!" onClick={onLoginClick}
+                                btnStyle="gold" length="btnFit"/>
+                    }
+                    />
+                </div>
+            </form>
+            <div className={stylesEmailLogin.goBackWrapper}>
+                    <Button btnText="Go back" onClick={onGoBackClick}
+                            btnStyle="bgColor" length="btnLong" />
+            </div>
         </div>
        
     );

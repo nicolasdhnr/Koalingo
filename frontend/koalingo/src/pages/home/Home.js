@@ -1,7 +1,7 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./home.module.css";
-import styles1 from "./login.module.css"
+import stylesHome from "./home.module.css";
+import stylesLogin from "./login.module.css"
 import { realtimedb } from "../../firebase";
 import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
@@ -57,16 +57,16 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div className={styles1.loginPage}>
-      <div className={styles1.headerWrapper}>
+    <div className={stylesLogin.loginPage}>
+      <div className={stylesLogin.headerWrapper}>
         {user && <Button btnText='Sign out' onClick={logout}
                   btnStyle='red' length='btnShort'/>}
       </div>
-      <img className={styles1.koalingoLogo} alt='' src='../koalingo_logo.svg' />
-      <div className={styles.mainWrapper}>
+      <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
+      <div className={stylesHome.mainWrapper}>
         <RecWrapper
-          children1={<input className={styles.enter} type="text"
-                      onKeyPress={(event) => {
+          children1={<input className={stylesHome.enter} type="text"
+                      nKeyPress={(event) => {
                         if (!/[0-9]/.test(event.key)) {
                         event.preventDefault(); // Only allow numbers https://stackoverflow.com/questions/43687964/only-numbers-input-number-in-react
                         }

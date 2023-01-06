@@ -2,7 +2,7 @@ import React from "react";
 import './Button.css';
 import checkScreenSize from "../rectangleWrapper/CheckScreenSize";
 
-const STYLES = ['white', 'purple', 'gold','red','bgColor']
+const STYLES = ['white', 'purple', 'gold','red','bgColor','transparent']
 
 const Button = ({
     btnText,
