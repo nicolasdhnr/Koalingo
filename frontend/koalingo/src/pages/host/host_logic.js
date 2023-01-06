@@ -28,6 +28,28 @@ export const createGamePin = async (user) => {
  return gamePin;
 };
 
+export const  createGame = async (gamePin, user) => {
+  const reference = ref(realtimedb, "games");
+  // Create a new game
+  await set(reference, {
+    [gamePin]: {
+      gameState: "lobby",
+      words: {"yes" : 0, "better" :0},
+      curranswer: 0,
+      currquestion: 0,
+      timer: 0,
+      players: {
+          [user.uid]: { name: "host",
+                        reported: 0,      
+        }
+
+  }}
+}
+
+  );
+};
+
+
 export const updateGameState = async (gamePin, state) => {
   const reference = ref(realtimedb, "games/" + gamePin);
   await update(reference, {
@@ -70,26 +92,7 @@ export const getAllWords = async () => {
 };
 
 
-export const  createGame = async (gamePin, user) => {
-    const reference = ref(realtimedb, "games");
-    // Create a new game
-    await set(reference, {
-      [gamePin]: {
-        gameState: "lobby",
-        words: {"yes" : 0, "better" :0},
-        curranswer: 0,
-        currquestion: 0,
-        timer: 0,
-        players: {
-            [user.uid]: { name: "host",
-                          reported: 0,      
-          }
 
-    }}
-}
-
-    );
-  };
 
 
 

@@ -28,6 +28,7 @@ import { useCallback, createContext } from "react";
 import {logout} from "./firebase";
 import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
+import { PlayerCustomise } from "./pages/home/PlayerCustomise";
 
 //TODO: ADD Meta Tags
 
@@ -44,6 +45,12 @@ export const AuthContext = createContext({
   setHost : () => {},
   gamePin : "", 
   setGamePin :  () => {},
+  seconds : 0,
+  setSeconds : () => {},
+  minutes : 0,
+  setMinutes : () => {},
+  globNickname : "", 
+  setGlobNickname : () => {}
 });
 
 
@@ -70,12 +77,18 @@ function App() {
 
   // Create state to track game pin
   const [gamePin, setGamePin] = useState(0);
+  const [minutes, setMinutes] = useState(5);
+  const [seconds, setSeconds] = useState(0);
 
-  
+  // Create state to track user preferences
+  const [globNickname, setGlobNickname] = useState("");
+  const [character, setCharacter] = useState("girl");
 
   return (
     <div >
-    <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, setGamePin, setNewWord, setAllWords}}>
+    {user &&  <button onClick={logout}>Logout</button>}
+    
+    <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, minutes, seconds, globNickname,character, setGamePin, setNewWord, setAllWords, setMinutes, setSeconds, setGlobNickname, setCharacter}}>
     <Routes>
       {/* <Route index element={<Login />} /> */}
       <Route index path="/" element={<Login />} />
@@ -93,6 +106,7 @@ function App() {
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/host/available-words" element={<AvailableWords />} />
        <Route path="/host/set/select_words" element={<SetWordContext />} /> 
+       <Route path="/player/customise" element={<PlayerCustomise />} /> 
       </Route>
 
       <Route path="/host/lobby" element={<HostLobby />} />
