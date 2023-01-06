@@ -2,7 +2,6 @@ import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
 import stylesLobby from "./hostLobby.module.css";
 import stylesLogin from "../home/login.module.css";
-import stylesHome from "../home/home.module.css";
 import stylesEmailLogin from "../home/emailLogin.module.css";
 import {realtimedb } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";
@@ -21,8 +20,6 @@ const HostLobby = () => {
   const [playerNames, setPlayerNames] = useState([]);
   console.log(user);
   
-
-
   // Create a game pin and create the game in the database.
   useEffect( () => {
     const createPin = async (user) => {
@@ -32,7 +29,6 @@ const HostLobby = () => {
       }
     }
   createPin(user);
-
 
   const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
   
@@ -60,33 +56,25 @@ const HostLobby = () => {
     navigate("/"); // need to change to back to select page
   }, [navigate]);
 
-  const onBackClick = useCallback(() => {
-    navigate("/"); // need to change to back to select page
-  }, [navigate]);
 
-  const handleMinChange = (event) => {
-    setMinutes(event.target.value != null ? event.target.value : 5) ;
-  }
-
-  const handleSecChange = (event) => {
-    setSeconds(event.target.value != null ? event.target.value : 0);
-  }
   return (
     <div className={stylesLogin.loginPage}>
-        <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
-        <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1>
+      <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
+      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1>
 
       <div className={stylesLobby.mainWrapper}>
           <RecWrapper
-          content={<div className={stylesLobby.cardWrapper}>
-            <div>Set timer</div>
-            <div className={stylesLobby.timerWrapper}>
-              <b className={stylesLobby.timer} onClick={onTimerButtonClick}> 05 </b>
-              <b className={stylesLobby.timer} onClick={onTimerButtonClick}> 00 </b>
+          content={
+            <div className={stylesLobby.cardWrapper}>
+              Set Timer
+              <div className={stylesLobby.timerWrapper}>
+                <b className={stylesLobby.timer}> 05 </b>
+                <b className={stylesLobby.timer}> 00 </b>
+              </div>
+              <Button btnText="Start the game" onClick={onStartTheGame1Click}
+                      btnStyle="purple" length="btnFit"/>
             </div>
-            <Button btnText="Start the game" onClick={onStartTheGame1Click}
-                    btnStyle="purple" length="btnFit"/>
-          </div>}
+          }
           />
       </div>
 
