@@ -119,7 +119,7 @@ Nicolas, James, Rusne, Gloria, Matthieu
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-<Imperial College London: Martin Holloway, Ian RadCliffe
+Imperial College London: Martin Holloway, Ian RadCliffe
 <br />
 UK Pace Center: Luke Thompson
 
