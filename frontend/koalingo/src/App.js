@@ -86,8 +86,6 @@ function App() {
 
   return (
     <div >
-    {user &&  <button onClick={logout}>Logout</button>}
-    
     <AuthContext.Provider value={{auth, user, newWord, allWords,gamePin, minutes, seconds, globNickname,character, setGamePin, setNewWord, setAllWords, setMinutes, setSeconds, setGlobNickname, setCharacter}}>
     <Routes>
       {/* <Route index element={<Login />} /> */}

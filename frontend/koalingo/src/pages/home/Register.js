@@ -50,41 +50,30 @@ const Register = () => {
             <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
 
             <form onSubmit={handleSubmit(onSubmitClick)}>
-                <div className={stylesRegister.loginWrapper}> 
+                <div className={stylesRegister.registerWrapper}>
                     <RecWrapper size= "heightFit"
-                    children1={
-                        <div className={stylesRegister.registerText}> Registration </div>
-                    }
-                    children2={
-                        <input 
-                        className={stylesRegister.email} 
-                        name="email"
-                        placeholder="email"
-                        {...register("email")}
-                        />
-                    }
-                    children3={
-                        <input
-                        className={stylesRegister.password}
-                        name="password"
-                        type="password"
-                        placeholder="password"
-                        {...register("password")}
-                        />
-                    }
-
-                    children4={
-                        <input
-                        className={stylesRegister.confirmPassword}
-                        name="confirmPassword"
-                        type="password"
-                        placeholder="confirm password"
-                        {...register("confirmPassword")}
-                        />
-                    }
-
-                    children8={
-                        <input className={stylesRegister.submitBtn} type="submit"  />
+                                content={
+                                    <div className={stylesRegister.registerWrapperChild}>
+                                        Registration
+                                        <input className={stylesRegister.input} 
+                                                name="email"
+                                                placeholder="email"
+                                                {...register("email")}
+                                        />
+                                        <input className={stylesRegister.input}
+                                                name="password"
+                                                type="password"
+                                                placeholder="password"
+                                                {...register("password")}
+                                        />
+                                        <input className={stylesRegister.input}
+                                                name="confirmPassword"
+                                                type="password"
+                                                placeholder="confirm password"
+                                                {...register("confirmPassword")}
+                                        />
+                                        <input className={stylesRegister.submitBtn} type="submit"  />
+                                    </div>
                     }
                     />
                     <div className={stylesRegister.goBackWrapper}>
@@ -97,7 +86,6 @@ const Register = () => {
                     <p>{errors.password?.message}</p>
                     <p>{errors.confirmPassword?.message}</p>
                 </div>
-                
             </form>
         </div>
     );

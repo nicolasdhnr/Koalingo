@@ -1,18 +1,36 @@
-.registerText {
+.registerWrapper{
+  left: 3vh;
+  right: 3vh;
+  position: absolute;
+  height: 70%;
+  font-family: var(--font-poppins);
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  top:28%;
+}
+.registerWrapperChild{
+  width: 90%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-poppins);
   color: rgb(43, 43, 43);
   font-size: 3.4vh;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
   margin-top: 2vh;
+  gap:1vh;
 }
-.email,
-.password,
-.confirmPassword {
+.input {
   text-align: left;
   font-family: var(--font-poppins);
   font-size: 2.4vh;
   font-weight: 100;
   color: black;
-  width: 65%;
+  width: 60%;
   padding: 0vh 2vh;
   height:6vh;
   border: 0.4vh solid rgb(136, 136, 136);
@@ -26,32 +44,15 @@
   border: 0;
   background-color: gold;
   color: black;
-  justify-content: center;
-  align-items: center;
   font-family: var(--font-poppins);
   font-size: 2.8vh;
   border-radius: 80px;
   padding: 0vh 4vw;
-  margin-bottom: 6%;
-  margin-top: 3%;
-  
 }
 .submitBtn:hover {
   background-color: goldenrod;
 }
-.loginWrapper{
-  left: 3vh;
-  right: 3vh;
-  position: absolute;
-  height: 70%;
-  font-family: var(--font-poppins);
-  font-size: 2vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  top:28%;
-}
+
 .goBackWrapper {
   display: flex;
   flex-direction: column;
@@ -63,7 +64,7 @@
   margin-top: 3vh;
 }
 .backText {
-  margin-bottom: 1.5vh;
+  margin-bottom: 1vh;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.889);
+  color: rgba(41, 41, 41, 0.889);
 }

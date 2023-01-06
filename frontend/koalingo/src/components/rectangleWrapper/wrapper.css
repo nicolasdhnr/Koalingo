@@ -39,3 +39,6 @@
     height: fit-content;
     justify-content: flex-start;
 }
+.wrapperGold {
+    background-color: gold;
+}
