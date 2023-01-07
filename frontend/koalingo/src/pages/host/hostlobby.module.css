@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 .bottomWrapper {
-  border: 0.7vh solid rgba(255, 255, 255, 0.849);
+  border: 0.5vh solid rgba(255, 255, 255, 0.849);
   border-radius: 20px;
   width: 93%;
   height: fit-content;
@@ -50,7 +50,6 @@
   justify-content: center;
   align-items: center;
   font-family: var(--font-poppins);
-  
 }
 .playersInGame {
   font-family: var(--font-poppins);

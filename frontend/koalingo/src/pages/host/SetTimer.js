@@ -1,7 +1,11 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./settimer.module.css";
+import stylesSetTimer from "./setTimer.module.css";
+import stylesLogin from "../home/login.module.css";
+import stylesEmailLogin from "../home/emailLogin.module.css";
+import stylesHome from "../home/home.module.css";
 import { useState, useEffect } from 'react';
+import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 
 
 const SetTimer = () => {
@@ -21,27 +25,28 @@ const SetTimer = () => {
   }, []);
 
   return (
-    
-    <div className={styles.web192015}>
+    <div className={stylesLogin.loginPage}>
+      <img className={stylesEmailLogin.koalingoLogo} alt="" src="../../koalingo_logo.svg" />
 
-      <div className={styles.web192015Child} />
-      
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../allergies-plan-de-travail-1-11@2x.png"
-      />
-      <div className={styles.wrapper}>
-        <b className={styles.b}>{Math.floor((time / MINUTE) % 60)} </b>
+      <div className={stylesHome.mainWrapper}>
+          <RecWrapper size="heightFit"
+                      content={
+                        <div>
+                          <div>
+                            <b>{Math.floor((time / MINUTE) % 60)} </b>
+                          </div>
+                          <div>
+                            <b>{Math.floor((time / SECOND) % 60)}</b>
+                          </div>
+                          <b>Minutes</b>
+                          <b>Seconds</b>
+                          <button onClick={onLoginClick}>
+                            <div>Progress Tracking</div>
+                          </button>
+                        </div>
+                      }
+          />
       </div>
-      <div className={styles.container}>
-        <b className={styles.b}>{Math.floor((time / SECOND) % 60)}</b>
-      </div>
-      <b className={styles.minutes}>Minutes</b>
-      <b className={styles.seconds}>Seconds</b>
-      <button className={styles.login} onClick={onLoginClick}>
-        <div className={styles.progressTracking}>Progress Tracking</div>
-      </button>
     </div>
   );
 };

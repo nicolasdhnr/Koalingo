@@ -20,19 +20,26 @@
   font-family: var(--font-poppins);
   color: var(--color-white);
   text-align: center;
-  padding: 0vh 0vh;
-  margin-top: -8%;
-  margin-bottom: 2.5vh;
-  width: 120%;
+  margin-top: -7%;
+  margin-bottom: 2.2vh;
+  width: 130%;
+  height: fit-content;
   border: 0.5vh solid white;
   border-radius: 1.4vh;
-  background: rgb(88,92,238);
-  background: linear-gradient(180deg, rgba(88,92,238,1) 0%, rgba(167,98,241,1) 100%);
+  padding: 1vh;
 }
 .trackerWrapper{
-  font-size: 4vh;
-  font-weight: 600;
-  width: fit-content;
+  position: absolute;
+  top: 50vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  top: 48vh;
   height: fit-content;
+  width: 80%;
+  bottom: 5vh;
   font-family: var(--font-poppins);
+  font-size: 4.2vh;
 }

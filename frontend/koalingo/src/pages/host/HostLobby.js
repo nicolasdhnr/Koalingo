@@ -72,8 +72,8 @@ const HostLobby = () => {
               <div className={stylesLobby.cardWrapper}>
                 Set Timer
                 <div className={stylesLobby.timerWrapper}>
-                  <b className={stylesLobby.timer} onClick={onTimerClick}> 05 </b>
-                  <b className={stylesLobby.timer} onClick={onTimerClick}> 00 </b>
+                  <b className={stylesLobby.timer}> 05 </b>
+                  <b className={stylesLobby.timer}> 00 </b>
                 </div>
                 <Button btnText="Start the game" onClick={onStartTheGame1Click}
                         btnStyle="purple" length="btnMedium"/>
@@ -88,7 +88,6 @@ const HostLobby = () => {
       <div className={stylesLobby.bottomWrapper}>
         <div className={stylesLobby.playersInGame}> {count} KoaLearners</div>
         <Players players={playerNames}/>
-        
       </div>
 
     </div>
