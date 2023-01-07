@@ -10,9 +10,7 @@
 .enter {
   text-align: center;
   font-family: var(--font-poppins);
-  font-size: 2.4vh;
-  font-weight: 100;
-  color: rgb(147, 147, 147);
+  font-size: 3vh;
   padding: 0vw 3vw;
   width: 28vh;
   height:7.5vh;

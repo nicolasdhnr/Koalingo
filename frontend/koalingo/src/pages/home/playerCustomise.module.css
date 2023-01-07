@@ -1,0 +1,48 @@
+.mainWrapperChild {
+    padding-top: 2vh;
+    text-align: center;
+    font-family: var(--font-poppins);
+    font-size: 2.8vh;
+}
+.inputWrapper {
+    padding: 0.7vh 1vh;
+    width: 80%;
+    font-family: var(--font-poppins);
+    font-size: 2vh;
+    border-radius: 10px;
+    border: 0.35vh solid gray;
+    margin: 2px;
+}
+.characterWrapper {
+    padding-top: 2vh;
+    padding-bottom: 4vh;
+    text-align: center;
+    font-family: var(--font-poppins);
+    font-size: 2.8vh;
+    display: flex;
+    flex-direction: column;
+}
+.characterWrapperChild {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 1.5vh;
+    font-family: var(--font-poppins);
+    font-size: 2.8vh;
+    width: 100%;
+    gap: 2vh;
+}
+.child {
+    width: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.6vh solid rgb(52, 52, 52);
+    border-radius: 40px;
+    overflow: hidden;
+}
+.child:hover {
+    background-color: gold;
+}

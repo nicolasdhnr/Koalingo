@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesTracker from "./hostprogresstracker.module.css";
-import stylesSelect from "./hostsetselect.module.css";
+import stylesTracker from "./hostProgressTracker.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
 import stylesLobby from "./hostLobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
@@ -37,6 +37,10 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     navigate("/host/set/timer");
   }, [navigate]);
 
+  const onEndClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
+
   const Timer = () =>{
     const SECOND = 1000;
     const MINUTE = SECOND * 60;
@@ -70,13 +74,15 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <div className={stylesTracker.mainWrapper}>
         <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
-        <Button btnText="Start Game" // Missing onClick function
-                btnStyle="gold" length="btnFit" />
+        <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+                btnStyle="gold" />
       </div>
 
       <div className={stylesTracker.trackerWrapper}>
+        Player score
         <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
-                        reported={Object.keys(playerData).map((key) => playerData[key].reported)} />
+                        reported={Object.keys(playerData).map((key) => playerData[key].reported)}
+      />
       </div>
     </div>
   );

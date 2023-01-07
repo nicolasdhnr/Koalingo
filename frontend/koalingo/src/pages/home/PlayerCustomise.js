@@ -1,7 +1,9 @@
 import { useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./home.module.css";
-import styles1 from "./login.module.css"
+import stylesHome from "./home.module.css";
+import stylesLogin from "./login.module.css";
+import stylesCustomise from "./playerCustomise.module.css";
+import stylesEmailLogin from "./emailLogin.module.css";
 import { realtimedb } from "../../firebase";
 import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
@@ -67,27 +69,33 @@ export const PlayerCustomise = () => {
   }
 
   return (
-    <div className={styles1.loginPage}>
-      <div className={styles1.headerWrapper}>
-        {user && <Button btnText='Sign out' onClick={logout}
-                  btnStyle='red' length='btnShort'/>}
-      </div>
-      <img className={styles1.koalingoLogo} alt='' src='../koalingo_logo.svg' />
-      <div className={styles.mainWrapper}>
-        <input 
-          placeholder='Enter Nickname'
-          value={nickname}
-          onChange={onChangeNickname}
-        ></input>
-        <h1>Choose your character below:</h1>
-        <button onClick={onClickGirl}>
-          Girl
-          <img src={girl_url} alt="girl failed to load"/>
-        </button>
-        <button onClick={onClickBoy}>
-          Boy
-          <img src={boy_url} alt="boy failed to load"/>
-        </button>
+    <div className={stylesLogin.loginPage}>
+      <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
+  
+      <div className={stylesHome.mainWrapper}>
+          <RecWrapper size="heightFit"
+                      content={
+                        <div className={stylesCustomise.mainWrapperChild}>
+                          Your Nickame
+                          <input className={stylesCustomise.inputWrapper}
+                            placeholder='Enter Nickname'
+                            value={nickname}
+                            onChange={onChangeNickname}
+                          />
+                          <div className={stylesCustomise.characterWrapper}>
+                          Choose your character!
+                            <div className={stylesCustomise.characterWrapperChild}>
+                              <button className={stylesCustomise.child} onClick={onClickGirl}>
+                                <img src={girl_url} alt="girl failed to load"/>
+                              </button>
+                              <button className={stylesCustomise.child} onClick={onClickBoy}>
+                                <img src={boy_url} alt="boy failed to load"/>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+            }
+          />
       </div>
     </div>
   )

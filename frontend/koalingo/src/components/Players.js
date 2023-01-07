@@ -1,3 +1,4 @@
+import { SAMLAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { AuthContext } from "../App";
 import stylesList from '../components/list_styles.css';
@@ -6,15 +7,17 @@ import stylesList from '../components/list_styles.css';
 export function PlayerTracking(props) {
   
   return (
-  <ul>
+  <ul class="player">
   {props?.names.map((title) => (
-    <li key={title}>
-        <h2> {props.reported} </h2>
-        <h2>{title}</h2>
+    <li class="playerTrack"
+        key={title}>
+      {title}:
+      {' '}
+      {props.reported}
       {/* {!description ? null : <p>{description}</p>} */}
     </li>
   ))}
-</ul>
+  </ul>
   );
 
 }
@@ -22,11 +25,11 @@ export function PlayerTracking(props) {
 export default function PlayerList(props) {
 
   return (
-    <ul>
+    <ul ul class="player">
       {props?.players.map((title) => (
-        <li
-        key={title}>
-            {title}
+        <li class="player"
+            key={title}>
+          {title}
           {/* {!description ? null : <p>{description}</p>} */}
         </li>
       ))}

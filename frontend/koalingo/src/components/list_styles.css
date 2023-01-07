@@ -1,4 +1,4 @@
-ul{
+ul.player{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,16 +9,27 @@ ul{
   flex-wrap:wrap;
   gap:1vh;
 }
-li {
-  display: flex;
-  padding: 1.3vh 5vh;
-  width: fit-content;
+li.playerTrack{
   background-color: rgb(255, 255, 255);
+  box-shadow: 1px 40px 80px rgba(33, 24, 83, 0.16);
+  display: flex;
+  padding: 1.5vh 5vh;
+  width: fit-content;
   border-radius: var(--br-md);
   font-size: 3vh;
   margin: 0.2vh;
-} 
-  
+  border: 3px solid #8080801d;
+}
+li.player{
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  padding: 1.3vh 5vh;
+  width: fit-content;
+  border-radius: var(--br-md);
+  font-size: 3vh;
+  margin: 0.2vh;
+}
+
 .btn {
   background-color:  rgb(255, 255, 255);
   border: none;
