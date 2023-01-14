@@ -3,6 +3,7 @@
     text-align: center;
     font-family: var(--font-poppins);
     font-size: 2.8vh;
+    width: 100%;
 }
 .inputWrapper {
     padding: 0.7vh 1vh;

@@ -28,18 +28,28 @@
   border-radius: 1.4vh;
   padding: 1vh;
 }
-.trackerWrapper{
+.bottomWrapper{
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   top: 50vh;
+  height: fit-content;
+  width: 100%;
+  bottom: 5vh;
+  font-family: var(--font-poppins);
+  font-size: 4.2vh;
+}
+.trackerWrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  top: 48vh;
   height: fit-content;
   width: 80%;
-  bottom: 5vh;
   font-family: var(--font-poppins);
   font-size: 4.2vh;
 }
