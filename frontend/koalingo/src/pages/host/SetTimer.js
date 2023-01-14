@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesSetTimer from "./SetTimer.module.css";
+import stylesSetTimer from "./set-timer.module.css";
 import stylesLogin from "../home/login.module.css";
-import stylesEmailLogin from "../home/emailLogin.module.css";
+import stylesEmailLogin from "../home/email-login.module.css";
 import stylesHome from "../home/home.module.css";
 import { useState, useEffect } from 'react';
 import RecWrapper from "../../components/rectangleWrapper/Wrapper";

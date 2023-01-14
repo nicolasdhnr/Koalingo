@@ -4,7 +4,7 @@ import Button from "../../components/button/Button";
 import NewWord from "../../components/NewWord";
 import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 import WordsList from "../../components/WordList";
-import stylesSelect from "./HostSetSelect.module.css";
+import stylesSelect from "./host-set-select.module.css";
 
 const HostSetSelect = () => {
   const navigate = useNavigate();
