@@ -27,16 +27,20 @@ const Waiting = () => {
     }
     }), [];
 
-    return onValue(ref(realtimedb, "games/" + gamePin + "gameState"), (snapshot) => {
+    const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}/gameState`), (snapshot) => {
       const data = snapshot.val();
+      console.log(gamePin);
+      console.log(data);
       if (data != null) {
-        console.log(data);
         if (data === "memorizing") {
           navigate("/player/memorizing");
         }
       }
+
+      return unsubscribe;
+      
     });
-  }, [navigate]);
+  }, []);
 
 
 

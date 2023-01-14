@@ -49,17 +49,15 @@ const HostLobby = () => {
 
   // Navigating to the timer page to change the game settings
 
-  const onStartTheGame1Click = useCallback(() => {
+  const onStartTheGame1Click = useCallback(async () => {
+    console.log(gamePin)
+    await updateGameState(gamePin, "memorizing");
     navigate("/host/progress-tracker");
   }, [navigate]);
   
 
   const onBackClick = useCallback(() => {
     navigate("/host/set/select");
-  }, [navigate]);
-
-  const onTimerClick = useCallback(() => {
-    navigate("/host/set/timer");
   }, [navigate]);
 
 
