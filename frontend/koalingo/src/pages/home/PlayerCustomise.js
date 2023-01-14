@@ -16,7 +16,7 @@ export const PlayerCustomise = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
-  const {setCharacter} = useContext(AuthContext);
+  const {setCharacter, setGlobNickname} = useContext(AuthContext);
   const [nickname, setNickname] = useState("");
 
   // Directly pulled from storage folder on firebase
@@ -38,9 +38,9 @@ export const PlayerCustomise = () => {
   const onClickChar = (event) => {
     const char = event.currentTarget.id;
     setCharacter(char);
+    setGlobNickname(nickname);
 
     if (nickname != "") {
-      console.log('Local nickname: ', nickname);
       addNickname(event.currentTarget.id)
       navigate('/waiting');
     } else {
