@@ -8,7 +8,6 @@ import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
 import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import Button from "../../components/button/Button";
 
 
@@ -30,16 +29,16 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
   
   const onRectangleButtonClick = useCallback(async () => {
     await updateGameState(gamePin, "memorizing");
+  }, [navigate]);
   
-  }, [navigate]);
-
-  const onLoginClick = useCallback(() => {
-    navigate("/host/set/timer");
-  }, [navigate]);
-
   const onEndClick = useCallback(() => {
     navigate("/home");
   }, [navigate]);
+
+  const onGoToQuizzClick = useCallback(() => {
+    navigate("/host/quizz");
+  }, [navigate]);
+
 
   const Timer = () =>{
     const SECOND = 1000;
@@ -74,9 +73,12 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <div className={stylesTracker.mainWrapper}>
         <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
-        <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+        <Button btnText="Go to Quizz" onClick={onGoToQuizzClick} // Missing onClick function
                 btnStyle="gold" />
+                <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+                btnStyle="red" />
       </div>
+      
 
       <div className={stylesTracker.trackerWrapper}>
         Player score

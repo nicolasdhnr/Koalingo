@@ -8,7 +8,6 @@ import Button from "../../components/button/Button";
 
 const PlayerQuizz = () => {
   const navigate = useNavigate();
-  const [state, setState] = useState(false);
     // Render state result component on click.  
   
   const onWordSelected = useCallback(() => {
