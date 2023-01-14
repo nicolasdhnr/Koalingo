@@ -37,7 +37,7 @@ const Home = () => {
       console.log(data);
       if (data[gamePinEntered.toString()] !== undefined) {
         console.log("Game pin exists");
-        setGamePin(gamePinEntered.toString())
+        setGamePin("123456")
         navigate("/player/customise");
         
       } else {

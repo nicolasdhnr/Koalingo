@@ -1,28 +1,36 @@
 import styles from "./playerquizz.module.css";
-import { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useEffect, useContext,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
-
-
+import { AuthContext } from '../../App';
+import {realtimedb } from "../../firebase";
+import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
 
 
 const PlayerQuizz = () => {
-  const navigate = useNavigate();
-    // Render state result component on click.  
-  const [button, setButton] = useState(0);
-  const onCorrect = useCallback(() => {
+  const {gamePin, user} = useContext(AuthContext);
+  var data = undefined;
+  var XP = 0;
+  console.log(typeof gamePin)
 
+  console.log(gamePin);
+  const navigate = useNavigate();
+  const [button, setButton] = useState(0);
+  var bool = false;
+
+  const onCorrect = useCallback(() => {
     navigate("/player/correct");
   }, [navigate]);
   
+  
   const onWrong = useCallback(() => {
-
     navigate("/player/wrong");
   }, [navigate]);
 
   // const handleButtonClick = () 
 
   var sample_list = ["My", "name", "is", "matthieu","need","redbull"];
+  // const [count, setCount] = useState(0);
   var good = "redbull";
   const idx = sample_list.indexOf(good);
   sample_list.pop(idx);
@@ -45,31 +53,49 @@ const PlayerQuizz = () => {
   var a = (sample_list.slice(0,3));
   a.push(good);
   a = shuffle(a);
-  
+
   const HandleButtonClick = (num) => {
     setButton(num);
-    console.log(num);
-    console.log(a.indexOf(good));
-    if (num == a.indexOf(good)+1) {
-      onCorrect();
-    }else{
-      onWrong();
+    if (data){
+      console.log(data)
+      const num_answers = "test";
+      const user_id = "host";
+      if (num == a.indexOf(good)+1) {
+        onCorrect();
+        bool = true;
+        XP =100;
+      }else
+      {
+        onWrong();
+        bool = false;
+        XP=15;
+      };
+      update(ref(realtimedb, `games/${gamePin}/players/${user_id}/Quizz/${(data.round).toString()}`), {
+        ["val"]: bool,
+        ["xp"]: XP,
+      });
+      
+      
     }
+    
+    
   };
-
-
-
-
+  
+    
 
   const infos = {
-
     current_words : a,
   }
   
-
-
-
-
+  useEffect(() => {
+    //  get data from relatimedb
+    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+      data = snapshot.val();
+      
+  }, {
+      onlyOnce: true,
+    });
+  }, [button, gamePin, realtimedb]);
 
   return (
     <div className={styles.hostquizwords1}>
