@@ -32,13 +32,14 @@ const HostSetSelect = () => {
       </div>
 
       <div className={stylesSelect.enterWordWrapper}>
-        Enter word:
-        <input className={stylesSelect.wordInput} type="text" placeholder=" 'How are you?'"/>
-        <div className={stylesSelect.buttonWrapper}>
+        {/* Enter word: */}
+        {/* <input className={stylesSelect.wordInput} type="text" placeholder=" 'How are you?'"/> */}
+        <NewWord className={stylesSelect} />
+        {/* <div className={stylesSelect.buttonWrapper}>
           <img className={stylesSelect.circleBtn} alt="" src="../../ellipse-31.svg" />
           <img className={stylesSelect.cross} alt="" src="../../polygon-11.svg" />
-        </div>
-        <NewWord />
+        </div> */}
+        {/* <div className={stylesSelect.wordInput}> <NewWord/> </div> */}
       </div>
 
       <div className={stylesSelect.cardWrapper}>
