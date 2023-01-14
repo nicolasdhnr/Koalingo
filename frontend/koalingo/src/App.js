@@ -29,7 +29,7 @@ import {logout} from "./firebase";
 import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
 import { PlayerCustomise } from "./pages/home/PlayerCustomise";
-
+import {StateResult} from "./pages/player/StateResult";
 //TODO: ADD Meta Tags
 
 
@@ -105,6 +105,7 @@ function App() {
         <Route path="/host/available-words" element={<AvailableWords />} />
        <Route path="/host/set/select_words" element={<SetWordContext />} /> 
        <Route path="/player/customise" element={<PlayerCustomise />} /> 
+        <Route path="/player/result" element={<StateResult />} />
       </Route>
 
       <Route path="/host/lobby" element={<HostLobby />} />

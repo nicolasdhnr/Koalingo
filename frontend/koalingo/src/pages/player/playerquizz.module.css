@@ -1,61 +1,146 @@
+.hostquizwords1Child,
+.hostquizwords1Item {
+  position: absolute;
+  top: 0;
+  width: 960px;
+  height: 540px;
+}
+.hostquizwords1Child {
+  left: 0;
+  background: linear-gradient(135deg, #e4e4e4, #f093fb, #f5576c);
+}
+.hostquizwords1Item {
+  right: 0;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+.hostquizwords1Inner,
+.rectangleDiv {
+  position: absolute;
+  bottom: 0;
+  width: 960px;
+  height: 540px;
+}
+.hostquizwords1Inner {
+  left: 0;
+  background: linear-gradient(135deg, #9be15d, #00e3ae);
+}
+.rectangleDiv {
+  right: 0;
+  background: linear-gradient(135deg, #e4e4e4, #f8f800, #e8b300);
+}
 .bedroom {
   position: absolute;
-  top: calc(50% - 33.5px);
-  left: calc(50% - 113px);
-  display: inline-block;
+  top: calc(50% - 32.5px);
+  left: calc(50% - 99px);
 }
 .bedroomWrapper {
-  top: 55px;
-  left: 73px;
-  cursor: pointer;
+  top: 244px;
+  left: 103px;
 }
 .bedroomContainer,
 .bedroomFrame,
 .bedroomWrapper,
 .groupDiv {
   position: absolute;
-  border-radius: var(--br-3xl);
-  background: linear-gradient(131.81deg, #7666f5, #4b5deb);
-  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-  width: 774px;
-  height: 327px;
+  border-radius: var(--br-md);
+  background-color: var(--color-white);
+  box-shadow: 2px 10px 35px rgba(71, 52, 175, 0.16);
+  width: 658px;
+  height: 127px;
 }
 .bedroomContainer {
-  top: 55px;
-  right: 54px;
+  top: 244px;
+  right: 151px;
 }
 .bedroomFrame,
 .groupDiv {
-  bottom: 71px;
+  top: 747px;
 }
 .bedroomFrame {
-  left: 73px;
+  left: 103px;
 }
 .groupDiv {
-  right: 54px;
+  right: 151px;
 }
-.repeatGrid9 {
+.allergiesPlanDeTravail11 {
   position: absolute;
-  bottom: -18px;
-  left: 51px;
-  width: 1818px;
-  height: 880px;
+  top: 17px;
+  left: 90px;
+  width: 342px;
+  height: 108px;
+  object-fit: cover;
 }
-.clickIfYourWordAppearOnT {
+.game123456 {
   position: absolute;
-  top: 72px;
-  left: 549px;
-  font-size: var(--font-size-3xl);
-  display: inline-block;
-  color: var(--color-indigo-100);
+  top: 60px;
+  right: 150px;
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
 }
-.web19209 {
+.hostquizwords1 {
   position: relative;
   background-color: var(--color-white);
   width: 100%;
   height: 1080px;
   text-align: center;
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-xl);
+  color: var(--color-indigo);
+  font-family: var(--font-poppins);
+}
+
+.stateResultChild {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  width: 1920px;
+  height: 1080px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 28px;
+  left: 721px;
+  width: 419px;
+  height: 132px;
+  object-fit: cover;
+}
+.game123456,
+.stateResultItem {
+  position: absolute;
+  top: 174px;
+  left: 793px;
+}
+.stateResultItem {
+  top: 492px;
+  left: 533px;
+  border-radius: var(--br-sm);
+  background-color: var(--color-white);
+  box-shadow: 2px 10px 35px rgba(71, 52, 175, 0.16);
+  width: 854px;
+  height: 96px;
+}
+.congratulationsYouGot {
+  position: absolute;
+  top: 516px;
+  left: 595px;
+  font-size: var(--font-size-base);
+  color: var(--color-indigo);
+}
+.xp {
+  position: absolute;
+  top: 609px;
+  left: 860px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+.stateResult {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-lg);
   color: var(--color-white);
   font-family: var(--font-poppins);
 }
+
