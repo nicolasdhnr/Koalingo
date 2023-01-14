@@ -1,9 +1,11 @@
 import styles from "./HostQuizz.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext } from "react";
+import Progressbar from '../../components/progressBar/progressbar';
 import { AuthContext } from "../../App";
 
 const HostQuizz = () => {
+  
   const { gamePin} = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -11,6 +13,17 @@ const HostQuizz = () => {
   const onNextClick = useCallback(() => {
     navigate("/end");
   }, [navigate]);
+var x = 10;
+console.log(x);
+
+var array = [1, 2, 3, 4, 5]
+for(let i = 0; i < 30; i++) {
+  setTimeout(() => {
+    //Progressbar.Childdiv.width = `${i}%`;
+    console.log(x);
+  }, i*100);
+}
+
 
   return (
     <div className={styles.teacherQuizz}>
@@ -30,9 +43,14 @@ const HostQuizz = () => {
       <div className={styles.teacherQuizzInner} />
       <b className={styles.hello}>Hello</b>
       <div className={styles.matthieuGotThis}>
-        Insert some kind of progress bar here for the whole group
+      <div class="container">
+      
+      <div class="text-center" id="app">
       </div>
-      <b className={styles.next} onClick={onNextClick}>next</b>
+		
+</div>
+      </div>
+     
     </div>
   );
 };
