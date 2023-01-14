@@ -1,8 +1,16 @@
-.stateResultChild {
+.background_correct {
   position: absolute;
   top: 0;
   left: 0;
   background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  width: 1920px;
+  height: 1080px;
+}
+.background_false {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #2b5876, #4e4376);
   width: 1920px;
   height: 1080px;
 }
@@ -29,7 +37,7 @@
   width: 854px;
   height: 96px;
 }
-.congratulationsYouGot {
+.message {
   position: absolute;
   top: 516px;
   left: 595px;

@@ -9,11 +9,18 @@ import Button from "../../components/button/Button";
 const PlayerQuizz = () => {
   const navigate = useNavigate();
     // Render state result component on click.  
-  
-  const onWordSelected = useCallback(() => {
-    console.log("hey");
-    navigate("/player/result");
+  const [button, setButton] = useState(0);
+  const onCorrect = useCallback(() => {
+
+    navigate("/player/correct");
   }, [navigate]);
+  
+  const onWrong = useCallback(() => {
+
+    navigate("/player/wrong");
+  }, [navigate]);
+
+  // const handleButtonClick = () 
 
   var sample_list = ["My", "name", "is", "matthieu","need","redbull"];
   var good = "redbull";
@@ -39,6 +46,17 @@ const PlayerQuizz = () => {
   a.push(good);
   a = shuffle(a);
   
+  const HandleButtonClick = (num) => {
+    setButton(num);
+    console.log(num);
+    console.log(a.indexOf(good));
+    if (num == a.indexOf(good)+1) {
+      onCorrect();
+    }else{
+      onWrong();
+    }
+  };
+
 
 
 
@@ -59,17 +77,17 @@ const PlayerQuizz = () => {
       <div className={styles.hostquizwords1Item} />
       <div className={styles.hostquizwords1Inner} />
       <div className={styles.rectangleDiv} />
-      <div className={styles.bedroomWrapper}>
-        <b className={styles.bedroom}>{infos.current_words[0]}</b>
+      <div className={styles.bedroomWrapper} onClick={() => HandleButtonClick(1)}>
+        <b className={styles.bedroom} onClick={() => HandleButtonClick(1)}>{infos.current_words[0]}</b>
       </div>
-      <div className={styles.bedroomContainer}>
-        <b className={styles.bedroom}>{infos.current_words[1]}</b>
+      <div className={styles.bedroomContainer} onClick={() => HandleButtonClick(2)}>
+        <b className={styles.bedroom} onClick={() => HandleButtonClick(2)}>{infos.current_words[1]}</b>
       </div>
-      <div className={styles.bedroomFrame}>
-        <b className={styles.bedroom} onClick={onWordSelected}>{infos.current_words[2]}</b>
+      <div className={styles.bedroomFrame} onClick={() => HandleButtonClick(3)}>
+        <b className={styles.bedroom} onClick={() => HandleButtonClick(3)}>{infos.current_words[2]}</b>
       </div>
-      <div className={styles.groupDiv}>
-        <button className={styles.bedroom}>{infos.current_words[3]}</button>
+      <div className={styles.groupDiv} onClick={() => HandleButtonClick(4)}>
+        <b className={styles.bedroom} onClick={() => HandleButtonClick(4)}>{infos.current_words[3]}</b>
       </div>
       <img
         className={styles.allergiesPlanDeTravail11}
