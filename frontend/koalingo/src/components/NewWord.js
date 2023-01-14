@@ -1,27 +1,27 @@
-import React, {useContext} from "react";
-import {AuthContext} from '../App';
+import React, { useContext } from "react";
+import { AuthContext } from '../App';
 import { checkIfWordIsAvailable } from "../pages/host/host_logic";
 export default function NewWord() {
-  const {newWord, allWords, setAllWords, setNewWord} = useContext(AuthContext);
+  const { newWord, allWords, setAllWords, setNewWord } = useContext(AuthContext);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     console.log(name, value);
-    setNewWord((prev) => ({...prev, id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
+    setNewWord((prev) => ({ ...prev, id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
     console.log(newWord);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (await checkIfWordIsAvailable(newWord.title)) {
-    if (!newWord.title) return;
-    setAllWords((prev) => [newWord, ...prev]);
-    setNewWord({});
-    return;
+      if (!newWord.title) return;
+      setAllWords((prev) => [newWord, ...prev]);
+      setNewWord({});
+      return;
     }
 
     alert("This word had not yet been animated! Please consult our list of words.")
-    return; 
+    return;
   };
 
   return (
