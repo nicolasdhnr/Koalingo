@@ -26,7 +26,7 @@ export const createGamePin = async (user) => {
  cookies.set("gamePin", gamePin, { path: "/" });
  await createGame(gamePin, user);
 
- return 123456;
+ return gamePin;
 };
 
 
