@@ -4,6 +4,7 @@ import {
   useNavigate,
   useNavigationType,
   useLocation,
+  RouterProvider,
 } from "react-router-dom";
 
 import { getAuth } from "firebase/auth";
@@ -29,6 +30,10 @@ import {logout} from "./firebase";
 import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
 import { PlayerCustomise } from "./pages/home/PlayerCustomise";
+import Correct from "./pages/player/Answer_correct";
+import Wrong from "./pages/player/Answer_wrong";
+import HostQuizz from "./pages/host/HostQuizz";
+import End from "./pages/host/End";
 
 //TODO: ADD Meta Tags
 
@@ -100,11 +105,16 @@ function App() {
         <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
         <Route path="/host/lobby" element={<HostLobby />} />
         <Route path="/home" element={<Home />} />
+         <Route path="/player/correct" element={<Correct/>} />
+         <Route path="/player/wrong" element={<Wrong/>} />
         <Route path="/web-1920-1" element={<Web19201 />} />
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/host/available-words" element={<AvailableWords />} />
        <Route path="/host/set/select_words" element={<SetWordContext />} /> 
        <Route path="/player/customise" element={<PlayerCustomise />} /> 
+       <Route path="/host/quizz" element={<HostQuizz />} />
+        <Route path="/end" element={<End />} />
+
       </Route>
 
       <Route path="/host/lobby" element={<HostLobby />} />

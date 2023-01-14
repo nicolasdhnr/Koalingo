@@ -119,7 +119,8 @@ Nicolas, James, Rusne, Gloria, Matthieu
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Dr. Thomas Ouldridge
-
+Imperial College London: Martin Holloway, Ian RadCliffe
+<br />
+UK Pace Center: Luke Thompson
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

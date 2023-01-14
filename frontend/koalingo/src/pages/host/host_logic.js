@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 
 
+
  // Generate the game pin, update the context provider with the gamePin
 export const createGamePin = async (user) => {
  const cookies = new Cookies();
@@ -25,8 +26,10 @@ export const createGamePin = async (user) => {
  cookies.set("gamePin", gamePin, { path: "/" });
  await createGame(gamePin, user);
 
- return gamePin;
+ return 123456;
 };
+
+
 
 export const  createGame = async (gamePin, user) => {
   const reference = ref(realtimedb, "games");
@@ -36,22 +39,21 @@ export const  createGame = async (gamePin, user) => {
       gameState: "lobby",
       words: {"yes" : 0, "better" :0},
       curranswer: 0,
-      currquestion: 0,
+      round: 0,
       timer: 0,
       players: {
-          "host": { name: "Nicolas",
-                        reported: 0,
-        },
-      }
+          "host": { "name": "Nicolas","reported": 0,"Quizz": {1:{val:false,xp:0},2:{val:false,xp:0},3:{val:false,xp:0},4:{val:false,xp:0}}}
+                }
   }}
 
   );
 }; 
 
 export const updateGameState = async (gamePin, state) => {
+  console.log(gamePin)
   const reference = ref(realtimedb, "games/" + gamePin);
   await update(reference, {
-    gameState: state
+    "gameState": state,
   });
 };
 
@@ -61,7 +63,6 @@ export const updateGameState = async (gamePin, state) => {
   * @param {string} word - The word to check
   * @return {boolean} - True if the word is available, false otherwise
   */
-
 export const checkIfWordIsAvailable = async (word) => {
   const db = getFirestore();
   const q = query(collection(db, "words"));
@@ -75,6 +76,7 @@ export const checkIfWordIsAvailable = async (word) => {
   );
   return isAvailable;
 };
+
 
 export const getAllWords = async () => {
   const db = getFirestore();

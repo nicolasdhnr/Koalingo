@@ -1,14 +1,13 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesTracker from "./hostProgressTracker.module.css";
-import stylesSelect from "./hostSetSelect.module.css";
-import stylesLobby from "./hostLobby.module.css";
+import stylesTracker from "./hostprogresstracker.module.css";
+import stylesSelect from "./hostsetselect.module.css";
+import stylesLobby from "./hostlobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
 import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import Button from "../../components/button/Button";
 
 
@@ -23,6 +22,7 @@ useEffect( () => {
 return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     const data = snapshot.val();
     setPlayerData(data);
+    console.log( playerData)
     // Get all the name components within data into an array 
     const playerNames = Object.keys(data).map((key) => data[key].name);
   });
@@ -30,16 +30,16 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
   
   const onRectangleButtonClick = useCallback(async () => {
     await updateGameState(gamePin, "memorizing");
+  }, [navigate]);
   
-  }, [navigate]);
-
-  const onLoginClick = useCallback(() => {
-    navigate("/host/set/timer");
-  }, [navigate]);
-
   const onEndClick = useCallback(() => {
     navigate("/home");
   }, [navigate]);
+
+  const onGoToQuizzClick = useCallback(() => {
+    navigate("/host/quizz");
+  }, [navigate]);
+
 
   const Timer = () =>{
     const SECOND = 1000;
@@ -74,10 +74,12 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <div className={stylesTracker.mainWrapper}>
         <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
-        <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+        <Button btnText="Go to Quizz" onClick={onGoToQuizzClick} // Missing onClick function
                 btnStyle="gold" />
+                <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+                btnStyle="red" />
       </div>
-  
+
       <div className={stylesTracker.bottomWrapper}>
         <div>Player Score</div>
         <div className={stylesTracker.trackerWrapper}>
