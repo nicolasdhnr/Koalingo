@@ -94,7 +94,7 @@ export const PlayerCustomise = () => {
                             </div>
                           </div>
                         </div>
-            }
+                      }
           />
       </div>
     </div>

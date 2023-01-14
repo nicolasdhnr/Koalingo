@@ -49,7 +49,6 @@ export const  createGame = async (gamePin, user) => {
   );
 }; 
 
-
 export const updateGameState = async (gamePin, state) => {
   console.log(gamePin)
   const reference = ref(realtimedb, "games/" + gamePin);
