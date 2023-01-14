@@ -1,7 +1,7 @@
 // Encapsulates all logic relating to hosting game
 import { useEffect } from "react";
 import Cookies from "universal-cookie";
-import { ref, onValue, set, update, get} from "firebase/database";
+import { ref, onValue, set, update, get } from "firebase/database";
 import { realtimedb } from "../../firebase";;
 import { AuthContext } from "../../App";
 import { useContext } from "react";
@@ -18,36 +18,36 @@ import {
 
 
 
- // Generate the game pin, update the context provider with the gamePin
+// Generate the game pin, update the context provider with the gamePin
 export const createGamePin = async (user) => {
- const cookies = new Cookies();
- // Look for a cookie that contains the game pin. Do it only when component is mounted
- const gamePin = cookies.get("gamePin") ? cookies.get("gamePin")  : Math.floor(Math.random() * 1000000).toString(); 
- cookies.set("gamePin", gamePin, { path: "/" });
- await createGame(gamePin, user);
+  const cookies = new Cookies();
+  // Look for a cookie that contains the game pin. Do it only when component is mounted
+  const gamePin = cookies.get("gamePin") ? cookies.get("gamePin") : Math.floor(Math.random() * 1000000).toString();
+  cookies.set("gamePin", gamePin, { path: "/" });
+  await createGame(gamePin, user);
 
- return gamePin;
+  return gamePin;
 };
 
 
 
-export const  createGame = async (gamePin, user) => {
+export const createGame = async (gamePin, user) => {
   const reference = ref(realtimedb, "games");
   // Create a new game
   await update(reference, {
     [gamePin]: {
       gameState: "lobby",
-      words: {"yes" : 0, "better" :0},
+      words: { "yes": 0, "better": 0 },
       curranswer: 0,
       round: 0,
       timer: 0,
       players: {
-          "host": { "name": "Nicolas","reported": 0,"Quizz": {1:{val:false,xp:0},2:{val:false,xp:0},3:{val:false,xp:0},4:{val:false,xp:0}}}
-                }
-  }}
-
+        "host": { "name": "Nicolas", "reported": 0, "Quizz": { 1: { val: false, xp: 0 }, 2: { val: false, xp: 0 }, 3: { val: false, xp: 0 }, 4: { val: false, xp: 0 } } }
+      }
+    }
+  }
   );
-}; 
+};
 
 export const updateGameState = async (gamePin, state) => {
   console.log(gamePin)
@@ -69,7 +69,7 @@ export const checkIfWordIsAvailable = async (word) => {
   const querySnapshot = await getDocs(q);
   let isAvailable = false;
   querySnapshot.forEach((doc) => {
-    if (Object.keys(doc.data()).includes(word)){
+    if (Object.keys(doc.data()).includes(word)) {
       isAvailable = true;
     }
   }
@@ -88,7 +88,7 @@ export const getAllWords = async () => {
   }
   );
   return words;
-  
+
 };
 
 
