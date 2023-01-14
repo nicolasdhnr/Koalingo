@@ -14,22 +14,22 @@ import Button from "../../components/button/Button";
 import "../../App"
 import {logout} from "../../firebase";
 
-import {
-  getFirestore,
-  query,
-  getDocs,
-  collection,
-  where,
-  addDoc,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+// import {
+//   getFirestore,
+//   query,
+//   getDocs,
+//   collection,
+//   where,
+//   addDoc,
+//   setDoc,
+//   updateDoc,
+// } from "firebase/firestore";
 
 // Home
 export const PlayerCustomise = () => {
   const navigate = useNavigate();
   const reference = ref(realtimedb, "games");
-  const [gamePinEntered, setGamePinEntered] = useState("");
+  // const [gamePinEntered, setGamePinEntered] = useState("");
   const auth = getAuth();
   const user = auth.currentUser;
   const {globNickname, setGlobNickname, character, setCharacter} = useContext(AuthContext);
@@ -39,6 +39,18 @@ export const PlayerCustomise = () => {
   const girl_url = 'https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-girl.gif?alt=media&token=f9a02670-c2fa-423b-877f-429c81f29f9d';
   const boy_url = 'https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-boy.gif?alt=media&token=f87acbde-d8c5-4bad-8b8c-06564f39a0dc';
 
+  const testUserID = 'test';
+  const {gamePin} = useContext(AuthContext)
+
+  const addNickname = async () => {
+    const reference = ref(realtimedb, "games/" + gamePin + "/players/" + user.uid);
+    // Create a new game
+    await update(reference, {
+      "nickname" : nickname
+    }
+    );
+  };
+
   const onChangeNickname = (event) => {
     setNickname(event.target.value);
   }
@@ -47,9 +59,10 @@ export const PlayerCustomise = () => {
     setCharacter('boy');
     console.log(character);
     if (nickname != "") {
-      setGlobNickname(nickname);
-      console.log('Global Nickname: ', globNickname);
+      // setGlobNickname(nickname);
+      // console.log('Global Nickname: ', globNickname);
       console.log('Local nickname: ', nickname);
+      addNickname()
       navigate('/waiting');
     } else {
       alert('Sorry, you must choose a nickname!')
@@ -66,6 +79,15 @@ export const PlayerCustomise = () => {
     } else {
       alert('Sorry, you must choose a nickname!')
     }
+  }
+
+  const onClickCheck = () => {
+    console.log(globNickname);
+    console.log(user);
+    console.log(user.uid);
+    console.log(gamePin);
+    addNickname(gamePin, user, globNickname);
+
   }
 
   return (
@@ -93,6 +115,7 @@ export const PlayerCustomise = () => {
                               </button>
                             </div>
                           </div>
+                          <button onClick={onClickCheck}>Check context nickname</button>
                         </div>
                       }
           />
