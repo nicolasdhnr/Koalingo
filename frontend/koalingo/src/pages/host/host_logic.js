@@ -26,8 +26,10 @@ export const createGamePin = async (user) => {
  cookies.set("gamePin", gamePin, { path: "/" });
  await createGame(gamePin, user);
 
- return gamePin;
+ return 123456;
 };
+
+
 
 export const  createGame = async (gamePin, user) => {
   const reference = ref(realtimedb, "games");
@@ -37,23 +39,11 @@ export const  createGame = async (gamePin, user) => {
       gameState: "lobby",
       words: {"yes" : 0, "better" :0},
       curranswer: 0,
-      currquestion: 0,
+      round: 0,
       timer: 0,
       players: {
-          "host": { name: "Nicolas",
-                        reported: 0,
-        },
-        "03473" : { name: "Rusne",
-        reported: 0,},
-        "03474" : { name: "James",
-        reported: 0,},
-        "03475" : { name: "Matt",
-        reported: 0,},
-        "03476" : { name: "Gloria",
-        reported: 0,},
-        "03477" : { name: "Martin Holloway",
-        reported: 0,},
-}
+          "host": { "name": "Nicolas","reported": 0,"Quizz": {1:{val:false,xp:0},2:{val:false,xp:0},3:{val:false,xp:0},4:{val:false,xp:0}}}
+                }
   }}
 
   );

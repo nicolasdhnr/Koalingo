@@ -30,7 +30,8 @@ import {logout} from "./firebase";
 import AvailableWords from "./pages/host/AvailableWords";
 import SetWordContext from "./development/SetWordContext";
 import { PlayerCustomise } from "./pages/home/PlayerCustomise";
-import StateResult from "./pages/player/StateResult";
+import Correct from "./pages/player/Answer_correct";
+import Wrong from "./pages/player/Answer_wrong";
 import HostQuizz from "./pages/host/HostQuizz";
 import End from "./pages/host/End";
 
@@ -104,7 +105,8 @@ function App() {
         <Route path="/host/progress-tracker" element={<HostProgressTracker />} />
         <Route path="/host/lobby" element={<HostLobby />} />
         <Route path="/home" element={<Home />} />
-         <Route path="/player/result" element={<StateResult/>} />
+         <Route path="/player/correct" element={<Correct/>} />
+         <Route path="/player/wrong" element={<Wrong/>} />
         <Route path="/web-1920-1" element={<Web19201 />} />
         <Route path="/waiting" element={<Waiting />} />
         <Route path="/host/available-words" element={<AvailableWords />} />
