@@ -1,4 +1,5 @@
-import styles from "./waiting.module.css";
+import stylesWaiting from "./waiting.module.css";
+import stylesLogin from "../home/login.module.css";
 import React, { useCallback, useEffect, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import {TypeAnimation} from 'react-type-animation'
@@ -6,6 +7,7 @@ import koala from './koala.gif';
 import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
 import { AuthContext } from '../../App';
 import { realtimedb } from "../../firebase";
+import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 
 const Waiting = () => {
   const navigate = useNavigate();
@@ -38,21 +40,25 @@ const Waiting = () => {
     });
   }, [navigate]);
 
-
-
   const onClickNavigate = () => {
     navigate("/player/memorizing");
    };
   
     return (
-      <div className={styles.page}>
-      <div onClick={onClickNavigate} className={styles.rectangleParent}>
-      <img className={styles.gif} src={koala} alt="" />
-      <div>
-       <TypeAnimation wrapper="div" sequence={steps} repeat={Infinity} cursor={true} className={'caca'} />
-       </div>
-      </div>
-      <button className={styles.button} onClick={onClickNavigate}>Dev: To next page</button>
+      <div className={stylesLogin.loginPage}>
+        <div className={stylesWaiting.mainWrapper}>
+          <RecWrapper
+          size="medium"
+            content={
+              <div className={stylesWaiting.wrapperChild}>
+                <img className={stylesWaiting.gif} src={koala} alt="" />
+                <TypeAnimation wrapper="div" sequence={steps} repeat={Infinity} cursor={true} className={'caca'} />
+              </div>
+            }>
+          </RecWrapper>
+        </div>
+        
+        <button onClick={onClickNavigate}>Dev: To next page</button>
       </div>
     );
   };

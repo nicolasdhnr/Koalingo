@@ -77,12 +77,14 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
         <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
                 btnStyle="gold" />
       </div>
-
-      <div className={stylesTracker.trackerWrapper}>
-        Player score
-        <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
+  
+      <div className={stylesTracker.bottomWrapper}>
+        <div>Player Score</div>
+        <div className={stylesTracker.trackerWrapper}>
+          <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
                         reported={Object.keys(playerData).map((key) => playerData[key].reported)}
-      />
+          />
+        </div>
       </div>
     </div>
   );

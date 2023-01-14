@@ -31,7 +31,7 @@ export const createGamePin = async (user) => {
 export const  createGame = async (gamePin, user) => {
   const reference = ref(realtimedb, "games");
   // Create a new game
-  await set(reference, {
+  await update(reference, {
     [gamePin]: {
       gameState: "lobby",
       words: {"yes" : 0, "better" :0},
@@ -42,22 +42,11 @@ export const  createGame = async (gamePin, user) => {
           "host": { name: "Nicolas",
                         reported: 0,
         },
-        "03473" : { name: "Rusne",
-        reported: 0,},
-        "03474" : { name: "James",
-        reported: 0,},
-        "03475" : { name: "Matt",
-        reported: 0,},
-        "03476" : { name: "Gloria",
-        reported: 0,},
-        "03477" : { name: "Martin Holloway",
-        reported: 0,},
-}
+      }
   }}
 
   );
 }; 
-
 
 export const updateGameState = async (gamePin, state) => {
   const reference = ref(realtimedb, "games/" + gamePin);
