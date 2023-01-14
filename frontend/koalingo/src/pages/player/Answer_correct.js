@@ -7,18 +7,20 @@ const StateResult = () => {
   
 return (
   <div className={styles.stateResult}>
-    <div className={styles.stateResultChild} />
+    <div className={styles.background_correct} />
     <img
       className={styles.allergiesPlanDeTravail11}
       alt=""
       src="../koalingo_logo.svg"
     />
     <b className={styles.game123456}>Game #123-456</b>
-    <div className={styles.stateResultItem} />
-    <b className={styles.congratulationsYouGot}>
+    <div className={styles.stateResultItem}>
+    <p className={styles.message}>
       Congratulations, you got this one correct!
-    </b>
-    <div className={styles.xp}>+ 1000 XP</div>
+    </p>
+    </div>
+    
+    <div className={styles.xp}>+ 250 XP for the team</div>
   </div>
 );
 };
