@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesLogin from "./login.module.css";
-import stylesEmailLogin from "./emailLogin.module.css"
+import stylesEmailLogin from "./email-login.module.css"
 import stylesRegister from "./register.module.css"
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';

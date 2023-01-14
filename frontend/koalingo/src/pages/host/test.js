@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
 import stylesLobby from "./hostlobby.module.css";
 import stylesLogin from "../home/login.module.css";
-import stylesEmailLogin from "../home/emailLogin.module.css";
+import stylesEmailLogin from "../home/email-login.module.css";
 import {realtimedb } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
