@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './StateResult.module.css';
+import styles from './state-result.module.css';
 import { useNavigate } from 'react-router-dom';
 
 const StateResult = () => {

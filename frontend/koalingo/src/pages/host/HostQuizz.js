@@ -1,4 +1,4 @@
-import styles from "./HostQuizz.module.css";
+import styles from "./host-quizz.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext } from "react";
 import Progressbar from '../../components/progressBar/progressbar';
