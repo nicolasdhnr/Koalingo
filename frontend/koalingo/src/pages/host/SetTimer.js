@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesSetTimer from "./setTimer.module.css";
+import stylesSetTimer from "./settimer.module.css";
 import stylesLogin from "../home/login.module.css";
 import stylesEmailLogin from "../home/emailLogin.module.css";
 import stylesHome from "../home/home.module.css";

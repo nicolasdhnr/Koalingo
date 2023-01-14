@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
-import stylesLobby from "./hostLobby.module.css";
+import stylesLobby from "./hostlobby.module.css";
 import stylesLogin from "../home/login.module.css";
 import stylesEmailLogin from "../home/emailLogin.module.css";
 import {realtimedb } from "../../firebase";
@@ -29,6 +29,7 @@ const HostLobby = () => {
       }
     }
   createPin(user);
+  
 
   const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
   
@@ -51,6 +52,7 @@ const HostLobby = () => {
   const onStartTheGame1Click = useCallback(() => {
     navigate("/host/progress-tracker");
   }, [navigate]);
+  
 
   const onBackClick = useCallback(() => {
     navigate("/host/set/select");
