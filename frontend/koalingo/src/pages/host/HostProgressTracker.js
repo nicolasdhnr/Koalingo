@@ -22,6 +22,7 @@ useEffect( () => {
 return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     const data = snapshot.val();
     setPlayerData(data);
+    console.log( playerData)
     // Get all the name components within data into an array 
     const playerNames = Object.keys(data).map((key) => data[key].name);
   });

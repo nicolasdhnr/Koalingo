@@ -5,16 +5,15 @@ import stylesList from '../components/list_styles.css';
 
 // The component for the Progress Tracker page.
 export function PlayerTracking(props) {
-  
+  console.log(props);
   return (
   <ul class="player">
-  {props?.names.map((title) => (
+  {props?.names.map((title, index) => (
     <li class="playerTrack"
         key={title}>
       {title}:
       {' '}
-      {props.reported}
-      {/* {!description ? null : <p>{description}</p>} */}
+      {props.reported[index]}
     </li>
   ))}
   </ul>
@@ -30,7 +29,7 @@ export default function PlayerList(props) {
         <li class="player"
             key={title}>
           {title}
-          {/* {!description ? null : <p>{description}</p>} */}
+
         </li>
       ))}
     </ul>

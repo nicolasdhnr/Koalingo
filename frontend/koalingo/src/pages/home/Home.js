@@ -1,4 +1,4 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesHome from "./home.module.css";
 import stylesLogin from "./login.module.css"
@@ -22,12 +22,26 @@ const Home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
   const {gamePin, setGamePin} = useContext(AuthContext);
+  const [changePage, setChangePage] = useState(false);
 
   const handleTextChange = (event) => {
     setGamePinEntered(event.target.value);
   };
 
-  const checkGamePinOnSubmit = (event) => {
+  
+useEffect(() => {
+    if (changePage) {
+      console.log("changing page:" + gamePinEntered);
+      console.log(typeof gamePinEntered)
+      setGamePin(gamePinEntered.toString());
+      setChangePage(false);
+      console.log(gamePin)
+      navigate("/player/customise");
+    }
+  }, [changePage, gamePinEntered, setGamePin, navigate]);
+
+
+  const checkGamePinOnSubmit = () => {
     console.log("Game pin entered:" + gamePinEntered);
 
     // Check if The entry exists as a key in the database
@@ -37,8 +51,7 @@ const Home = () => {
       console.log(data);
       if (data[gamePinEntered.toString()] !== undefined) {
         console.log("Game pin exists");
-        setGamePin("123456")
-        navigate("/player/customise");
+        setChangePage(true);
         
       } else {
         alert("Game pin does not exist");
