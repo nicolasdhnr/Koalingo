@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesTracker from "./hostprogresstracker.module.css";
-import stylesSelect from "./hostsetselect.module.css";
-import stylesLobby from "./hostlobby.module.css";
+import stylesTracker from "./hostProgressTracker.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
+import stylesLobby from "./hostLobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
