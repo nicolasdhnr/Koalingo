@@ -34,7 +34,7 @@
   top: 691px;
   left: 644px;
   font-size: var(--font-size-base);
-  color: var(--color-indigo);
+  color: black;
 }
 .endGame {
   position: absolute;
