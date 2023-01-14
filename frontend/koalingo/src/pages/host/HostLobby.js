@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext}  from "react";
 import { useNavigate } from "react-router-dom";
-import stylesLobby from "./hostLobby.module.css";
+import stylesLobby from "./HostLobby.module.css";
 import stylesLogin from "../home/login.module.css";
 import stylesEmailLogin from "../home/emailLogin.module.css";
 import {realtimedb } from "../../firebase";

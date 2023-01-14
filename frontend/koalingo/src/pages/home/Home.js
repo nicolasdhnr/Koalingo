@@ -1,9 +1,9 @@
 import { useCallback, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesHome from "./home.module.css";
-import stylesLogin from "./login.module.css"
-import stylesEmailLogin from "./emailLogin.module.css"
-import stylesLobby from "../host/hostLobby.module.css"
+import stylesLogin from "./login.module.css";
+import stylesEmailLogin from "./emailLogin.module.css";
+import stylesLobby from "../host/HostLobby.module.css";
 import { realtimedb } from "../../firebase";
 import { ref, onValue, update, set} from "firebase/database";
 import React, { useState } from "react";
