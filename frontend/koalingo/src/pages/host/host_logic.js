@@ -88,8 +88,21 @@ export const getAllWords = async () => {
   }
   );
   return words;
-
 };
+
+export const setWordList = async (gamePin, allWords) => {
+  const reference = ref(realtimedb, 'games/' + gamePin);
+  console.log('From set wordlist', gamePin);
+  const wordsList = [];
+  if (allWords != null) {
+    allWords.forEach((element) => {
+      wordsList.push(element.title);
+    });
+  }
+  await update(reference, {
+    wordsList : wordsList
+  });
+}
 
 
 
