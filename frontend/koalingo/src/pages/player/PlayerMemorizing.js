@@ -1,7 +1,7 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EllipseIcon from "../../components/EllipseIcon";
-import styles from "./playermemorizing.module.css";
+import styles from "./player-memorizing.module.css";
 import Carousel from "../../components/WordAnimation";
 import { realtimedb, db } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";

@@ -1,4 +1,4 @@
-import styles from "./playerquizz.module.css";
+import styles from "./player-quizz.module.css";
 import React, { useCallback, useEffect, useContext,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";

@@ -23,10 +23,10 @@ const Waiting = () => {
   
   useEffect( () => {  
     // Add user ID to the list of players in the game while keepig previouslist intact
-    update(ref(realtimedb, "games/" + gamePin + "/players"), {
-      [user.uid]: {name: "Nicolas",
+    // This was overwriting the nickname in firebase
+    update(ref(realtimedb, "games/" + gamePin + "/players/" + user.uid), {
+      name: "Nicolas",
       reported:0,
-    }
     }), [];
 
     const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}/gameState`), (snapshot) => {

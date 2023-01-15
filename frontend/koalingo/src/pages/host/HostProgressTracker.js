@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesTracker from "./hostProgressTracker.module.css";
-import stylesSelect from "./hostSetSelect.module.css";
-import stylesLobby from "./hostLobby.module.css";
+import stylesTracker from "./host-progress-tracker.module.css";
+import stylesSelect from "./host-set-select.module.css";
+import stylesLobby from "./host-lobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
@@ -46,16 +46,15 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     const MINUTE = SECOND * 60;
     const {seconds, minutes } = useContext(AuthContext);
     const [time, setTime] = useState(minutes*60000 + seconds * 1000);
-  
+
     useEffect(() => {
       const interval = setInterval(() => setTime(time => time - 1000), 1000);
+
       return () => clearInterval(interval);
     }, []);
   
     if (time < 0){
-      return(
-        <div>Time's up</div>
-      )
+      onGoToQuizzClick();
     }
     else{
     return(

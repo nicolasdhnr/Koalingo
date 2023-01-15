@@ -1,5 +1,5 @@
 import React from "react";
-import './button.css';
+import './Button.css';
 import checkScreenSize from "../rectangleWrapper/CheckScreenSize";
 
 const STYLES = ['white', 'purple', 'gold','red','bgColor','transparent']
@@ -18,6 +18,7 @@ const Button = ({
     return (<button
             className = {`${getButtonStyle} ${screenSize} ${length}`}
             onClick={onClick}
+            data-testid='button'
             >
             {btnText}
             </button>
