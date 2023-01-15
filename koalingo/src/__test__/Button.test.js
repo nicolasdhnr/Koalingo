@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from "C:/Users/labas/Documents/GitHub/Koalingo/frontend/koalingo/src/components/button/Button.js";
+import Button from "C:/Users/labas/Documents/GitHub/Koalingo/koalingo/src/components/button/Button.js";
 import { directiveLiteral, isTSAnyKeyword } from '@babel/types';
 import { render, cleanup} from '@testing-library/react'
 import '@testing-library/jest-dom'
@@ -8,10 +8,10 @@ import rendered from "react-test-renderer"
 
 afterEach(cleanup);
 
-// it ("render without crashing", () => {
-//     const div = document.createElement("div");
-//     ReactDOM.render(<Button></Button>, div)
-// })
+it ("render without crashing", () => {
+    const {getByTestId} = render(<Button></Button>);
+    expect(getByTestId('button')).toContainHTML("</button>")
+})
 
 it ("renders button text correctly", () => {
     const {getByTestId} = render(<Button btnText = "hello"></Button>);

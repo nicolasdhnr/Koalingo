@@ -11,7 +11,9 @@ const RecWrapper = ({
     }) => {
         const screenSize = checkScreenSize() ? 'portrait' : 'landscape';
 
-        return(<div data-testid = "recWrapper" className={`${screenSize} ${shading} ${size} ${color}`}>
+        return( <div 
+            data-testid="recWrapper"
+            className={`${screenSize} ${shading} ${size} ${color}`}>
             {content}
             </div>
         );
