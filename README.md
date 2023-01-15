@@ -81,7 +81,7 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 ## Our idea
 
 ### Prerequisites
-Node.js version 18.13.0 or higher
+- Node.js version 18.13.0 or higher
 To check your version of Node.js, you can run the following command in your terminal:
 
 ```
