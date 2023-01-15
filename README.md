@@ -125,7 +125,7 @@ The app should now be running on http://localhost:3000 in your web browser.
 - [x] Basic functionality (Quiz, multiplayer features)
 - [x] Two characters and 15 words
 - [ ] Next word milestone: 50 words 
-- [ ] Next feature: ability to update and save sets. 
+- [ ] Next feature: ability to update and save sets similarly to Quizlet.
 
 
 
