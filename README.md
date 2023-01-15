@@ -21,10 +21,10 @@
   <p align="center">
     Sign Language Learning made fun, and inclusive.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+   <a href="https://koalingo-dc436.web.app/">View Live! </strong></a>
     <br />
     <br />
-    <a href="https://github.com/nicolasdhnr/Koalingo/issues">View Live! </a>
+    <a href="https://github.com/nicolasdhnr/Koalingo/issues">Report an issue. </a>
     ·
     <a href=" ">Report Bug</a>
     ·
