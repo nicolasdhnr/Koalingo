@@ -15,20 +15,23 @@ import {
   addDoc,
   setDoc,
   updateDoc,
+  documentId,
 } from "firebase/firestore";
 
 const PlayerMemorizing = () => {
-  const {gamePin} = useContext(AuthContext);
+  const {gamePin, character} = useContext(AuthContext);
   const [word, setWord] = useState([]); 
   const [urls, setUrls] = useState([]);
+  console.log('The character is: ' + character);
   useEffect(() => {
     // I need to take the words in the session. Then access firestore database for those words and get the urls if they exist
-    const collectionRef = ref(realtimedb, "games/" + gamePin + "/words");
+    const collectionRef = ref(realtimedb, "games/" + gamePin + "/wordsList");
     return onValue(collectionRef, (snapshot) => {
       const data = snapshot.val();
       if (data != null) {
         // Only keep the keys 
-        const words = Object.keys(data).map((key) => key);
+        // const words = Object.keys(data).map((key) => key);
+        const words = Object.values(data);  // Only keep values
         console.log(words);
         setWord(words);
       }
@@ -41,15 +44,26 @@ const PlayerMemorizing = () => {
     if (word != []){
     const db = getFirestore();
     const q = query(collection(db, "words"));
+    // const q = query(documentId(collection(db, "words"), character));
     const getUrls  = async () => {
       const querySnapshot = await getDocs(q);
       console.log(querySnapshot);
       querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
         // Look in the data to filter only the words that are in the word state, then get the associated value
-        const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]);
-        console.log("urls => ", urls);
-        setUrls(urls);
+        if (doc.id == character) {
+          // console.log('Doc.data() keys', Object.keys(doc.data()))
+          // console.log('Words', word);
+          // const retrievedWords = Object.keys(doc.data()).filter((key) => word.includes(key))
+          // console.log('After filter: ', retrievedWords);
+          const urls = [];
+          word.forEach((element) => {urls.push(doc.data()[element])});
+          // console.log('urls2', urls2);
+
+          // const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]); deprecated since wrong order returned
+          console.log("urls => ", urls);
+          setUrls(urls);
+        }
       });
     }
     getUrls();
