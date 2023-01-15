@@ -24,7 +24,7 @@
    <a href="https://koalingo-dc436.web.app/">View Live! </strong></a>
     <br />
     <br />
-    <a href="https://github.com/nicolasdhnr/Koalingo/issues">Report an issue. </a>
+    <a href="https://github.com/nicolasdhnr/Koalingo/issues">Report an issue </a>
     ·
     <a href="https://github.com/nicolasdhnr/Koalingo/issues">Request Feature</a>
   </p>
