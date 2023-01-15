@@ -55,7 +55,9 @@ export const AuthContext = createContext({
   minutes : 0,
   setMinutes : () => {},
   globNickname : "", 
-  setGlobNickname : () => {}
+  setGlobNickname : () => {},
+  character : "",
+  setCharacter : () => {},
 });
 
 
