@@ -38,6 +38,8 @@
   border-radius: 15px;
   padding: 0.5vh 2.5vh;
   cursor: pointer;
+  font-size: medium;
+  font-weight: 400;
 }
 .bottomWrapper {
   border: 0.5vh solid rgba(255, 255, 255, 0.849);
