@@ -63,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With this app, you can create custom study sets for sign language words that we have animated and view and memorize the words in action, making learning sign language fun and interactive. Currently, it's built as a Kahoot-like quiz designed to be played in a classroom, or with friends and family!
+Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With this app, you can create custom study sets for British Sign Language words and view and memorize the words in action, making learning sign language fun and interactive. Currently, it's built as a Kahoot-like quiz designed to be played in a classroom, or with friends and family!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,7 +77,13 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Meet our team! 
+<div float="center">
+<img src="https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-girl.gif?alt=media&token=f9a02670-c2fa-423b-877f-429c81f29f9d" alt="Wavegirl" style="width: 250px;"/>
+<img src="https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-boy.gif?alt=media&token=f87acbde-d8c5-4bad-8b8c-06564f39a0dc" alt="Drawing" style="width: 250px;"/>
+</div>
 
+These are the characters that will be taking you on your sign language learning journey. Suggest names for them [here](https://github.com/nicolasdhnr/Koalingo/issues) 
 
 <!-- GETTING STARTED -->
 ## Our idea
