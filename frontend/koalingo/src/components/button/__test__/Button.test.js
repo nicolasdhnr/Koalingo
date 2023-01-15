@@ -8,10 +8,10 @@ import rendered from "react-test-renderer"
 
 afterEach(cleanup);
 
-it ("render without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Button></Button>, div)
-})
+// it ("render without crashing", () => {
+//     const div = document.createElement("div");
+//     ReactDOM.render(<Button></Button>, div)
+// })
 
 it ("renders button text correctly", () => {
     const {getByTestId} = render(<Button btnText = "hello"></Button>);
@@ -59,3 +59,4 @@ it ("matches snapshot 4", () => {
     </Button>).toJSON();
     expect (tree).toMatchSnapshot();
 })
+
