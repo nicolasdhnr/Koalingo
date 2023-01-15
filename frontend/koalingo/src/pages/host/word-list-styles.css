@@ -1,20 +1,27 @@
-ul {
-    position: absolute;
-    top: calc(60%);
-    left: 66px;
-    width: calc(100% - 66px);
+ ul.wordList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0vh;
   }
   
-  li {
-    position: relative;
-    display: inline-block;
-      border-radius: var(--br-md);
-      background-color: var(--color-gray-200);
-      box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-      margin: 8px 8px;
-      width: 20%;
-      color: var(--color-indigo-200);
-      font-weight: 600;
+  li.wordList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--br-md);
+    border: 0.3vh solid rgba(43, 43, 43, 0.067);
+    background-color: white;
+    box-shadow: 2px 20px 80px rgba(71, 52, 175, 0.16);
+    width: fit-content;
+    color: var(--color-indigo-200);
+    font-weight: 600;
+    font-family: var(--font-poppins);
+    font-size: 3.7vh;
+    padding: 0vh 2vh;
+    margin: 0.5vh 0.5vh;
   } 
   
   h2 {

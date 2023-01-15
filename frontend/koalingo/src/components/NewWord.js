@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from '../App';
 import { checkIfWordIsAvailable } from "../pages/host/host_logic";
+import stylesNewWord from "./newWord.module.css";
 export default function NewWord({className}) {
   const { newWord, allWords, setAllWords, setNewWord } = useContext(AuthContext);
 
@@ -54,16 +55,15 @@ export default function NewWord({className}) {
   //   );
   // }
   return (
-    <div>
+    <div className={stylesNewWord.wrapper}>
       <input
-      className={className.wordInput}
+        className={stylesNewWord.input}
         name="title"
         placeholder="Enter Word Here: "
         value={newWord.title || ""}
         onChange={handleChange}
       />
-
-      <button className={className.wordInput} onClick={onClickAddWord}>Add Word</button>
+      <button className={stylesNewWord.button} onClick={onClickAddWord}>Add</button>
     </div>
   );
 }
