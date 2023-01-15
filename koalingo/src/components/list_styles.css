@@ -1,3 +1,4 @@
+/* This page provides styling for list (<li>) objects*/
 ul.player{
   display: flex;
   flex-direction: row;
