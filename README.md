@@ -114,6 +114,8 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+##Contributing
+We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at Nicolasdhnr@gmail.com. We are extremely grateful for any and all contributions.
 
 
 <!-- CONTACT -->
