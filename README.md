@@ -26,8 +26,6 @@
     <br />
     <a href="https://github.com/nicolasdhnr/Koalingo/issues">Report an issue. </a>
     ·
-    <a href=" ">Report Bug</a>
-    ·
     <a href="https://github.com/nicolasdhnr/Koalingo/issues">Request Feature</a>
   </p>
 </div>
