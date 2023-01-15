@@ -72,7 +72,10 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 
 
 ### Built With
-
+- React.js: For our modern and reactive web UIs.
+- Adobe XD: For styling and mock-ups.
+- Firebase: Our backend-as-a-service provider handling our realtime features and animations.
+- CSS: styling our lovely UI!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -80,6 +83,9 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 
 <!-- GETTING STARTED -->
 ## Our idea
+
+
+
 
 ### Prerequisites
 - Node.js version 18.13.0 or higher
@@ -125,7 +131,7 @@ The app should now be running on http://localhost:3000 in your web browser.
 
 
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/nicolasdhnr/Koalingo/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,7 +143,13 @@ We rely on our open-source community to help us create more animations. We are i
 <!-- CONTACT -->
 ## Contact
 
-Nicolas, James, Rusne, Gloria, Matthieu
+- Nicolas: nicolasdhnr@gmail.com - contact me for contributions!
+- James Liu, 
+- Rusne, 
+- Gloria Sun, 
+- Matthieu Pallud
+
+From Imperial College London Department of Bioengineering.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
