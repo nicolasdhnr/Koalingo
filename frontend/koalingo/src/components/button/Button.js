@@ -1,5 +1,5 @@
 import React from "react";
-import './Button.css';
+import './button.css';
 import checkScreenSize from "../rectangleWrapper/CheckScreenSize";
 
 const STYLES = ['white', 'purple', 'gold','red','bgColor','transparent']

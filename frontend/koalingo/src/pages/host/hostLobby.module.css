@@ -42,7 +42,7 @@
 .bottomWrapper {
   border: 0.5vh solid rgba(255, 255, 255, 0.849);
   border-radius: 20px;
-  width: 93%;
+  width: 90%;
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -57,4 +57,10 @@
   color: white;
   width: 100%;
   text-align: center;
+}
+.test {
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  background-color: aqua;
 }

@@ -1,0 +1,22 @@
+.mainWrapper {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  top: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cardWrapper {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 45vh;
+ width: 45vh;
+ border-radius: 1000px;
+ background-color: white;
+ overflow: hidden;
+}
+.action {
+  height: 45vh;
+}

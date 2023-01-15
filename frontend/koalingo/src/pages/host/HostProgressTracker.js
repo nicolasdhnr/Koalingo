@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import stylesTracker from "./host-progress-tracker.module.css";
-import stylesSelect from "./host-set-select.module.css";
-import stylesLobby from "./host-lobby.module.css";
+import stylesTracker from "./hostProgressTracker.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
+import stylesLobby from "./hostLobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
 import { ref, onValue } from "firebase/database";
@@ -74,7 +74,7 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
         <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
         <div className={stylesTracker.buttonWrapper}>
-          <Button btnText="Go to Quizz" onClick={onGoToQuizzClick} // Missing onClick function
+          <Button btnText="Go to Quiz" onClick={onGoToQuizzClick} // Missing onClick function
                   btnStyle="gold" length="btnFit"/>
           <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
                   btnStyle="gold" length="btnFit"/>
