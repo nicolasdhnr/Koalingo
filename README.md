@@ -81,12 +81,24 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 ## Our idea
 
 ### Prerequisites
+Node.js version 18.13.0 or higher
+To check your version of Node.js, you can run the following command in your terminal:
 
-This is an example of how to list things you need to use the software and how to install them.
-* Python
-  ```sh
-  sudo apt install python
-   ```
+```
+node -v
+
+```
+If your version is lower than 18.13.0, you can download the latest version from the [Node.js](https://nodejs.org/en/) website or update it using a version manager such as [nvm](https://github.com/nvm-sh/nvm) or [nodist](https://github.com/nullivex/nodist).
+
+### Getting Started
+To get started with Koalingo, you can clone this repository and run the following commands to get the app up and running:
+
+```
+npm install
+npm start
+
+```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,9 +113,6 @@ This is an example of how to list things you need to use the software and how to
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 
 
 
