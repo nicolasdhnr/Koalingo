@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wrapper matches snapshot 1`] = `
+<div
+  className="landscape undefined medium undefined"
+  data-testid="recWrapper"
+>
+  <div>
+    Set Timer
+    <div>
+      <b>
+         05 
+      </b>
+      <b>
+         00 
+      </b>
+    </div>
+  </div>
+</div>
+`;

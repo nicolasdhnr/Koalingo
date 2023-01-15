@@ -14,7 +14,7 @@ const Progress_bar = ({bgcolor,progress,height}) => {
         height: '100%',
         width: `${progress}%`,
         backgroundColor: bgcolor,
-       borderRadius:40,
+        borderRadius:40,
         textAlign: 'right'
       }
       
@@ -25,7 +25,7 @@ const Progress_bar = ({bgcolor,progress,height}) => {
       }
         
     return (
-    <div style={Parentdiv}>
+    <div style={Parentdiv} data-testid = "progressBar">
       <div style={Childdiv}>
         
       </div>
