@@ -34,6 +34,8 @@ import Correct from "./pages/player/Answer_correct";
 import Wrong from "./pages/player/Answer_wrong";
 import HostQuizz from "./pages/host/HostQuizz";
 import End from "./pages/host/End";
+import stylesLogin from "./pages/home/login.module.css";
+import Button from "./components/button/Button";
 
 //TODO: ADD Meta Tags
 
