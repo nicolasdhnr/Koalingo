@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    width: fit-content;
+}
+
+.input {
+    width: 25vh;
+    height: 3.5vh;
+    border-radius: 1vh;
+    border: 0.3vh solid rgb(39, 39, 39);
+    margin: 0vh 1.5vh;
+    font-family: var(--font-poppins);
+    font-size: 2vh;
+    padding: 0.5vh 1vh;
+}
+
+.button {
+    font-family: var(--font-poppins);
+    width: fit-content;
+    padding: 0vh 2vh;
+    font-family: var(--font-poppins);
+    font-size: 2vh;
+    border-radius: 3vh;
+    border: 0;
+    background-color: gold;
+    color: black;
+}
+.button:hover {
+    background-color: goldenrod;
+}

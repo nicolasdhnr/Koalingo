@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./web19201.module.css";
+import styles from "./Web19201.module.css";
 
 const Web19201 = () => {
   const navigate = useNavigate();

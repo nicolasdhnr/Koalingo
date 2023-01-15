@@ -4,7 +4,7 @@ import Button from "../../components/button/Button";
 import NewWord from "../../components/NewWord";
 import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 import WordsList from "../../components/WordList";
-import stylesSelect from "./host-set-select.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
 import listStyles from "./word-list-styles.css";
 
 const HostSetSelect = () => {
@@ -27,29 +27,19 @@ const HostSetSelect = () => {
           <div className={stylesSelect.nameSetWrapper}>
             Name your set:
             <input className={stylesSelect.setName} type="text" placeholder="daily phrases" />
-            <Button btnText='Save your set' onClick={onSaveYourSetClick}
-              btnStyle='gold' length="btnMedium" />
+            <div className={stylesSelect.buttonWrapper}>
+              <Button btnText='Save your set' onClick={onSaveYourSetClick}
+                btnStyle='gold' length="btnMedium" />
+              </div>
           </div>
 
           <div className={stylesSelect.enterWordWrapper}>
-            {/* Enter word: */}
-            {/* <input className={stylesSelect.wordInput} type="text" placeholder=" 'How are you?'"/> */}
             <NewWord className={stylesSelect} />
-            {/* <div className={stylesSelect.buttonWrapper}>
-          <img className={stylesSelect.circleBtn} alt="" src="../../ellipse-31.svg" />
-          <img className={stylesSelect.cross} alt="" src="../../polygon-11.svg" />
-        </div> */}
-            {/* <div className={stylesSelect.wordInput}> <NewWord/> </div> */}
           </div>
 
-          <div className={stylesSelect.cardWrapper}>
-            {/* <RecWrapper shading='shaded' content='how are you' size='small'></RecWrapper>
-        <RecWrapper shading='shaded' content='better' size='small'></RecWrapper>
-        <RecWrapper shading='shaded' content='hearing' size='small'></RecWrapper>
-        <RecWrapper shading='shaded' content='happy' size='small'></RecWrapper>
-        <RecWrapper shading='shaded' content='sad' size='small'></RecWrapper> */}
+          <div className={stylesSelect.wordsListWrapper}>
+            <WordsList />
           </div>
-          <WordsList />
         </div>
 
       </div>
