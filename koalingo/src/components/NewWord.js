@@ -2,9 +2,16 @@ import React, { useContext } from "react";
 import { AuthContext } from '../App';
 import { checkIfWordIsAvailable } from "../pages/host/host_logic";
 import stylesNewWord from "./newWord.module.css";
-export default function NewWord({className}) {
+
+/**
+ * New Word Component to allow hosts to add new words to the word list
+ * @param {object} props - contains className object to provide styling 
+ * @returns {JSX.Element}
+ */
+export default function NewWord({ className }) {
   const { newWord, allWords, setAllWords, setNewWord } = useContext(AuthContext);
 
+  // Extract the value from the input field and update the state
   const handleChange = ({ target }) => {
     const { name, value } = target;
     console.log(name, value);
@@ -13,47 +20,20 @@ export default function NewWord({className}) {
     console.log(allWords);
   };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   if (await checkIfWordIsAvailable(newWord.title)) {
-  //     if (!newWord.title) return;
-  //     setAllWords((prev) => [newWord, ...prev]);
-  //     setNewWord({});
-  //     return;
-  //   }
-  //   alert("This word had not yet been animated! Please consult our list of words.")
-  //   return;
-  // };
-
+  // Check if word is on firebase, if it is, add to and update word list state
   const onClickAddWord = async (event) => {
-    event.preventDefault();
+    event.preventDefault();  // prevent page refresh
     if (await checkIfWordIsAvailable(newWord.title)) {
       if (!newWord.title) return;
       setAllWords((prev) => [newWord, ...prev]);
       setNewWord({});
       return;
     }
+    // Handle missing word case
     alert("This word had not yet been animated! Please consult our list of words.")
     return;
   };
 
-  //   return (
-  //     <form onSubmit={handleSubmit}>
-  //       <input
-  //         name="title"
-  //         placeholder="New Word"
-  //         value={newWord.title || ""}
-  //         onChange={handleChange}
-  //       />
-  //       {!newWord.title ? null : (
-  //         <>
-  //           <button type="submit">Add Word</button>
-  //         </>
-  //       )}
-  //       {console.log(allWords)}
-  //     </form>
-  //   );
-  // }
   return (
     <div className={stylesNewWord.wrapper}>
       <input

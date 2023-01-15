@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from "react";
 
+/**
+ * Checks screen size and orientation of its parents window
+ * @returns {boolean} true if screen is in portrait mode, false if screen is in landscape mode
+ */
 const checkScreenSize = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const [height, setHeight] = useState(window.innerHeight);
