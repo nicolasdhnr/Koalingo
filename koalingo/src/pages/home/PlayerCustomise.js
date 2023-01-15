@@ -5,7 +5,7 @@ import stylesLogin from "./login.module.css";
 import stylesCustomise from "./playerCustomise.module.css";
 import stylesSelect from "../host/hostSetSelect.module.css";
 import { realtimedb } from "../../firebase";
-import { ref, update} from "firebase/database";
+import { ref, update } from "firebase/database";
 import React, { useState } from "react";
 import { getAuth } from "firebase/auth";
 import { AuthContext } from "../../App";
@@ -13,11 +13,15 @@ import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 import "../../App"
 import { useCallback } from "react";
 
+/**
+ * Player Customisation page
+ * @returns {JSX.Element}
+ */
 export const PlayerCustomise = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
-  const {setCharacter, setGlobNickname} = useContext(AuthContext);
+  const { setCharacter, setGlobNickname } = useContext(AuthContext);
   const [nickname, setNickname] = useState("");
 
   // Directly pulled from storage folder on firebase
@@ -29,24 +33,30 @@ export const PlayerCustomise = () => {
     navigate("/home");
   }, [navigate]);
 
+  /**
+   * Adds nickname to firebase
+   * @returns {Promise<void>}
+   */
   const addNickname = async () => {
     const reference = ref(realtimedb, "games/" + gamePin + "/players/" + user.uid);
     // Create a new game
-    await update(reference, {name : nickname});
+    await update(reference, { name: nickname });
   };
 
+  // Define event listeners
   const onChangeNickname = (event) => {
     setNickname(event.target.value);
   }
   
 
+  // Set character and nickname to context provider when clicked
   const onClickChar = (event) => {
     const char = event.currentTarget.id;
     setCharacter(char);
     setGlobNickname(nickname);
 
     if (nickname != "") {
-      addNickname(event.currentTarget.id)
+      addNickname(event.currentTarget.id)  // Add nickname to firebase
       navigate('/waiting');
     } else {
       alert('Sorry, you must choose a nickname!')

@@ -65,7 +65,16 @@ const HostLobby = () => {
   const onLogoClick = useCallback(() => {
     navigate("/home");
   }, [navigate]);
+  
+  const handleMinChange = (event) => {
+    setMinutes(event.target.value != null ? event.target.value : 5) ;
+  }
 
+  const handleSecChange = (event) => {
+    setSeconds(event.target.value != null ? event.target.value : 0);
+  }
+
+  
   return (
     <div className={stylesLogin.loginPage}>
       <img className={stylesSetSelect.koalingoLogo} alt="" src="../koalingo_logo.svg" onClick={onLogoClick}/>
@@ -77,8 +86,18 @@ const HostLobby = () => {
             <div className={stylesLobby.cardWrapper}>
               Set Timer
               <div className={stylesLobby.timerWrapper}>
-                <b className={stylesLobby.timer}> 05 </b>
-                <b className={stylesLobby.timer}> 00 </b>
+                <input className={stylesLobby.timer}
+                  type="number"
+                  min="0" max="59"
+                  placeholder={`${minutes} min`}
+                  onChange={handleMinChange}
+                /> 
+                <input className={stylesLobby.timer}
+                  type="number"
+                  min="0" max="59"
+                  placeholder = {`${seconds} sec`}
+                  onChange={handleSecChange}
+                /> 
               </div>
               <Button btnText="Start the game" onClick={onStartTheGame1Click}
                 btnStyle="purple" length="btnMedium" />

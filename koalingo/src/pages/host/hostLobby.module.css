@@ -39,6 +39,8 @@
   border-radius: 15px;
   padding: 0.5vh 2.5vh;
   cursor: pointer;
+  font-size: medium;
+  font-weight: 400;
 }
 .bottomWrapper {
   position: absolute;

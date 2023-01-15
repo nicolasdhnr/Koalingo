@@ -10,7 +10,6 @@ import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
 import Button from "../../components/button/Button";
 
-
 const HostProgressTracker = () => {
   const navigate = useNavigate();
   const {gamePin}= useContext(AuthContext)
@@ -41,31 +40,35 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
   }, [navigate]);
 
 
+  // The countdown timer that can be seen on the screen
+  // Navigates to the quizz game once the timer runs out
+  // The time is set in host/setSelect
   const Timer = () =>{
-    const SECOND = 1000;
-    const MINUTE = SECOND * 60;
-    const {seconds, minutes } = useContext(AuthContext);
-    const [time, setTime] = useState(minutes*60000 + seconds * 1000);
+    //predefine constants
+    const SECOND = 1000; // seconds in miliseconds
+    const MINUTE = SECOND * 60; // minutes in miliseconds
+    const {seconds, minutes } = useContext(AuthContext); // gets selected time value from setSelect
+    const [time, setTime] = useState(minutes*60000 + seconds * 1000); // set the initial time
 
+  //updates every setInterval (1s) and changes the time seen on the screen
     useEffect(() => {
       const interval = setInterval(() => setTime(time => time - 1000), 1000);
       return () => clearInterval(interval);
-        }, []);
-      
-        if (time < 0){
-          onGoToQuizzClick();
-        }
-        else{
-        return(
-          <div> 
-            {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
-          </div>
-      );
-      };}
-
-    const onLogoClick = useCallback(() => {
-      navigate("/home");
-    }, [navigate]);
+    }, []);
+  
+    //Logic for the timer
+    // When the timer runs out, navigate to quiz screen
+    // else, show the timer
+    if (time < 0){
+      onGoToQuizzClick();
+    }
+    else{
+    return(
+      <div> 
+        {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
+      </div>
+  );
+  };}
 
   return (
     <div className={stylesSelect.selectPage}>
