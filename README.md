@@ -65,7 +65,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Soon!
+Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With this app, you can create custom study sets for sign language words that we have animated and view and memorize the words in action, making learning sign language fun and interactive. Currently, it's built as a Kahoot-like quiz designed to be played in a classroom, or with friends and family!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
