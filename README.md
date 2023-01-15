@@ -78,10 +78,10 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Meet our team! 
-<div float="center">
-<img src="https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-girl.gif?alt=media&token=f9a02670-c2fa-423b-877f-429c81f29f9d" alt="Wavegirl" style="width: 250px;"/>
-<img src="https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/initial-wave-boy.gif?alt=media&token=f87acbde-d8c5-4bad-8b8c-06564f39a0dc" alt="Drawing" style="width: 250px;"/>
-</div>
+ 
+<img src="https://media.giphy.com/media/tr12OrLuI480k5bRy2/giphy.gif" alt="Wavegirl" style="width: 250px;"/>
+<img src="" alt="Drawing" style="width: 250px;"/>
+</p>
 
 These are the characters that will be taking you on your sign language learning journey. Suggest names for them [here](https://github.com/nicolasdhnr/Koalingo/issues) 
 
