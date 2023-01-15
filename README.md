@@ -81,7 +81,7 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 ## Our idea
 
 ### Prerequisites
-Node.js version 18.13.0 or higher
+- Node.js version 18.13.0 or higher
 To check your version of Node.js, you can run the following command in your terminal:
 
 ```
@@ -102,14 +102,23 @@ The app should now be running on http://localhost:3000 in your web browser.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## How to play
+1. Login to the app.
+2. Choose your study set from the available words in our word bank.
+3. Create a game and share the game pin with your friends.
+4. On your friends' phones, type the game pin on the home page.
+5. Once everyone has joined, you can start the game!
+6. Players will be given time to memorize the words.
+7. Take the quiz section to test your knowledge.
+
 
 <!-- ROADMAP -->
 ## Roadmap
 
 - [x] Basic functionality (Quiz, multiplayer features)
 - [x] Two characters and 15 words
-- [] Next word milestone: 50 words 
-- [] Next feature: ability to update and save sets. 
+- [ ] Next word milestone: 50 words 
+- [ ] Next feature: ability to update and save sets. 
 
 
 
