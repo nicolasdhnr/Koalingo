@@ -120,21 +120,24 @@ The app should now be running on http://localhost:3000 in your web browser.
 <!-- ROADMAP -->
 ## Roadmap
 
+Current Achievements:
 - [x] Basic functionality (Quiz, multiplayer features)
-- [x] Two characters and 15 words
-- [ ] Next word milestone: 50 words 
-- [ ] Next feature: ability to update and save sets similarly to Quizlet.
+- [x] Two characters
+- [x] 15 words in our word bank. 
 
-
-
-
+Objectives in  next 6 months: 
+- [ ] Improve our animations to include facial expressions
+- [ ] Grow word bank to include >50 words.
+- [ ] Next feature: Ability to update and save sets similarly to Quizlet.
 
 See the [open issues](https://github.com/nicolasdhnr/Koalingo/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
-We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at Nicolasdhnr@gmail.com. All of our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions.
+We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at nicolasdhnr@gmail.com. 
+
+All our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions/suggestions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
