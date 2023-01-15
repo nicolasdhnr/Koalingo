@@ -28,18 +28,22 @@
 .timerWrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: fit-content;
   height: fit-content;
-  gap:10px;
+  gap:8px;
   margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
 }
 .timer {
   border: 0.5vh solid rgb(49, 49, 49);
   border-radius: 15px;
   padding: 0.5vh 2.5vh;
+  height: 100%;
+  width: 25%;
   cursor: pointer;
-  font-size: medium;
+  font-family: var(--font-poppins);
+  font-size: 2.3vh;
   font-weight: 400;
 }
 .bottomWrapper {

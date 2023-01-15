@@ -31,7 +31,7 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     await updateGameState(gamePin, "memorizing");
   }, [navigate]);
   
-  const onEndClick = useCallback(() => {
+  const onLogoClick = useCallback(() => {
     navigate("/home");
   }, [navigate]);
 
@@ -67,8 +67,9 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <div> 
         {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
       </div>
-  );
-  };}
+    );
+    };
+  }
 
   return (
     <div className={stylesSelect.selectPage}>
