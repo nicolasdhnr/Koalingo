@@ -86,19 +86,18 @@ To check your version of Node.js, you can run the following command in your term
 
 ```
 node -v
-
 ```
 If your version is lower than 18.13.0, you can download the latest version from the [Node.js](https://nodejs.org/en/) website or update it using a version manager such as [nvm](https://github.com/nvm-sh/nvm) or [nodist](https://github.com/nullivex/nodist).
 
 ### Getting Started
-To get started with Koalingo, you can clone this repository and run the following commands to get the app up and running:
+To get started with Koalingo, you can clone this repository. Navigate to the /koalingo folder and run the following commands to get the app up and running:
 
 ```
 npm install
 npm start
-
 ```
 
+The app should now be running on http://localhost:3000 in your web browser.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,16 +106,23 @@ npm start
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Make a Roadmap
+- [x] Basic functionality (Quiz, multiplayer features)
+- [x] Two characters and 15 words
+- [] Next word milestone: 50 words 
+- [] Next feature: ability to update and save sets. 
+
+
+
 
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-##Contributing
-We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at Nicolasdhnr@gmail.com. We are extremely grateful for any and all contributions.
+## Contributing
+We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at Nicolasdhnr@gmail.com. All of our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
@@ -130,8 +136,9 @@ Nicolas, James, Rusne, Gloria, Matthieu
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Imperial College London: Martin Holloway, Ian RadCliffe
+Imperial College London: Martin Holloway, Ian Radcliffe
 <br />
-UK Pace Center: Luke Thompson
+
+We would like to thank the Pace Center for providing us with the opportunity to develop this app.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
