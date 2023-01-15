@@ -23,12 +23,13 @@ const PlayerMemorizing = () => {
   const [urls, setUrls] = useState([]);
   useEffect(() => {
     // I need to take the words in the session. Then access firestore database for those words and get the urls if they exist
-    const collectionRef = ref(realtimedb, "games/" + gamePin + "/words");
+    const collectionRef = ref(realtimedb, "games/" + gamePin + "/wordsList");
     return onValue(collectionRef, (snapshot) => {
       const data = snapshot.val();
       if (data != null) {
         // Only keep the keys 
-        const words = Object.keys(data).map((key) => key);
+        // const words = Object.keys(data).map((key) => key);
+        const words = Object.values(data);  // Only keep values
         console.log(words);
         setWord(words);
       }
