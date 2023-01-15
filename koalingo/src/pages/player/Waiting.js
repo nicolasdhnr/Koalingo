@@ -25,7 +25,7 @@ const Waiting = () => {
     // Add user ID to the list of players in the game while keepig previouslist intact
     // This was overwriting the nickname in firebase
     update(ref(realtimedb, "games/" + gamePin + "/players/" + user.uid), {
-      name: "Nicolas",
+      // name: "Nicolas",
       reported:0,
     }), [];
 
