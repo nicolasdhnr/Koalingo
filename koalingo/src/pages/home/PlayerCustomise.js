@@ -28,7 +28,7 @@ export const PlayerCustomise = () => {
   const addNickname = async () => {
     const reference = ref(realtimedb, "games/" + gamePin + "/players/" + user.uid);
     // Create a new game
-    await update(reference, {"nickname" : nickname});
+    await update(reference, {name : nickname});
   };
 
   const onChangeNickname = (event) => {
