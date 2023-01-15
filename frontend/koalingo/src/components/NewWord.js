@@ -7,8 +7,9 @@ export default function NewWord({className}) {
   const handleChange = ({ target }) => {
     const { name, value } = target;
     console.log(name, value);
-    setNewWord((prev) => ({ ...prev, id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
+    setNewWord((prev) => ({ id: Date.now(), [name]: value }));  // removed ...prev, add back if breaks, only matters for desc
     console.log(newWord);
+    console.log(allWords);
   };
 
   // const handleSubmit = async (event) => {
