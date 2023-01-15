@@ -1,7 +1,7 @@
 import stylesHostQuiz from "./hostQuizz.module.css";
 import stylesLogin from "../home/login.module.css";
 import stylesSelect from "./hostSetSelect.module.css";
-import stylesTracker from "./hostProgressTracker.module.css";
+import stylesLobby from "./hostLobby.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext } from "react";
 import Progressbar from '../../components/progressBar/progressbar';
@@ -13,26 +13,29 @@ const HostQuizz = () => {
   const navigate = useNavigate();
 
   const onNextClick = useCallback(() => {
-    navigate("/end");
-  }, [navigate]);
-var x = 10;
-console.log(x);
-
-var array = [1, 2, 3, 4, 5]
-for(let i = 0; i < 30; i++) {
-  setTimeout(() => {
-    //Progressbar.Childdiv.width = `${i}%`;
+      navigate("/end");
+    }, [navigate]);
+    var x = 10;
     console.log(x);
-  }, i*100);
-}
 
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
+
+  var array = [1, 2, 3, 4, 5]
+  for(let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      //Progressbar.Childdiv.width = `${i}%`;
+      console.log(x);
+    }, i*100);
+  }
 
   return (
     <div className={stylesLogin.loginPage}>
-      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" /> 
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick}/> 
+      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1>
 
         <div className={stylesHostQuiz.mainWrapper}>
-          <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
           <div className={stylesHostQuiz.cardWrapper}>
             <img
               className={stylesHostQuiz.action}

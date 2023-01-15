@@ -69,26 +69,23 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       </div>
   );
   };}
-  
-  
+
   return (
     <div className={stylesSelect.selectPage}>
       <img className={stylesSelect.croppedEllipse} alt="" src="../../ellipse-21.svg" /> 
-      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" /> 
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
+      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1> 
 
       <div className={stylesTracker.mainWrapper}>
-        <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
         <div className={stylesTracker.buttonWrapper}>
           <Button btnText="Go to Quiz" onClick={onGoToQuizzClick} // Missing onClick function
-                  btnStyle="gold" length="btnFit"/>
-          <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
                   btnStyle="gold" length="btnFit"/>
         </div>
       </div>
 
       <div className={stylesTracker.bottomWrapper}>
-        <div>Player Score</div>
+        <div>Cards Memorised</div>
         <div className={stylesTracker.trackerWrapper}>
           <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
                         reported={Object.keys(playerData).map((key) => playerData[key].reported)}

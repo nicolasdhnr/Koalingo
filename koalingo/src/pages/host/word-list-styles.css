@@ -12,14 +12,13 @@
     justify-content: center;
     align-items: center;
     border-radius: var(--br-md);
-    border: 0.3vh solid rgba(43, 43, 43, 0.067);
+    border: 0.3vh solid rgba(43, 43, 43, 0.167);
     background-color: white;
     box-shadow: 2px 20px 80px rgba(71, 52, 175, 0.16);
     width: fit-content;
-    color: var(--color-indigo-200);
-    font-weight: 600;
+    height: fit-content;
+    color: black;
     font-family: var(--font-poppins);
-    font-size: 3.7vh;
     padding: 0vh 2vh;
     margin: 0.5vh 0.5vh;
   } 
