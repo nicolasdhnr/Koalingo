@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player tracking matches snapshot 1 1`] = `
+<ul
+  class="player"
+  data-testid="player"
+>
+  <li
+    class="playerTrack"
+  >
+    Saab
+    :
+     
+    0
+  </li>
+  <li
+    class="playerTrack"
+  >
+    Volvo
+    :
+     
+    0
+  </li>
+  <li
+    class="playerTrack"
+  >
+    BMW
+    :
+     
+    0
+  </li>
+</ul>
+`;

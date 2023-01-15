@@ -7,9 +7,9 @@ import stylesList from '../components/list_styles.css';
 export function PlayerTracking(props) {
   console.log(props);
   return (
-  <ul class="player">
+  <ul className="player" data-testid = "player">
   {props?.names.map((title, index) => (
-    <li class="playerTrack"
+    <li className="playerTrack"
         key={title}>
       {title}:
       {' '}
