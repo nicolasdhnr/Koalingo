@@ -1,18 +1,19 @@
 .gamePin {
   position: absolute;
   margin-bottom: 0;
-  top: 21vh;
+  top: calc(14.5%);
   font-family: var(--font-poppins);
   font-size: 3vh;
   color: white
 }
 .mainWrapper {
+  position: absolute;
+  top: calc(26%);
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
   height: fit-content;
-  margin-top: 30vh;
   margin-bottom: 3.5vh;
 }
 .cardWrapper {
@@ -42,6 +43,8 @@
   font-weight: 400;
 }
 .bottomWrapper {
+  position: absolute;
+  top: calc(68%);
   border: 0.5vh solid rgba(255, 255, 255, 0.849);
   border-radius: 20px;
   width: 90%;
@@ -59,10 +62,4 @@
   color: white;
   width: 100%;
   text-align: center;
-}
-.test {
-  position: absolute;
-  width: 10vh;
-  height: 10vh;
-  background-color: aqua;
 }

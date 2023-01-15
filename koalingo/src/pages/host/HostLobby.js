@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import stylesLobby from "./hostLobby.module.css";
 import stylesLogin from "../home/login.module.css";
-import stylesEmailLogin from "../home/emailLogin.module.css";
+import stylesSetSelect from "./hostSetSelect.module.css";
 import { realtimedb } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
@@ -62,6 +62,9 @@ const HostLobby = () => {
     navigate("/host/set/select");
   }, [navigate]);
 
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
   
   const handleMinChange = (event) => {
     setMinutes(event.target.value != null ? event.target.value : 5) ;
@@ -74,7 +77,7 @@ const HostLobby = () => {
   
   return (
     <div className={stylesLogin.loginPage}>
-      <img className={stylesEmailLogin.koalingoLogo} alt="" src="../koalingo_logo.svg" />
+      <img className={stylesSetSelect.koalingoLogo} alt="" src="../koalingo_logo.svg" onClick={onLogoClick}/>
       <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1>
 
       <div className={stylesLobby.mainWrapper}>
