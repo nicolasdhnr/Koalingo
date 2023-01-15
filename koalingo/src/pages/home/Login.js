@@ -8,10 +8,14 @@ import { getAuth } from "firebase/auth";
 import "../../components/button/Button";
 import Button from "../../components/button/Button";
 
+/**
+ * Controls the login page and the login process
+ * @returns {JSX.Element} Login page
+ */
 const Login = () => {
+
+  // Get current authorisation and user
   const auth = getAuth();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
 
   const navigate = useNavigate();
@@ -23,11 +27,9 @@ const Login = () => {
     if(user) navigate("/home")
   })
   
+  // Set up onClick event listeners for the login buttons
   const onLoginWithGoogleClick = useCallback(async () => {
-      // TODO: Add method to log user in. Once they are logged in, navigate to home page.
-    await signInWithGoogle()
-
-
+    await signInWithGoogle();
     if (user) {
       navigate("/home");
     }
@@ -37,21 +39,12 @@ const Login = () => {
     navigate("/login");
   }, [navigate]);
 
-  // TODO: make sure users cant get to home without login
-
   const onRegisterButton1Click = useCallback(() => {
    navigate("/register");
   }, [navigate]);
 
-  const [nickname, setNickName] = useState('');
-  const onChangeNickname = ({target}) => {
-    const {name, value} = target
-    setNickName(prev => value);
-    console.log(nickname);
-  }
-
   return (
-    <div className={stylesLogin.loginPage}>
+    <div className={stylesLogin.loginPage}>  {/* Global styles */}
       <div className={stylesLogin.headerWrapper}>
         <Button btnText='Accessibility'
                 btnStyle='red' length='btnShort'/>
@@ -59,7 +52,7 @@ const Login = () => {
 
       <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
 
-      <div className={stylesLogin.buttonWrapper}>
+      <div className={stylesLogin.buttonWrapper}>  {/* Button styles */}
         <Button btnText='Email login' onClick={onLoginWithEmailClick} 
                 btnStyle='white'/>
         <Button btnText='Google login' onClick={onLoginWithGoogleClick}

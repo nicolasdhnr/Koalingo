@@ -11,11 +11,17 @@ import { AuthContext } from "../../App";
 import Button from "../../components/button/Button";
 import RecWrapper from "../../components/rectangleWrapper/Wrapper";
 
+/** 
+ * Page that allows users to register with their email and password
+ * See EmailLogin.js for more comments
+ * @returns {JSX.Element}
+*/
 const Register = () => {
-
+    // Get user from context provider
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    
+
+    // Form schema definition
     const schema = yup.object().shape({
         email: yup.string().email("Invalid email address").required("Email field is required"),
         password: yup.string().min(4).required("Password field is required"),
@@ -24,7 +30,7 @@ const Register = () => {
 
     const onGoBackClick = useCallback(() => {
         navigate("/");
-     }, [navigate]);
+    }, [navigate]);
 
     useEffect(() => {
         if (user) {
@@ -32,13 +38,14 @@ const Register = () => {
         }
     }, [user, navigate]);
 
+    // Handle exceptions
     const { register, handleSubmit, formState: errors } = useForm({
         resolver: yupResolver(schema)
     });
     // Navigate to home page on submit
 
     const onKoaUserButtonClick = useCallback(() => {
-       navigate("/login");
+        navigate("/login");
     }, [navigate]);
 
     const onSubmitClick = useCallback((data) => {
@@ -51,37 +58,41 @@ const Register = () => {
 
             <form onSubmit={handleSubmit(onSubmitClick)}>
                 <div className={stylesRegister.registerWrapper}>
-                    <RecWrapper size= "heightFit"
-                                content={
-                                    <div className={stylesRegister.registerWrapperChild}>
-                                        Registration
-                                        <input className={stylesRegister.input} 
-                                                name="email"
-                                                placeholder="email"
-                                                {...register("email")}
-                                        />
-                                        <input className={stylesRegister.input}
-                                                name="password"
-                                                type="password"
-                                                placeholder="password"
-                                                {...register("password")}
-                                        />
-                                        <input className={stylesRegister.input}
-                                                name="confirmPassword"
-                                                type="password"
-                                                placeholder="confirm password"
-                                                {...register("confirmPassword")}
-                                        />
-                                        <input className={stylesRegister.submitBtn} type="submit"  />
-                                    </div>
-                    }
+                    {/* Wrap in white box */ }
+                    <RecWrapper size="heightFit"
+                        content={
+                            // Input boxes
+                            <div className={stylesRegister.registerWrapperChild}>
+                                Registration
+                                <input className={stylesRegister.input}
+                                    name="email"
+                                    placeholder="email"
+                                    {...register("email")}
+                                />
+                                <input className={stylesRegister.input}
+                                    name="password"
+                                    type="password"
+                                    placeholder="password"
+                                    {...register("password")}
+                                />
+                                <input className={stylesRegister.input}
+                                    name="confirmPassword"
+                                    type="password"
+                                    placeholder="confirm password"
+                                    {...register("confirmPassword")}
+                                />
+                                <input className={stylesRegister.submitBtn} type="submit" />
+                            </div>
+                        }
                     />
+                    {/* Buttons */}
                     <div className={stylesRegister.goBackWrapper}>
                         <div className={stylesRegister.backText}
                             onClick={onKoaUserButtonClick}><u>Already a Koalingo User?</u></div>
                         <Button btnText="Go back" onClick={onGoBackClick}
-                                btnStyle="bgColor" length="btnLong" />
+                            btnStyle="bgColor" length="btnLong" />
                     </div>
+                    {/* Display error messages */}
                     <p>{errors.email?.message}</p>
                     <p>{errors.password?.message}</p>
                     <p>{errors.confirmPassword?.message}</p>
@@ -89,6 +100,6 @@ const Register = () => {
             </form>
         </div>
     );
-    };
+};
 
 export default Register;
