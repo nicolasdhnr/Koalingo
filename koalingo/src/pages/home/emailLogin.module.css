@@ -1,6 +1,6 @@
 .koalingoLogo {
     position: absolute;
-    top: 7vh;
+    top: calc(10%);
     width: 100vw;
     height: 18%;
   }

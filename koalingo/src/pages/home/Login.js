@@ -52,6 +52,8 @@ const Login = () => {
 
   return (
     <div className={stylesLogin.loginPage}>
+
+      {/* Accessibility buttons for quick game set-up*/}
       <div className={stylesLogin.headerWrapper}>
         <Button btnText='Accessibility'
                 btnStyle='red' length='btnShort'/>

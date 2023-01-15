@@ -6,7 +6,7 @@
   justify-content: flex-start;
   width: fit-content;
   height: fit-content;
-  top: 14vh;
+  top: calc(26%);
   gap: 0.5vh;
 }
 .gamePin{
@@ -26,7 +26,7 @@
   height: fit-content;
   border: 0.5vh solid white;
   border-radius: 1.4vh;
-  padding: 1vh;
+  padding: 0vh;
 }
 .bottomWrapper{
   position: absolute;
@@ -35,12 +35,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  top: 50vh;
+  top: calc(51%);
   height: fit-content;
   width: 100%;
   bottom: 5vh;
   font-family: var(--font-poppins);
-  font-size: 4.2vh;
+  font-size: 3.5vh;
 }
 .trackerWrapper{
   display: flex;

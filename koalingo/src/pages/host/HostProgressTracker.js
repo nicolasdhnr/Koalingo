@@ -49,40 +49,40 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
 
     useEffect(() => {
       const interval = setInterval(() => setTime(time => time - 1000), 1000);
-
       return () => clearInterval(interval);
-    }, []);
-  
-    if (time < 0){
-      onGoToQuizzClick();
-    }
-    else{
-    return(
-      <div> 
-        {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
-      </div>
-  );
-  };}
+        }, []);
+      
+        if (time < 0){
+          onGoToQuizzClick();
+        }
+        else{
+        return(
+          <div> 
+            {Math.floor((time / MINUTE) % 60) > 9 ? Math.floor((time / MINUTE) % 60) : "0" + Math.floor((time / MINUTE) % 60)} : {Math.floor((time / SECOND) % 60) > 9 ? Math.floor((time / SECOND) % 60) : "0" + Math.floor((time / SECOND) % 60)} 
+          </div>
+      );
+      };}
 
+    const onLogoClick = useCallback(() => {
+      navigate("/home");
+    }, [navigate]);
 
   return (
     <div className={stylesSelect.selectPage}>
       <img className={stylesSelect.croppedEllipse} alt="" src="../../ellipse-21.svg" /> 
-      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" /> 
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
+      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1> 
 
       <div className={stylesTracker.mainWrapper}>
-        <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
         <div className={stylesTracker.buttonWrapper}>
           <Button btnText="Go to Quiz" onClick={onGoToQuizzClick} // Missing onClick function
-                  btnStyle="gold" length="btnFit"/>
-          <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
                   btnStyle="gold" length="btnFit"/>
         </div>
       </div>
 
       <div className={stylesTracker.bottomWrapper}>
-        <div>Player Score</div>
+        <div>Cards Memorised</div>
         <div className={stylesTracker.trackerWrapper}>
           <PlayerTracking names={Object.keys(playerData).map((key) => playerData[key].name)}
                         reported={Object.keys(playerData).map((key) => playerData[key].reported)}
