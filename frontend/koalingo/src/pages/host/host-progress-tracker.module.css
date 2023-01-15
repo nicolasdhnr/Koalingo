@@ -20,9 +20,9 @@
   font-family: var(--font-poppins);
   color: var(--color-white);
   text-align: center;
-  margin-top: -7%;
-  margin-bottom: 2.2vh;
-  width: 130%;
+  margin-top: -4%;
+  margin-bottom: 1.3vh;
+  width: 30vh;
   height: fit-content;
   border: 0.5vh solid white;
   border-radius: 1.4vh;
@@ -52,4 +52,8 @@
   width: 80%;
   font-family: var(--font-poppins);
   font-size: 4.2vh;
+}
+.buttonWrapper{
+  display: flex;
+  flex-direction: row;
 }

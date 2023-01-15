@@ -73,10 +73,12 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
       <div className={stylesTracker.mainWrapper}>
         <h1 className={stylesTracker.gamePin}>Game #{gamePin}</h1>
         <div className={stylesTracker.timerWrapper}><Timer /> </div>
-        <Button btnText="Go to Quizz" onClick={onGoToQuizzClick} // Missing onClick function
-                btnStyle="gold" />
-                <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
-                btnStyle="red" />
+        <div className={stylesTracker.buttonWrapper}>
+          <Button btnText="Go to Quizz" onClick={onGoToQuizzClick} // Missing onClick function
+                  btnStyle="gold" length="btnFit"/>
+          <Button btnText="End Game" onClick={onEndClick} // Missing onClick function
+                  btnStyle="gold" length="btnFit"/>
+        </div>
       </div>
 
       <div className={stylesTracker.bottomWrapper}>

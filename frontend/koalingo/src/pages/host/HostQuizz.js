@@ -1,4 +1,7 @@
-import styles from "./host-quizz.module.css";
+import stylesHostQuiz from "./HostQuizz.module.css";
+import stylesLogin from "../home/login.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
+import stylesTracker from "./hostProgressTracker.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext } from "react";
 import Progressbar from '../../components/progressBar/progressbar';
@@ -7,7 +10,6 @@ import { AuthContext } from "../../App";
 const HostQuizz = () => {
   
   const { gamePin} = useContext(AuthContext);
-
   const navigate = useNavigate();
 
   const onNextClick = useCallback(() => {
