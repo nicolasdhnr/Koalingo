@@ -75,3 +75,14 @@
   color: var(--color-white);
   font-family: var(--font-poppins);
 }
+.login {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 87px;
+  left: 852px;
+  border-radius: var(--br-xs);
+  width: 262px;
+  height: 58px;
+}

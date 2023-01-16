@@ -35,6 +35,7 @@ import Wrong from "./pages/player/Answer_wrong";
 import HostQuizz from "./pages/host/HostQuizz";
 import ScoreBoard from "./pages/host/ScoreBoard";
 import End from "./pages/host/End";
+import Transition from "./pages/host/Transition";
 import stylesLogin from "./pages/home/login.module.css";
 import Button from "./components/button/Button";
 
@@ -119,8 +120,9 @@ function App() {
        <Route path="/player/customise" element={<PlayerCustomise />} /> 
        <Route path="/host/quizz" element={<HostQuizz />} />
        <Route path="/host/scoreboard" element={<ScoreBoard />} />
+       <Route path="/host/transition" element={<Transition />} />
        
-        <Route path="/end" element={<End />} />
+        <Route path="host/end" element={<End />} />
 
       </Route>
 
