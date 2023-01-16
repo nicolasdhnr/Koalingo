@@ -45,10 +45,6 @@ const Login = () => {
 
   return (
     <div className={stylesLogin.loginPage}>  {/* Global styles */}
-      <div className={stylesLogin.headerWrapper}>
-        <Button btnText='Accessibility'
-                btnStyle='red' length='btnShort'/>
-      </div>
 
       <img className={stylesLogin.koalingoLogo} alt='' src='../koalingo_logo.svg' />
 
