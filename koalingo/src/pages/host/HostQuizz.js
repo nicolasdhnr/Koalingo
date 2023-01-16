@@ -1,5 +1,6 @@
-import stylesHostQuiz from "./host-quizz.module.css";
+import stylesHostQuiz from "./hostQuizz.module.css";
 import stylesLogin from "../home/login.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext,useEffect } from "react";
 import ProgressBar from  '../../components/progressBar/progressbar';
@@ -26,7 +27,6 @@ const HostQuizz = () => {
       onlyOnce: true,
     });
   }, []);
-
   
   function PlayerAnswer(data,round){
     var players = Object.values(data.players);
@@ -63,8 +63,6 @@ const HostQuizz = () => {
         navigate("/host/scoreboard");
       }
       
-    
-      
     }
 
     return unsubscribe;
@@ -76,6 +74,10 @@ const HostQuizz = () => {
     navigate("/end");
   }, [navigate]);
 
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
+
   var seconds = 30;
   var minutes = 5;
   var [time, setTime] = useState(20000); // set the initial time
@@ -85,46 +87,26 @@ const HostQuizz = () => {
       return () => clearInterval(interval);
     }, []);
   
-
-  
-
-
-
-
-
-
   return (
-    <div className={stylesHostQuiz.teacherQuizz}>
-      <div className={stylesHostQuiz.teacherQuizzChild} />
-      <img
-        className={stylesHostQuiz.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={stylesHostQuiz.game123456}>Round #</b>
-      <img className={stylesHostQuiz.teacherQuizzItem} alt="" src="../ellipse-5.svg" />
-      <img
-        className={stylesHostQuiz.sansTitre11}
-        alt=""
-        src={gif}
-      />
-      
-  
+    <div className={stylesLogin.loginPage}>
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
 
-      <div className={stylesHostQuiz.teacherQuizzInner} />
-      <b className={stylesHostQuiz.hello}> {answers}% of students answered</b>
-      
-      
-      <div className={stylesHostQuiz.matthieuGotThis}>
-      <div className="App">
-      
+      <div className={stylesHostQuiz.mainWrapper}>
+        <div className={stylesHostQuiz.round}>Round #</div>
+        <div className={stylesHostQuiz.cardWrapper}>
+          <img
+            className={stylesHostQuiz.action}
+            alt=""
+            src={gif}
+          />
+        </div>
+        <div className={stylesHostQuiz.bottomWrapper}>
+          <div> {answers}% of students answered </div>
+        </div>
+        <div className={stylesHostQuiz.barWrapper}>
         <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers} />
-      
-    </div>
-    
-
+        </div>
       </div>
-     
     </div>
   );
 };
