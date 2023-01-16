@@ -61,8 +61,6 @@ const Waiting = () => {
             }>
           </RecWrapper>
         </div>
-        
-        <button onClick={onClickNavigate}>Dev: To next page</button>
       </div>
     );
   };

@@ -1,7 +1,8 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EllipseIcon from "../../components/EllipseIcon";
-import styles from "./player-memorizing.module.css";
+import stylesMemorise from "./player-memorizing.module.css";
+import stylesSelect from "../host/hostSetSelect.module.css";
 import Carousel from "../../components/WordAnimation";
 import { realtimedb, db } from "../../firebase";
 import { ref, onValue, set, onDisconnect } from "firebase/database";
@@ -17,6 +18,7 @@ import {
   updateDoc,
   documentId,
 } from "firebase/firestore";
+import Button from "../../components/button/Button";
 
 const PlayerMemorizing = () => {
 
@@ -74,48 +76,29 @@ const PlayerMemorizing = () => {
 
   const navigate = useNavigate();
 
-
   //TODO: Add on click return to home page
-  const onLoginClick = useCallback(() => {
-    navigate("/player/quizz"); // Dont know if we should keep this slide Kept it for now
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
+
+  const onDevClick = useCallback(() => {
+    navigate("/player/quizz");
   }, [navigate]);
 
   return (
-    <div className={styles.web19202}>
-      {/* <div className={styles.web19202Child} /> */}
-      <img className={styles.web19202Item} alt="" src="../ellipse-2.svg" />
-      <div className={styles.web19202Inner}>
-      </div>
-      <img className={styles.ellipseIcon} alt="" src="../ellipse-1.svg" />
+    <div className={stylesSelect.selectPage}>
+        <img className={stylesMemorise.croppedEllipse} alt="" src="../../ellipse-21.svg" />
+        <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onDevClick} />
 
-      <Carousel urls={urls} words={word} className={styles.div} />
+        <div className={stylesMemorise.buttonWrapper}>
+          <Button btnText="Previous" btnStyle="bgColor" length="btnShort"/>
+          <Button btnText="Next" btnStyle="bgColor" length="btnShort"/>
+        </div>
 
-
-
-      <button className={styles.ellipseParent}>
-
-        <img className={styles.groupChild} alt="" src="../ellipse-4.svg" />
-        <button className={styles.ellipseGroup}>
-
-          <EllipseIcon />
-          <img className={styles.groupItem} alt="" src="../polygon-1.svg" />
-        </button>
-      </button>
-      <button className={styles.ellipseContainer}>
-        <img className={styles.groupInner} alt="" src="../ellipse-4.svg" />
-        <img className={styles.groupIcon} alt="" src="../group-11.svg" />
-      </button>
-      <div className={styles.div}>1/3</div>
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <button className={styles.login} onClick={onLoginClick}>
-        <div className={styles.home}>Home</div>
-      </button>
-
-      {/* <WordAnimation styles={styles.sansTitre11}/> */}
+        <div className={stylesMemorise.word}></div>
+        
+        <div className={stylesMemorise.avatar}>
+        </div>
     </div>
   );
 };
