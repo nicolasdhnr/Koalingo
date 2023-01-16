@@ -1,49 +1,106 @@
-import stylesHostQuiz from "./hostQuizz.module.css";
+import stylesHostQuiz from "./host-quizz.module.css";
 import stylesLogin from "../home/login.module.css";
-import stylesSelect from "./hostSetSelect.module.css";
-import stylesLobby from "./hostLobby.module.css";
 import { useNavigate } from "react-router-dom";
-import { useCallback, useState, useContext } from "react";
-import Progressbar from '../../components/progressBar/progressbar';
-import { AuthContext } from "../../App";
+import { useCallback, useState, useContext,useEffect } from "react";
+import ProgressBar from  '../../components/progressBar/progressbar';
+import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
+import { AuthContext } from '../../App';
+import { realtimedb } from "../../firebase";
+
 
 const HostQuizz = () => {
   
+
   const { gamePin} = useContext(AuthContext);
+  
   const navigate = useNavigate();
+  
+  function PlayerAnswer(data,round){
+    var players = Object.values(data.players);
+    var player_name = Object.keys(players);
+    var response = 0;
+    var xp = 0;
+    for (let i = 0; i<player_name.length;i++){
+      const current = players[player_name[i]].Quizz[round.toString()];
+      response += (current.xp != 0 ? 1 : 0);
+      console.log(response);
+      xp += current.xp;
+    }
+    return [response, xp]
+  }
+  useEffect(() => {
+  const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    //console.log(Object.values(data));
+    //var results = Object.values(data)
+    //console.log((Object.values(data)[2]["host"].Quizz["1"]));
+    if (data != null) {
+      console.log(data.players.host.Quizz["1"])
+      var y = PlayerAnswer(data,1);
+      console.log(y);
+      var ratio = parseInt(y[0])/Object.keys(data.players).length;
+      console.log(ratio);
+     
+      if(ratio>=1){
+        console.log("full")
+      }
+      
+    
+      
+    }
+
+    return unsubscribe;
+    
+  });
+}, []);
 
   const onNextClick = useCallback(() => {
-      navigate("/end");
-    }, [navigate]);
-    var x = 10;
-    console.log(x);
-
-  const onLogoClick = useCallback(() => {
-    navigate("/home");
+    navigate("/end");
   }, [navigate]);
 
-  var array = [1, 2, 3, 4, 5]
-  for(let i = 0; i < 30; i++) {
-    setTimeout(() => {
-      //Progressbar.Childdiv.width = `${i}%`;
-      console.log(x);
-    }, i*100);
-  }
+  var seconds = 30;
+  var minutes = 5;
+  var [time, setTime] = useState(20000); // set the initial time
+  console.log(time);
+    useEffect(() => {
+      const interval = setInterval(() => setTime(time => time - 1000), 1000);
+      setTime(interval);
+      return () => clearInterval(interval);
+    }, []);
+  
+
+  
+
+
+
+
+
 
   return (
-    <div className={stylesLogin.loginPage}>
-      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick}/> 
-      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1>
+    <div className={stylesHostQuiz.teacherQuizz}>
+      <div className={stylesHostQuiz.teacherQuizzChild} />
+      <img
+        className={stylesHostQuiz.allergiesPlanDeTravail11}
+        alt=""
+        src="../koalingo_logo.svg"
+      />
+      <b className={stylesHostQuiz.game123456}>Game #{gamePin}</b>
+      <img className={stylesHostQuiz.teacherQuizzItem} alt="" src="../ellipse-5.svg" />
+      <img
+        className={stylesHostQuiz.sansTitre11}
+        alt=""
+        src="https://s.pngkit.com/png/small/180-1807527_open-hand-with-bent-middle-finger-british-sign.png"
+      />
+      <div className={stylesHostQuiz.teacherQuizzInner} />
+      <b className={stylesHostQuiz.hello}> {time}</b>
+      
+      <div className={stylesHostQuiz.matthieuGotThis}>
+      
+    
 
-        <div className={stylesHostQuiz.mainWrapper}>
-          <div className={stylesHostQuiz.cardWrapper}>
-            <img
-              className={stylesHostQuiz.action}
-              alt=""
-              src="https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/better.gif?alt=media&token=0cbda73d-7f0b-49b6-b4ad-f1cfad5e8348"
-            />
-          </div>
-        </div>
+      </div>
+     
     </div>
   );
 };

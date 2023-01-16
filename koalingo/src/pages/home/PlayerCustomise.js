@@ -25,8 +25,8 @@ export const PlayerCustomise = () => {
   const [nickname, setNickname] = useState("");
 
   // Directly pulled from storage folder on firebase
-  const girl_url = "https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/girl%2Fwave.gif?alt=media&token=820d53ec-b73e-48d1-b691-436ad3683606";
-  const boy_url = "https://firebasestorage.googleapis.com/v0/b/koalingo-dc436.appspot.com/o/boy%2Fwave.gif?alt=media&token=87f0a651-1db4-4f93-9e24-ec9567c933c3";
+  const girl_url = "https://media.giphy.com/media/HSx00K1rQ9vUC3H7kx/giphy.gif";
+  const boy_url = "https://media.giphy.com/media/TEyk0sNHBt9cd6s7gW/giphy.gif";
 
   const {gamePin} = useContext(AuthContext)
   const onLogoClick = useCallback(() => {
@@ -40,7 +40,7 @@ export const PlayerCustomise = () => {
   const addNickname = async () => {
     const reference = ref(realtimedb, "games/" + gamePin + "/players/" + user.uid);
     // Create a new game
-    await update(reference, { name: nickname });
+    await update(reference, { name: nickname, "reported": 0, "Quizz": { 1: { val: false, xp: 0 }, 2: { val: false, xp: 0 }, 3: { val: false, xp: 0 }, 4: { val: false, xp: 0 } }});
   };
 
   // Define event listeners
