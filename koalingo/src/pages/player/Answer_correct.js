@@ -11,6 +11,10 @@ import RecWrapper from '../../components/rectangleWrapper/Wrapper';
 const StateResult = () => {
   const {gamePin, user} = useContext(AuthContext);
   const navigate = useNavigate();
+  const onNextClick = useCallback(() => {
+    navigate("/end");
+  }, [navigate]);
+  
   const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
     const data = snapshot.val();
     console.log(data);
@@ -45,6 +49,9 @@ return (
                     </div>
                   }
       />
+    </div>
+    <div className={stylesResult.devButton}>
+      <button onClick={onNextClick}> dev button: if stuck, press to proceed</button>
     </div>
   </div>
 );

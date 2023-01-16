@@ -123,6 +123,9 @@ const PlayerQuizz = () => {
 
   return (
     <div className={stylesLogin.loginPage}>
+      <div className={stylesPlayerQuiz.devMessage}>
+        *dev message: if nothing happens after first click, click again to proceed
+      </div>
       <div className={stylesPlayerQuiz.mainWrapper}>
         <div className={stylesPlayerQuiz.option1} onClick={() => HandleButtonClick(1)}>
           {infos.current_words[0]}

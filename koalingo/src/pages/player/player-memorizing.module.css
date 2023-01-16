@@ -12,11 +12,18 @@
   height: 65%;
   object-fit: cover;
 }
-.word{
+.word {
   width: 33vh;
   height: 7vh;
   position: absolute;
   top: calc(31%);
   background-color: white;
   border-radius: 20px;
+}
+.devButton {
+  position: absolute;
+  top: calc(18%);
+  font-family: var(--font-poppins);
+  font-size: 1.5vh;
+  cursor: pointer;
 }

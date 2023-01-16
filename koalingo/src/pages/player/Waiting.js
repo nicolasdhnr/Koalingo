@@ -60,6 +60,10 @@ const Waiting = () => {
               </div>
             }>
           </RecWrapper>
+          <div className={stylesWaiting.devMessage}>
+          *Dev Message: if stuck on this page after pressing start game on host side,
+          go back to last page on the host side and press start again to proceed to the next page
+          </div>
         </div>
       </div>
     );
