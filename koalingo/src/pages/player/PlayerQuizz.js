@@ -15,10 +15,10 @@ const PlayerQuizz = () => {
   var [correct,setCorrect] = useState([]);
   
   useEffect(() => {
-    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => { //listen to the database to get the current data
       data = snapshot.val();
-      setWord (Object.keys(data.words));
-      setCorrect(data.quizzWords[data.round.toString()].word);
+      setWord (Object.keys(data.words)); //get the set of word
+      setCorrect(data.quizzWords[data.round.toString()].word); //know which word is the good answer
   }, {
       onlyOnce: true,
     });
@@ -35,10 +35,12 @@ const PlayerQuizz = () => {
   const [button, setButton] = useState(0);
   var bool = false;
 
+  //if user get the correct answer
   const onCorrect = useCallback(() => {
     navigate("/player/correct");
   }, [navigate]);
   
+  //if user get the wrong answer
   const onWrong = useCallback(() => {
     navigate("/player/wrong");
   }, [navigate]);
@@ -49,13 +51,6 @@ const PlayerQuizz = () => {
   }, [navigate]);
  
 
-  const Test = () => {
-    const sample = [1, 2, 3];
-    return (
-      <div>sample[0]</div>
-    )
-  }
-  // const [count, setCount] = useState(0);
 
   const idx = word.indexOf(correct);
   word.pop(idx);
@@ -63,7 +58,7 @@ const PlayerQuizz = () => {
   
 
     // http://stackoverflow.com/questions/962802#962890
-    function shuffle(array) {
+    function shuffle(array) { //create randomness in the array
       var tmp, current, top = array.length;
       if(top) while(--top) {
         current = Math.floor(Math.random() * (top + 1));
@@ -75,12 +70,12 @@ const PlayerQuizz = () => {
   }
 
   word = shuffle(word);
-  var a = (word.slice(0,3));
+  var a = (word.slice(0,3)); 
   a.push(correct);
   a = shuffle(a);
 
   const HandleButtonClick = (num) => {
-    setButton(num);
+    setButton(num); //know which button was pressed
     console.log("clicked")
 ;    if (data){
       
@@ -96,7 +91,7 @@ const PlayerQuizz = () => {
         bool = false;
         XP=15;
       };
-      update(ref(realtimedb, `games/${gamePin}/players/${user.uid}/Quizz/${data.round.toString()}`), {
+      update(ref(realtimedb, `games/${gamePin}/players/${user.uid}/Quizz/${data.round.toString()}`), { //update firebase for the player with its new points
         ["val"]: bool,
         ["xp"]: XP,
       });
