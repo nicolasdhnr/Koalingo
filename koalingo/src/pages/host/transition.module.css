@@ -1,0 +1,59 @@
+.teacherQuizzResult2Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #7465f4, #4c5cea);
+  width: 1920px;
+  height: 1080px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 233px;
+  left: 690px;
+  width: 541px;
+  height: 171px;
+  object-fit: cover;
+}
+.teacherQuizzResult2Item {
+  position: absolute;
+  top: 492px;
+  left: 608.5px;
+  border-radius: var(--br-lg);
+  background-color: var(--color-white);
+  box-shadow: 2px 10px 35px rgba(71, 52, 175, 0.16);
+  width: 703px;
+  height: 96px;
+}
+.xp {
+  position: absolute;
+  top: 516px;
+  left: 885px;
+  size: 24px;
+}
+.nextQuestion,
+.teacherQuizzResult2 {
+  text-align: center;
+  font-family: var(--font-poppins);
+}
+.nextQuestion {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 632px;
+  left: 842px;
+  font-size: var(--font-size-xl);
+  text-decoration: underline;
+  font-weight: 700;
+  color: var(--color-white);
+  display: inline-block;
+}
+.teacherQuizzResult2 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  font-size: var(--font-size-3xl);
+  color: var(--color-indigo-200);
+}

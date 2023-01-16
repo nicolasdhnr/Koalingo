@@ -10,12 +10,13 @@ import { realtimedb } from "../../firebase";
 
 const HostQuizz = () => {
   
-
+const {message,setMessage} =useState([]);
   const { gamePin} = useContext(AuthContext);
 
   const [answers,setAnswers] = useState([]);
   const navigate = useNavigate();
   const [gif,setGif]= useState([]);
+  const [ispressed,setIspressed] =useState(false);
 
   useEffect(() => {
     //  get data from relatimedb
@@ -27,7 +28,13 @@ const HostQuizz = () => {
     });
   }, []);
 
-  
+  useEffect(() => {
+    console.log("fuck");
+    update(ref(realtimedb, `games/${gamePin}}`), {
+      ["quizzState"]: "test",
+    });
+  }, [ispressed]);
+
   function PlayerAnswer(data,round){
     var players = Object.values(data.players);
     var player_name = Object.keys(players);
@@ -56,12 +63,25 @@ const HostQuizz = () => {
       var y = PlayerAnswer(data,1);
       console.log(y);
       var ratio = parseInt(y[0])/Object.keys(data.players).length;
-      setAnswers(ratio*100);
+      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round]);
+      //setMessage(`${ratio*100}% students answered`)
       console.log(ratio);
      
       if(ratio>=1){
-        navigate("/host/scoreboard");
-      }
+        if(data.round<4){
+          navigate("/host/transition");
+          update(ref(realtimedb, `games/${gamePin}/`), {
+            ["quizzState"]: "lobby",
+            
+          });
+          console.log(Object.keys(data.urls)[parseInt(data.round)]);
+          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round)]}`,ratio*100,data.round])
+          
+        }else if (data.round >=4){
+          navigate("/host/end");
+        }
+        }
+       
       
     
       
@@ -72,9 +92,17 @@ const HostQuizz = () => {
   });
 }, []);
 
-  const onNextClick = useCallback(() => {
-    navigate("/end");
-  }, [navigate]);
+
+  const onNextClick = () => {
+    console.log("clicked");
+    setIspressed(true);
+     console.log(gamePin);
+    
+    
+  
+  
+  };
+
 
   var seconds = 30;
   var minutes = 5;
@@ -101,7 +129,7 @@ const HostQuizz = () => {
         alt=""
         src="../koalingo_logo.svg"
       />
-      <b className={stylesHostQuiz.game123456}>Round #</b>
+      <b className={stylesHostQuiz.game123456}>Round # {answers[2]}</b>
       <img className={stylesHostQuiz.teacherQuizzItem} alt="" src="../ellipse-5.svg" />
       <img
         className={stylesHostQuiz.sansTitre11}
@@ -112,14 +140,17 @@ const HostQuizz = () => {
   
 
       <div className={stylesHostQuiz.teacherQuizzInner} />
-      <b className={stylesHostQuiz.hello}> {answers}% of students answered</b>
+      <b className={stylesHostQuiz.hello}> {answers[0]}</b>
       
       
       <div className={stylesHostQuiz.matthieuGotThis}>
       <div className="App">
       
-        <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers} />
+        <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers[1]} />
       
+    </div>
+    <div>
+      <b className={stylesHostQuiz.login} onClick={() =>onNextClick()}>Next</b>
     </div>
     
 
