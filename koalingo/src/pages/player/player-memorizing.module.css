@@ -1,191 +1,22 @@
-@keyframes shadow-drop-bottom {
-  0% {
-    box-shadow: 0 0 0 0 transparent;
-  }
-  to {
-    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
-  }
-}
-.web19202Child {
+.avatar {
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: var(--color-gray-100);
-  width: 1920px;
-  height: 1080px;
+  top: calc(40%);
+  width: 45vh;
+  height: 45vh;
+  border-radius: 800px;
 }
-.web19202Inner,
-.web19202Item {
+.croppedEllipse {
   position: absolute;
-  top: -223px;
-  left: -496px;
-  width: 2870px;
-  height: 626px;
-}
-.web19202Inner {
-  top: 238px;
-  left: 692px;
-  border-radius: 58px;
-  background-color: var(--color-white);
-  box-shadow: 2px 20px 50px rgba(71, 52, 175, 0.16);
-  width: 537px;
-  height: 115px;
-}
-.ellipseIcon,
-.sansTitre11 {
-  position: absolute;
-  bottom: 145px;
-  left: 710px;
-  width: 500px;
-  height: 500px;
-}
-.sansTitre11 {
-  bottom: 112px;
-  left: 574px;
-  width: 751px;
-  height: 422px;
-  object-fit: cover;
-}
-.hello {
-  position: absolute;
-  top: 264px;
-  left: 902px;
-  font-weight: 800;
-  display: inline-block;
-}
-.groupChild {
-  position: absolute;
-  height: calc(100% + 55.41px);
-  width: calc(100% + 58.41px);
-  top: 4px;
-  right: -58.41px;
-  bottom: -59.41px;
-  left: 0;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-  opacity: 0.45;
-}
-.groupItem {
-  position: absolute;
-  top: calc(50% - 25.5px);
-  left: calc(50% - 19.43px);
-  width: 48.86px;
-  height: 57px;
-}
-.ellipseGroup,
-.ellipseParent {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-}
-.ellipseGroup {
-  height: calc(100% - 4px);
-  width: calc(100% - 1px);
-  top: 0;
-  right: 0;
-  bottom: 4px;
-  left: 1px;
-}
-.ellipseGroup:active {
-  animation: 1s ease 0s 1 normal none shadow-drop-bottom;
-  opacity: 1;
-}
-.ellipseParent {
-  top: 664.41px;
-  right: 122px;
-  width: 151px;
-  height: 152.17px;
-}
-.groupIcon,
-.groupInner {
-  position: absolute;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-}
-.groupInner {
-  height: calc(100% + 55.41px);
-  width: calc(100% + 58.41px);
-  top: 0;
-  right: -59.41px;
-  bottom: -55.41px;
-  left: 1px;
-  opacity: 0.45;
-}
-.groupIcon {
-  height: calc(100% - 4px);
-  width: calc(100% - 1px);
-  top: 4px;
-  right: 1px;
-  bottom: 0;
-  left: 0;
-}
-.ellipseContainer {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 669.91px;
-  left: 116.5px;
-  width: 151px;
-  height: 152.17px;
-  transform: rotate(180deg);
-}
-.div {
-  position: absolute;
-  top: 435px;
-  left: 924px;
-  font-size: var(--font-size-6xl);
-  font-weight: 800;
-  color: var(--color-white);
-  text-align: center;
-  display: inline-block;
-}
-.allergiesPlanDeTravail11 {
-  position: absolute;
-  top: 13px;
-  left: 787px;
-  width: 305px;
-  height: 96px;
-  object-fit: cover;
-}
-.home,
-.login {
-  position: absolute;
-}
-.home {
-  top: calc(50% - 16px);
-  left: calc(50% - 35px);
-  font-size: var(--font-size-2xs);
-  font-weight: 600;
-  font-family: var(--font-poppins);
-  color: var(--color-white);
-  text-align: center;
-  display: inline-block;
-}
-.login {
-  cursor: pointer;
-  border: 3px solid var(--color-white);
-  padding: 0;
-  background-color: transparent;
-  top: 137px;
-  left: 829px;
-  border-radius: var(--br-xs);
-  box-sizing: border-box;
-  width: 262px;
-  height: 58px;
-}
-.web19202 {
-  position: relative;
-  background-color: var(--color-white);
+  top: -30%;
   width: 100%;
-  height: 1080px;
-  text-align: left;
-  font-size: 45px;
-  color: var(--color-indigo-400);
-  font-family: var(--font-poppins);
+  height: 65%;
+  object-fit: cover;
+}
+.word{
+  width: 33vh;
+  height: 7vh;
+  position: absolute;
+  top: calc(31%);
+  background-color: white;
+  border-radius: 20px;
 }

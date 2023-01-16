@@ -1,5 +1,6 @@
-import stylesHostQuiz from "./host-quizz.module.css";
+import stylesHostQuiz from "./hostQuizz.module.css";
 import stylesLogin from "../home/login.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext,useEffect } from "react";
 import ProgressBar from  '../../components/progressBar/progressbar';
@@ -10,13 +11,12 @@ import { realtimedb } from "../../firebase";
 
 const HostQuizz = () => {
   
-const {message,setMessage} =useState([]);
+
   const { gamePin} = useContext(AuthContext);
 
   const [answers,setAnswers] = useState([]);
   const navigate = useNavigate();
   const [gif,setGif]= useState([]);
-  const [ispressed,setIspressed] =useState(false);
 
   useEffect(() => {
     //  get data from relatimedb
@@ -27,14 +27,7 @@ const {message,setMessage} =useState([]);
       onlyOnce: true,
     });
   }, []);
-
-  useEffect(() => {
-    console.log("fuck");
-    update(ref(realtimedb, `games/${gamePin}}`), {
-      ["quizzState"]: "test",
-    });
-  }, [ispressed]);
-
+  
   function PlayerAnswer(data,round){
     var players = Object.values(data.players);
     var player_name = Object.keys(players);
@@ -63,27 +56,12 @@ const {message,setMessage} =useState([]);
       var y = PlayerAnswer(data,1);
       console.log(y);
       var ratio = parseInt(y[0])/Object.keys(data.players).length;
-      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round]);
-      //setMessage(`${ratio*100}% students answered`)
+      setAnswers(ratio*100);
       console.log(ratio);
      
       if(ratio>=1){
-        if(data.round<4){
-          navigate("/host/transition");
-          update(ref(realtimedb, `games/${gamePin}/`), {
-            ["quizzState"]: "lobby",
-            
-          });
-          console.log(Object.keys(data.urls)[parseInt(data.round)]);
-          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round)]}`,ratio*100,data.round])
-          
-        }else if (data.round >=4){
-          navigate("/host/end");
-        }
-        }
-       
-      
-    
+        navigate("/host/scoreboard");
+      }
       
     }
 
@@ -92,17 +70,13 @@ const {message,setMessage} =useState([]);
   });
 }, []);
 
+  const onNextClick = useCallback(() => {
+    navigate("/end");
+  }, [navigate]);
 
-  const onNextClick = () => {
-    console.log("clicked");
-    setIspressed(true);
-     console.log(gamePin);
-    
-    
-  
-  
-  };
-
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
 
   var seconds = 30;
   var minutes = 5;
@@ -113,49 +87,26 @@ const {message,setMessage} =useState([]);
       return () => clearInterval(interval);
     }, []);
   
-
-  
-
-
-
-
-
-
   return (
-    <div className={stylesHostQuiz.teacherQuizz}>
-      <div className={stylesHostQuiz.teacherQuizzChild} />
-      <img
-        className={stylesHostQuiz.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={stylesHostQuiz.game123456}>Round # {answers[2]}</b>
-      <img className={stylesHostQuiz.teacherQuizzItem} alt="" src="../ellipse-5.svg" />
-      <img
-        className={stylesHostQuiz.sansTitre11}
-        alt=""
-        src={gif}
-      />
-      
-  
+    <div className={stylesLogin.loginPage}>
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
 
-      <div className={stylesHostQuiz.teacherQuizzInner} />
-      <b className={stylesHostQuiz.hello}> {answers[0]}</b>
-      
-      
-      <div className={stylesHostQuiz.matthieuGotThis}>
-      <div className="App">
-      
-        <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers[1]} />
-      
-    </div>
-    <div>
-      <b className={stylesHostQuiz.login} onClick={() =>onNextClick()}>Next</b>
-    </div>
-    
-
+      <div className={stylesHostQuiz.mainWrapper}>
+        <div className={stylesHostQuiz.round}>Round #</div>
+        <div className={stylesHostQuiz.cardWrapper}>
+          <img
+            className={stylesHostQuiz.action}
+            alt=""
+            src={gif}
+          />
+        </div>
+        <div className={stylesHostQuiz.bottomWrapper}>
+          <div> {answers}% of students answered </div>
+        </div>
+        <div className={stylesHostQuiz.barWrapper}>
+        <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers} />
+        </div>
       </div>
-     
     </div>
   );
 };

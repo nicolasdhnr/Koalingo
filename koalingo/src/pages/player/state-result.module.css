@@ -1,63 +1,50 @@
-.background_correct {
+.backgroundCorrect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgb(89,145,19);
+  background: linear-gradient(90deg, rgba(89,145,19,1) 5%, rgba(221,241,98,1) 100%);
+}
+.backgroundFalse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: rgb(34,54,126);
+  background: linear-gradient(90deg, rgba(34,54,126,1) 13%, rgba(104,90,167,1) 100%);
+}
+.koalingoLogo {
   position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(135deg, #84fab0, #8fd3f4);
-  width: 1920px;
-  height: 1080px;
+  top: calc(3%);
+  height:15vh;
 }
-.background_false {
+.recWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+.mainWrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(135deg, #2b5876, #4e4376);
-  width: 1920px;
-  height: 1080px;
+  top: calc(35%);
 }
-.allergiesPlanDeTravail11 {
-  position: absolute;
-  top: 28px;
-  left: 721px;
-  width: 419px;
-  height: 132px;
-  object-fit: cover;
-}
-.game123456,
-.stateResultItem {
-  position: absolute;
-  top: 174px;
-  left: 793px;
-}
-.stateResultItem {
-  top: 492px;
-  left: 533px;
-  border-radius: var(--br-sm);
-  background-color: var(--color-white);
-  box-shadow: 2px 10px 35px rgba(71, 52, 175, 0.16);
-  width: 854px;
-  height: 96px;
-}
-.message {
-  position: absolute;
-  top: 516px;
-  left: 595px;
-  font-size: var(--font-size-base);
-  color: var(--color-indigo);
-}
-.xp {
-  position: absolute;
-  top: 609px;
-  left: 860px;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-}
-.stateResult {
-  position: relative;
-  background-color: var(--color-white);
-  width: 100%;
-  height: 1080px;
+.textWrapper1,
+.textWrapper2,
+.textWrapper3 {
   text-align: center;
-  font-size: var(--font-size-lg);
-  color: var(--color-white);
   font-family: var(--font-poppins);
+  font-size: 3vh;
+  margin: 1.2vh;
+}
+.textWrapper2 {
+  color: rgb(44, 133, 6);
+  font-size: 2.8vh;
+}
+.textWrapper2 {
+  color: rgb(69, 28, 102);
+  font-size: 2.8vh;
 }

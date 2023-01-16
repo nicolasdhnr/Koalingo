@@ -1,4 +1,7 @@
-import styles from "./end.module.css";
+import stylesEnd from "./end.module.css";
+import stylesLogin from "../home/login.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
+import stylesLobby from "./hostLobby.module.css";
 import {useContext, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../App";
@@ -12,26 +15,24 @@ const End = () => {
     navigate("/");
   }, [navigate]);
 
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
+
   return (
-    <div className={styles.teacherQuizzResult}>
-      <div className={styles.teacherQuizzResultChild} />
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={styles.game123456}>Game #{gamePin}</b>
-      <div className={styles.teacherQuizzResultItem} />
-      <b className={styles.matthieuIsThe}>
-        The team got x XP! 
-      </b>
-      <div>
-        
-      <Button btnText="End Game" onClick={onEndGameClick} btnStyle="red" />
+    <div className={stylesLogin.loginPage}>
+      <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
+      <h1 className={stylesLobby.gamePin}>Game #{gamePin}</h1> 
+
+      <div className={stylesEnd.mainWrapper}>
+        <img className={stylesEnd.trophyIcon} alt="" src="../../trophy@2x.png" />
+        <div className={stylesEnd.textWrapper}>
+          This Team got x XP! Congratulations!
+        </div>
+        <Button btnText="End Game" onClick={onEndGameClick} btnStyle="red" />
+      </div>
+
     </div>
-      <img className={styles.trophyIcon} alt="" src="../../trophy@2x.png" />
-    </div>
- 
   );
 };
 
