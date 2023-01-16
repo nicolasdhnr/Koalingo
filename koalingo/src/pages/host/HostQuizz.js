@@ -152,7 +152,9 @@ const {message,setMessage} =useState([]);
     
 
       </div>
-     
+      <div className={stylesHostQuiz.devButton}>
+        <button onClick={onNextClick}> dev button: if stuck, press to proceed</button>
+      </div>
     </div>
   );
 };

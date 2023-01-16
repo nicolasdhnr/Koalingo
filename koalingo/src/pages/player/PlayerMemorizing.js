@@ -89,7 +89,7 @@ const PlayerMemorizing = () => {
     <div className={stylesSelect.selectPage}>
         <img className={stylesMemorise.croppedEllipse} alt="" src="../../ellipse-21.svg" />
         <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
-
+        <button className={stylesMemorise.devButton} onClick={onDevClick}> Development Button: press to proceed</button>
         <div className={stylesMemorise.avatar}>
           <Carousel urls={urls} words={word}/>
         </div>

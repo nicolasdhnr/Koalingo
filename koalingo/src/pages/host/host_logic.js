@@ -43,7 +43,7 @@ export const createGame = async (gamePin, user) => {
       timer: 0,
       quizzState:"game",
       players: {
-        "host": { "name": "Nicolas", "reported": 0, "Quizz": { 1: { val: false, xp: 0 }, 2: { val: false, xp: 0 }, 3: { val: false, xp: 0 }, 4: { val: false, xp: 0 } } },
+        "host": { "name": "Host", "reported": 0, "Quizz": { 1: { val: false, xp: 0 }, 2: { val: false, xp: 0 }, 3: { val: false, xp: 0 }, 4: { val: false, xp: 0 } } },
       }
     }
   }
