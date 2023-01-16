@@ -19,8 +19,9 @@ import {
 } from "firebase/firestore";
 
 const PlayerMemorizing = () => {
-  const {gamePin, character} = useContext(AuthContext);
-  const [word, setWord] = useState([]); 
+
+  const { gamePin, character } = useContext(AuthContext);
+  const [word, setWord] = useState([]);
   const [urls, setUrls] = useState([]);
   console.log('The character is: ' + character);
   useEffect(() => {
@@ -36,40 +37,40 @@ const PlayerMemorizing = () => {
         setWord(words);
       }
     });
-  
+
   }, [setWord, gamePin]);
 
   useEffect(() => {
     // Access the firestore database and get the urls for which the key matches the word.
-    if (word != []){
-    const db = getFirestore();
-    const q = query(collection(db, "words"));
-    // const q = query(documentId(collection(db, "words"), character));
-    const getUrls  = async () => {
-      const querySnapshot = await getDocs(q);
-      console.log(querySnapshot);
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
-        // Look in the data to filter only the words that are in the word state, then get the associated value
-        if (doc.id == character) {
-          // console.log('Doc.data() keys', Object.keys(doc.data()))
-          // console.log('Words', word);
-          // const retrievedWords = Object.keys(doc.data()).filter((key) => word.includes(key))
-          // console.log('After filter: ', retrievedWords);
-          const urls = [];
-          word.forEach((element) => {urls.push(doc.data()[element])});
-          // console.log('urls2', urls2);
+    if (word != []) {
+      const db = getFirestore();
+      const q = query(collection(db, "words"));
+      // const q = query(documentId(collection(db, "words"), character));
+      const getUrls = async () => {
+        const querySnapshot = await getDocs(q);
+        console.log(querySnapshot);
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+          // Look in the data to filter only the words that are in the word state, then get the associated value
+          if (doc.id == character) {
+            // console.log('Doc.data() keys', Object.keys(doc.data()))
+            // console.log('Words', word);
+            // const retrievedWords = Object.keys(doc.data()).filter((key) => word.includes(key))
+            // console.log('After filter: ', retrievedWords);
+            const urls = [];
+            word.forEach((element) => { urls.push(doc.data()[element]) });
+            // console.log('urls2', urls2);
 
-          // const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]); deprecated since wrong order returned
-          console.log("urls => ", urls);
-          setUrls(urls);
-        }
-      });
+            // const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]); deprecated since wrong order returned
+            console.log("urls => ", urls);
+            setUrls(urls);
+          }
+        });
+      }
+      getUrls();
+
     }
-    getUrls();
-
-  }
-}, [word]);
+  }, [word]);
 
   const navigate = useNavigate();
 
@@ -83,19 +84,19 @@ const PlayerMemorizing = () => {
     <div className={styles.web19202}>
       {/* <div className={styles.web19202Child} /> */}
       <img className={styles.web19202Item} alt="" src="../ellipse-2.svg" />
-      <div className={styles.web19202Inner}> 
+      <div className={styles.web19202Inner}>
       </div>
       <img className={styles.ellipseIcon} alt="" src="../ellipse-1.svg" />
-     
-      <Carousel urls={urls} words={word} className={styles.div}/>
 
-      
-      
+      <Carousel urls={urls} words={word} className={styles.div} />
+
+
+
       <button className={styles.ellipseParent}>
-      
+
         <img className={styles.groupChild} alt="" src="../ellipse-4.svg" />
         <button className={styles.ellipseGroup}>
-        
+
           <EllipseIcon />
           <img className={styles.groupItem} alt="" src="../polygon-1.svg" />
         </button>
@@ -113,8 +114,8 @@ const PlayerMemorizing = () => {
       <button className={styles.login} onClick={onLoginClick}>
         <div className={styles.home}>Home</div>
       </button>
-      
-    {/* <WordAnimation styles={styles.sansTitre11}/> */}
+
+      {/* <WordAnimation styles={styles.sansTitre11}/> */}
     </div>
   );
 };

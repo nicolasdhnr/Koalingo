@@ -8,42 +8,44 @@ import stylesSelect from "./hostSetSelect.module.css";
 import listStyles from "./word-list-styles.css";
 
 const HostSetSelect = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const onLogoClick = useCallback(() => {
-      navigate("/home");
-    }, [navigate]);
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
 
-    const onSaveYourSetClick = useCallback(() => {
-      navigate("/host/lobby");
-    }, [navigate]);
+  const onSaveYourSetClick = useCallback(() => {
+    navigate("/host/lobby");
+  }, [navigate]);
 
-    return (
-      <div>
-        <div className={stylesSelect.selectPage}>
-          <img className={stylesSelect.croppedEllipse} alt="" src="../../ellipse-21.svg" />
-          <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
+  return (
+    <div>
+      <div className={stylesSelect.selectPage}>
+        <img className={stylesSelect.croppedEllipse} alt="" src="../../ellipse-21.svg" />
+        <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
 
-          <div className={stylesSelect.nameSetWrapper}>
-            Name your set:
-            <input className={stylesSelect.setName} type="text" placeholder="daily phrases" />
-            <div className={stylesSelect.buttonWrapper}>
-              <Button btnText='Save your set' onClick={onSaveYourSetClick}
-                btnStyle='gold' length="btnMedium" />
-              </div>
-          </div>
-
-          <div className={stylesSelect.enterWordWrapper}>
-            <NewWord className={stylesSelect} />
-          </div>
-
-          <div className={stylesSelect.wordsListWrapper}>
-            <WordsList />
+        <div className={stylesSelect.nameSetWrapper}>
+          Name your set:
+          <input className={stylesSelect.setName} type="text" placeholder="daily phrases" />
+          <div className={stylesSelect.buttonWrapper}>
+            <Button btnText='Save your set' onClick={onSaveYourSetClick}
+              btnStyle='gold' length="btnMedium" />
+            <Button btnText='Available words' onClick={() => navigate("/host/available-words")}
+              btnStyle='gold' length='btnMedium' />
           </div>
         </div>
 
-      </div>
-    );
-  };
+        <div className={stylesSelect.enterWordWrapper}>
+          <NewWord className={stylesSelect} />
+        </div>
 
-  export default HostSetSelect;
+        <div className={stylesSelect.wordsListWrapper}>
+          <WordsList />
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default HostSetSelect;
