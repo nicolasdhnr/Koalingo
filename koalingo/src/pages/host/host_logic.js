@@ -37,7 +37,7 @@ export const createGame = async (gamePin, user) => {
   await update(reference, {
     [gamePin]: {
       gameState: "lobby",
-      words: { "yes": 0, "better": 0,"bad": 0, "piano": 0,"bowl": 0, "keyboard": 0 },
+      words: { "yes": 0, "better": 0,"bad": 0, "no": 0,"hearing": 0, "deaf": 0,"maybe":0 },
       quizzWords: {"1":{"word":"yes","gif":""},"2":{"word":"yes","gif":""},"3":{"word":"yes","gif":""},"4":{"word":"yes","gif":""}},
       round: 1,
       timer: 0,

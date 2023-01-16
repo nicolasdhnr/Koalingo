@@ -143,7 +143,7 @@ See the [open issues](https://github.com/nicolasdhnr/Koalingo/issues) for a full
 ## Contributing
 We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at nicolasdhnr@gmail.com. 
 
-All our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions/suggestions.
+All our blender files are included in this repository in the blender folder! The models were downloaded from Mixamo. We are extremely grateful for any and all contributions/suggestions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

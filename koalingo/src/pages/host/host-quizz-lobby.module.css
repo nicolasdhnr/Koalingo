@@ -1,0 +1,184 @@
+.teacherQuizzResult1Child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #7465f4, #4c5cea);
+  width: 1920px;
+  height: 1080px;
+}
+.allergiesPlanDeTravail11 {
+  position: absolute;
+  top: 28px;
+  left: 721px;
+  width: 419px;
+  height: 132px;
+  object-fit: cover;
+}
+.game123456 {
+  position: absolute;
+  top: 174px;
+  left: 793px;
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+}
+.teacherQuizzResult1Inner,
+.teacherQuizzResult1Item {
+  position: absolute;
+  top: 598px;
+  left: 316px;
+  border-radius: var(--br-lg);
+  background-color: var(--color-white);
+  box-shadow: 2px 10px 35px rgba(71, 52, 175, 0.16);
+  width: 1288px;
+  height: 31px;
+}
+.teacherQuizzResult1Inner {
+  background-color: #FFDF40;
+  width: 875px;
+}
+.trophyIcon {
+  position: absolute;
+  top: 529px;
+  right: 184px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.step4Child {
+  position: absolute;
+  top: calc(50% - 47px);
+  left: calc(50% - 15px);
+  width: 31px;
+  height: 31px;
+}
+.step4Inner,
+.step4Item {
+  background-color: var(--color-gold-100);
+}
+.step4Item {
+  position: absolute;
+  top: calc(50% - 31px);
+  left: calc(50% - 3px);
+  border-radius: 0 0 var(--br-6xs) var(--br-6xs);
+  width: 7px;
+  height: 80px;
+}
+.step4Inner {
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-5xs);
+  height: 50px;
+}
+.round4,
+.step4Inner,
+.xp {
+  position: absolute;
+}
+.xp {
+  bottom: 8px;
+  left: 11px;
+}
+.round4 {
+  top: 0;
+  left: 14px;
+  font-size: var(--font-size-3xs);
+  color: var(--color-white);
+}
+.step4 {
+  top: 553px;
+  right: 276px;
+  width: 112px;
+  height: 184px;
+}
+.round3,
+.step3,
+.step4 {
+  position: absolute;
+}
+.round3 {
+  top: 0;
+  left: 15px;
+  font-size: var(--font-size-3xs);
+  color: var(--color-white);
+}
+.step3 {
+  top: 553px;
+  left: 1158px;
+  width: 112px;
+  height: 184px;
+}
+.step2Child,
+.step2Item {
+  position: absolute;
+  top: calc(50% - 46.5px);
+  left: calc(50% - 15px);
+  width: 31px;
+  height: 31px;
+}
+.step2Item {
+  top: calc(50% - 30.5px);
+  left: calc(50% - 3px);
+  border-radius: 0 0 var(--br-6xs) var(--br-6xs);
+  background-color: var(--color-gold-100);
+  width: 7px;
+  height: 80px;
+}
+.step2 {
+  top: 552px;
+  left: 788px;
+  width: 112px;
+  height: 185px;
+}
+.round1,
+.step1,
+.step2 {
+  position: absolute;
+}
+.round1 {
+  top: 0;
+  left: calc(50% - 39px);
+  font-size: var(--font-size-3xs);
+  color: var(--color-white);
+}
+.step1 {
+  top: 552px;
+  left: 494px;
+  width: 112px;
+  height: 185px;
+}
+.backToGame {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: calc(50% - 81px);
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  color: var(--color-indigo-200);
+  text-align: center;
+}
+.login,
+.teacherQuizzResult1 {
+  background-color: var(--color-white);
+}
+.login {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 87px;
+  left: 852px;
+  border-radius: var(--br-xs);
+  width: 262px;
+  height: 58px;
+}
+.teacherQuizzResult1 {
+  position: relative;
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--color-indigo-200);
+  font-family: var(--font-poppins);
+}

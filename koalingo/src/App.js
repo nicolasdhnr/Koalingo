@@ -33,6 +33,7 @@ import { PlayerCustomise } from "./pages/home/PlayerCustomise";
 import Correct from "./pages/player/Answer_correct";
 import Wrong from "./pages/player/Answer_wrong";
 import HostQuizz from "./pages/host/HostQuizz";
+import ScoreBoard from "./pages/host/ScoreBoard";
 import End from "./pages/host/End";
 import stylesLogin from "./pages/home/login.module.css";
 import Button from "./components/button/Button";
@@ -117,11 +118,13 @@ function App() {
        <Route path="/host/set/select_words" element={<SetWordContext />} /> 
        <Route path="/player/customise" element={<PlayerCustomise />} /> 
        <Route path="/host/quizz" element={<HostQuizz />} />
+       <Route path="/host/scoreboard" element={<ScoreBoard />} />
+       
         <Route path="/end" element={<End />} />
 
       </Route>
 
-      <Route path="/host/lobby" element={<HostLobby />} />
+     
       <Route path="/home" element={<Home />} />
       <Route path="/web-1920-1" element={<Web19201 />} />
 

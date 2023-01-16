@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1 1`] = `
+<div
+  className="landscape undefined undefined undefined"
+  data-testid="recWrapper"
+>
+  trial 1
+</div>
+`;

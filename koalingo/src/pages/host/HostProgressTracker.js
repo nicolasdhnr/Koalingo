@@ -5,19 +5,91 @@ import stylesSelect from "./hostSetSelect.module.css";
 import stylesLobby from "./hostLobby.module.css";
 import { PlayerTracking } from "../../components/Players";
 import { AuthContext } from "../../App";
-import { ref, onValue } from "firebase/database";
+import { ref, onValue,update } from "firebase/database";
 import { realtimedb } from "../../firebase";
 import { updateGameState } from "./host_logic";
 import Button from "../../components/button/Button";
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+  setDoc,
+  updateDoc,
+  documentId,
+} from "firebase/firestore";
 
 const HostProgressTracker = () => {
   const navigate = useNavigate();
   const {gamePin}= useContext(AuthContext)
 // Just as in the Lobby, we want to scubscribe to changes in the player list and player reported number of memorized words.
 const [playerData, setPlayerData] = useState({});
-
+const [word, setWord] = useState([]);
+const [urls, setUrls] = useState([]);
 // Create a game pin and create the game in the database.
+
+
+useEffect(() => {
+  // Access the firestore database and get the urls for which the key matches the word.
+  
+    const db = getFirestore();
+    const q = query(collection(db, "words"));
+    // const q = query(documentId(collection(db, "words"), character));
+    const getUrls = async () => {
+      const querySnapshot = await getDocs(q);
+      console.log(querySnapshot);
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data());
+        // Look in the data to filter only the words that are in the word state, then get the associated value
+        if (doc.id == 'girl') {
+          // console.log('Doc.data() keys', Object.keys(doc.data()))
+          // console.log('Words', word);
+          // const retrievedWords = Object.keys(doc.data()).filter((key) => word.includes(key))
+          // console.log('After filter: ', retrievedWords);
+          
+          // console.log('urls2', urls2);
+          return onValue(ref(realtimedb, "games/" + gamePin + "/words"), (snapshot) => {
+            const data = snapshot.val();
+            var words = Object.keys(data);
+            var shuffle = [];
+            for(let i=0; i<=4;i++){
+              var j = Math.floor(
+                Math.random() * (words.length)
+              )
+              console.log(j);
+              shuffle.push(words[j]);  
+              words.splice(j,1)
+              console.log(words);
+                      }
+              console.log(shuffle);
+            console.log(data);
+            const urls = {};
+            for (let i=0;i<=4;i++){
+              urls[shuffle[i]] = doc.data()[shuffle[i]];
+            }
+            console.log("urls => ", urls);
+            update(ref(realtimedb, `games/${gamePin}/`), {
+              urls
+            });
+            setUrls(urls);
+            
+          }),{
+            onlyOnce: true,
+          };
+       
+          // const urls = Object.keys(doc.data()).filter((key) => word.includes(key)).map((key) => doc.data()[key]); deprecated since wrong order returned
+         
+        }
+      });
+    }
+    getUrls();
+
+}, []);
 useEffect( () => {
+
+
 return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
     const data = snapshot.val();
     setPlayerData(data);
