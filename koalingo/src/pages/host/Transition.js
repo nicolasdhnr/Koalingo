@@ -13,13 +13,11 @@ const Transition = () => {
   const navigate = useNavigate();
   const { gamePin} = useContext(AuthContext);
   useEffect(() => {
-    const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
       var data = snapshot.val();
       setMess(Object.keys(data.urls)[parseInt(data.round)]);
       setRound(data.round);
-      return unsubscribe;
-    }, {
-        return unsubscribe;
+  }, {
       onlyOnce: true,
     });
   }, []);
