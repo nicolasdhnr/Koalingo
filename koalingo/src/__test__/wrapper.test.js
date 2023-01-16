@@ -1,7 +1,5 @@
 import React from 'react';
-import createRoot from 'react-dom/client';
-import RecWrapper from "C:/Users/labas/Documents/GitHub/Koalingo/frontend/koalingo/src/components/rectangleWrapper/Wrapper.js";
-import { directiveLiteral, isTSAnyKeyword } from '@babel/types';
+import RecWrapper from "C:/Users/labas/Documents/GitHub/Koalingo/koalingo/src/components/rectangleWrapper/Wrapper.js";
 import { render, cleanup} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import rendered from "react-test-renderer"
