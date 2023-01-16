@@ -9,9 +9,24 @@ import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
 
 const PlayerQuizz = () => {
   const {gamePin, user} = useContext(AuthContext);
+  var [word, setWord] = useState([]); 
+  var [correct,setCorrect] = useState([]);
+  
+  useEffect(() => {
+    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+      data = snapshot.val();
+      setWord (Object.keys(data.words));
+      setCorrect(data.quizzWords[data.round.toString()].word);
+  }, {
+      onlyOnce: true,
+    });
+   
+  }, []);
+
+
   var data = undefined;
   var XP = 0;
-  console.log(typeof gamePin)
+
 
   console.log(gamePin);
   const navigate = useNavigate();
@@ -26,14 +41,19 @@ const PlayerQuizz = () => {
   const onWrong = useCallback(() => {
     navigate("/player/wrong");
   }, [navigate]);
+ console.log(word);
+ 
 
-  // const handleButtonClick = () 
-
-  var sample_list = ["My", "name", "is", "matthieu","need","redbull"];
+  const Test = () => {
+    const sample = [1, 2, 3];
+    return (
+      <div>sample[0]</div>
+    )
+  }
   // const [count, setCount] = useState(0);
-  var good = "redbull";
-  const idx = sample_list.indexOf(good);
-  sample_list.pop(idx);
+
+  const idx = word.indexOf(correct);
+  word.pop(idx);
 
   
 
@@ -49,28 +69,29 @@ const PlayerQuizz = () => {
       return array;
   }
 
-  sample_list = shuffle(sample_list);
-  var a = (sample_list.slice(0,3));
-  a.push(good);
+  word = shuffle(word);
+  var a = (word.slice(0,3));
+  a.push(correct);
   a = shuffle(a);
 
   const HandleButtonClick = (num) => {
     setButton(num);
-    if (data){
-      console.log(data)
-      const num_answers = "test";
-      const user_id = "host";
-      if (num == a.indexOf(good)+1) {
+    console.log("clicked")
+;    if (data){
+      
+      
+      if (num == a.indexOf(correct)+1) {
         onCorrect();
         bool = true;
         XP =100;
+        console.log("XP");
       }else
       {
         onWrong();
         bool = false;
         XP=15;
       };
-      update(ref(realtimedb, `games/${gamePin}/players/${user_id}/Quizz/${(data.round).toString()}`), {
+      update(ref(realtimedb, `games/${gamePin}/players/${user.uid}/Quizz/${data.round.toString()}`), {
         ["val"]: bool,
         ["xp"]: XP,
       });
@@ -96,6 +117,8 @@ const PlayerQuizz = () => {
       onlyOnce: true,
     });
   }, [button, gamePin, realtimedb]);
+
+  
 
   return (
     <div className={styles.hostquizwords1}>

@@ -40,7 +40,7 @@ export const PlayerCustomise = () => {
   const addNickname = async () => {
     const reference = ref(realtimedb, "games/" + gamePin + "/players/" + user.uid);
     // Create a new game
-    await update(reference, { name: nickname });
+    await update(reference, { name: nickname, "reported": 0, "Quizz": { 1: { val: false, xp: 0 }, 2: { val: false, xp: 0 }, 3: { val: false, xp: 0 }, 4: { val: false, xp: 0 } }});
   };
 
   // Define event listeners
