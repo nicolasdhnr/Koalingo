@@ -1,43 +1,37 @@
-import React from 'react';
+import React from "react";
 
-/**
- * Progress Bar component
- * @param {string} bgcolor - background color of the progress bar
- * @param {number} progress - completion percentage
- * @param {string} height - height of the progress bar 
- * @returns {JSX.Element}
- */
-const Progress_bar = ({ bgcolor, progress, height }) => {
+const ProgressBar = (props) => {
+  const { bgcolor, completed } = props;
 
-  const Parentdiv = {
-    height: height,
-    width: '300%',
-    backgroundColor: 'whitesmoke',
-    borderRadius: 40,
+  const containerStyles = {
+    height: 20,
+    width: '350%',
+    backgroundColor: "#e0e0de",
+    borderRadius: 50,
     margin: 50
   }
 
-  const Childdiv = {
+  const fillerStyles = {
     height: '100%',
-    width: `${progress}%`,
+    width: `${completed}%`,
     backgroundColor: bgcolor,
-    borderRadius: 40,
+    borderRadius: 'inherit',
     textAlign: 'right'
   }
 
-  const progresstext = {
-    padding: 10,
-    color: 'black',
-    fontWeight: 900
+  const labelStyles = {
+    padding: 5,
+    color: 'white',
+    fontWeight: 'medium'
   }
 
   return (
-    <div style={Parentdiv} data-testid="progressBar">
-      <div style={Childdiv}>
-
+    <div style={containerStyles}>
+      <div style={fillerStyles}>
+        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Progress_bar;
+export default ProgressBar;
