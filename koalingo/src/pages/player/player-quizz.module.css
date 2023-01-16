@@ -43,3 +43,10 @@
 .option4:hover {
   background-color: rgb(84, 174, 48);
 }
+.devMessage {
+  position: absolute;
+  font-family: var(--font-poppins);
+  color: white;
+  font-size: 1.5vh;
+  text-align: left;
+}

@@ -64,7 +64,7 @@ const Home = () => {
 
       } else {
         // Catch error if game pin does not exist
-        alert("Game pin does not exist");
+        //alert("Game pin does not exist");
       }
     }
     );
