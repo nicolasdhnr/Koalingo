@@ -40,11 +40,10 @@ const {message,setMessage} =useState([]);
     var response = 0;
     var xp = 0;
     
-    for (let i = 0; i<player_name.length;i++){
-      const current = players[player_name[i]].Quizz[round.toString()];
+    for (let i = 0; i<player_name.length;i++){ //iterate through each player of the game
+      const current = players[player_name[i]].Quizz[round.toString()]; //actual player being analysed
       response += (current.xp != 0 ? 1 : 0);
-      console.log(response);
-      xp += current.xp;
+      xp += current.xp; //add xp
     }
     return [response, xp]
   }
@@ -59,9 +58,8 @@ const {message,setMessage} =useState([]);
       setGif(Object.values(data.urls)[data.round]);
       var y = PlayerAnswer(data,1);
       console.log(y);
-      var ratio = parseInt(y[0])/Object.keys(data.players).length;
-      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round]);
-      //setMessage(`${ratio*100}% students answered`)
+      var ratio = parseInt(y[0])/Object.keys(data.players).length; //ratio between students that answered and total number of players
+      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round]); //set messages for display
       console.log(ratio);
      
       if(ratio>=1){
@@ -71,11 +69,10 @@ const {message,setMessage} =useState([]);
             ["quizzState"]: "lobby",
             
           });
-          console.log(Object.keys(data.urls)[parseInt(data.round)]);
-          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round)]}`,ratio*100,data.round])
+          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round)]}`,ratio*100,data.round]) //setup the message for display
           
         }else if (data.round >=4){
-          navigate("/host/end");
+          navigate("/host/end"); //if game is over go the last page
         }
         }
        
@@ -91,9 +88,8 @@ const {message,setMessage} =useState([]);
 
 
   const onNextClick = () => {
-    console.log("clicked");
     setIspressed(true);
-     console.log(gamePin);
+    
     
     
   
@@ -101,14 +97,7 @@ const {message,setMessage} =useState([]);
   };
 
 
-  var seconds = 30;
-  var minutes = 5;
-  var [time, setTime] = useState(20000); // set the initial time
-    useEffect(() => {
-      const interval = setInterval(() => setTime(time => time - 1000), 1000);
-      setTime(interval);
-      return () => clearInterval(interval);
-    }, []);
+  
   
 
   
