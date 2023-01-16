@@ -30,8 +30,8 @@ const HostSetSelect = () => {
           <div className={stylesSelect.buttonWrapper}>
             <Button btnText='Save your set' onClick={onSaveYourSetClick}
               btnStyle='gold' length="btnMedium" />
-            <Button btnText='Available words' onClick={() => navigate("/host/available-words")}
-              btnStyle='gold' length='btnMedium' />
+            <Button btnText='Words' onClick={() => navigate("/host/available-words")}
+              btnStyle='bgColor' length='btnFit' />
           </div>
         </div>
 
