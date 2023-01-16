@@ -21,12 +21,10 @@
   <p align="center">
     Sign Language Learning made fun, and inclusive.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+   <a href="https://koalingo-dc436.web.app/">View Live! </strong></a>
     <br />
     <br />
-    <a href="https://github.com/nicolasdhnr/Koalingo/issues">View Live! </a>
-    ·
-    <a href=" ">Report Bug</a>
+    <a href="https://github.com/nicolasdhnr/Koalingo/issues">Report an issue </a>
     ·
     <a href="https://github.com/nicolasdhnr/Koalingo/issues">Request Feature</a>
   </p>
@@ -65,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With this app, you can create custom study sets for sign language words that we have animated and view and memorize the words in action, making learning sign language fun and interactive. Currently, it's built as a Kahoot-like quiz designed to be played in a classroom, or with friends and family!
+Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With this app, you can create custom study sets for British Sign Language words and view and memorize the words in action, making learning sign language fun and interactive. Currently, it's built as a Kahoot-like quiz designed to be played in a classroom, or with friends and family!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,7 +77,13 @@ Welcome to Koalingo, a cutting-edge React app designed for the Pace Center. With
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Meet our team! 
+ 
+<img src="https://media.giphy.com/media/tr12OrLuI480k5bRy2/giphy.gif" alt="Wavegirl" style="width: 250px;"/>
+<img src="" alt="Drawing" style="width: 250px;"/>
+</p>
 
+These are the characters that will be taking you on your sign language learning journey. Suggest names for them [here](https://github.com/nicolasdhnr/Koalingo/issues) 
 
 <!-- GETTING STARTED -->
 ## Our idea
@@ -122,21 +126,24 @@ The app should now be running on http://localhost:3000 in your web browser.
 <!-- ROADMAP -->
 ## Roadmap
 
+Current Achievements:
 - [x] Basic functionality (Quiz, multiplayer features)
-- [x] Two characters and 15 words
-- [ ] Next word milestone: 50 words 
-- [ ] Next feature: ability to update and save sets similarly to Quizlet.
+- [x] Two characters
+- [x] 15 words in our word bank. 
 
-
-
-
+Objectives in  next 6 months: 
+- [ ] Improve our animations to include facial expressions
+- [ ] Grow word bank to include >50 words.
+- [ ] Next feature: Ability to update and save sets similarly to Quizlet.
 
 See the [open issues](https://github.com/nicolasdhnr/Koalingo/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contributing
-We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at Nicolasdhnr@gmail.com. All of our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions.
+We rely on our open-source community to help us create more animations. We are in the process of making a platform to help submit animations to enlarge our word bank, but in the meantime, if you have an animation you would like to contribute, please email them to me at nicolasdhnr@gmail.com. 
+
+All our blender files are included in this repository in the blender folder! We are extremely grateful for any and all contributions/suggestions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
