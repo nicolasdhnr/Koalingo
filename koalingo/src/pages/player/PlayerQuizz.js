@@ -1,4 +1,6 @@
-import styles from "./player-quizz.module.css";
+import stylesPlayerQuiz from "./player-quizz.module.css";
+import stylesSelect from "../host/hostSetSelect.module.css";
+import stylesLogin from "../home/login.module.css";
 import React, { useCallback, useEffect, useContext,useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
@@ -37,11 +39,14 @@ const PlayerQuizz = () => {
     navigate("/player/correct");
   }, [navigate]);
   
-  
   const onWrong = useCallback(() => {
     navigate("/player/wrong");
   }, [navigate]);
  console.log(word);
+
+ const onLogoClick = useCallback(() => {
+  navigate("/home");
+  }, [navigate]);
  
 
   const Test = () => {
@@ -95,11 +100,7 @@ const PlayerQuizz = () => {
         ["val"]: bool,
         ["xp"]: XP,
       });
-      
-      
     }
-    
-    
   };
   
     
@@ -121,29 +122,21 @@ const PlayerQuizz = () => {
   
 
   return (
-    <div className={styles.hostquizwords1}>
-      <div className={styles.hostquizwords1Child} />
-      <div className={styles.hostquizwords1Item} />
-      <div className={styles.hostquizwords1Inner} />
-      <div className={styles.rectangleDiv} />
-      <div className={styles.bedroomWrapper} onClick={() => HandleButtonClick(1)}>
-        <b className={styles.bedroom} onClick={() => HandleButtonClick(1)}>{infos.current_words[0]}</b>
+    <div className={stylesLogin.loginPage}>
+      <div className={stylesPlayerQuiz.mainWrapper}>
+        <div className={stylesPlayerQuiz.option1} onClick={() => HandleButtonClick(1)}>
+          {infos.current_words[0]}
+        </div>
+        <div className={stylesPlayerQuiz.option2} onClick={() => HandleButtonClick(2)}>
+          {infos.current_words[1]}
+        </div>
+        <div className={stylesPlayerQuiz.option3} onClick={() => HandleButtonClick(3)}>
+          {infos.current_words[2]}
+        </div>
+        <div className={stylesPlayerQuiz.option4} onClick={() => HandleButtonClick(4)}>
+          {infos.current_words[3]}
+        </div>
       </div>
-      <div className={styles.bedroomContainer} onClick={() => HandleButtonClick(2)}>
-        <b className={styles.bedroom} onClick={() => HandleButtonClick(2)}>{infos.current_words[1]}</b>
-      </div>
-      <div className={styles.bedroomFrame} onClick={() => HandleButtonClick(3)}>
-        <b className={styles.bedroom} onClick={() => HandleButtonClick(3)}>{infos.current_words[2]}</b>
-      </div>
-      <div className={styles.groupDiv} onClick={() => HandleButtonClick(4)}>
-        <b className={styles.bedroom} onClick={() => HandleButtonClick(4)}>{infos.current_words[3]}</b>
-      </div>
-      <img
-        className={styles.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={styles.game123456}>Game #123-456</b>
     </div>
   );
 };
