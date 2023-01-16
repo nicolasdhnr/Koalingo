@@ -29,7 +29,6 @@ const {message,setMessage} =useState([]);
   }, []);
 
   useEffect(() => {
-    console.log("fuck");
     update(ref(realtimedb, `games/${gamePin}}`), {
       ["quizzState"]: "test",
     });
@@ -54,9 +53,7 @@ const {message,setMessage} =useState([]);
     const data = snapshot.val();
 
   
-    //console.log(Object.values(data));
-    //var results = Object.values(data)
-    //console.log((Object.values(data)[2]["host"].Quizz["1"]));
+    //check if this dataset exists 
     if (data != null) {
       console.log(data.players.host.Quizz["1"]);
       setGif(Object.values(data.urls)[data.round]);
