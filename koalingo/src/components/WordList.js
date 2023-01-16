@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../App";
 
+// Manages the list of words that have been selected for a set in host/setSelect
+// Each word is chosen using NewWord
 export default function WordsList() {
   const { allWords, setAllWords } = useContext(AuthContext);
 
+  //Handle when the delete button is clicked
   const handleDelete = (WordIdToRemove) => {
     setAllWords((prev) => prev.filter(
       (Word) => Word.id !== WordIdToRemove
     ));
   };
+
   return (
     <ul ul class="wordList">
       {allWords.map(({ title, id }) => (

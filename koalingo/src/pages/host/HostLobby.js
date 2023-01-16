@@ -66,13 +66,22 @@ const HostLobby = () => {
     navigate("/home");
   }, [navigate]);
   
+
+  //Handle inputs for minutes and seconds  of the timer
   const handleMinChange = (event) => {
-    setMinutes(event.target.value != null ? event.target.value : 5) ;
+    let sendMin = 0;
+    event.target.value != null ? sendMin = event.target.value : sendMin = 5; // if no value entered, assing 5
+    sendMin > 59 ? alert("Please enter a number from 0 to 59") : sendMin = sendMin; // check if value more then 59, alert if it is
+    sendMin > 59 ? sendMin = 59 : sendMin = sendMin; // in case the >59 input is not changed, automatically assing it to 59
+    setMinutes(sendMin);
   }
 
   const handleSecChange = (event) => {
-    setSeconds(event.target.value != null ? event.target.value : 0);
-  }
+    let sendSec = 0;
+    event.target.value != null ? sendSec = event.target.value : sendSec = 0; // if no value entered, assing 0
+    sendSec > 59 ? alert("Please enter a number from 0 to 59") : sendSec = sendSec; // check if value more then 59, alert if it is
+    sendSec > 59 ? sendSec = 59 : sendSec = sendSec; // in case the >59 input is not changed, automatically assing it to 59
+    setSeconds(sendSec);  }
 
   
   return (

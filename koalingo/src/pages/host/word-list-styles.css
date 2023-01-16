@@ -6,7 +6,6 @@
     justify-content: center;
     padding-left: 0vh;
   }
-  
   li.wordList {
     display: flex;
     justify-content: center;
@@ -21,7 +20,23 @@
     font-family: var(--font-poppins);
     padding: 0vh 2vh;
     margin: 0.5vh 0.5vh;
-  } 
+  }
+  ul.wordPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -8vh;
+    font-size: 2.5vh;
+    flex-wrap: wrap;
+    height: 32vh;
+    width: 90%;
+    list-style-type: none;
+    gap: 0vh;
+  }
+  li.wordPage {
+    margin: 0.1vh 0vh;
+  }
   
   h2 {
     display: inline-block; 
