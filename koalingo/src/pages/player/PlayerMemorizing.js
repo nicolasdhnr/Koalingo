@@ -88,16 +88,10 @@ const PlayerMemorizing = () => {
   return (
     <div className={stylesSelect.selectPage}>
         <img className={stylesMemorise.croppedEllipse} alt="" src="../../ellipse-21.svg" />
-        <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onDevClick} />
+        <img className={stylesSelect.koalingoLogo} alt="" src="../../koalingo_logo.svg" onClick={onLogoClick} />
 
-        <div className={stylesMemorise.buttonWrapper}>
-          <Button btnText="Previous" btnStyle="bgColor" length="btnShort"/>
-          <Button btnText="Next" btnStyle="bgColor" length="btnShort"/>
-        </div>
-
-        <div className={stylesMemorise.word}></div>
-        
         <div className={stylesMemorise.avatar}>
+          <Carousel urls={urls} words={word}/>
         </div>
     </div>
   );

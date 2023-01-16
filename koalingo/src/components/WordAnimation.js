@@ -1,4 +1,5 @@
 import ReactSwipe from 'react-swipe';
+import stylesAnimations from './word-animation.module.css';
 import { useState } from 'react';
 
 const Carousel = (props) => {
@@ -35,20 +36,24 @@ const Carousel = (props) => {
       >
         {props.urls.map((url, index) => {
           return (
-            <div>
-              <div key={index}>
-                <img src={url} alt={props.words[index]} />
-                {props.words[index]}
+            <div className={stylesAnimations.mainWrapper} >
+              <div className={stylesAnimations.childWrapper} key={index}>
+                <img className={stylesAnimations.image} src={url} alt={props.words[index]} />
               </div>
-              <div>{qNum}/{props.urls.length}</div>
+              <div className={stylesAnimations.textWrapper}>
+                {props.words[index]}
+                <div>{qNum}/{props.urls.length}</div>
+              </div>
             </div>
           );
         })}
 
 
       </ReactSwipe>
-      <button id='next' onClick={onClickButton}>Next</button>
-      <button id='prev' onClick={onClickButton}>Previous</button>
+      <div className={stylesAnimations.buttonWrapper}>
+        <button className={stylesAnimations.buttonStyle} id='prev' onClick={onClickButton}>Previous</button>
+        <button className={stylesAnimations.buttonStyle} id='next' onClick={onClickButton}>Next</button>
+      </div>
     </div>
   );
 };

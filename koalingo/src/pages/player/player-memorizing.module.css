@@ -1,23 +1,16 @@
 .avatar {
   position: absolute;
-  top: calc(47%);
+  top: calc(40%);
   width: 45vh;
   height: 45vh;
-  background-color: rgb(88,92,238);
   border-radius: 800px;
 }
 .croppedEllipse {
   position: absolute;
-  top: -23%;
+  top: -30%;
   width: 100%;
   height: 65%;
   object-fit: cover;
-}
-.buttonWrapper {
-  position: absolute;
-  top: calc(17%);
-  display: flex;
-  gap: 0.5vh;
 }
 .word{
   width: 33vh;
