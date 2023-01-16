@@ -26,6 +26,7 @@ import { getDatabase } from "firebase/database";
 
 import { useNavigate } from "react-router-dom";
 
+/* Reference 1 - taken from https://blog.logrocket.com/user-authentication-firebase-react-apps/ */
 
 const firebaseConfig = {
     apiKey: "AIzaSyAqk2JRGZyX4SnnanRYLYlN8839G_9w2go",
