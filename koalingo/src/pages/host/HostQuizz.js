@@ -107,6 +107,9 @@ const HostQuizz = () => {
         <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers} />
         </div>
       </div>
+      <div className={stylesHostQuiz.devButton}>
+        <button onClick={onNextClick}> dev button: if stuck, press to proceed</button>
+      </div>
     </div>
   );
 };
