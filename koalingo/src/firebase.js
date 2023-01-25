@@ -48,7 +48,6 @@ const hostID  = Math.floor(Math.random() * 1000000)
 // TODO: Save game ID in a cookie 
 
 
-
 const signInAnon = async () => {
     try {
         await signInAnonymously(auth);
@@ -57,7 +56,6 @@ const signInAnon = async () => {
         alert(err.message);
     }
 };
-
 
 const signInWithGoogle = async () => {
   try {

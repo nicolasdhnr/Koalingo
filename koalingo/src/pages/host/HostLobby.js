@@ -4,7 +4,7 @@ import stylesLobby from "./hostLobby.module.css";
 import stylesLogin from "../home/login.module.css";
 import stylesSetSelect from "./hostSetSelect.module.css";
 import { realtimedb } from "../../firebase";
-import { ref, onValue, set, onDisconnect } from "firebase/database";
+import { update,ref, onValue, set, onDisconnect } from "firebase/database";
 import { AuthContext } from "../../App";
 import { createGamePin, updateGameState } from "./host_logic";
 import Players from "../../components/Players.js"
@@ -16,29 +16,44 @@ const HostLobby = () => {
 
   const navigate = useNavigate();
   const { user, gamePin, setGamePin, allWords, seconds, setSeconds, minutes, setMinutes } = useContext(AuthContext)
-  console.log(gamePin);
+  
   const [count, setCount] = useState(0);
   const [playerNames, setPlayerNames] = useState([]);
   console.log(user);
 
-  // Create a game pin and create the game in the database.
+  // Create a game pin and create the game in the database.    
   useEffect(() => {
+    console.log(allWords);
     const createPin = async (user) => {
       const pin = await createGamePin(user);
+      await console.log(pin);
       if (pin) {
         setGamePin(pin);
       }
     }
     createPin(user);
+  }, []); 
 
-
+  useEffect(() => {
+    
     const collectionRef = ref(realtimedb, "games/" + gamePin + "/players");
 
     return onValue(collectionRef, (snapshot) => {
       const data = snapshot.val();
-
+      console.log(gamePin);
+      var set = {};
+      var idx=0;
+      allWords.forEach((element) => {
+        set[idx] = element.title;
+        console.log(element);
+        idx +=1;
+      });
+      update(ref(realtimedb, `games/${gamePin}/`), {
+        "wordsList": set
+       });
       // Count the number of players in the game
       if (data != null) {
+        console.log(data);
         setCount(Object.keys(data).length);
         // console.log(count);
         // Get the names of the players in the game
@@ -46,14 +61,16 @@ const HostLobby = () => {
       }
     });
     // Dynamically change the number of players in the game
-  }, [gamePin, setGamePin, setCount, setPlayerNames, user]);
+  }, [gamePin, setCount, setPlayerNames, user]);
 
   // Navigating to the timer page to change the game settings
 
-  const onStartTheGame1Click = useCallback(async () => {
+  const onStartTheGame1Click = useCallback(() => {
     console.log(gamePin);
-    await updateGameState(gamePin, "memorizing");
-    await setWordList(gamePin, allWords);
+    
+    
+    console.log(set);
+    
     navigate("/host/progress-tracker");
   }, [navigate]);
 

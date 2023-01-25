@@ -37,23 +37,21 @@
   font-family: var(--font-poppins);
   font-size: 2.8vh;
   width: fit-content;
+  height: 4.2vh;
   background-color: gold;
   padding: 1vh 3vh;
   border-radius: 20px;
-}
-.progressBar {
-  width: 60%;
-  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .barWrapper {
-  position: absolute;
-  top: 54.5vh;
   display: flex;
-  width: 50vh;
+  width: 40vh;
   justify-content: center;
   align-items: center;
 }
 .devButton {
   position: absolute;
-  bottom: 8vh;
+  bottom: 3vh;
 }

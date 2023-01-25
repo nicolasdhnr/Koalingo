@@ -22,7 +22,8 @@ import {
 export const createGamePin = async (user) => {
   const cookies = new Cookies();
   // Look for a cookie that contains the game pin. Do it only when component is mounted
-  const gamePin = cookies.get("gamePin") ? cookies.get("gamePin") : Math.floor(Math.random() * 1000000).toString();
+  // const gamePin = cookies.get("gamePin") ? cookies.get("gamePin") : Math.floor(Math.random() * 1000000).toString();
+  const gamePin =  Math.floor(Math.random() * 1000000).toString()
   cookies.set("gamePin", gamePin, { path: "/" });
   await createGame(gamePin, user);
 

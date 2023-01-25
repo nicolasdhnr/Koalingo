@@ -23,17 +23,18 @@ import {
 
 const HostProgressTracker = () => {
   const navigate = useNavigate();
-  const {gamePin}= useContext(AuthContext)
+  const {gamePin,allWords}= useContext(AuthContext)
 // Just as in the Lobby, we want to scubscribe to changes in the player list and player reported number of memorized words.
 const [playerData, setPlayerData] = useState({});
 const [word, setWord] = useState([]);
 const [urls, setUrls] = useState([]);
-// Create a game pin and create the game in the database.
 
 
 useEffect(() => {
   // Access the firestore database and get the urls for which the key matches the word.
-  
+  update(ref(realtimedb, `games/${gamePin}/`), {
+    "gameState": "memorizing",
+   });
     const db = getFirestore();
     const q = query(collection(db, "words"));
     // const q = query(documentId(collection(db, "words"), character));
@@ -50,9 +51,9 @@ useEffect(() => {
           // console.log('After filter: ', retrievedWords);
           
           // console.log('urls2', urls2);
-          return onValue(ref(realtimedb, "games/" + gamePin + "/words"), (snapshot) => {
+          return onValue(ref(realtimedb, "games/" + gamePin + "/wordsList"), (snapshot) => {
             const data = snapshot.val();
-            var words = Object.keys(data);
+            var words = Object.values(data);
             var shuffle = [];
             for(let i=0; i<=4;i++){
               var j = Math.floor(
@@ -66,7 +67,7 @@ useEffect(() => {
               console.log(shuffle);
             console.log(data);
             const urls = {};
-            for (let i=0;i<=4;i++){
+            for (let i=0;i<4;i++){
               urls[shuffle[i]] = doc.data()[shuffle[i]];
             }
             console.log("urls => ", urls);
@@ -109,6 +110,9 @@ return onValue(ref(realtimedb, "games/" + gamePin + "/players"), (snapshot) => {
 
   const onGoToQuizzClick = useCallback(() => {
     navigate("/host/quizz");
+    update(ref(realtimedb, `games/${gamePin}/`), {
+      "gameState": "quizz"
+    });
   }, [navigate]);
 
 

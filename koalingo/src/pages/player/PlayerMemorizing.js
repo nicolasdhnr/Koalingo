@@ -26,6 +26,23 @@ const PlayerMemorizing = () => {
   const [word, setWord] = useState([]);
   const [urls, setUrls] = useState([]);
   console.log('The character is: ' + character);
+  console.log(gamePin)
+
+  useEffect(() => {
+    // I need to take the words in the session. Then access firestore database for those words and get the urls if they exist
+    const collectionRef = ref(realtimedb, "games/" + gamePin);
+    return onValue(collectionRef, (snapshot) => {
+
+      const data = snapshot.val();
+      if (data != null && data.gameState == "quizz")  {
+        console.log("hey")
+        navigate("/player/quizz");
+      }else{
+        console.log("nope");
+      }
+    });
+  }, []);
+
   useEffect(() => {
     // I need to take the words in the session. Then access firestore database for those words and get the urls if they exist
     const collectionRef = ref(realtimedb, "games/" + gamePin + "/wordsList");
