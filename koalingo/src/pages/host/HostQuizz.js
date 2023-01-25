@@ -1,5 +1,6 @@
-import stylesHostQuiz from "./host-quizz.module.css";
+import stylesHostQuiz from "./hostQuizz.module.css";
 import stylesLogin from "../home/login.module.css";
+import stylesSelect from "./hostSetSelect.module.css";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useState, useContext,useEffect } from "react";
 import ProgressBar from  '../../components/progressBar/progressbar';
@@ -28,12 +29,6 @@ const {message,setMessage} =useState([]);
     });
   }, []);
 
-  useEffect(() => {
-    console.log("fuck");
-    update(ref(realtimedb, `games/${gamePin}}`), {
-      ["quizzState"]: "test",
-    });
-  }, [ispressed]);
 
   function PlayerAnswer(data,round){
     var players = Object.values(data.players);
@@ -41,11 +36,10 @@ const {message,setMessage} =useState([]);
     var response = 0;
     var xp = 0;
     
-    for (let i = 0; i<player_name.length;i++){
-      const current = players[player_name[i]].Quizz[round.toString()];
+    for (let i = 0; i<player_name.length;i++){ //iterate through each player of the game
+      const current = players[player_name[i]].Quizz[round.toString()]; //actual player being analysed
       response += (current.xp != 0 ? 1 : 0);
-      console.log(response);
-      xp += current.xp;
+      xp += current.xp; //add xp
     }
     return [response, xp]
   }
@@ -54,37 +48,26 @@ const {message,setMessage} =useState([]);
     const data = snapshot.val();
 
   
-    //console.log(Object.values(data));
-    //var results = Object.values(data)
-    //console.log((Object.values(data)[2]["host"].Quizz["1"]));
+    //check if this dataset exists 
     if (data != null) {
       console.log(data.players.host.Quizz["1"]);
-      setGif(Object.values(data.urls)[data.round]);
-      var y = PlayerAnswer(data,1);
-      console.log(y);
-      var ratio = parseInt(y[0])/Object.keys(data.players).length;
-      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round]);
-      //setMessage(`${ratio*100}% students answered`)
+      setGif(Object.values(data.urls)[data.round-1]);
+      var y = PlayerAnswer(data,parseInt(data.round));
+      console.log(Object.keys(data.urls)[data.round-1]);
+      var ratio = parseInt(y[0])/(Object.keys(data.players).length-1); //ratio between students that answered and total number of players
+      setAnswers([`${ratio*100}% students answered`,ratio*100,data.round-1]); //set messages for display
       console.log(ratio);
      
       if(ratio>=1){
-        if(data.round<4){
+        if(data.round!=4){
           navigate("/host/transition");
-          update(ref(realtimedb, `games/${gamePin}/`), {
-            ["quizzState"]: "lobby",
-            
-          });
-          console.log(Object.keys(data.urls)[parseInt(data.round)]);
-          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round)]}`,ratio*100,data.round])
+          console.log("Correct answer is:", Object.keys(data.urls)[parseInt(data.round-1)])
+          setAnswers([`Correct: ${Object.keys(data.urls)[parseInt(data.round-1)]}`,ratio*100,data.round-1]) //setup the message for display
           
-        }else if (data.round >=4){
-          navigate("/host/end");
+        }else if (data.round ==4){
+          navigate("/host/end"); //if game is over go the last page
         }
         }
-       
-      
-    
-      
     }
 
     return unsubscribe;
@@ -92,69 +75,40 @@ const {message,setMessage} =useState([]);
   });
 }, []);
 
+  const onNextClick = useCallback(() => {
+    navigate("/host/end");
+  }, [navigate]);
 
-  const onNextClick = () => {
-    console.log("clicked");
-    setIspressed(true);
-     console.log(gamePin);
-    
-    
-  
-  
-  };
-
-
-  var seconds = 30;
-  var minutes = 5;
-  var [time, setTime] = useState(20000); // set the initial time
-    useEffect(() => {
-      const interval = setInterval(() => setTime(time => time - 1000), 1000);
-      setTime(interval);
-      return () => clearInterval(interval);
-    }, []);
-  
-
-  
-
-
-
-
-
+  const onLogoClick = useCallback(() => {
+    navigate("/home");
+  }, [navigate]);
 
   return (
-    <div className={stylesHostQuiz.teacherQuizz}>
-      <div className={stylesHostQuiz.teacherQuizzChild} />
-      <img
-        className={stylesHostQuiz.allergiesPlanDeTravail11}
-        alt=""
-        src="../koalingo_logo.svg"
-      />
-      <b className={stylesHostQuiz.game123456}>Round # {answers[2]}</b>
-      <img className={stylesHostQuiz.teacherQuizzItem} alt="" src="../ellipse-5.svg" />
-      <img
-        className={stylesHostQuiz.sansTitre11}
-        alt=""
-        src={gif}
-      />
-      
-  
+    <div className={stylesLogin.loginPage}>
+        <img
+          className={stylesSelect.koalingoLogo}
+          alt=""
+          src="../koalingo_logo.svg"
+          onClick={onLogoClick}
+        />
+        <div className={stylesHostQuiz.round}>Round # {answers[2]}</div>
 
-      <div className={stylesHostQuiz.teacherQuizzInner} />
-      <b className={stylesHostQuiz.hello}> {answers[0]}</b>
-      
-      
-      <div className={stylesHostQuiz.matthieuGotThis}>
-      <div className="App">
-      
-        <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers[1]} />
-      
-    </div>
-    <div>
-      <b className={stylesHostQuiz.login} onClick={() =>onNextClick()}>Next</b>
-    </div>
-    
+        <div className={stylesHostQuiz.mainWrapper}>
+          <div className={stylesHostQuiz.cardWrapper}>
+            <img
+              className={stylesHostQuiz.action}
+              alt=""
+              src={gif}
+            />
+          </div>
+          <div className={stylesHostQuiz.bottomWrapper}>
+            {answers[0]}
+            <div className={stylesHostQuiz.barWrapper}>
+              <ProgressBar key={1} bgcolor="#6a1b9a" completed= {answers[1]} />
+            </div>
+          </div>
+        </div>
 
-      </div>
       <div className={stylesHostQuiz.devButton}>
         <button onClick={onNextClick}> dev button: if stuck, press to proceed</button>
       </div>

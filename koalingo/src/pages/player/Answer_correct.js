@@ -12,7 +12,7 @@ const StateResult = () => {
   const {gamePin, user} = useContext(AuthContext);
   const navigate = useNavigate();
   const onNextClick = useCallback(() => {
-    navigate("/end");
+    navigate("/player/end");
   }, [navigate]);
   
   const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
@@ -27,9 +27,9 @@ const StateResult = () => {
      
       if(data.quizzState=="game"){
         navigate("/player/quizz");
+      }else if(data.quizzState=="end"){
+        navigate("/player/end");
       }
-      
-    
       
     }
 
@@ -59,4 +59,3 @@ return (
 
 
 export default StateResult;
-

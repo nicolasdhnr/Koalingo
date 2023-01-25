@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useCallback, useEffect, useContext,useState } from 'react'
 import stylesResult from './state-result.module.css';
-import stylesEmailLogin from '../home/emailLogin.module.css';
-import RecWrapper from '../../components/rectangleWrapper/Wrapper';
+import stylesEmailLogin from "../home/emailLogin.module.css";
 import { useNavigate } from 'react-router-dom';
-import { useCallback } from 'react';
+import {realtimedb } from "../../firebase";
+import { ref, update, remove, onDisconnect, onValue } from "firebase/database";
+import { AuthContext } from '../../App';
+import RecWrapper from '../../components/rectangleWrapper/Wrapper';
+
 
 const StateResult = () => {
+  const {gamePin, user} = useContext(AuthContext);
   const navigate = useNavigate();
   const onNextClick = useCallback(() => {
-    navigate("/end");
+    navigate("/player/end");
   }, [navigate]);
+  
+  const unsubscribe = onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+    const data = snapshot.val();
+    console.log(typeof(data.round));
+    //console.log(Object.values(data));
+    //var results = Object.values(data)
+    //console.log((Object.values(data)[2]["host"].Quizz["1"]));
+    if (data != null) {
+      console.log(data.round)
+    
+     
+      if(data.quizzState=="game"){
+        navigate("/player/quizz");
+      }else if(data.quizzState=="end"){
+        navigate("/player/end");
+      }
+      
+    }
+
+    return unsubscribe;
+    
+  });
   
 return (
   <div className={stylesResult.backgroundFalse}>
@@ -34,4 +60,3 @@ return (
 
 
 export default StateResult;
-
