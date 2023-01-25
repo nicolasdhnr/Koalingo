@@ -29,7 +29,6 @@ const {message,setMessage} =useState([]);
     });
   }, []);
 
-
   function PlayerAnswer(data,round){
     var players = Object.values(data.players);
     var player_name = Object.keys(players);

@@ -32,6 +32,7 @@ const Transition = () => {
     return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => { //listen to change of the database only one time (get its data)
       var data = snapshot.val();
       setMess(Object.keys(data.urls)[parseInt(data.round-1)]);//set different values of the message component
+
       setRound(data.round);
       setGif(Object.values(data.urls)[parseInt(data.round-1)]);
       setXp(countXP(data));

@@ -28,9 +28,8 @@ const PlayerQuizz = () => {
 }
   
   useEffect(() => {
-    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => {
+    return onValue(ref(realtimedb, `games/${gamePin}`), (snapshot) => { //listen to the database to get the current data
       data = snapshot.val();
-  
       var set = Object.values(data.wordsList).slice(0,4);
       console.log(data.round);
       setCorrect(Object.keys(data.urls)[parseInt(data.round)-1]);
@@ -57,10 +56,12 @@ const PlayerQuizz = () => {
   const [button, setButton] = useState(0);
   var bool = false;
 
+  //if user get the correct answer
   const onCorrect = useCallback(() => {
     navigate("/player/correct");
   }, [navigate]);
   
+  //if user get the wrong answer
   const onWrong = useCallback(() => {
     navigate("/player/wrong");
   }, [navigate]);
@@ -90,6 +91,7 @@ const PlayerQuizz = () => {
         bool = false;
         XP=15;
       };
+
       update(ref(realtimedb, `games/${gamePin}/players/${user.uid.toString()}/Quizz/${round}`), {
         ["val"]: bool,
         ["xp"]: XP,
